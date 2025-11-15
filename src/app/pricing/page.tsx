@@ -2,12 +2,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Star, Zap, Shield, Clock, Wifi, MapPin, Gift, AlertCircle } from "lucide-react";
 import { FOMOCountdown } from "@/components/FOMOCountdown";
-
-export const metadata = {
-  title: "Pricing | Spacio Workspace | Best Coworking Space in Bangalore | Basavanagudi & Jayanagar | Transparent Pricing",
-  description: "Simple, transparent pricing for premium coworking space in Bangalore. Private cabins, dedicated desks, meeting rooms, virtual offices, and day passes. Flexible plans starting from affordable rates. Book your free tour today!",
-};
-
 export default function PricingPage() {
   const pricingPlans = [
     {

@@ -1,12 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Camera, Building2, MapPin, Play } from "lucide-react";
-
-export const metadata = {
-  title: "Gallery | Spacio Workspace | Premium Coworking Space Photos | Basavanagudi, Bangalore",
-  description: "Explore our premium coworking space in Bangalore through photos. See our private cabins, dedicated desks, meeting rooms, common areas, and modern amenities in Basavanagudi. Book a free tour to experience the space in person!",
-};
-
 export default function GalleryPage() {
   const galleryCategories = [
     {
