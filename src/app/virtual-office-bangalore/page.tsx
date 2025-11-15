@@ -80,6 +80,39 @@ export default function VirtualOfficeBangalore() {
           </div>
         </section>
 
+        {/* Virtual Tour Section */}
+        <section className="max-w-6xl mx-auto px-4 pb-20">
+          <motion.div
+            className="grid md:grid-cols-2 gap-8 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div>
+              <span className="badge-premium mb-4 inline-block">Take a Virtual Tour</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Explore Our Premium Coworking Space</h2>
+              <p className="text-lg text-neutral-700 mb-4">
+                Explore our premium coworking space in Basavanagudi, Bangalore from the comfort of your home.
+                See our private cabins, meeting rooms, and vibrant community spaces.
+              </p>
+              <p className="text-sm text-neutral-600">
+                <strong>Spacio Workspace Virtual Tour</strong>
+                <br />
+                Basavanagudi, Bangalore
+              </p>
+            </div>
+            <div className="w-full">
+              <div className="aspect-video w-full rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200">
+                <video className="w-full h-full object-cover" controls>
+                  <source src="/tour.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-primary/10 to-primary/5 py-20">
           <div className="max-w-4xl mx-auto px-4 text-center">

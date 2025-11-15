@@ -90,13 +90,13 @@ export default function Home() {
   return (
     <div className="bg-white overflow-hidden">
       {/* Rotating Hero Sections with Carousel - Full Size */}
-      <section id="hero" className="relative w-full scroll-mt-16 overflow-hidden min-h-screen flex items-center basavanagudi-heritage">
+      <section id="hero" className="relative w-full scroll-mt-16 overflow-hidden min-h-[80vh] md:min-h-screen flex items-center basavanagudi-heritage">
         {/* Full-size animated background with Peacock & Basavanagudi elements */}
-        <div className="absolute inset-0 gradient-mesh opacity-60" />
+        <div className="absolute inset-0 gradient-mesh opacity-40 md:opacity-60" />
         <div className="absolute inset-0 basavanagudi-gradient" />
-        <div className="absolute inset-0 peacock-pattern opacity-30" />
+        <div className="absolute inset-0 peacock-pattern opacity-10 md:opacity-30" />
         <motion.div 
-          className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+          className="hidden md:block absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.3, 1],
             x: [0, 50, 0],
@@ -105,7 +105,7 @@ export default function Home() {
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-20 left-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
+          className="hidden md:block absolute bottom-20 left-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.4, 1],
             x: [0, -60, 0],
@@ -114,7 +114,7 @@ export default function Home() {
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl"
+          className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl"
           animate={{ 
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360]
@@ -122,7 +122,7 @@ export default function Home() {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
         
-        <div className="relative mx-auto max-w-7xl w-full px-4 py-20 md:py-32 grid gap-12 md:grid-cols-2 md:items-center z-10">
+        <div className="relative mx-auto max-w-7xl w-full px-4 pt-24 pb-16 md:py-32 grid gap-10 md:gap-12 md:grid-cols-2 md:items-center z-10">
           {/* Logo Placeholder */}
           <div className="absolute top-4 left-4 z-20">
             <div className="w-32 h-12 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/20">
@@ -427,6 +427,7 @@ export default function Home() {
               title: "Dedicated Desks",
               subtitle: "Your Personal Workspace",
               icon: "💻",
+              image: "/images/workspace-orange-screens.jpg",
               features: [
                 "Assigned desk space",
                 "Personal storage",
@@ -740,16 +741,14 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="aspect-video w-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center relative overflow-hidden group cursor-pointer">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-                <Play className="w-20 h-20 text-white z-10 group-hover:scale-110 transition-transform" fill="white" />
-                <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                  <p className="font-semibold text-lg">Spacio Workspace Virtual Tour</p>
-                  <p className="text-sm text-white/90">Basavanagudi, Bangalore</p>
-                </div>
+              <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
+                <video className="w-full h-full object-cover" controls>
+                  <source src="/tour.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
               <p className="mt-4 text-neutral-600 text-center">
-                Click to watch our full virtual tour video
+                Spacio Workspace Virtual Tour · Basavanagudi, Bangalore
               </p>
             </motion.div>
 
