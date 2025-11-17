@@ -104,7 +104,12 @@ export default function VirtualOfficeBangalore() {
             </div>
             <div className="w-full">
               <div className="aspect-video w-full rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200">
-                <video className="w-full h-full object-cover" controls>
+                <video 
+                  className="w-full h-full object-cover" 
+                  controls 
+                  preload="metadata"
+                  poster="/images/spacio-sign-green-wall.jpg"
+                >
                   <source src="/tour.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>

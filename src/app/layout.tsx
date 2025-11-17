@@ -3,10 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
-import { LeadCaptureModal } from "@/components/LeadCaptureModal";
-import { ExitIntentLeadCapture } from "@/components/ExitIntentLeadCapture";
-import { ScrollBasedLeadCapture } from "@/components/ScrollBasedLeadCapture";
+import { FloatingWhatsApp, LeadCaptureModal, ExitIntentLeadCapture, ScrollBasedLeadCapture } from "@/components/LazyComponents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

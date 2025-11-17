@@ -1,18 +1,19 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const nav = [
-  { href: "#hero", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#workspaces", label: "Workspaces" },
-  { href: "#why", label: "Features" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#locations", label: "Locations" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/workspaces", label: "Workspaces" },
+  { href: "/features", label: "Features" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/locations/basavanagudi", label: "Locations" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -63,36 +64,21 @@ export function Header() {
             />
           </div>
           <div className="flex flex-col">
-            <span className="text-lg md:text-xl font-bold tracking-tight text-neutral-900 leading-tight">Spacio</span>
+            <span className="text-lg md:text-xl font-bold tracking-tight text-neutral-900 leading-tight">Spacio Workspace</span>
             <span className="text-xs md:text-sm text-neutral-600 leading-tight hidden sm:block">Namma Bengaluru</span>
           </div>
         </Link>
         
-        <nav className="hidden gap-4 lg:gap-8 md:flex">
+        <nav className="hidden gap-3 lg:gap-6 md:flex">
           {nav.map((item, i) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
-              onClick={(e) => {
-                if (item.href.startsWith("#")) {
-                  e.preventDefault();
-                  const element = document.querySelector(item.href);
-                  if (element) {
-                    const headerOffset = 80;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: "smooth",
-                    });
-                  }
-                }
-              }}
-              className="relative text-xs lg:text-sm font-medium text-neutral-700 transition-colors hover:text-primary group whitespace-nowrap cursor-pointer"
+              className="relative text-xs lg:text-sm font-medium text-neutral-700 transition-colors hover:text-primary group whitespace-nowrap"
             >
               <span className="relative z-10">{item.label}</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -140,30 +126,13 @@ export function Header() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
                   >
-                    <a 
+                    <Link 
                       href={item.href} 
-                      className="block text-base font-medium text-neutral-700 hover:text-primary transition-colors py-2 cursor-pointer" 
-                      onClick={(e) => {
-                        setOpen(false);
-                        if (item.href.startsWith("#")) {
-                          e.preventDefault();
-                          setTimeout(() => {
-                            const element = document.querySelector(item.href);
-                            if (element) {
-                              const headerOffset = 80;
-                              const elementPosition = element.getBoundingClientRect().top;
-                              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                              window.scrollTo({
-                                top: offsetPosition,
-                                behavior: "smooth",
-                              });
-                            }
-                          }, 100);
-                        }
-                      }}
+                      className="block text-base font-medium text-neutral-700 hover:text-primary transition-colors py-2" 
+                      onClick={() => setOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </motion.div>
                 ))}
                 <div className="mt-4 pt-4 border-t border-neutral-200 flex flex-col gap-3">

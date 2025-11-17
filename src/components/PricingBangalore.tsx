@@ -6,7 +6,7 @@ export function PricingBangalore() {
   const pricingPlans = [
     {
       name: "Day Pass",
-      price: "₹499",
+      price: "₹199",
       period: "per day",
       badge: "Perfect for Trying",
       icon: Calendar,
@@ -22,7 +22,7 @@ export function PricingBangalore() {
     },
     {
       name: "Dedicated Desk",
-      price: "₹8,999",
+      price: "₹2,999",
       period: "per month",
       badge: "Most Popular",
       icon: Building2,
@@ -40,7 +40,7 @@ export function PricingBangalore() {
     },
     {
       name: "Solo Cabin",
-      price: "₹12,999",
+      price: "₹5,999",
       period: "per month",
       badge: "Private & Quiet",
       icon: Zap,
@@ -58,7 +58,7 @@ export function PricingBangalore() {
     },
     {
       name: "3-Seater Cabin",
-      price: "₹28,999",
+      price: "₹10,999",
       period: "per month",
       badge: "Great for Teams",
       icon: Users,
@@ -72,6 +72,41 @@ export function PricingBangalore() {
         "Team collaboration space",
       ],
       cta: "Book 3-Seater Cabin",
+      popular: false,
+    },
+    {
+      name: "6-Seater Cabin",
+      price: "₹18,999",
+      period: "per month",
+      badge: "Great Value",
+      icon: Users,
+      features: [
+        "Private cabin for 6 people",
+        "24/7 secure access",
+        "Storage solutions",
+        "High-speed WiFi (1Gbps)",
+        "Whiteboard & presentation tools",
+        "Meeting room access",
+        "Team collaboration zone",
+      ],
+      cta: "Book 6-Seater Cabin",
+      popular: false,
+    },
+    {
+      name: "Virtual Office",
+      price: "From ₹9,000",
+      period: "per month",
+      badge: "Professional",
+      icon: Building2,
+      features: [
+        "Premium business address",
+        "Mail handling & forwarding",
+        "Phone answering service",
+        "Meeting room access",
+        "Compliance support",
+        "GST-ready invoicing",
+      ],
+      cta: "Book Virtual Office",
       popular: false,
     },
   ];
@@ -99,7 +134,7 @@ export function PricingBangalore() {
           </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {pricingPlans.map((plan, i) => (
             <motion.div
               key={plan.name}

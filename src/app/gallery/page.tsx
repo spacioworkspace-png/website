@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight, MessageCircle, Camera, Building2, MapPin, Play } from "lucide-react";
 export default function GalleryPage() {
   const galleryCategories = [
@@ -47,12 +47,7 @@ export default function GalleryPage() {
       {/* Hero Section */}
       <section className="relative mx-auto max-w-7xl px-4 py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-30" />
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center"
-        >
+        <div className="relative z-10 text-center">
           <span className="badge-premium mb-4 inline-block">Photo Gallery</span>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mt-4">
             Explore Our <span className="text-gradient">Premium Space</span>
@@ -77,27 +72,22 @@ export default function GalleryPage() {
               Call Now
             </a>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Gallery Categories */}
       <section className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {galleryCategories.map((category, i) => (
-            <motion.div
+          {galleryCategories.map((category) => (
+            <div
               key={category.title}
               className="card-premium rounded-xl border-2 border-neutral-200 p-4 text-center bg-white hover:border-primary transition-all duration-300 cursor-pointer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -5 }}
             >
               <Camera className="w-8 h-8 text-primary mx-auto mb-2" />
               <h3 className="font-bold text-neutral-900 mb-1 text-sm">{category.title}</h3>
               <p className="text-xs text-neutral-600 mb-2">{category.description}</p>
               <span className="text-xs text-primary font-semibold">{category.count} photos</span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -130,30 +120,19 @@ export default function GalleryPage() {
             { src: "/images/spacio-sign-green-wall.jpg", category: "Location", alt: "Spacio Workspace entrance" },
             { src: "/images/building-exterior-sree-devi-complex.jpg", category: "Location", alt: "Basavanagudi location exterior" },
             { src: "/images/office-corridor-glass-partitions.jpg", category: "Common Areas", alt: "Modern office design" },
-          ].map((img, i) => (
-            <motion.div
-              key={i}
-              className="card-premium aspect-square w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.02, duration: 0.4 }}
-              whileHover={{ scale: 1.05, zIndex: 10 }}
+          ].map((img) => (
+            <div
+              key={img.src}
+              className="card-premium aspect-square w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative hover:scale-105 transition-transform duration-300"
             >
-              <img 
+              <Image 
                 src={img.src} 
                 alt={img.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('div');
-                    fallback.className = 'w-full h-full flex items-center justify-center';
-                    fallback.innerHTML = '<svg class="w-16 h-16 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>';
-                    parent.replaceChild(fallback, target);
-                  }
-                }}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                quality={75}
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
                 <Camera className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -161,20 +140,14 @@ export default function GalleryPage() {
               <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <p className="text-white text-sm font-semibold">{img.category}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Virtual Tour Section */}
       <section className="mx-auto max-w-7xl px-4 py-20">
-        <motion.div
-          className="card-premium rounded-2xl border-2 border-primary/20 p-8 md:p-12 bg-gradient-to-br from-primary/5 to-white"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 md:p-12 bg-gradient-to-br from-primary/5 to-white">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <span className="badge-premium mb-4 inline-block">Virtual Experience</span>
@@ -208,27 +181,24 @@ export default function GalleryPage() {
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
-            <div className="aspect-video w-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center relative overflow-hidden group cursor-pointer">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
-              <Play className="w-20 h-20 text-white z-10 group-hover:scale-110 transition-transform" fill="white" />
-              <div className="absolute bottom-4 left-4 right-4 text-white z-10">
-                <p className="font-semibold text-lg">Spacio Workspace Virtual Tour</p>
-                <p className="text-sm text-white/90">Basavanagudi, Bangalore</p>
-              </div>
+            <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
+              <video 
+                className="w-full h-full object-cover" 
+                controls 
+                preload="metadata"
+                poster="/images/spacio-sign-green-wall.jpg"
+              >
+                <source src="/tour.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Location Photos */}
       <section className="mx-auto max-w-7xl px-4 py-20">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-neutral-900 mb-4">
             Our <span className="text-gradient">Location</span>
           </h2>
@@ -236,55 +206,38 @@ export default function GalleryPage() {
             Located in the heart of Basavanagudi, near Bull Temple and Lalbagh Botanical Gardens. 
             Experience the perfect blend of tradition and innovation in South Bangalore.
           </p>
-        </motion.div>
+        </div>
         <div className="grid md:grid-cols-3 gap-4">
           {[
             { src: "/images/building-exterior-sree-devi-complex.jpg", title: "Sree Devi Complex", desc: "Spacio Workspace Building" },
             { src: "/images/spacio-sign-green-wall.jpg", title: "Spacio Entrance", desc: "Find Your True Space" },
             { src: "/images/office-corridor-glass-partitions.jpg", title: "Modern Interior", desc: "Premium Design" },
-          ].map((img, i) => (
-            <motion.div
-              key={i}
-              className="card-premium aspect-video w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ scale: 1.05 }}
+          ].map((img) => (
+            <div
+              key={img.src}
+              className="card-premium aspect-video w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative hover:scale-105 transition-transform duration-300"
             >
-              <img 
+              <Image 
                 src={img.src} 
                 alt={img.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('div');
-                    fallback.className = 'w-full h-full flex items-center justify-center';
-                    fallback.innerHTML = '<svg class="w-16 h-16 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>';
-                    parent.replaceChild(fallback, target);
-                  }
-                }}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
                 <p className="text-white font-semibold">{img.title}</p>
                 <p className="text-white/90 text-sm">{img.desc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="mx-auto max-w-4xl px-4 py-20 text-center">
-        <motion.div
-          className="card-premium rounded-3xl border-2 border-primary/20 p-12 bg-gradient-to-br from-primary/5 to-white"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="card-premium rounded-3xl border-2 border-primary/20 p-12 bg-gradient-to-br from-primary/5 to-white">
           <h2 className="text-4xl font-bold text-neutral-900 mb-4">
             Ready to See It in Person?
           </h2>
@@ -300,7 +253,7 @@ export default function GalleryPage() {
             Book Free Tour Now
             <ArrowRight className="w-5 h-5" />
           </a>
-        </motion.div>
+        </div>
       </section>
 
       {/* SEO Content */}

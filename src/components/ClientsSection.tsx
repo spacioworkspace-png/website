@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Building2, Star, Users, TrendingUp, Award, CheckCircle2, Play } from "lucide-react";
+import { Building2, Star, Users, TrendingUp, Award, CheckCircle2 } from "lucide-react";
 
 export function ClientsSection() {
   const clientTypes = [
@@ -31,7 +31,13 @@ export function ClientsSection() {
       text: "We've been at Spacio for 6 months now. The location in Basavanagudi is perfect, and the team is always helpful. Highly recommend!",
       rating: 5,
     },
-  ];
+    {
+      name: "Sneha Reddy",
+      role: "Entrepreneur",
+      text: "The best coworking space in Bangalore! Fast internet, great community, and the Basavanagudi location is perfect. Highly satisfied!",
+      rating: 5,
+    },
+  ].slice(0, 4);
 
   const stats = [
     { label: "Happy Members", value: "500+", icon: Users },
@@ -96,7 +102,7 @@ export function ClientsSection() {
         ))}
       </div>
 
-      {/* Video Testimonials */}
+      {/* Text Testimonials */}
       <div className="mb-12">
         <motion.h3
           className="text-3xl font-bold text-center mb-4"
@@ -114,67 +120,8 @@ export function ClientsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Real stories from real entrepreneurs who found their true space at Spacio. Watch their journey and feel the passion! 🎬
+          Real stories from real entrepreneurs who found their true space at Spacio. 🎬
         </motion.p>
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {[
-            {
-              name: "Rajesh Kumar",
-              role: "Founder, TechStartup",
-              videoUrl: "#", // Replace with actual video URL
-              thumbnail: "https://via.placeholder.com/600x400/ff6b35/ffffff?text=Video+Testimonial+1",
-              quote: "Spacio transformed our startup journey. The energy here is incredible!",
-            },
-            {
-              name: "Priya Sharma",
-              role: "Freelance Designer",
-              videoUrl: "#", // Replace with actual video URL
-              thumbnail: "https://via.placeholder.com/600x400/ff6b35/ffffff?text=Video+Testimonial+2",
-              quote: "Best decision I made! The community and facilities are amazing.",
-            },
-          ].map((video, i) => (
-            <motion.div
-              key={i}
-              className="card-premium rounded-2xl border-2 border-primary/20 p-0 bg-white overflow-hidden group cursor-pointer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2, duration: 0.5 }}
-              whileHover={{ y: -5, borderColor: "oklch(0.72 0.17 58)", scale: 1.02 }}
-            >
-              <div className="relative aspect-video bg-gradient-to-br from-primary/20 to-primary/10 overflow-hidden">
-                <img
-                  src={video.thumbnail}
-                  alt={`${video.name} testimonial`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                  <motion.div
-                    className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Play className="w-10 h-10 text-primary ml-1" fill="currentColor" />
-                  </motion.div>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white font-semibold text-lg mb-1">{video.name}</p>
-                  <p className="text-white/90 text-sm">{video.role}</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {Array.from({ length: 5 }).map((_, idx) => (
-                    <Star key={idx} className="w-4 h-4 text-primary fill-primary" />
-                  ))}
-                </div>
-                <p className="text-neutral-700 leading-relaxed italic">"{video.quote}"</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Text Testimonials */}
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, i) => (
             <motion.div

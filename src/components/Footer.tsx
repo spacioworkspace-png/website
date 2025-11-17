@@ -171,6 +171,9 @@ export function Footer() {
             <Link href="/terms" className="hover:text-primary transition-colors duration-300">
               Terms of Service
             </Link>
+            <Link href="/refund" className="hover:text-primary transition-colors duration-300">
+              Refund Policy
+            </Link>
             <a 
               href="https://www.google.com/maps/place/Spacio+Workspace" 
               target="_blank" 

@@ -6,7 +6,7 @@ export default function PricingPage() {
   const pricingPlans = [
     {
       name: "Day Pass",
-      price: "Starting from ₹500",
+      price: "₹199",
       period: "per day",
       badge: "Perfect for Trying",
       description: "Ideal for occasional work days or trying out our space",
@@ -23,7 +23,7 @@ export default function PricingPage() {
     },
     {
       name: "Dedicated Desk",
-      price: "Starting from ₹8,000",
+      price: "₹2,999",
       period: "per month",
       badge: "🔥 Most Popular",
       description: "Your personal workspace with all premium amenities",
@@ -42,7 +42,7 @@ export default function PricingPage() {
     },
     {
       name: "Solo Cabin",
-      price: "Starting from ₹12,000",
+      price: "₹5,999",
       period: "per month",
       badge: "💎 Private & Focused",
       description: "Private cabin perfect for individual focus and productivity",
@@ -61,7 +61,7 @@ export default function PricingPage() {
     },
     {
       name: "3-Seater Cabin",
-      price: "Starting from ₹30,000",
+      price: "₹10,999",
       period: "per month",
       badge: "👥 Team Favorite",
       description: "Perfect for small teams, partners, or collaborators",
@@ -80,7 +80,7 @@ export default function PricingPage() {
     },
     {
       name: "6-Seater Cabin",
-      price: "Starting from ₹55,000",
+      price: "₹18,999",
       period: "per month",
       badge: "🎯 Great Value",
       description: "Spacious cabin for growing teams and brainstorming",
@@ -99,8 +99,8 @@ export default function PricingPage() {
     },
     {
       name: "Virtual Office",
-      price: "Starting from ₹2,500",
-      period: "per month",
+      price: "From ₹9,000",
+      period: "per year",
       badge: "⭐ Professional",
       description: "Premium business address and professional services",
       features: [
@@ -325,9 +325,9 @@ export default function PricingPage() {
           </p>
           <p className="mb-4">
             Looking for the <strong>best value coworking space in Bangalore</strong>? Our <strong>dedicated desk plans</strong> 
-            start from ₹8,000/month, while <strong>private cabins</strong> start from ₹12,000/month for solo cabins. 
-            <strong> Day passes</strong> are perfect for trying out our space, starting from ₹500/day. 
-            <strong> Virtual office</strong> plans start from ₹2,500/month for a premium business address in Bangalore.
+            are just ₹2,999/month, while <strong>private cabins</strong> start from ₹5,999/month for solo cabins. 
+            <strong> Day passes</strong> are perfect for trying out our space at just ₹199/day. 
+            <strong> Virtual office</strong> plans start from ₹9,000/month for a premium business address in Bangalore.
           </p>
           <p>
             <strong>Book your free tour</strong> today to see our spaces and discuss custom pricing options. 

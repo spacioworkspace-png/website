@@ -1,16 +1,13 @@
 "use client";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { ArrowRight, Sparkles, Zap, Users, MapPin, Star, TrendingUp, Clock, Wifi, Shield, Building2, Heart, Award, Rocket, Target, CheckCircle2, AlertCircle, Play, MessageCircle } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
-import { ClientsSection } from "@/components/ClientsSection";
 import { FOMOCountdown } from "@/components/FOMOCountdown";
-import { PublicTransportSection } from "@/components/PublicTransportSection";
-import { InstagramFeed } from "@/components/InstagramFeed";
 
 export default function Home() {
   const [activeLoc, setActiveLoc] = useState<"basavanagudi" | "jayanagar">("basavanagudi");
-  const [reviews, setReviews] = useState<Array<{author_name:string; rating:number; text:string}> | null>(null);
   const [currentHero, setCurrentHero] = useState(0);
   const [selectedWorkspace, setSelectedWorkspace] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,23 +40,8 @@ export default function Home() {
       tagline: "Work at the speed of thought.",
       icon: Zap,
     },
-    {
-      badge: "🏆 Award Winning",
-      title: "500+ Members",
-      subtitle: "Growing Community",
-      description: "Join Bangalore's most dynamic coworking community. Connect with like-minded entrepreneurs, share ideas, and grow together.",
-      tagline: "Your network is your net worth.",
-      icon: Users,
-    },
   ];
   
-  useEffect(() => {
-    fetch("/api/reviews")
-      .then((r) => r.json())
-      .then((d) => setReviews(d.reviews || []))
-      .catch(() => setReviews([]));
-  }, []);
-
   // Auto-rotate hero sections
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,25 +49,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, [heroSections.length]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-  return (
-      <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-neutral-600 font-semibold">Loading Spacio Workspace...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white overflow-hidden">
@@ -282,53 +245,48 @@ export default function Home() {
                     style={{ y: y1 }}
                   >
                     {index === 0 && (
-                      <img 
+                      <Image 
                         src="/images/spacio-sign-green-wall.jpg" 
                         alt="Spacio Workspace sign on green plant wall - Find Your True Space"
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        fill
+                        className="object-cover"
+                        priority
+                        quality={85}
+                        sizes="100vw"
                       />
                     )}
                     {index === 1 && (
-                      <img 
+                      <Image 
                         src="/images/building-exterior-sree-devi-complex.jpg" 
                         alt="Spacio Workspace building exterior in Basavanagudi - Sree Devi Complex"
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                        quality={85}
+                        sizes="100vw"
                       />
                     )}
                     {index === 2 && (
-                      <img 
+                      <Image 
                         src="/images/office-corridor-glass-partitions.jpg" 
                         alt="Modern office corridor with glass partitions at Spacio Workspace"
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.style.display = 'none';
-                        }}
+                        fill
+                        className="object-cover"
+                        loading="lazy"
+                        quality={85}
+                        sizes="100vw"
                       />
                     )}
-                    {index === 3 && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <hero.icon className="w-32 h-32 text-primary/30" />
-                      </div>
-                    )}
-                    {/* Floating elements */}
+                    {/* Floating elements - reduced animation complexity for performance */}
                     <motion.div 
-                      className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-xl blur-sm"
-                      animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-xl blur-sm will-change-transform"
+                      animate={{ y: [0, -15, 0] }}
+                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.div 
-                      className="absolute bottom-10 left-10 w-16 h-16 bg-primary/15 rounded-full blur-sm"
-                      animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                      className="absolute bottom-10 left-10 w-16 h-16 bg-primary/15 rounded-full blur-sm will-change-transform"
+                      animate={{ y: [0, 15, 0] }}
+                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     />
                   </motion.div>
                 )
@@ -474,15 +432,15 @@ export default function Home() {
               }}
             >
               {card.image && (
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-4 -mx-6 -mt-6">
-                  <img 
+                <div className="aspect-video w-full rounded-xl overflow-hidden mb-4 -mx-6 -mt-6 relative">
+                  <Image 
                     src={card.image} 
                     alt={`${card.title} at Spacio Workspace`}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
+                    fill
+                    className="object-cover"
+                    loading="lazy"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
               )}
@@ -555,32 +513,6 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
-      </section>
-
-      {/* Premium Features Bar */}
-      <section className="border-y bg-gradient-to-r from-primary/5 via-white to-primary/5 py-8">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { icon: Zap, text: "Lightning Fast WiFi", subtext: "1Gbps Internet" },
-              { icon: Clock, text: "24/7 Access", subtext: "Work Anytime" },
-              { icon: Users, text: "Vibrant Community", subtext: "500+ Members" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-              >
-                <item.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-semibold text-sm">{item.text}</div>
-                <div className="text-xs text-neutral-600 mt-1">{item.subtext}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* What Makes Us Special - FOMO Section with Peacock & Basavanagudi Elements */}
@@ -688,8 +620,7 @@ export default function Home() {
                   className="btn-premium rounded-xl bg-white text-primary px-8 py-4 font-bold text-lg hover:bg-white/90 transition-all duration-300 flex items-center gap-2 shadow-xl hover:scale-105 whitespace-nowrap"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                >
-                  Secure Your Spot
+                >Secure Your Spot
                   <ArrowRight className="w-5 h-5" />
                 </motion.a>
               </div>
@@ -711,777 +642,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* Virtual Tour Video Section */}
-      <section className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-primary/5" />
-        <motion.div
-          className="relative z-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center mb-12">
-            <span className="badge-premium mb-4 inline-block">Virtual Experience</span>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-4">
-              Take a <span className="text-gradient">Virtual Tour</span>
-            </h2>
-            <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-              Explore our premium coworking space in Basavanagudi, Bangalore from the comfort of your home. 
-              See our private cabins, meeting rooms, and vibrant community spaces.
-            </p>
-        </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
-                <video className="w-full h-full object-cover" controls>
-                  <source src="/tour.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <p className="mt-4 text-neutral-600 text-center">
-                Spacio Workspace Virtual Tour · Basavanagudi, Bangalore
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="card-premium rounded-2xl border-2 border-neutral-200 p-6 bg-white">
-                <h3 className="text-xl font-bold text-neutral-900 mb-4">What You'll See</h3>
-                <ul className="space-y-3">
-                  {[
-                    "Private cabins (Solo, 3-Seater, 6-Seater)",
-                    "Dedicated desk areas",
-                    "Modern meeting rooms",
-                    "Common areas & lounge",
-                    "High-speed WiFi infrastructure",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-neutral-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <a
-                href="https://wa.me/917022780310?text=I'd like to schedule a physical tour after watching the virtual tour"
-                className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Book Physical Tour via WhatsApp
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* About Section with Tagline */}
-      <section id="about" className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden bg-gradient-to-br from-primary/5 via-white to-primary/5">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b35' fill-opacity='0.4'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
-        <motion.div
-          className="relative z-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center mb-12">
-            <motion.h2
-              className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, type: "spring" }}
-            >
-              <span className="text-gradient peacock-text heartbeat">Find Your</span>
-              <br />
-              <span className="text-neutral-900">True Space</span>
-            </motion.h2>
-            <motion.p
-              className="text-lg sm:text-xl md:text-2xl text-neutral-700 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              <strong className="text-primary">At Spacio, we believe your workspace should reflect who you are and amplify what you do.</strong> 
-              In the heart of Namma Basavanagudi, we've created more than just a coworking space—we've built 
-              <strong> a sanctuary where productivity meets peace, where innovation meets inspiration, and where your dreams meet reality.</strong>
-              <span className="block mt-3 text-primary font-semibold text-xl">This is where you'll write the next chapter of your success story. 📖✨</span>
-            </motion.p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center mt-16">
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Our Story</h3>
-                <p className="text-neutral-700 leading-relaxed mb-4">
-                  Born in Namma Bengaluru, Spacio was created by entrepreneurs who understood the struggle 
-                  of finding the perfect workspace. We've designed every corner with intention, following 
-                  Vastu principles to create spaces that don't just look good—they feel right.
-                </p>
-                <p className="text-neutral-700 leading-relaxed">
-                  Located in historic Basavanagudi, near the iconic Bull Temple and Lalbagh, we're part 
-                  of Bangalore's rich cultural tapestry while embracing the future of work.
-                </p>
-              </div>
-
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-gradient-to-br from-primary/5 to-white overflow-hidden">
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-4 -mx-8 -mt-8">
-                  <img 
-                    src="/images/water-fountain-ganesha-green-wall.jpg" 
-                    alt="Vastu-compliant water fountain with Ganesha idol and green plant wall at Spacio Workspace"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                </div>
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Vastu-Compliant Design</h3>
-                <p className="text-neutral-700 leading-relaxed">
-                  Carefully designed according to Indian Vastu principles for maximum productivity and 
-                  positive energy. Every space is oriented and arranged to enhance your focus, creativity, 
-                  and success. Experience the difference that harmonious design makes to your work output 
-                  and mental clarity.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Our Mission</h3>
-                <p className="text-neutral-700 leading-relaxed mb-4">
-                  To provide every entrepreneur, freelancer, and startup in Bangalore with a workspace 
-                  that doesn't just accommodate their work—it elevates it. We're building a community 
-                  where ambition meets opportunity, where your next breakthrough is just a conversation away.
-                </p>
-                <ul className="space-y-3 mt-6">
-                  {[
-                    "Vastu-compliant spaces for positive energy",
-                    "Premium amenities without the premium price",
-                    "A community of 500+ ambitious professionals",
-                    "24/7 access to fuel your hustle",
-                    "Prime Basavanagudi location",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-neutral-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4">Why Basavanagudi?</h3>
-                <p className="text-neutral-700 leading-relaxed">
-                  Basavanagudi isn't just a location—it's a legacy. One of Bangalore's oldest and most 
-                  culturally rich neighborhoods, it's where tradition meets innovation. Here, you're 
-                  surrounded by history, heritage, and the energy of a community that values both 
-                  progress and roots.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            <a
-              href="https://wa.me/917022780310?text=I want to find my true space at Spacio Workspace in Basavanagudi #FindYourTrueSpace #SpacioWorkspace #CoworkingBangalore #Basavanagudi #NammaBengaluru #VastuCompliant"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Find Your True Space - WhatsApp Us
-              <ArrowRight className="w-5 h-5" />
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Basavanagudi Heritage & Culture Section - Emotional & Peacock Themed */}
-      <section className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden basavanagudi-heritage">
-        <div className="absolute inset-0 basavanagudi-gradient" />
-        <div className="absolute inset-0 peacock-pattern opacity-25" />
-        <motion.div
-          className="relative z-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="text-center mb-12">
-            <span className="badge-premium mb-4 inline-block pulse-glow-peacock">🦚 Namma Basavanagudi 🦚</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4">
-              In the Heart of <span className="text-gradient peacock-text heartbeat">Basavanagudi</span>
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              <strong className="text-primary">Where Heritage Meets Innovation</strong> - Feel the pulse of Namma Bengaluru in every corner. 
-              Located in one of Bangalore's most <strong>vibrant, culturally rich neighborhoods</strong>, just minutes from the iconic 
-              <strong> Bull Temple</strong> and <strong>Lalbagh Botanical Gardens</strong>. Experience the perfect blend of 
-              <strong> traditional South Indian culture</strong> and <strong>modern innovation</strong> in the heart of South Bangalore. 
-              <span className="block mt-2 text-primary font-semibold">This is more than a workspace - it's where your dreams take flight, just like the majestic peacock of our heritage.</span>
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
-            {[
-              { icon: MapPin, title: "🦚 Near Bull Temple", desc: "Just minutes away from the iconic Bull Temple, one of Bangalore's most sacred and famous landmarks. Feel the spiritual energy that fuels creativity.", emoji: "🦚" },
-              { icon: MapPin, title: "🌳 Close to Lalbagh", desc: "Walking distance to Lalbagh Botanical Gardens - perfect for refreshing lunch breaks and nature walks that inspire innovation.", emoji: "🌳" },
-              { icon: MapPin, title: "🏛️ Historic Basavanagudi", desc: "In the heart of Basavanagudi, surrounded by traditional South Indian culture, heritage, and the warmth of Namma Bengaluru.", emoji: "🏛️" },
-              { icon: MapPin, title: "🚇 South Bangalore Hub", desc: "Well-connected to all major areas of Bangalore with excellent transport links. Easy access from anywhere in the city.", emoji: "🚇" },
-              { icon: MapPin, title: "🍛 Local Eateries", desc: "Surrounded by authentic South Indian restaurants serving the best dosas, idlis, and filter coffee - fuel for your entrepreneurial journey.", emoji: "🍛" },
-              { icon: MapPin, title: "🧘 Peaceful Neighborhood", desc: "Quiet, serene environment perfect for focused work. Escape the chaos, find your flow, and let your ideas flourish.", emoji: "🧘" },
-            ].map((feature, i) => (
-              <motion.div
-                key={i}
-                className="card-premium rounded-2xl border-2 border-primary/20 p-4 sm:p-6 bg-white peacock-shimmer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                whileHover={{ y: -5, borderColor: "oklch(0.72 0.17 58)", scale: 1.02 }}
-              >
-                <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-primary mb-3 sm:mb-4" />
-                <h3 className="text-lg sm:text-xl font-bold text-neutral-900 mb-2">{feature.title}</h3>
-                <p className="text-neutral-700 text-xs sm:text-sm leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <motion.a
-              href="https://wa.me/917022780310?text=I'd like to visit Spacio Workspace in Basavanagudi, near Bull Temple #SpacioBasavanagudi #BullTemple #Lalbagh #CoworkingSpace #Bangalore #FindYourTrueSpace #NammaBasavanagudi"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-6 sm:px-8 py-3 sm:py-4 text-white font-semibold text-base sm:text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105 pulse-glow-peacock"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-xl">🦚</span>
-              <MapPin className="w-5 h-5" />
-              Visit Us in Namma Basavanagudi - WhatsApp
-              <ArrowRight className="w-5 h-5" />
-            </motion.a>
-            <p className="mt-4 text-sm text-neutral-600 italic">
-              "Where every entrepreneur finds their true space, inspired by the beauty of our heritage" 🦚
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Public Transport Connectivity Section */}
-      <PublicTransportSection />
-
-      {/* Enhanced Clients Section with Video Testimonials */}
-      <ClientsSection />
-
-      {/* Why Choose Spacio - Premium Grid */}
-      <section id="why" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20 bg-white">
-            <motion.div
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="badge-premium mb-4 inline-block pulse-glow-peacock">💫 Why Choose Spacio? 💫</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Built for <span className="text-gradient peacock-text heartbeat">Ambitious Entrepreneurs</span> Like You
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-            <strong className="text-primary">Because your dreams deserve the perfect foundation.</strong> Everything you need to work productively, 
-            grow your business, and connect with like-minded entrepreneurs in Namma Bengaluru's most vibrant coworking community. 
-            <span className="block mt-2">This isn't just about a workspace - <strong className="text-primary">it's about building the life you've always imagined.</strong> 🌟</span>
-          </p>
-        </motion.div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { 
-              title: "Prime Location in Basavanagudi", 
-              desc: "In the heart of Basavanagudi, near Bull Temple and Lalbagh. Strategically located in South Bangalore's most vibrant neighborhood for easy access",
-              icon: MapPin,
-              color: "text-blue-500"
-            },
-            { 
-              title: "Lightning-Fast Internet", 
-              desc: "1Gbps fiber internet - stream, code, and collaborate without lag",
-              icon: Zap,
-              color: "text-yellow-500"
-            },
-            { 
-              title: "Vibrant Basavanagudi Community", 
-              desc: "Connect with 500+ entrepreneurs, startups, and freelancers in Namma Bengaluru's most dynamic coworking space",
-              icon: Users,
-              color: "text-purple-500"
-            },
-            
-            { 
-              title: "24/7 Secure Access", 
-              desc: "Work on your schedule - access your workspace anytime, day or night",
-              icon: Shield,
-              color: "text-green-500"
-            },
-            { 
-              title: "Smart Meeting Rooms", 
-              desc: "Fully equipped spaces with AV equipment, whiteboards, and video conferencing",
-              icon: Building2,
-              color: "text-indigo-500"
-            },
-            { 
-              title: "Zen Workspace Design", 
-              desc: "Calm, modern interiors designed for focus and productivity",
-              icon: Sparkles,
-              color: "text-pink-500"
-            },
-            { 
-              title: "Calm & Serene Environment", 
-              desc: "Escape the chaos - work in a peaceful, distraction-free space",
-              icon: Star,
-              color: "text-rose-500"
-            },
-            { 
-              title: "Premium Amenities Included", 
-              desc: "Printing, scanning, mail handling, phone answering - all included",
-              icon: TrendingUp,
-              color: "text-primary"
-            },
-          ].map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              className="card-premium rounded-2xl border-2 border-neutral-200 p-6 bg-white hover:border-primary/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 20, scale: 0.95, rotate: -2 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.05 * i, type: "spring", stiffness: 100 }}
-              whileHover={{ y: -8, scale: 1.02, borderColor: "oklch(0.72 0.17 58)", rotate: 1 }}
-            >
-              <feature.icon className={`w-10 h-10 ${feature.color} mb-4`} />
-              <h3 className="text-xl font-bold text-neutral-900 mb-2">{feature.title}</h3>
-              <p className="text-neutral-600 mb-4">{feature.desc}</p>
-              <a 
-                href="https://wa.me/917022780310?text=I'd like to learn more about Spacio's features in Bangalore" 
-                className="text-sm text-primary font-semibold hover:underline inline-flex items-center gap-1"
-              >
-                Learn More <ArrowRight className="w-4 h-4" />
-              </a>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CTA Section */}
-        <motion.div 
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <a 
-            href="https://wa.me/917022780310?text=I want to experience Spacio's premium features in Basavanagudi #SpacioWorkspace #PremiumCoworking #Basavanagudi #VastuCompliant #FindYourTrueSpace #Bangalore" 
-            className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <span className="heartbeat">Start Your Journey Today - WhatsApp</span>
-            <ArrowRight className="w-5 h-5" />
-          </a>
-        </motion.div>
-      </section>
-
-      {/* Pricing Overview - Premium Cards */}
-      <section id="pricing" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20 bg-gradient-to-b from-neutral-50/50 to-white">
-        <motion.div 
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="badge-premium mb-4 inline-block pulse-glow-peacock">💰 Transparent Pricing</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Simple, <span className="text-gradient peacock-text">Honest Pricing</span>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-            <strong className="text-primary">No hidden fees, no surprises.</strong> Premium coworking space in Namma Basavanagudi at prices that make sense for Gen Z entrepreneurs, startups, and freelancers. 
-            <span className="block mt-2">We believe in <strong className="text-primary">transparency, honesty, and value</strong> - because your success matters more than our profit. 💎</span>
-          </p>
-        </motion.div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            { 
-              name: "Day Pass", 
-              desc: "Perfect for trying out Spacio or occasional work days",
-              features: ["Full day access", "High-speed WiFi", "Community access", "Meeting room credits"]
-            },
-            { 
-              name: "Dedicated Desks", 
-              desc: "Your personal workspace with all premium amenities",
-              features: ["Assigned desk", "24/7 access", "Storage space", "All amenities included"],
-              popular: true
-            },
-            { 
-              name: "Solo / 3 / 6-Seater Cabins", 
-              desc: "Private cabins for individuals and small teams",
-              features: ["Private space", "Team collaboration", "Storage lockers", "Whiteboard access", "Flexible terms"]
-            },
-          ].map((p, i) => (
-            <motion.div
-              key={p.name}
-              className={`card-premium rounded-2xl border-2 p-8 bg-white ${
-                p.popular ? 'border-primary ring-2 ring-primary/20 scale-105' : 'border-neutral-200'
-              }`}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: p.popular ? 1.05 : 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: 0.1 * i }}
-              whileHover={{ y: -8, scale: p.popular ? 1.08 : 1.02 }}
-            >
-              {p.popular && (
-                <span className="badge-premium mb-4 inline-block">Most Popular</span>
-              )}
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">{p.name}</h3>
-              <p className="text-neutral-600 mb-6">{p.desc}</p>
-              <ul className="space-y-3 mb-8">
-                {p.features.map((f, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-neutral-700">
-                    <span className="text-primary mt-1">✓</span>
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-3">
-                <a 
-                  href={`https://wa.me/917022780310?text=${encodeURIComponent(`I need pricing details for ${p.name} at Spacio Workspace in Basavanagudi #SpacioPricing #${p.name.replace(/\s+/g, '')} #CoworkingBangalore #Basavanagudi`)}`}
-                  className="btn-premium rounded-xl bg-primary px-4 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Get Pricing on WhatsApp
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-                <a 
-                  href={`https://wa.me/917022780310?text=${encodeURIComponent(`I want to book a free tour for ${p.name} at Spacio Basavanagudi #BookTour #SpacioWorkspace #FindYourTrueSpace #Basavanagudi`)}`}
-                  className="rounded-xl border-2 border-primary/30 px-4 py-3 text-center font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Book Free Tour via WhatsApp
-                </a>
-                <a 
-                  href="/pricing" 
-                  className="rounded-xl border border-neutral-200 px-4 py-2 text-sm text-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                >
-                  View Full Details →
-                </a>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Locations with Toggle - Premium Design */}
-      <section id="locations" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20 bg-white">
-        <motion.div 
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="badge-premium mb-4 inline-block">Our Locations</span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-            Choose Your <span className="text-gradient">Bangalore Location</span>
-          </h2>
-          <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Strategically located in South Bangalore - easily accessible from all major areas.
-          </p>
-        </motion.div>
-
-        <div className="flex justify-center gap-4 mb-8">
-          <motion.button 
-            onClick={() => setActiveLoc("basavanagudi")} 
-            className={`rounded-xl px-6 py-3 text-sm font-semibold ring-2 transition-all duration-300 ${
-              activeLoc==="basavanagudi"
-              ?"bg-primary text-white ring-primary shadow-lg scale-105"
-              :"ring-neutral-200 hover:bg-neutral-50 hover:ring-primary/50"
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Basavanagudi
-          </motion.button>
-          <motion.button 
-            onClick={() => setActiveLoc("jayanagar")} 
-            className={`rounded-xl px-6 py-3 text-sm font-semibold ring-2 transition-all duration-300 ${
-              activeLoc==="jayanagar"
-              ?"bg-primary text-white ring-primary shadow-lg scale-105"
-              :"ring-neutral-200 hover:bg-neutral-50 hover:ring-primary/50"
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Jayanagar
-          </motion.button>
-        </div>
-
-        <div className="mt-8">
-          {activeLoc === "basavanagudi" ? (
-            <motion.div 
-              key="basav" 
-              className="grid gap-8 md:grid-cols-2" 
-              initial={{opacity:0, x: -20}} 
-              animate={{opacity:1, x: 0}}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-gradient-to-br from-primary/5 to-white">
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-6 -mx-8 -mt-8">
-                  <img 
-                    src="/images/building-exterior-sree-devi-complex.jpg" 
-                    alt="Spacio Workspace building exterior - Sree Devi Complex, Basavanagudi, Bangalore"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
-                    }}
-                  />
-                </div>
-                <h3 className="text-3xl font-bold text-neutral-900 mb-4">Basavanagudi</h3>
-                <p className="text-lg text-neutral-700 mb-6">
-                  No 7, Sree Devi Complex, NAT Street, Bangalore - 560004
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span>Prime South Bangalore Location</span>
-                </div>
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <Clock className="w-4 h-4 text-primary" />
-                    <span>24/7 Access Available</span>
-              </div>
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <Wifi className="w-4 h-4 text-primary" />
-                    <span>1Gbps High-Speed Internet</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <a 
-                    className="btn-premium rounded-xl bg-primary px-5 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105" 
-                    href="https://wa.me/917022780310?text=I want to visit Spacio Workspace in Basavanagudi, near Bull Temple, Bangalore"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    WhatsApp Directions
-                    <ArrowRight className="w-5 h-5" />
-                  </a>
-                  <a 
-                    className="rounded-xl border-2 border-primary/30 px-5 py-3 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300 flex items-center gap-2" 
-                    href="https://wa.me/917022780310?text=I need directions to Spacio Workspace Basavanagudi"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Get Directions via WhatsApp
-                  </a>
-                  <a 
-                    className="rounded-xl border-2 border-neutral-200 px-5 py-3 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300" 
-                    href="https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    Open Google Maps
-                  </a>
-                </div>
-              </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <iframe 
-                  className="aspect-video w-full rounded-2xl ring-2 ring-neutral-200 shadow-xl" 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade" 
-                  src="https://www.google.com/maps?q=Spacio%20Workspace%20Bangalore&output=embed"
-                />
-              </motion.div>
-            </motion.div>
-          ) : (
-            <motion.div 
-              key="jaya" 
-              className="grid gap-8 md:grid-cols-2" 
-              initial={{opacity:0, x: 20}} 
-              animate={{opacity:1, x: 0}}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-gradient-to-br from-primary/5 to-white">
-                <h3 className="text-3xl font-bold text-neutral-900 mb-4">Jayanagar</h3>
-                <p className="text-lg text-neutral-700 mb-6">
-                  Coming Soon - Jayanagar 4th Block, Bangalore - 560011
-                </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    <span>Prime Jayanagar Location</span>
-                </div>
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <Sparkles className="w-4 h-4 text-primary" />
-                    <span>Opening Soon - Get Early Access</span>
-              </div>
-                  <div className="flex items-center gap-2 text-sm text-neutral-600">
-                    <Star className="w-4 h-4 text-primary" />
-                    <span>Same Premium Features</span>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  <a 
-                    className="btn-premium rounded-xl bg-primary px-5 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300" 
-                    href="https://wa.me/917022780310?text=I'm interested in the Jayanagar location of Spacio Workspace Bangalore"
-                  >
-                    Get Updates
-                  </a>
-                  <a 
-                    className="rounded-xl border-2 border-neutral-200 px-5 py-3 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300" 
-                    href="tel:+917022780310"
-                  >
-                    Call for Details
-                  </a>
-                </div>
-              </div>
-              <motion.div
-                className="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 shadow-xl flex items-center justify-center"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-              >
-                <div className="text-center">
-                  <Sparkles className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-semibold text-neutral-700">Coming Soon</p>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </div>
-      </section>
-
-      {/* Gallery - Premium Grid */}
-      <section id="gallery" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20 bg-gradient-to-b from-white to-neutral-50/50">
-        <motion.div 
-          className="mb-12 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="badge-premium mb-4 inline-block">Gallery</span>
-          <h2 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
-            Explore Our <span className="text-gradient">Premium Space</span>
-          </h2>
-          <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
-            Take a virtual tour of our modern coworking space in Bangalore. 
-            See our private cabins, dedicated desks, meeting rooms, and vibrant community areas.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {[
-            { src: "/images/office-corridor-glass-partitions.jpg", alt: "Modern office corridor with glass partitions" },
-            { src: "/images/workspace-orange-screens.jpg", alt: "Workspace with orange privacy screens" },
-            { src: "/images/workspace-green-screens.jpg", alt: "Workspace with green privacy screens" },
-            { src: "/images/meeting-room-frosted-glass.jpg", alt: "Professional meeting room with frosted glass" },
-            { src: "/images/water-fountain-ganesha-green-wall.jpg", alt: "Vastu-compliant water fountain with Ganesha" },
-            { src: "/images/modern-bathroom-wash-area.jpg", alt: "Modern bathroom and wash area amenities" },
-            { src: "/images/workspace-yellow-green-walls.jpg", alt: "Modern workspace with colorful walls" },
-            { src: "/images/workspace-numbered-cabins.jpg", alt: "Private numbered cabins at Spacio Workspace" },
-            { src: "/images/spacio-sign-green-wall.jpg", alt: "Spacio Workspace sign on green plant wall" },
-          ].map((img, i) => (
-            <motion.div 
-              key={i} 
-              className="card-premium aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative" 
-              initial={{opacity:0, scale:0.9, rotate: -2}} 
-              whileInView={{opacity:1, scale:1, rotate: 0}} 
-              viewport={{once:true}} 
-              transition={{duration:0.4, delay:0.05*i}}
-              whileHover={{ scale: 1.05, rotate: 2, zIndex: 10 }}
-            >
-              <img 
-                src={img.src} 
-                alt={img.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = '<div class="w-full h-full flex items-center justify-center"><svg class="w-16 h-16 text-primary/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></div>';
-                  }
-                }}
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors" />
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div 
-          className="mt-10 flex flex-wrap justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <a 
-            href="#contact" 
-            className="btn-premium rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-2"
-          >
-            Book a Free Tour
-            <ArrowRight className="w-5 h-5" />
-          </a>
-          <a 
-            href="https://wa.me/917022780310?text=I'd like to see more photos of Spacio Workspace Bangalore" 
-            className="rounded-xl border-2 border-neutral-200 px-8 py-4 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300"
-          >
-            Request More Photos
-          </a>
-          <a 
-            href="/gallery" 
-            className="rounded-xl border-2 border-neutral-200 px-8 py-4 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300"
-          >
-            View Full Gallery →
-          </a>
-        </motion.div>
-      </section>
-
-
-
-      {/* Instagram Feed Section */}
-      <InstagramFeed />
 
       {/* Premium Contact CTA */}
       <section id="contact" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
