@@ -11,7 +11,15 @@ export function LeadCaptureModal() {
 
   useEffect(() => {
     if (dismissed) return;
-    const t = setTimeout(() => setOpen(true), 10000);
+
+    const hasSeenModal = typeof window !== "undefined" ? sessionStorage.getItem("leadModalShown") : null;
+    if (hasSeenModal) return;
+
+    const t = setTimeout(() => {
+      setOpen(true);
+      sessionStorage.setItem("leadModalShown", "true");
+    }, 10000);
+
     return () => clearTimeout(t);
   }, [dismissed]);
 

@@ -46,7 +46,7 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHero((prev) => (prev + 1) % heroSections.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [heroSections.length]);
 
@@ -65,7 +65,7 @@ export default function Home() {
             x: [0, 50, 0],
             y: [0, -50, 0]
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
           className="hidden md:block absolute bottom-20 left-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
@@ -74,7 +74,7 @@ export default function Home() {
             x: [0, -60, 0],
             y: [0, 60, 0]
           }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         />
         <motion.div 
           className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl"
@@ -82,7 +82,7 @@ export default function Home() {
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360]
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
         
         <div className="relative mx-auto max-w-7xl w-full px-4 pt-24 pb-16 md:py-32 grid gap-10 md:gap-12 md:grid-cols-2 md:items-center z-10">
@@ -174,13 +174,13 @@ export default function Home() {
                       </a>
                       <a 
                         href="https://wa.me/917022780310?text=I'd like pricing details for Spacio coworking space in Basavanagudi, near Bull Temple, Bangalore #SpacioPricing #CoworkingSpace #Bangalore #Basavanagudi #SouthBangalore" 
-                        className="rounded-xl border-2 border-primary/30 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                        className="rounded-xl bg-orange-500 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-white shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 flex items-center justify-center"
                       >
                         Get Pricing
                       </a>
                       <a 
                         href="tel:+917022780310" 
-                        className="rounded-xl border-2 border-neutral-200 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-neutral-900 hover:border-primary hover:bg-neutral-50 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                        className="rounded-xl bg-orange-500/90 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-white shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 flex items-center justify-center"
                       >
                         📞 Call Now
                       </a>
@@ -281,12 +281,12 @@ export default function Home() {
                     <motion.div 
                       className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-xl blur-sm will-change-transform"
                       animate={{ y: [0, -15, 0] }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                      transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.div 
                       className="absolute bottom-10 left-10 w-16 h-16 bg-primary/15 rounded-full blur-sm will-change-transform"
                       animate={{ y: [0, 15, 0] }}
-                      transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                      transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     />
                   </motion.div>
                 )

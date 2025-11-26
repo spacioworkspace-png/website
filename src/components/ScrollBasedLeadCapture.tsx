@@ -13,21 +13,15 @@ export function ScrollBasedLeadCapture() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      
-      // Show at 60% scroll
-      if (scrollPercent >= 60 && scrollPercent < 65) {
-        const hasSeenScroll = sessionStorage.getItem("scrollLeadShown");
-        if (!hasSeenScroll) {
-          setShow(true);
-          sessionStorage.setItem("scrollLeadShown", "true");
-        }
-      }
-    };
+    const hasSeenPopup = typeof window !== "undefined" ? sessionStorage.getItem("preferredLeadCaptureShown") : null;
+    if (hasSeenPopup) return;
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const timer = setTimeout(() => {
+      setShow(true);
+      sessionStorage.setItem("preferredLeadCaptureShown", "true");
+    }, 10000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -80,7 +74,10 @@ export function ScrollBasedLeadCapture() {
           >
             <div className="bg-white rounded-2xl shadow-2xl p-6 relative overflow-hidden border-2 border-primary/20">
               <button
-                onClick={() => setShow(false)}
+                onClick={() => {
+                  setShow(false);
+                  sessionStorage.setItem("preferredLeadCaptureShown", "true");
+                }}
                 className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full bg-neutral-100 hover:bg-neutral-200 transition-colors"
                 aria-label="Close"
               >
