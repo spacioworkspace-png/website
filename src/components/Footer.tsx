@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
+const workspaceSitelinks = [
+  { label: "Solo Cabin", href: "/workspaces#solo-cabin" },
+  { label: "3-Seater Cabin", href: "/workspaces#three-seater-cabin" },
+  { label: "6-Seater Cabin", href: "/workspaces#six-seater-cabin" },
+  { label: "Dedicated Desks", href: "/workspaces#dedicated-desks" },
+  { label: "Meeting Rooms", href: "/workspaces#meeting-rooms" },
+  { label: "Virtual Office", href: "/workspaces#virtual-office" },
+];
+
 export function Footer() {
   return (
     <footer className="border-t bg-gradient-to-b from-neutral-50 to-white">
@@ -62,27 +71,22 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services / Sitelinks */}
           <div>
-            <div className="font-bold text-neutral-900 text-base mb-4">Our Services</div>
+            <div className="font-bold text-neutral-900 text-base mb-4">Workspace Sitelinks</div>
             <ul className="space-y-3 text-neutral-700">
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Private Cabins (Solo, 3-Seater, 6-Seater)
-              </li>
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Dedicated Desks
-              </li>
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Meeting Rooms
-              </li>
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Virtual Office
-              </li>
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Day Pass
-              </li>
-              <li className="hover:text-primary transition-colors duration-300 cursor-pointer">
-                Custom Workspace Solutions
+              {workspaceSitelinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors duration-300"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="hover:text-primary transition-colors duration-300">
+                <Link href="/workspaces#workspace-sitelinks">See All Plans</Link>
               </li>
             </ul>
           </div>

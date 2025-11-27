@@ -1,17 +1,24 @@
 "use client";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, ArrowRight, CheckCircle2, MapPin, Clock, Wifi, Users, Building2 } from "lucide-react";
+import { X, MessageCircle, ArrowRight, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play } from "lucide-react";
 
 interface WorkspaceDetailModalProps {
   workspace: {
     title: string;
     subtitle: string;
-    icon: string;
+    icon?: string;
+    iconLabel?: string;
     features: string[];
     description: string;
     images: string[];
     pricing?: string;
     capacity?: string;
+    bestFor?: string[];
+    addOns?: string[];
+    availability?: string;
+    location?: string;
+    slug?: string;
   } | null;
   isOpen: boolean;
   onClose: () => void;
@@ -48,9 +55,43 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                   <X className="w-5 h-5" />
                 </button>
                 <div className="pr-12">
-                  <div className="text-5xl mb-3">{workspace.icon}</div>
+                  {workspace.icon && <div className="text-5xl mb-3">{workspace.icon}</div>}
+                  {workspace.iconLabel && (
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-2">
+                      {workspace.iconLabel}
+                    </p>
+                  )}
                   <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">{workspace.title}</h2>
                   <p className="text-lg text-neutral-700">{workspace.subtitle}</p>
+                  {workspace.slug && (
+                    <a
+                      href={`#${workspace.slug}`}
+                      className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                    >
+                      Jump to full {workspace.title} details
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )}
+                  <div className="mt-4 flex flex-wrap gap-3 text-sm">
+                    {workspace.pricing && (
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-primary/20">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        Starting at {workspace.pricing}
+                      </span>
+                    )}
+                    {workspace.capacity && (
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-primary/20">
+                        <Users className="w-4 h-4 text-primary" />
+                        Fits {workspace.capacity}
+                      </span>
+                    )}
+                    {(workspace.location || workspace.availability) && (
+                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-primary/20">
+                        <MapPin className="w-4 h-4 text-primary" />
+                        {workspace.location ?? "Basavanagudi"} {workspace.availability ? `• ${workspace.availability}` : ""}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -59,15 +100,35 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                 <div className="grid md:grid-cols-2 gap-8">
                   {/* Images */}
                   <div className="space-y-4">
-                    <div className="aspect-video w-full rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 overflow-hidden">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Building2 className="w-32 h-32 text-primary/30" />
-                      </div>
+                    <div className="aspect-video w-full rounded-xl overflow-hidden relative bg-neutral-100">
+                      {workspace.images?.length ? (
+                        <Image
+                          src={workspace.images[0]}
+                          alt={`${workspace.title} primary view`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          priority
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10">
+                          <Building2 className="w-32 h-32 text-primary/30" />
+                        </div>
+                      )}
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
-                      {[1, 2, 3].map((i) => (
-                        <div key={i} className="aspect-square rounded-lg bg-gradient-to-br from-primary/10 to-primary/5" />
+                    <div className="grid grid-cols-2 gap-3">
+                      {[1, 2].map((idx) => (
+                        <div
+                          key={`placeholder-photo-${idx}`}
+                          className="aspect-square rounded-lg border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-xs text-neutral-500"
+                        >
+                          Additional photo placeholder
+                        </div>
                       ))}
+                    </div>
+                    <div className="mt-3 aspect-video rounded-lg border border-dashed border-primary/40 bg-primary/5 flex items-center justify-center gap-2 text-sm text-primary">
+                      <Play className="w-4 h-4" />
+                      Video walkthrough placeholder
                     </div>
                   </div>
 
@@ -78,15 +139,26 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                       <p className="text-neutral-700 leading-relaxed">{workspace.description}</p>
                     </div>
 
-                    {workspace.capacity && (
-                      <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
-                        <Users className="w-6 h-6 text-primary" />
-                        <div>
-                          <div className="font-semibold text-neutral-900">Capacity</div>
-                          <div className="text-sm text-neutral-600">{workspace.capacity}</div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      {workspace.capacity && (
+                        <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                          <Users className="w-6 h-6 text-primary" />
+                          <div>
+                            <div className="font-semibold text-neutral-900">Capacity</div>
+                            <div className="text-sm text-neutral-600">{workspace.capacity}</div>
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                      {workspace.pricing && (
+                        <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                          <Layers className="w-6 h-6 text-primary" />
+                          <div>
+                            <div className="font-semibold text-neutral-900">Starting Price</div>
+                            <div className="text-sm text-neutral-600">{workspace.pricing}</div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
 
                     <div>
                       <h3 className="text-xl font-bold text-neutral-900 mb-3">Features Included</h3>
@@ -118,6 +190,33 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                         <span className="text-sm font-semibold">Vastu Compliant</span>
                       </div>
                     </div>
+
+                    {workspace.bestFor && (
+                      <div>
+                        <h3 className="text-xl font-bold text-neutral-900 mb-3">Perfect For</h3>
+                        <ul className="flex flex-wrap gap-2">
+                          {workspace.bestFor.map((useCase) => (
+                            <li key={useCase} className="rounded-full bg-neutral-100 px-4 py-2 text-sm text-neutral-700">
+                              {useCase}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {workspace.addOns && (
+                      <div>
+                        <h3 className="text-xl font-bold text-neutral-900 mb-3">Popular Add-Ons</h3>
+                        <ul className="space-y-2">
+                          {workspace.addOns.map((addOn) => (
+                            <li key={addOn} className="flex items-start gap-3">
+                              <ArrowRight className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
+                              <span className="text-neutral-700">{addOn}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -143,6 +242,12 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                     className="flex-1 min-w-[200px] rounded-xl border-2 border-neutral-200 px-6 py-4 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300"
                   >
                     Call Now
+                  </a>
+                  <a
+                    href="/book-tour"
+                    className="flex-1 min-w-[200px] rounded-xl border-2 border-primary px-6 py-4 font-semibold hover:bg-primary hover:text-white transition-all duration-300 text-center"
+                  >
+                    Book Onsite Tour
                   </a>
                 </div>
               </div>
