@@ -1,4 +1,5 @@
 "use client";
+import Script from "next/script";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send, MessageCircle, Clock, ArrowRight } from "lucide-react";
@@ -25,6 +26,13 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Script id="google-ads-contact-conversion" strategy="afterInteractive">
+        {`
+          if (typeof gtag === 'function') {
+            gtag('event', 'conversion', {'send_to': 'AW-10930874990/6B5RCOrDqLQbEO7Un9wo'});
+          }
+        `}
+      </Script>
       {/* Hero Section */}
       <section className="relative mx-auto max-w-7xl px-4 py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-30" />

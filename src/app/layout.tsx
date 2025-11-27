@@ -413,9 +413,7 @@ export default function RootLayout({
 
   return (
     <html lang="en-IN">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-10930874990"
           strategy="afterInteractive"
@@ -437,6 +435,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
         />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />
