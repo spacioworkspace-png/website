@@ -28,9 +28,11 @@ export default function ContactPage() {
     <div className="bg-white min-h-screen">
       <Script id="google-ads-contact-conversion" strategy="afterInteractive">
         {`
-          if (typeof gtag === 'function') {
-            gtag('event', 'conversion', {'send_to': 'AW-10930874990/6B5RCOrDqLQbEO7Un9wo'});
-          }
+          gtag('event', 'conversion', {
+            'send_to': 'AW-10930874990/GOriCN7cj8gbEO7Un9wo',
+            'value': 1.0,
+            'currency': 'INR'
+          });
         `}
       </Script>
       {/* Hero Section */}
