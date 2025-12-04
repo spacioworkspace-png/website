@@ -414,11 +414,12 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
+        {/* Google tag (gtag.js) */}
         <Script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=AW-10930874990"
-          strategy="afterInteractive"
         />
-        <Script id="google-ads-tag" strategy="afterInteractive">
+        <Script id="google-ads-tag">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

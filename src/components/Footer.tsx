@@ -2,12 +2,12 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const workspaceSitelinks = [
-  { label: "Solo Cabin", href: "/workspaces#solo-cabin" },
-  { label: "3-Seater Cabin", href: "/workspaces#three-seater-cabin" },
-  { label: "6-Seater Cabin", href: "/workspaces#six-seater-cabin" },
-  { label: "Dedicated Desks", href: "/workspaces#dedicated-desks" },
-  { label: "Meeting Rooms", href: "/workspaces#meeting-rooms" },
-  { label: "Virtual Office", href: "/workspaces#virtual-office" },
+  { label: "Solo Cabin", href: "/workspaces/solo-cabin" },
+  { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin" },
+  { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin" },
+  { label: "Dedicated Desks", href: "/workspaces/dedicated-desks" },
+  { label: "Meeting Rooms", href: "/workspaces/meeting-rooms" },
+  { label: "Virtual Office", href: "/workspaces/virtual-office" },
 ];
 
 export function Footer() {
