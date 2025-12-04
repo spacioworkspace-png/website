@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Building2, Star, Users, TrendingUp, Award, CheckCircle2 } from "lucide-react";
+import { Building2, Star, Users, TrendingUp, Award, CheckCircle2, Play } from "lucide-react";
 
 export function ClientsSection() {
   const clientTypes = [
@@ -100,6 +100,74 @@ export function ClientsSection() {
             <div className="text-sm text-primary font-semibold">{client.count}</div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Video Testimonials */}
+      <div className="mb-16">
+        <motion.h3
+          className="text-3xl font-bold text-center mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Watch Real <span className="text-gradient peacock-text heartbeat">Member Stories</span>
+        </motion.h3>
+        <motion.p
+          className="text-center text-neutral-600 mb-10 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Two quick video testimonials from founders who run their Bengaluru story out of Spacio.
+        </motion.p>
+        <div className="grid md:grid-cols-2 gap-6">
+          {[
+            {
+              title: "Solo Cabin Founder Testimonial",
+              src: "/video-testimonial-founder.mp4",
+              name: "Rajesh Kumar",
+              role: "Founder, TechStartup (Solo Cabin)",
+            },
+            {
+              title: "3-Seater Team Testimonial",
+              src: "/video-testimonial-team.mp4",
+              name: "Priya & Amit",
+              role: "Co-founders, SaaS Team (3-Seater Cabin)",
+            },
+          ].map((video, i) => (
+            <motion.div
+              key={video.title}
+              className="card-premium rounded-2xl border-2 border-neutral-200 bg-white overflow-hidden"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              whileHover={{ y: -6, borderColor: "oklch(0.72 0.17 58)" }}
+            >
+              <div className="aspect-video w-full bg-neutral-100 relative">
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  preload="metadata"
+                  poster="/images/spacio-sign-green-wall.jpg"
+                >
+                  <source src={video.src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute top-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
+                  <Play className="w-3 h-3" />
+                  Video Testimonial
+                </div>
+              </div>
+              <div className="p-5 border-t border-neutral-200">
+                <div className="font-semibold text-neutral-900">{video.name}</div>
+                <div className="text-sm text-neutral-600">{video.role}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* Text Testimonials */}
