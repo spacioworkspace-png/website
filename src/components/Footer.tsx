@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
-const workspaceSitelinks = [
+const workspace = [
   { label: "Solo Cabin", href: "/workspaces/solo-cabin" },
   { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin" },
   { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin" },
@@ -73,9 +73,9 @@ export function Footer() {
 
           {/* Services / Sitelinks */}
           <div>
-            <div className="font-bold text-neutral-900 text-base mb-4">Workspace Sitelinks</div>
+            <div className="font-bold text-neutral-900 text-base mb-4">Workspace</div>
             <ul className="space-y-3 text-neutral-700">
-              {workspaceSitelinks.map((link) => (
+              {workspace.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
