@@ -181,16 +181,48 @@ export default function GalleryPage() {
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
-            <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
-              <video 
-                className="w-full h-full object-cover" 
-                controls 
-                preload="metadata"
-                poster="/images/spacio-sign-green-wall.jpg"
-              >
-                <source src="/tour.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+            <div className="space-y-4">
+              <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
+                <video 
+                  className="w-full h-full object-cover" 
+                  controls 
+                  preload="metadata"
+                  poster="/images/spacio-sign-green-wall.jpg"
+                >
+                  <source src="/tour.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                {[
+                  { title: "Solo Cabin Tour", src: "/solo-cabin-tour.mp4" },
+                  { title: "3-Seater Cabin Tour", src: "/three-seater-cabin-tour.mp4" },
+                  { title: "6-Seater Cabin Tour", src: "/six-seater-cabin-tour.mp4" },
+                  { title: "Dedicated Desks Tour", src: "/dedicated-desks-tour.mp4" },
+                  { title: "Meeting Rooms Tour", src: "/meeting-rooms-tour.mp4" },
+                  { title: "Virtual Office Tour", src: "/virtual-office-tour.mp4" },
+                ].map((video) => (
+                  <div
+                    key={video.title}
+                    className="aspect-video w-full rounded-lg overflow-hidden bg-neutral-100 border border-neutral-200 relative group"
+                  >
+                    <video 
+                      className="w-full h-full object-cover" 
+                      controls 
+                      preload="metadata"
+                    >
+                      <source src={video.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
+                      <p className="text-white text-sm font-semibold flex items-center gap-2">
+                        <Play className="w-4 h-4" />
+                        {video.title}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

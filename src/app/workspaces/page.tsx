@@ -28,9 +28,10 @@ const workspaceOptions = [
     highlight: true,
     pricing: "₹6,999/month",
     capacityLabel: "1 person",
-    bestFor: ["Startup founders", "Consultants", "CXO on-the-go"],
+    bestFor: ["Startup founders", "Consultants", "CXO on-the-go", "Video bachelors & content creators"],
     addOns: ["Dedicated locker upgrade", "Mail handling", "Brand signage"],
     availability: "Immediate move-in slots",
+    videoUrl: "/solo-cabin-tour.mp4",
     modalDescription:
       "Solo cabins give you a noise-free, private office inside Spacio Basavanagudi. Plug in, close the glass door, and stay in flow with ergonomic furniture, 1Gbps internet, and 24/7 security.",
     seoIntro:
@@ -67,6 +68,7 @@ const workspaceOptions = [
     bestFor: ["Co-founders", "Agencies", "Remote pods"],
     addOns: ["Dedicated meeting credits", "Brand wall decals", "Private server rack"],
     availability: "Limited cabins left",
+    videoUrl: "/three-seater-cabin-tour.mp4",
     modalDescription:
       "The 3-seater cabin is purpose-built for co-founders and boutique agencies who need a compact HQ in South Bangalore. Enjoy collaborative desk layouts, whiteboard walls, and instant access to meeting rooms.",
     seoIntro:
@@ -104,6 +106,7 @@ const workspaceOptions = [
     bestFor: ["Product teams", "VC-funded startups", "Client delivery pods"],
     addOns: ["Dedicated meeting room", "Private pantry setup", "Server-grade power backup"],
     availability: "Ask for waitlist",
+    videoUrl: "/six-seater-cabin-tour.mp4",
     modalDescription:
       "Our 6-seater cabin mirrors a boutique corporate suite with wide desks, dual monitors on request, and brainstorming walls. Ideal for growing teams that want headquarters-level polish.",
     seoIntro:
@@ -140,6 +143,7 @@ const workspaceOptions = [
     bestFor: ["Outstation founders", "Consulting firms", "D2C brands"],
     addOns: ["Dedicated desk day pass bundle", "Dedicated phone line", "Document storage"],
     availability: "Instant activation",
+    videoUrl: "/virtual-office-tour.mp4",
     modalDescription:
       "Our virtual office plan gives you a credible Basavanagudi business address, GST registration support, and professional reception services for courier and client handling.",
     seoIntro:
@@ -176,6 +180,7 @@ const workspaceOptions = [
     bestFor: ["Designers", "Analysts", "Remote employees"],
     addOns: ["24/7 access upgrade", "Locker storage", "Recording booth hours"],
     availability: "Few seats available",
+    videoUrl: "/dedicated-desks-tour.mp4",
     modalDescription:
       "Dedicated desks give you a permanent spot in our collaborative bay with lockable storage, business-class WiFi, and community events that keep you inspired.",
     seoIntro:
@@ -213,6 +218,7 @@ const workspaceOptions = [
     bestFor: ["Freelancers on the go", "Remote employees visiting city", "Students preparing for interviews"],
     addOns: ["Locker rental", "Meeting room credits", "Cafe vouchers"],
     availability: "Purchase on arrival",
+    videoUrl: "/day-pass-tour.mp4",
     modalDescription:
       "Need a professional workspace just for today? Pick up a Spacio day pass, grab a seat in our vibrant coworking bay, and get enterprise-grade infrastructure without a long-term commitment.",
     seoIntro:
@@ -250,6 +256,7 @@ const workspaceOptions = [
     bestFor: ["Investor reviews", "Client demos", "Workshops"],
     addOns: ["Catering support", "Recording setup", "Custom seating layout"],
     availability: "Slots open daily",
+    videoUrl: "/meeting-rooms-tour.mp4",
     modalDescription:
       "Our meeting rooms range from 4-seater huddle spaces to 12-seater boardrooms with 4K displays, plug-and-play conferencing, and concierge support.",
     seoIntro:

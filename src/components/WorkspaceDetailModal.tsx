@@ -12,6 +12,7 @@ interface WorkspaceDetailModalProps {
     features: string[];
     description: string;
     images: string[];
+    videoUrl?: string;
     pricing?: string;
     capacity?: string;
     bestFor?: string[];
@@ -116,19 +117,21 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                         </div>
                       )}
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[1, 2].map((idx) => (
-                        <div
-                          key={`placeholder-photo-${idx}`}
-                          className="aspect-square rounded-lg border border-dashed border-neutral-300 bg-neutral-50 flex items-center justify-center text-xs text-neutral-500"
+                    <div className="mt-3 aspect-video rounded-lg border border-primary/40 bg-primary/5 flex items-center justify-center overflow-hidden">
+                      {workspace.videoUrl ? (
+                        <video
+                          src={workspace.videoUrl}
+                          controls
+                          className="w-full h-full object-cover"
                         >
-                          Additional photo placeholder
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center gap-2 text-sm text-primary">
+                          <Play className="w-4 h-4" />
+                          Video walkthrough coming soon
                         </div>
-                      ))}
-                    </div>
-                    <div className="mt-3 aspect-video rounded-lg border border-dashed border-primary/40 bg-primary/5 flex items-center justify-center gap-2 text-sm text-primary">
-                      <Play className="w-4 h-4" />
-                      Video walkthrough placeholder
+                      )}
                     </div>
                   </div>
 

@@ -568,6 +568,7 @@ export default function SoloCabinPage() {
               { title: "Startup Founders", desc: "Meet investors and build your startup in a professional private office space with credibility." },
               { title: "Consultants", desc: "Host confidential client meetings and maintain professional standards in your private cabin." },
               { title: "CXO on-the-go", desc: "Perfect workspace for executives who need a private office when visiting Bangalore." },
+              { title: "Video Bachelors & Creators", desc: "Ideal for video bachelors, YouTubers, and content creators who need a quiet, private space for recording, editing, and client calls." },
             ].map((item, idx) => (
               <div key={idx} className="rounded-2xl bg-white border border-neutral-200 p-6 hover:shadow-lg transition-shadow">
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">{item.title}</h3>

@@ -333,6 +333,7 @@ export default function Home() {
                 "/images/workspace-orange-screens.jpg",
                 "/images/workspace-green-screens.jpg",
               ],
+              videoUrl: "/solo-cabin-tour.mp4",
               priceLabel: "Starts at ₹6,999/month",
               pricing: "₹6,999/month",
               features: [
@@ -355,6 +356,7 @@ export default function Home() {
                 "/images/workspace-numbered-cabins.jpg",
                 "/images/workspace-yellow-green-walls.jpg",
               ],
+              videoUrl: "/three-seater-cabin-tour.mp4",
               priceLabel: "Starts at ₹11,999/month",
               pricing: "₹11,999/month",
               features: [
@@ -378,6 +380,7 @@ export default function Home() {
                 "/images/workspace-orange-screens.jpg",
                 "/images/workspace-numbered-cabins.jpg",
               ],
+              videoUrl: "/six-seater-cabin-tour.mp4",
               priceLabel: "Starts at ₹17,999/month",
               pricing: "₹17,999/month",
               features: [
@@ -400,6 +403,7 @@ export default function Home() {
                 "/images/office-corridor-glass-partitions.jpg",
                 "/images/spacio-sign-green-wall.jpg",
               ],
+              videoUrl: "/virtual-office-tour.mp4",
               priceLabel: "Starts at ₹999/month",
               pricing: "₹999/month",
               features: [
@@ -422,6 +426,7 @@ export default function Home() {
                 "/images/workspace-green-screens.jpg",
                 "/images/workspace-numbered-cabins.jpg",
               ],
+              videoUrl: "/dedicated-desks-tour.mp4",
               priceLabel: "Starts at ₹2,999/month",
               pricing: "₹2,999/month",
               features: [
@@ -445,6 +450,7 @@ export default function Home() {
                 "/images/office-corridor-glass-partitions.jpg",
                 "/images/3-seater-cabin-orange-screens.jpg",
               ],
+              videoUrl: "/meeting-rooms-tour.mp4",
               priceLabel: "₹399/hour",
               pricing: "₹399/hour",
               features: [

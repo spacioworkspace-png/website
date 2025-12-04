@@ -48,7 +48,7 @@ export function PricingBangalore() {
         "Private cabin space",
         "24/7 secure access",
         "Personal storage",
-        "High-speed WiFi (1Gbps)",
+        "High-speed WiFi (1Gbps) ideal for video calls & content uploads",
         "Ergonomic furniture",
         "Meeting room access",
         "Mail handling",

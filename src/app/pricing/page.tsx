@@ -45,7 +45,7 @@ export default function PricingPage() {
       price: "₹5,999",
       period: "per month",
       badge: "Private & Focused",
-      description: "Small private office space perfect for individual focus and productivity",
+      description: "Small private office space perfect for individual focus, productivity, and video bachelors / creators",
       features: [
         "Private enclosed workspace",
         "Ergonomic furniture",
