@@ -428,6 +428,33 @@ export default function RootLayout({
             gtag('config', 'AW-10930874990');
           `}
         </Script>
+        <Script id="google-ads-signup-conversion" strategy="afterInteractive">
+          {`
+            gtag('event', 'conversion', {
+              'send_to': 'AW-10930874990/FaN3CIDFuM4bEO7Un9wo',
+              'value': 1.0,
+              'currency': 'INR'
+            });
+          `}
+        </Script>
+        <Script id="google-ads-gtag-report-conversion" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-10930874990/FaN3CIDFuM4bEO7Un9wo',
+                  'value': 1.0,
+                  'currency': 'INR',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
