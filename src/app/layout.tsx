@@ -9,11 +9,15 @@ import { FloatingWhatsApp, ScrollBasedLeadCapture } from "@/components/LazyCompo
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false, // Only preload primary font
 });
 
 export const metadata: Metadata = {
@@ -34,278 +38,28 @@ export const metadata: Metadata = {
     "coworking south bangalore",
     "basavanagudi coworking",
     "jayanagar coworking",
-    "google ads coworking bangalore",
-    "meta ads coworking bangalore",
-    "facebook ads coworking bangalore",
-    "llm friendly workspace",
-    "ai startup workspace bangalore",
     "gen z coworking bangalore",
-    "shared office space Bangalore",
     "flexible workspace Bangalore",
     "coworking space near me Bangalore",
-    "best shared office Bangalore",
     "modern coworking Bangalore",
     "startup coworking space Bangalore",
     "freelancer workspace Bangalore",
-    "entrepreneur office space Bangalore",
-    "tech startup office Bangalore",
-    "Gen Z coworking Bangalore",
     "affordable coworking Bangalore",
     "24/7 coworking space Bangalore",
     "private cabin Bangalore",
     "solo cabin coworking Bangalore",
-    "team workspace Bangalore",
-    "business address Bangalore",
-    "professional workspace Bangalore",
-    "productivity space Bangalore",
-    "collaborative workspace Bangalore",
-    "coworking space South Bangalore",
+    "3 seater cabin",
+    "6 seater cabin",
     "office space Basavanagudi",
     "office space Jayanagar",
     "tech coworking space Bangalore",
     "IT workspace Bangalore",
-    "software company office space Bangalore",
-    "developer workspace Bangalore",
-    "programmer coworking Bangalore",
-    "tech startup office Basavanagudi",
-    "IT hub Bangalore",
-    "techies workspace Bangalore",
-    "coding space Bangalore",
-    "Basavanagudi coworking",
-    "Basavanagudi office space",
     "near Bull Temple",
     "near Lalbagh",
     "South Bangalore workspace",
-    "premium tech workspace",
-    "modern IT office",
-    "startup hub Basavanagudi",
-    "day pass coworking Bangalore",
-    "day pass Basavanagudi",
-    "day pass workspace",
-    "virtual office Bangalore",
-    "virtual office Basavanagudi",
-    "virtual office services",
-    "business address Bangalore",
-    "private cabins Bangalore",
-    "private cabins Basavanagudi",
-    "2 seater cabin",
-    "3 seater cabin",
-    "6 seater cabin",
-    "private office cabin",
-    "office space Basavanagudi",
-    "office space for rent",
-    "rent office space Bangalore",
-    "meeting rooms Bangalore",
-    "meeting rooms Basavanagudi",
-    "conference room rental",
-    "book meeting room",
-    "event space Basavanagudi",
-    "coworking space near Bull Temple",
-    "coworking space near Lalbagh",
-    "Basavanagudi workspace",
-    "South Bangalore coworking",
-    "affordable office space Bangalore",
-    "best coworking space South Bangalore",
-    "coworking space Basavanagudi Bangalore",
-    "office space near Bull Temple",
-    "workspace near Lalbagh",
-    "Basavanagudi business center",
-    "Jayanagar business center",
-    "flexible office space Bangalore",
-    "monthly office rent Bangalore",
-    "coworking membership Bangalore",
-    "startup incubator Bangalore",
-    "entrepreneur hub Bangalore",
-    "freelancer hub Bangalore",
-    "remote work space Bangalore",
-    "work from home alternative Bangalore",
-    "professional workspace Basavanagudi",
-    "modern office space Basavanagudi",
-    "tech workspace Bangalore",
-    "IT office space Bangalore",
-    "software development workspace",
-    "digital nomad workspace Bangalore",
-    "coworking community Bangalore",
-    "business networking space Bangalore",
-    "collaborative workspace Basavanagudi",
-    "productivity space Basavanagudi",
-    "creative workspace Bangalore",
-    "innovation hub Bangalore",
-    "startup workspace Basavanagudi",
-    "small business office Bangalore",
-    "team workspace Bangalore",
-    "private workspace Bangalore",
-    "quiet workspace Bangalore",
-    "focused workspace Bangalore",
-    "Vastu compliant office Bangalore",
+    "premium coworking Bangalore",
     "Vastu compliant workspace",
-    "zen workspace Bangalore",
-    "peaceful workspace Bangalore",
-    "serene workspace Bangalore",
-    "calm workspace Bangalore",
-    "productive workspace Bangalore",
-    "inspiring workspace Bangalore",
-    "motivational workspace Bangalore",
-    "success workspace Bangalore",
-    "growth workspace Bangalore",
-    "premium workspace experience Bangalore",
-    "luxury coworking Bangalore",
-    "elite coworking space Bangalore",
-    "exclusive workspace Bangalore",
-    "boutique coworking Bangalore",
-    "designer workspace Bangalore",
-    "award winning coworking Bangalore",
-    "top rated coworking Bangalore",
-    "best rated coworking Bangalore",
-    "5 star coworking Bangalore",
-    "highly rated coworking Bangalore",
-    "recommended coworking Bangalore",
-    "trusted coworking Bangalore",
-    "reliable coworking Bangalore",
-    "established coworking Bangalore",
-    "proven coworking Bangalore",
-    "successful coworking Bangalore",
-    "growing coworking Bangalore",
-    "expanding coworking Bangalore",
-    "popular coworking Bangalore",
-    "trending coworking Bangalore",
-    "in demand coworking Bangalore",
-    "sought after coworking Bangalore",
-    "preferred coworking Bangalore",
-    "Namma Bengaluru coworking",
-    "Namma Basavanagudi workspace",
-    "heritage Basavanagudi office",
-    "cultural Basavanagudi workspace",
-    "traditional South Bangalore office",
-    "modern Basavanagudi coworking",
-    "vibrant Basavanagudi workspace",
-    "energetic coworking Bangalore",
-    "dynamic workspace Basavanagudi",
-    "lively coworking space",
-    "passionate workspace community",
-    "ambitious entrepreneur space",
-    "dream workspace Bangalore",
-    "aspiration workspace Basavanagudi",
-    "vision workspace Bangalore",
-    "mission workspace Basavanagudi",
-    "purpose workspace Bangalore",
-    "meaningful workspace Basavanagudi",
-    "fulfilling workspace Bangalore",
-    "satisfying workspace Basavanagudi",
-    "rewarding workspace Bangalore",
-    "gratifying workspace Basavanagudi",
-    "enriching workspace Bangalore",
-    "empowering workspace Basavanagudi",
-    "enabling workspace Bangalore",
-    "facilitating workspace Basavanagudi",
-    "supporting workspace Bangalore",
-    "nurturing workspace Basavanagudi",
-    "cultivating workspace Bangalore",
-    "fostering workspace Basavanagudi",
-    "developing workspace Bangalore",
-    "enhancing workspace Basavanagudi",
-    "improving workspace Bangalore",
-    "elevating workspace Basavanagudi",
-    "uplifting workspace Bangalore",
-    "inspiring workspace Basavanagudi",
-    "motivating workspace Bangalore",
-    "encouraging workspace Basavanagudi",
-    "stimulating workspace Bangalore",
-    "exciting workspace Basavanagudi",
-    "thrilling workspace Bangalore",
-    "exhilarating workspace Basavanagudi",
-    "energizing workspace Bangalore",
-    "invigorating workspace Basavanagudi",
-    "refreshing workspace Bangalore",
-    "revitalizing workspace Basavanagudi",
-    "rejuvenating workspace Bangalore",
-    "renewing workspace Basavanagudi",
-    "restoring workspace Bangalore",
-    "healing workspace Basavanagudi",
-    "therapeutic workspace Bangalore",
-    "meditative workspace Basavanagudi",
-    "contemplative workspace Bangalore",
-    "reflective workspace Basavanagudi",
-    "thoughtful workspace Bangalore",
-    "mindful workspace Basavanagudi",
-    "conscious workspace Bangalore",
-    "aware workspace Basavanagudi",
-    "present workspace Bangalore",
-    "focused workspace Basavanagudi",
-    "concentrated workspace Bangalore",
-    "attentive workspace Basavanagudi",
-    "dedicated workspace Bangalore",
-    "committed workspace Basavanagudi",
-    "devoted workspace Bangalore",
-    "loyal workspace Basavanagudi",
-    "faithful workspace Bangalore",
-    "steadfast workspace Basavanagudi",
-    "resolute workspace Bangalore",
-    "determined workspace Basavanagudi",
-    "persistent workspace Bangalore",
-    "persevering workspace Basavanagudi",
-    "enduring workspace Bangalore",
-    "lasting workspace Basavanagudi",
-    "enduring workspace Bangalore",
-    "sustainable workspace Basavanagudi",
-    "eco-friendly workspace Bangalore",
-    "green workspace Basavanagudi",
-    "environmentally conscious workspace",
-    "responsible workspace Bangalore",
-    "ethical workspace Basavanagudi",
-    "principled workspace Bangalore",
-    "moral workspace Basavanagudi",
-    "virtuous workspace Bangalore",
-    "righteous workspace Basavanagudi",
-    "noble workspace Bangalore",
-    "honorable workspace Basavanagudi",
-    "dignified workspace Bangalore",
-    "respectable workspace Basavanagudi",
-    "esteemed workspace Bangalore",
-    "prestigious workspace Basavanagudi",
-    "distinguished workspace Bangalore",
-    "renowned workspace Basavanagudi",
-    "famous workspace Bangalore",
-    "well-known workspace Basavanagudi",
-    "celebrated workspace Bangalore",
-    "acclaimed workspace Basavanagudi",
-    "praised workspace Bangalore",
-    "commended workspace Basavanagudi",
-    "applauded workspace Bangalore",
-    "cheered workspace Basavanagudi",
-    "encouraged workspace Bangalore",
-    "supported workspace Basavanagudi",
-    "backed workspace Bangalore",
-    "sponsored workspace Basavanagudi",
-    "funded workspace Bangalore",
-    "financed workspace Basavanagudi",
-    "invested workspace Bangalore",
-    "capitalized workspace Basavanagudi",
-    "monetized workspace Bangalore",
-    "commercialized workspace Basavanagudi",
-    "marketed workspace Bangalore",
-    "promoted workspace Basavanagudi",
-    "advertised workspace Bangalore",
-    "publicized workspace Basavanagudi",
-    "announced workspace Bangalore",
-    "declared workspace Basavanagudi",
-    "proclaimed workspace Bangalore",
-    "pronounced workspace Basavanagudi",
-    "stated workspace Bangalore",
-    "asserted workspace Basavanagudi",
-    "affirmed workspace Bangalore",
-    "confirmed workspace Basavanagudi",
-    "validated workspace Bangalore",
-    "verified workspace Basavanagudi",
-    "authenticated workspace Bangalore",
-    "certified workspace Basavanagudi",
-    "accredited workspace Bangalore",
-    "licensed workspace Basavanagudi",
-    "authorized workspace Bangalore",
-    "approved workspace Basavanagudi",
-    "sanctioned workspace Bangalore",
-    "endorsed workspace Basavanagudi",
-    "ratified workspace Bangalore",
+    "best coworking space South Bangalore",
   ],
   openGraph: {
     title: "Spacio Workspace – Premium Coworking Space in Bangalore | Basavanagudi & Jayanagar",
@@ -343,6 +97,22 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://spacioworkspace.com/",
   },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/logo.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -414,30 +184,40 @@ export default function RootLayout({
   return (
     <html lang="en-IN">
       <head>
-        {/* Google tag (gtag.js) */}
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+          `}
+        </Script>
+        
+        {/* Google Analytics & Google Ads - Combined gtag.js */}
         <Script
-          async
           src="https://www.googletagmanager.com/gtag/js?id=AW-10930874990"
+          strategy="afterInteractive"
         />
-        <Script id="google-ads-tag">
+        <Script id="google-analytics-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
+            
+            // Google Ads Configuration
             gtag('config', 'AW-10930874990');
+            
+            // Google Analytics Configuration (replace G-XXXXXXXXXX with your GA4 ID)
+            // gtag('config', 'G-XXXXXXXXXX', {
+            //   page_path: window.location.pathname,
+            // });
           `}
         </Script>
-        <Script id="google-ads-signup-conversion" strategy="afterInteractive">
-          {`
-            gtag('event', 'conversion', {
-              'send_to': 'AW-10930874990/FaN3CIDFuM4bEO7Un9wo',
-              'value': 1.0,
-              'currency': 'INR'
-            });
-          `}
-        </Script>
-        <Script id="google-ads-gtag-report-conversion" strategy="afterInteractive">
+        
+        {/* Google Ads Conversion Reporting Function */}
+        <Script id="google-ads-gtag-report-conversion" strategy="lazyOnload">
           {`
             function gtag_report_conversion(url) {
               var callback = function () {
@@ -455,6 +235,8 @@ export default function RootLayout({
             }
           `}
         </Script>
+        
+        {/* Structured Data - Inline for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -467,6 +249,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
         <Header />
         <main>{children}</main>
         <Footer />
