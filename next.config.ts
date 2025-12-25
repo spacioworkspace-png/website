@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
   // Optimize production builds
   compress: true,
   poweredByHeader: false,
+  // Note: swcMinify is enabled by default in Next.js 16+ (no need to configure)
+  // SWC (Speedy Web Compiler) handles minification automatically
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
