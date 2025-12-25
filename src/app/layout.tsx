@@ -216,8 +216,8 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Google Ads Conversion Reporting Function */}
-        <Script id="google-ads-gtag-report-conversion" strategy="lazyOnload">
+        {/* Google Ads Conversion Reporting Function - Available in header for button/link clicks */}
+        <Script id="google-ads-gtag-report-conversion" strategy="afterInteractive">
           {`
             function gtag_report_conversion(url) {
               var callback = function () {
