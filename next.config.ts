@@ -16,10 +16,6 @@ const nextConfig: NextConfig = {
   // Optimize production builds
   compress: true,
   poweredByHeader: false,
-  // Performance optimizations
-  swcMinify: true,
-  // Optimize fonts
-  optimizeFonts: true,
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
