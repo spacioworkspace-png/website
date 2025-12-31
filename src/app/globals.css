@@ -500,9 +500,34 @@ html {
     min-width: 44px;
   }
   
-  .btn-premium {
+  .btn-premium,
+  .btn-modern,
+  button,
+  a {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Optimize popup for mobile */
+  .fixed {
+    max-width: calc(100vw - 1rem);
+  }
+  
+  /* Reduce animation complexity on mobile for better performance */
+  * {
+    will-change: auto;
+  }
+  
+  /* Optimize video playback on mobile */
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Improve scrolling performance */
+  body {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
   }
 }
 

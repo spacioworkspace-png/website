@@ -21,18 +21,44 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Optimize scroll listener for mobile - reduce frequency on mobile devices
     let ticking = false;
+    let lastScrollY = 0;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    const scrollThreshold = isMobile ? 50 : 20; // Less frequent updates on mobile
+    
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 20);
+          const currentScrollY = window.scrollY;
+          // Only update if scroll change is significant (mobile optimization)
+          if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold || currentScrollY < scrollThreshold) {
+            setScrolled(currentScrollY > scrollThreshold);
+            lastScrollY = currentScrollY;
+          }
           ticking = false;
         });
         ticking = true;
       }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    // Throttle scroll events more aggressively on mobile
+    const throttleDelay = isMobile ? 100 : 16;
+    let timeoutId: NodeJS.Timeout | null = null;
+    
+    const throttledHandleScroll = () => {
+      if (timeoutId) return;
+      timeoutId = setTimeout(() => {
+        handleScroll();
+        timeoutId = null;
+      }, throttleDelay);
+    };
+    
+    window.addEventListener("scroll", throttledHandleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", throttledHandleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -58,6 +84,8 @@ export function Header() {
               src="/logo.png"
               alt="Spacio Workspace Logo"
               className="w-full h-full object-contain"
+              loading="eager"
+              fetchPriority="high"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.display = "none";
                 const parent = e.currentTarget.parentElement;

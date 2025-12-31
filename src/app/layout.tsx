@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp, ScrollBasedLeadCapture } from "@/components/LazyComponents";
+import { SingleSeaterPromoPopup } from "@/components/SingleSeaterPromoPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -191,50 +192,23 @@ export default function RootLayout({
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-XXXXXXX');
+            })(window,document,'script','dataLayer','GTM-PJVS9KPR');
           `}
         </Script>
+        {/* End Google Tag Manager */}
         
-        {/* Google Analytics & Google Ads - Combined gtag.js */}
+        {/* Chatling Chatbot */}
+        <Script id="chatling-config" strategy="afterInteractive">
+          {`
+            window.chtlConfig = { chatbotId: "1118293796" };
+          `}
+        </Script>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-10930874990"
+          id="chatling-script"
           strategy="afterInteractive"
+          data-id="1118293796"
+          src="https://chatling.ai/js/embed.js"
         />
-        <Script id="google-analytics-ads" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            
-            // Google Ads Configuration
-            gtag('config', 'AW-10930874990');
-            
-            // Google Analytics Configuration (replace G-XXXXXXXXXX with your GA4 ID)
-            // gtag('config', 'G-XXXXXXXXXX', {
-            //   page_path: window.location.pathname,
-            // });
-          `}
-        </Script>
-        
-        {/* Google Ads Conversion Reporting Function - Available in header for button/link clicks */}
-        <Script id="google-ads-gtag-report-conversion" strategy="afterInteractive">
-          {`
-            function gtag_report_conversion(url) {
-              var callback = function () {
-                if (typeof(url) != 'undefined') {
-                  window.location = url;
-                }
-              };
-              gtag('event', 'conversion', {
-                  'send_to': 'AW-10930874990/FaN3CIDFuM4bEO7Un9wo',
-                  'value': 1.0,
-                  'currency': 'INR',
-                  'event_callback': callback
-              });
-              return false;
-            }
-          `}
-        </Script>
         
         {/* Structured Data - Inline for SEO */}
         <script
@@ -248,22 +222,25 @@ export default function RootLayout({
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PJVS9KPR"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+        {/* End Google Tag Manager (noscript) */}
         
         <Header />
         <main>{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <ScrollBasedLeadCapture />
+        <SingleSeaterPromoPopup />
       </body>
     </html>
   );

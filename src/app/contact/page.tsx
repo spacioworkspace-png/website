@@ -26,15 +26,6 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen">
-      <Script id="google-ads-contact-conversion" strategy="afterInteractive">
-        {`
-          gtag('event', 'conversion', {
-            'send_to': 'AW-10930874990/GOriCN7cj8gbEO7Un9wo',
-            'value': 1.0,
-            'currency': 'INR'
-          });
-        `}
-      </Script>
       {/* Hero Section */}
       <section className="relative mx-auto max-w-7xl px-4 py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 gradient-mesh opacity-30" />

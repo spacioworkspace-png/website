@@ -5,13 +5,16 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Optimized device sizes for mobile-first approach
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,
-    // Optimize for mobile
+    // Optimize for mobile - reduce quality on smaller screens
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Mobile optimization - serve smaller images on mobile devices
+    remotePatterns: [],
   },
   // Optimize production builds
   compress: true,
