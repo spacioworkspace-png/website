@@ -13,23 +13,23 @@ const workspace = [
 export function Footer() {
   return (
     <footer className="border-t bg-gradient-to-b from-neutral-50 to-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 text-sm">
-        <div className="grid gap-12 md:grid-cols-4 mb-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-12 md:py-16 text-sm">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 md:grid-cols-4 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Section */}
           <div className="md:col-span-1">
-            <div className="text-2xl font-bold text-neutral-900 mb-4">Spacio Workspace</div>
-            <p className="text-neutral-700 leading-relaxed mb-4">
+            <div className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">Spacio Workspace</div>
+            <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 sm:mb-6">
               Bangalore's #1 premium coworking space for Gen Z entrepreneurs, startups, and freelancers. 
               Private cabins, dedicated desks, meeting rooms, and virtual offices in Basavanagudi & Jayanagar.
             </p>
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-3 mt-4 sm:mt-6">
               <a 
                 href="https://wa.me/917022780310" 
-                className="rounded-xl bg-primary px-5 py-2.5 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
+                className="rounded-xl bg-primary px-4 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-xs sm:text-sm hover:bg-primary/90 active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
                 aria-label="WhatsApp"
               >
                 WhatsApp
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
             </div>
           </div>
@@ -121,9 +121,9 @@ export function Footer() {
                   hello@spacioworkspace.com
                 </a>
               </li>
-              <li className="mt-4">
+              <li className="mt-4 sm:mt-6">
                 <a 
-                  className="inline-block rounded-xl border-2 border-primary px-5 py-2.5 font-semibold hover:bg-primary hover:text-white transition-all duration-300" 
+                  className="inline-block rounded-xl border-2 border-primary px-4 sm:px-5 py-2.5 sm:py-3 font-bold text-xs sm:text-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 touch-manipulation min-h-[44px] flex items-center justify-center" 
                   href="https://wa.me/917022780310?text=Hi! I'd like to know more about Spacio Workspace"
                 >
                   Get in Touch

@@ -55,12 +55,12 @@ export default function Home() {
 
   return (
     <div className="bg-white overflow-hidden">
-      {/* Rotating Hero Sections with Carousel - Full Size */}
-      <section id="hero" className="relative w-full scroll-mt-16 overflow-hidden min-h-[80vh] md:min-h-screen flex items-center basavanagudi-heritage">
+      {/* Rotating Hero Sections with Carousel - Optimized for All Devices */}
+      <section id="hero" className="relative w-full scroll-mt-16 overflow-hidden min-h-[90vh] sm:min-h-[92vh] md:min-h-[95vh] lg:min-h-screen flex items-center basavanagudi-heritage">
         {/* Full-size animated background with Peacock & Basavanagudi elements */}
-        <div className="absolute inset-0 gradient-mesh opacity-40 md:opacity-60" />
+        <div className="absolute inset-0 gradient-mesh opacity-25 sm:opacity-35 md:opacity-50 lg:opacity-60" />
         <div className="absolute inset-0 basavanagudi-gradient" />
-        <div className="absolute inset-0 peacock-pattern opacity-10 md:opacity-30" />
+        <div className="absolute inset-0 peacock-pattern opacity-3 sm:opacity-5 md:opacity-10 lg:opacity-30" />
         <motion.div 
           className="hidden md:block absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
           animate={{ 
@@ -88,15 +88,15 @@ export default function Home() {
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
         />
         
-        <div className="relative mx-auto max-w-7xl w-full px-4 pt-24 pb-16 md:py-32 grid gap-10 md:gap-12 md:grid-cols-2 md:items-center z-10">
-          {/* Logo Placeholder */}
-          <div className="absolute top-4 left-4 z-20">
+        <div className="relative mx-auto max-w-7xl w-full px-4 sm:px-5 md:px-6 lg:px-8 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-10 sm:pb-12 md:pb-16 lg:py-32 grid gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 md:grid-cols-2 md:items-center z-10">
+          {/* Logo Placeholder - Hidden on mobile */}
+          <div className="hidden lg:block absolute top-4 left-4 z-20">
             <div className="w-32 h-12 bg-primary/10 rounded-lg flex items-center justify-center border-2 border-primary/20">
               <span className="text-primary font-bold text-lg">SPACIO WORKSPACE</span>
             </div>
           </div>
 
-          <div className="relative h-full min-h-[500px]">
+          <div className="relative h-full min-h-[380px] xs:min-h-[420px] sm:min-h-[480px] md:min-h-[520px] lg:min-h-[580px]">
             <AnimatePresence mode="wait">
               {heroSections.map((hero, index) => (
                 index === currentHero && (
@@ -113,100 +113,101 @@ export default function Home() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                      <span className="badge-premium inline-flex items-center gap-2 animate-pulse-glow">
-                        <Sparkles className="w-3 h-3" />
-                        {hero.badge}
+                      <span className="badge-premium inline-flex items-center gap-1.5 sm:gap-2 text-[10px] xs:text-xs sm:text-sm animate-pulse-glow">
+                        <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                        <span className="whitespace-nowrap">{hero.badge}</span>
                       </span>
                     </motion.div>
                     
                     <motion.h1 
-                      className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                      className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight leading-[1.1] sm:leading-[1.15] md:leading-tight"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.8 }}
                     >
-                      <span className="text-gradient peacock-text">{hero.title}</span>
-                      <br />
-                      <span className="text-neutral-900">{hero.subtitle}</span>
+                      <span className="text-gradient peacock-text block">{hero.title}</span>
+                      <span className="text-neutral-900 block mt-1 xs:mt-1.5 sm:mt-2">{hero.subtitle}</span>
                     </motion.h1>
                     
                     <motion.p 
-                      className="mt-6 text-base sm:text-lg md:text-xl text-neutral-700 leading-relaxed"
+                      className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-neutral-700 leading-relaxed sm:leading-relaxed"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4, duration: 0.8 }}
                     >
                       {hero.description}
-                      <span className="text-primary font-semibold block mt-2 heartbeat"> {hero.tagline}</span>
+                      <span className="text-primary font-semibold block mt-2 xs:mt-2.5 sm:mt-3 md:mt-4 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl heartbeat"> {hero.tagline}</span>
                     </motion.p>
 
                     {/* Premium Stats Bar */}
                     <motion.div 
-                      className="mt-8 flex flex-wrap gap-6 text-sm"
+                      className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 flex flex-wrap gap-3 xs:gap-4 sm:gap-5 md:gap-6 text-[10px] xs:text-xs sm:text-sm md:text-base"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     >
-                      <div className="flex items-center gap-2">
-                        <Star className="w-4 h-4 text-primary fill-primary" />
-                        <span className="font-semibold">4.8/5 Rating</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Star className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary fill-primary flex-shrink-0" />
+                        <span className="font-semibold whitespace-nowrap">4.8/5 Rating</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-primary" />
-                        <span className="font-semibold">500+ Members</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Users className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold whitespace-nowrap">500+ Members</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        <span className="font-semibold">2 Locations</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <MapPin className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold whitespace-nowrap">2 Locations</span>
                       </div>
                     </motion.div>
 
-                    {/* Multiple Premium CTAs with Peacock Elements */}
+                    {/* Multiple Premium CTAs with Peacock Elements - Optimized for All Devices */}
                     <motion.div 
-                      className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+                      className="mt-5 xs:mt-6 sm:mt-7 md:mt-8 lg:mt-10 flex flex-col gap-2.5 xs:gap-3 sm:gap-3.5 md:gap-4"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6, duration: 0.8 }}
                     >
                       <a 
                         href="https://wa.me/917022780310?text=Hi! I want to book a FREE tour of Spacio Workspace in Basavanagudi, near Bull Temple, Bangalore #SpacioWorkspace #BookTour #CoworkingBangalore #Basavanagudi #FindYourTrueSpace #NammaBasavanagudi" 
-                        className="btn-premium group relative rounded-xl bg-primary px-6 sm:px-8 py-3 sm:py-4 text-white font-semibold text-sm sm:text-base shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 pulse-glow-peacock"
+                        className="btn-premium group relative rounded-xl bg-primary px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8 py-3 xs:py-3.5 sm:py-4 md:py-4.5 text-white font-bold text-xs xs:text-sm sm:text-base md:text-lg shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 pulse-glow-peacock touch-manipulation min-h-[48px] xs:min-h-[52px] sm:min-h-[56px] md:min-h-[60px]"
                       >
-                        <span>Book a Free Tour in Basavanagudi</span>
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                        <span className="text-center">Book a Free Tour</span>
+                        <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                       </a>
-                      <a 
-                        href="https://wa.me/917022780310?text=I'd like pricing details for Spacio coworking space in Basavanagudi, near Bull Temple, Bangalore #SpacioPricing #CoworkingSpace #Bangalore #Basavanagudi #SouthBangalore" 
-                        className="rounded-xl bg-orange-500 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-white shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-                      >
-                        Get Pricing
-                      </a>
-                      <a 
-                        href="tel:+917022780310" 
-                        className="rounded-xl bg-orange-500/90 px-6 sm:px-8 py-3 sm:py-4 font-semibold text-sm sm:text-base text-white shadow-lg hover:bg-orange-600 transition-all duration-300 hover:scale-105 flex items-center justify-center"
-                      >
-                        Call Now
-                      </a>
+                      <div className="grid grid-cols-2 gap-2.5 xs:gap-3 sm:gap-3.5 md:gap-4">
+                        <a 
+                          href="https://wa.me/917022780310?text=I'd like pricing details for Spacio coworking space in Basavanagudi, near Bull Temple, Bangalore #SpacioPricing #CoworkingSpace #Bangalore #Basavanagudi #SouthBangalore" 
+                          className="rounded-xl bg-orange-500 px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 font-bold text-[10px] xs:text-xs sm:text-sm md:text-base text-white shadow-lg hover:bg-orange-600 active:scale-95 transition-all duration-300 flex items-center justify-center touch-manipulation min-h-[44px] xs:min-h-[48px] sm:min-h-[52px] md:min-h-[56px]"
+                        >
+                          Get Pricing
+                        </a>
+                        <a 
+                          href="tel:+917022780310" 
+                          className="rounded-xl bg-orange-500/90 px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 py-2.5 xs:py-3 sm:py-3.5 md:py-4 font-bold text-[10px] xs:text-xs sm:text-sm md:text-base text-white shadow-lg hover:bg-orange-600 active:scale-95 transition-all duration-300 flex items-center justify-center touch-manipulation min-h-[44px] xs:min-h-[48px] sm:min-h-[52px] md:min-h-[56px]"
+                        >
+                          Call Now
+                        </a>
+                      </div>
                     </motion.div>
 
-                    {/* Trust Indicators */}
+                    {/* Trust Indicators - Optimized for All Devices */}
                     <motion.div 
-                      className="mt-8 flex flex-wrap gap-4 text-xs text-neutral-600"
+                      className="mt-4 xs:mt-5 sm:mt-6 md:mt-8 flex flex-col xs:flex-row xs:flex-wrap gap-2.5 xs:gap-3 sm:gap-3.5 md:gap-4 text-[10px] xs:text-xs sm:text-sm md:text-base text-neutral-600"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.8, duration: 0.8 }}
                     >
-                      <div className="flex items-center gap-2">
-                        <Shield className="w-4 h-4 text-primary" />
-                        <span>24/7 secure access in Basavanagudi</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Shield className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="whitespace-nowrap">24/7 secure access</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Wifi className="w-4 h-4 text-primary" />
-                        <span>Lightning-fast WiFi for startups</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Wifi className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="whitespace-nowrap">Lightning-fast WiFi</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-primary" />
-                        <span>Flexible hours for hybrid teams</span>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Clock className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="whitespace-nowrap">Flexible hours</span>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -214,14 +215,16 @@ export default function Home() {
               ))}
             </AnimatePresence>
 
-            {/* Hero Navigation Dots */}
-            <div className="absolute bottom-0 left-0 flex gap-2 mt-8">
+            {/* Hero Navigation Dots - Optimized for All Devices */}
+            <div className="absolute bottom-0 left-0 flex gap-1.5 xs:gap-2 sm:gap-2.5 mt-6 xs:mt-7 sm:mt-8">
               {heroSections.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentHero(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentHero ? 'bg-primary w-8' : 'bg-neutral-300 hover:bg-primary/50'
+                  className={`h-1.5 xs:h-2 sm:h-2.5 rounded-full transition-all duration-300 touch-manipulation ${
+                    index === currentHero 
+                      ? 'bg-primary w-6 xs:w-7 sm:w-8 md:w-10' 
+                      : 'bg-neutral-300 hover:bg-primary/50 w-1.5 xs:w-2 sm:w-2.5'
                   }`}
                   aria-label={`Go to hero section ${index + 1}`}
                 />
@@ -230,7 +233,7 @@ export default function Home() {
           </div>
 
           <motion.div 
-            className="relative"
+            className="relative mt-6 xs:mt-8 sm:mt-10 md:mt-0"
             initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -244,7 +247,7 @@ export default function Home() {
                     animate={{ opacity: 1, scale: 1, rotate: 0 }}
                     exit={{ opacity: 0, scale: 0.8, rotate: -10 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-neutral-50 ring-2 ring-primary/20 shadow-2xl relative overflow-hidden"
+                    className="aspect-video w-full rounded-xl xs:rounded-2xl bg-gradient-to-br from-primary/20 via-primary/10 to-neutral-50 ring-2 ring-primary/20 shadow-xl sm:shadow-2xl relative overflow-hidden"
                     style={{ y: y1 }}
                   >
                     {index === 0 && (
@@ -280,14 +283,14 @@ export default function Home() {
                         sizes="100vw"
                       />
                     )}
-                    {/* Floating elements - reduced animation complexity for performance */}
+                    {/* Floating elements - reduced animation complexity for performance, hidden on mobile */}
                     <motion.div 
-                      className="absolute top-10 right-10 w-20 h-20 bg-primary/20 rounded-xl blur-sm will-change-transform"
+                      className="hidden sm:block absolute top-6 right-6 sm:top-8 sm:right-8 md:top-10 md:right-10 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary/20 rounded-xl blur-sm will-change-transform"
                       animate={{ y: [0, -15, 0] }}
                       transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
                     />
                     <motion.div 
-                      className="absolute bottom-10 left-10 w-16 h-16 bg-primary/15 rounded-full blur-sm will-change-transform"
+                      className="hidden sm:block absolute bottom-6 left-6 sm:bottom-8 sm:left-8 md:bottom-10 md:left-10 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-primary/15 rounded-full blur-sm will-change-transform"
                       animate={{ y: [0, 15, 0] }}
                       transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     />
@@ -300,19 +303,19 @@ export default function Home() {
       </section>
 
       {/* Choose Your Perfect Workspace - Premium Cards (moved right after Hero) */}
-      <section id="workspaces" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20 bg-gradient-to-b from-white to-neutral-50/50">
+      <section id="workspaces" className="mx-auto max-w-7xl scroll-mt-16 px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-neutral-50/50">
         <motion.div 
-          className="mb-12 text-center"
+          className="mb-8 sm:mb-10 md:mb-12 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="badge-premium mb-4 inline-block pulse-glow-peacock">Your Perfect Workspace in Bangalore</span>
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+          <span className="badge-premium mb-3 sm:mb-4 inline-block pulse-glow-peacock text-xs sm:text-sm">Your Perfect Workspace in Bangalore</span>
+          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight px-2">
             <span className="text-gradient peacock-text heartbeat">Choose Your</span> Perfect Workspace
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed px-2">
             <strong className="text-primary">Every entrepreneur deserves a space that fuels their passion.</strong> From solo cabins to team spaces, 
             we offer private offices, day passes, and dedicated desks for Gen Z entrepreneurs, startups, and freelancers across Basavanagudi and Jayanagar. 
             <span className="block mt-2">Flexible options that match your vibe, your energy, and your ambition. 
@@ -320,7 +323,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
               badge: "#1 Most Popular",
@@ -513,23 +516,23 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2.5 sm:gap-3">
                 <a
                   href={`https://wa.me/917022780310?text=${encodeURIComponent(`I'm interested in ${card.title} at Spacio Workspace in Basavanagudi, Bangalore #SpacioWorkspace #CoworkingBangalore #Basavanagudi #FindYourTrueSpace`)}`}
-                  className="btn-premium rounded-xl bg-primary px-4 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
+                  className="btn-premium rounded-xl bg-primary px-4 sm:px-5 py-3.5 sm:py-4 text-white font-bold text-sm sm:text-base text-center hover:bg-primary/90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 touch-manipulation min-h-[52px] sm:min-h-[56px]"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  {card.cta} via WhatsApp
-                  <ArrowRight className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+                  <span className="flex-1">{card.cta}</span>
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 </a>
                 <a 
                   href={`https://wa.me/917022780310?text=${encodeURIComponent(`I need pricing for ${card.title} at Spacio Basavanagudi #SpacioPricing #CoworkingSpace #Bangalore`)}`}
-                  className="rounded-xl border border-primary/30 px-4 py-2 text-sm text-center hover:border-primary hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-1"
+                  className="rounded-xl border-2 border-primary/30 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-center hover:border-primary hover:bg-primary/5 active:scale-95 transition-all duration-300 flex items-center justify-center gap-1.5 touch-manipulation min-h-[44px]"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <MessageCircle className="w-3 h-3" />
-                  Get Pricing on WhatsApp
+                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                  <span>Get Pricing</span>
                 </a>
               </div>
             </motion.div>
@@ -538,40 +541,40 @@ export default function Home() {
 
         {/* Custom Workspace CTA */}
         <motion.div 
-          className="mt-12 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-white p-8 text-center border-2 border-primary/20"
+          className="mt-8 sm:mt-10 md:mt-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-white p-6 sm:p-8 text-center border-2 border-primary/20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900 mb-2 sm:mb-3">
             <span className="text-gradient peacock-text">Dreaming of a Custom Workspace?</span>
           </h3>
-          <p className="text-base sm:text-lg text-neutral-700 mb-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-neutral-700 mb-4 sm:mb-6 max-w-2xl mx-auto leading-relaxed px-2">
             <strong className="text-primary">Your vision deserves the perfect space.</strong> We offer tailored plans and long-term bookings for teams of all sizes. 
             <span className="block mt-2">Let's design the perfect workspace for your startup in Namma Basavanagudi - 
             <strong className="text-primary"> where your ideas take shape inside a premium Bangalore coworking space.</strong></span>
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
             <a 
               href="tel:+917022780310" 
-              className="rounded-xl border-2 border-primary px-6 py-3 font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+              className="rounded-xl border-2 border-primary px-5 sm:px-6 py-3 sm:py-4 font-bold text-sm sm:text-base hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 touch-manipulation min-h-[52px] sm:min-h-[56px] flex items-center justify-center"
             >
               Call for Custom Plans
             </a>
             <a 
               href="https://wa.me/917022780310?text=I'd like to schedule a cabin tour at Spacio Workspace Bangalore" 
-              className="btn-premium rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center gap-2"
+              className="btn-premium rounded-xl bg-primary px-5 sm:px-6 py-3 sm:py-4 text-white font-bold text-sm sm:text-base hover:bg-primary/90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation min-h-[52px] sm:min-h-[56px]"
             >
               Schedule Cabin Tour
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             </a>
           </div>
         </motion.div>
       </section>
 
       {/* What Makes Us Special - FOMO Section with Peacock & Basavanagudi Elements */}
-      <section className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden basavanagudi-heritage">
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-20 overflow-hidden basavanagudi-heritage">
         <div className="absolute inset-0 basavanagudi-gradient" />
         <div className="absolute inset-0 peacock-pattern opacity-20" />
         <motion.div 
@@ -581,17 +584,17 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="text-center mb-12">
-            <span className="badge-premium mb-4 inline-block">Why Spacio?</span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mt-4">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="badge-premium mb-3 sm:mb-4 inline-block text-xs sm:text-sm">Why Spacio?</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mt-3 sm:mt-4 px-2">
               <span className="text-gradient peacock-text">What Makes Us</span> Special
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-2xl mx-auto">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl mx-auto px-2">
               <strong className="text-primary">Namma Basavanagudi</strong> is where heritage meets innovation. Spacio is Namma Bengaluru's most trusted coworking space for founders who want credibility, heart, and high performance in one address.
             </p>
             </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
             {[
               {
                 icon: Award,
@@ -639,7 +642,7 @@ export default function Home() {
 
           {/* FOMO Banner */}
           <motion.div
-            className="rounded-2xl bg-gradient-to-r from-primary via-primary/90 to-primary/80 p-8 md:p-12 text-white relative overflow-hidden"
+            className="rounded-xl sm:rounded-2xl bg-gradient-to-r from-primary via-primary/90 to-primary/80 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -647,49 +650,49 @@ export default function Home() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
             <div className="relative z-10">
-              <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6">
+              <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 sm:gap-6">
                 <div className="w-full">
                   <motion.div
-                    className="flex items-center gap-2 mb-4"
+                    className="flex items-center gap-2 mb-3 sm:mb-4"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <AlertCircle className="w-6 h-6" />
-                    <span className="font-bold text-lg">Limited Spaces Available!</span>
+                    <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                    <span className="font-bold text-base sm:text-lg">Limited Spaces Available!</span>
                   </motion.div>
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3">
                     <span className="heartbeat">Don't Let Your Dreams Wait - Join 500+ Members Now!</span>
                   </h3>
-                  <p className="text-white/90 text-base sm:text-lg mb-4 leading-relaxed">
+                  <p className="text-white/90 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed">
                     <strong>Only 12 spots left this month!</strong> Every day you wait is a day your dreams wait. 
                     Don't miss out on Bangalore's #1 coworking experience where <strong>passion meets purpose</strong> and 
                     <strong> ambition meets opportunity</strong>. 
                     <span className="block mt-2">Your future self will thank you for locking in a premium seat at Basavanagudi's most credible coworking space.</span>
                   </p>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 mb-4 sm:mb-0">
                     <FOMOCountdown />
                   </div>
                 </div>
                 <motion.a
                   href="https://wa.me/917022780310?text=I want to secure my spot at Spacio Workspace!"
-                  className="btn-premium rounded-xl bg-white text-primary px-8 py-4 font-bold text-lg hover:bg-white/90 transition-all duration-300 flex items-center gap-2 shadow-xl hover:scale-105 whitespace-nowrap w-full md:w-auto md:self-start"
+                  className="btn-premium rounded-xl bg-white text-primary px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-base sm:text-lg hover:bg-white/90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:scale-105 w-full md:w-auto md:self-start touch-manipulation min-h-[52px] sm:min-h-[56px]"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >Secure Your Spot
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 </motion.a>
               </div>
-              <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/80">
+              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-white/80">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                   <span>Free tour available today</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                   <span>Move-in within 24 hours</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                   <span>No long-term commitment</span>
                 </div>
               </div>
@@ -699,9 +702,9 @@ export default function Home() {
       </section>
 
       {/* Premium Contact CTA */}
-      <section id="contact" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
+      <section id="contact" className="mx-auto max-w-7xl scroll-mt-16 px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <motion.div 
-          className="rounded-3xl bg-gradient-to-br from-primary via-primary/90 to-primary/80 p-12 text-center text-white shadow-2xl relative overflow-hidden"
+          className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary via-primary/90 to-primary/80 p-6 sm:p-8 md:p-12 text-center text-white shadow-2xl relative overflow-hidden"
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
@@ -713,7 +716,7 @@ export default function Home() {
           
           <div className="relative z-10">
             <motion.h2 
-              className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4 px-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -722,7 +725,7 @@ export default function Home() {
               <span className="heartbeat">Ready to Transform Your Work Life?</span>
             </motion.h2>
             <motion.p 
-              className="mt-4 text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed"
+              className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed px-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -733,7 +736,7 @@ export default function Home() {
               <span className="block mt-2">This isn't just a coworking space - <strong>it's where dreams become reality inside Bangalore's most heartfelt workspace.</strong></span>
             </motion.p>
             <motion.div 
-              className="mt-10 flex flex-wrap justify-center gap-4"
+              className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -741,30 +744,30 @@ export default function Home() {
             >
               <a 
                 href="/contact" 
-                className="rounded-xl bg-white text-primary px-8 py-4 font-bold text-lg hover:bg-white/90 transition-all duration-300 hover:scale-105 shadow-xl flex items-center gap-2"
+                className="rounded-xl bg-white text-primary px-5 sm:px-6 md:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base md:text-lg hover:bg-white/90 active:scale-95 transition-all duration-300 hover:scale-105 shadow-xl flex items-center justify-center gap-2 touch-manipulation min-h-[52px] sm:min-h-[56px]"
               >
                 Contact Us
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </a>
               <a 
                 href="https://wa.me/917022780310?text=Hi! I'd like to book a free tour at Spacio Workspace Bangalore" 
-                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 font-bold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-5 sm:px-6 md:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base md:text-lg hover:bg-white/20 active:scale-95 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 touch-manipulation min-h-[52px] sm:min-h-[56px]"
               >
                 WhatsApp Us
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </a>
               <a 
                 href="https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 font-bold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105 flex items-center gap-2"
+                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-5 sm:px-6 md:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base md:text-lg hover:bg-white/20 active:scale-95 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 touch-manipulation min-h-[52px] sm:min-h-[56px]"
               >
                 Google Maps
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </a>
               <a 
                 href="tel:+917022780310" 
-                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-8 py-4 font-bold text-lg hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                className="rounded-xl border-2 border-white/30 bg-white/10 backdrop-blur-sm px-5 sm:px-6 md:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base md:text-lg hover:bg-white/20 active:scale-95 transition-all duration-300 hover:scale-105 touch-manipulation min-h-[52px] sm:min-h-[56px] flex items-center justify-center"
               >
                 Call +91 70227 80310
               </a>
