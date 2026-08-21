@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Spacio Workspace - Premium Coworking Space in Bangalore",
-  description: "Privacy policy for Spacio Workspace. Learn how we collect, use, and protect your personal information at Bangalore's premium coworking space.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Privacy Policy | Spacio Workspace",
+  description: "How Spacio Workspace collects, uses and protects personal information.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

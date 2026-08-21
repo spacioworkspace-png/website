@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms and Conditions | Spacio Workspace - Premium Coworking Space in Bangalore",
-  description: "Terms and conditions for Spacio Workspace, Bangalore's premium coworking space. Read our terms of service for private cabins, dedicated desks, and meeting rooms.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Terms and Conditions | Spacio Workspace",
+  description: "Terms of service for coworking memberships at Spacio Workspace, Basavanagudi.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

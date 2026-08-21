@@ -22,7 +22,7 @@ export function PricingBangalore() {
     },
     {
       name: "Dedicated Desk",
-      price: "₹2,999",
+      price: "₹3,499",
       period: "per month",
       badge: "Most Popular",
       icon: Building2,
@@ -40,7 +40,7 @@ export function PricingBangalore() {
     },
     {
       name: "Solo Cabin",
-      price: "₹5,999",
+      price: "₹8,499",
       period: "per month",
       badge: "Private & Quiet",
       icon: Zap,
@@ -58,7 +58,7 @@ export function PricingBangalore() {
     },
     {
       name: "3-Seater Cabin",
-      price: "₹10,999",
+      price: "₹14,999",
       period: "per month",
       badge: "Great for Teams",
       icon: Users,
@@ -76,7 +76,7 @@ export function PricingBangalore() {
     },
     {
       name: "6-Seater Cabin",
-      price: "₹18,999",
+      price: "₹24,999",
       period: "per month",
       badge: "Great Value",
       icon: Users,
@@ -94,8 +94,8 @@ export function PricingBangalore() {
     },
     {
       name: "Virtual Office",
-      price: "From ₹9,000",
-      period: "per month",
+      price: "₹12,999",
+      period: "per year",
       badge: "Professional",
       icon: Building2,
       features: [
@@ -126,11 +126,11 @@ export function PricingBangalore() {
             <span className="text-gradient">Simple, Honest</span> Pricing
           </h1>
           <p className="mt-6 text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto">
-            No hidden fees, no surprises. Premium coworking space in Bangalore at prices that make sense for Gen Z entrepreneurs.
+            No hidden fees. Premium coworking space in Basavanagudi, Bangalore — private cabins, dedicated desks, meeting rooms and virtual office plans.
           </p>
           <div className="mt-6 flex items-center justify-center gap-2 text-sm text-neutral-600">
             <Star className="w-4 h-4 text-primary fill-primary" />
-            <span>4.8/5 Rating | 500+ Happy Members</span>
+            <span>Premium coworking space in Basavanagudi, Bangalore</span>
           </div>
         </motion.div>
 

@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 
-// Fetch Google Reviews via Places API if env vars are set, otherwise return sample reviews
 export async function GET() {
   const key = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID; // e.g., ChIJ... from Google Maps Place Details
+  const placeId = process.env.GOOGLE_PLACE_ID;
 
   try {
     if (key && placeId) {
@@ -12,37 +11,22 @@ export async function GET() {
       url.searchParams.set("fields", "reviews,rating,user_ratings_total");
       url.searchParams.set("key", key);
 
-      const res = await fetch(url.toString());
+      const res = await fetch(url.toString(), { next: { revalidate: 3600 } });
       const data = await res.json();
-      const reviews = (data?.result?.reviews || []).map((r: any) => ({
+      const reviews = (data?.result?.reviews || []).map((r: { author_name: string; rating: number; text: string }) => ({
         author_name: r.author_name,
         rating: r.rating,
         text: r.text,
       }));
-      return NextResponse.json({ reviews });
+      return NextResponse.json({
+        reviews,
+        rating: data?.result?.rating ?? null,
+        total: data?.result?.user_ratings_total ?? null,
+      });
     }
-  } catch (e) {
-    // fall back to samples
+  } catch {
+    // No sample reviews. Empty list is honest.
   }
 
-  // Sample fallback content (replace once env vars provided)
-  return NextResponse.json({
-    reviews: [
-      {
-        author_name: "Arjun R.",
-        rating: 5,
-        text: "Best coworking space in Bangalore with fast Wi‑Fi and calm vibe. Our team loves the Basavanagudi location!",
-      },
-      {
-        author_name: "Priya S.",
-        rating: 5,
-        text: "Beautiful interiors, ergonomic chairs, and plenty of meeting rooms. Highly recommended!",
-      },
-      {
-        author_name: "Mukesh K.",
-        rating: 4,
-        text: "Great community and flexible plans. The dedicated desks are perfect for my workflow.",
-      },
-    ],
-  });
+  return NextResponse.json({ reviews: [], rating: null, total: null });
 }

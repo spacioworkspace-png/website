@@ -302,7 +302,7 @@ export default function GalleryPage() {
           </p>
           <p className="mb-4">
             Our <strong>coworking space gallery</strong> showcases the premium design, Vastu-compliant layouts, 
-            and modern infrastructure that makes Spacio Workspace the <strong>best coworking space in Bangalore</strong>. 
+            and modern infrastructure at our Basavanagudi coworking space. 
             From ergonomic furniture to high-speed WiFi infrastructure, see what makes our workspace special.
           </p>
           <p>

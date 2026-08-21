@@ -1,7 +1,7 @@
 {
-  "name": "Spacio Workspace - Premium Coworking Space in Bangalore",
+  "name": "Spacio Workspace - Premium Coworking Space in Basavanagudi, Bangalore",
   "short_name": "Spacio Workspace",
-  "description": "Bangalore's #1 premium coworking space for Gen Z entrepreneurs, startups, and freelancers in Basavanagudi and Jayanagar",
+  "description": "Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -21,7 +21,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "productivity", "lifestyle"],
+  "categories": ["business", "productivity"],
   "lang": "en-IN"
 }
 

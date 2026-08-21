@@ -23,27 +23,25 @@ export default function AboutPage() {
         >
           <div className="text-center mb-12">
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: "spring" }}
             >
-              <span className="text-gradient peacock-text heartbeat">Find Your</span>
+              <span className="text-neutral-900">Spacio Workspace,</span>
               <br />
-              <span className="text-neutral-900">True Space</span>
+              <span className="text-gradient peacock-text">Basavanagudi</span>
             </motion.h1>
             <motion.p
-              className="text-lg sm:text-xl md:text-2xl text-neutral-700 max-w-3xl mx-auto leading-relaxed"
+              className="text-lg sm:text-xl text-neutral-700 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <strong className="text-primary">At Spacio, we believe your workspace should reflect who you are and amplify what you do.</strong> 
-              In the heart of Namma Basavanagudi, we've created more than just a coworking space—we've built 
-              <strong> a sanctuary where productivity meets peace, where innovation meets inspiration, and where your dreams meet reality.</strong>
-              <span className="block mt-3 text-primary font-semibold text-xl">This is where you'll write the next chapter of your success story. 📖✨</span>
+              A coworking centre at No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004.
+              Private cabins, dedicated desks, meeting rooms and virtual office for professionals, startups and growing teams in South Bangalore.
             </motion.p>
           </div>
 
@@ -58,13 +56,13 @@ export default function AboutPage() {
               <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
                 <h2 className="text-2xl font-bold text-neutral-900 mb-4">Our Story</h2>
                 <p className="text-neutral-700 leading-relaxed mb-4">
-                  Born in Namma Bengaluru, Spacio was created by entrepreneurs who understood the struggle 
-                  of finding the perfect workspace. We've designed every corner with intention, following 
-                  Vastu principles to create spaces that don't just look good—they feel right.
+                  Spacio Workspace is an independently run coworking centre in historic Basavanagudi,
+                  near Bull Temple, Lalbagh and Gandhi Bazaar. The space sits in Sree Devi Complex on NAT Street
+                  and is built for people who want a South Bangalore office without a long lease in the CBD.
                 </p>
                 <p className="text-neutral-700 leading-relaxed">
-                  Located in historic Basavanagudi, near the iconic Bull Temple and Lalbagh, we're part 
-                  of Bangalore's rich cultural tapestry while embracing the future of work.
+                  We operate one coworking centre: Basavanagudi, South Bangalore.
+                  Visit, WhatsApp or call +91 70227 80310 to tour the cabins, desks and meeting rooms.
                 </p>
               </div>
 
@@ -108,7 +106,7 @@ export default function AboutPage() {
                   {[
                     "Vastu-compliant spaces for positive energy",
                     "Premium amenities without the premium price",
-                    "A community of 500+ ambitious professionals",
+                    "A workspace community of professionals and startups",
                     "24/7 access to fuel your hustle",
                     "Prime Basavanagudi location",
                   ].map((item, i) => (
@@ -140,15 +138,36 @@ export default function AboutPage() {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <a
-              href="https://wa.me/917022780310?text=I want to find my true space at Spacio Workspace in Basavanagudi #FindYourTrueSpace #SpacioWorkspace #CoworkingBangalore #Basavanagudi #NammaBengaluru #VastuCompliant"
+              href="https://wa.me/917022780310?text=I want to visit Spacio Workspace in Basavanagudi"
               className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
             >
               <MessageCircle className="w-5 h-5" />
-              Find Your True Space - WhatsApp Us
+              WhatsApp to book a tour
               <ArrowRight className="w-5 h-5" />
             </a>
           </motion.div>
         </motion.div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-16">
+        <h2 className="text-3xl font-bold text-neutral-900 mb-8 text-center">What the centre includes</h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {[
+            { title: "Basavanagudi location", desc: "NAT Street, near Bull Temple and Lalbagh, South Bangalore." },
+            { title: "1Gbps internet", desc: "Fibre connectivity for calls, code and file transfers." },
+            { title: "24/7 member access", desc: "Secure entry for cabin and desk members." },
+            { title: "Meeting rooms", desc: "4 to 12 seats with displays and video conferencing, from ₹399/hour." },
+            { title: "Private cabins", desc: "Solo, 3-seater and 6-seater enclosed offices." },
+            { title: "Dedicated desks", desc: "Assigned seat with locker, ₹3,499/month." },
+            { title: "Virtual office", desc: "GST and ROC address with mail handling, ₹12,999/year." },
+            { title: "Day pass", desc: "₹199 per day, 9 AM to 7 PM." },
+          ].map((item) => (
+            <div key={item.title} className="rounded-2xl border border-neutral-200 p-5">
+              <h3 className="font-bold text-neutral-900 mb-2">{item.title}</h3>
+              <p className="text-sm text-neutral-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Virtual Tour Video Section */}
@@ -264,7 +283,7 @@ export default function AboutPage() {
               { icon: MapPin, title: "🌳 Close to Lalbagh", desc: "Walking distance to Lalbagh Botanical Gardens - perfect for refreshing lunch breaks and nature walks that inspire innovation.", emoji: "🌳" },
               { icon: MapPin, title: "🏛️ Historic Basavanagudi", desc: "In the heart of Basavanagudi, surrounded by traditional South Indian culture, heritage, and the warmth of Namma Bengaluru.", emoji: "🏛️" },
               { icon: MapPin, title: "🚇 South Bangalore Hub", desc: "Well-connected to all major areas of Bangalore with excellent transport links. Easy access from anywhere in the city.", emoji: "🚇" },
-              { icon: MapPin, title: "🍛 Local Eateries", desc: "Surrounded by authentic South Indian restaurants serving the best dosas, idlis, and filter coffee - fuel for your entrepreneurial journey.", emoji: "🍛" },
+              { icon: MapPin, title: "Coworking in South Bangalore", desc: "A Basavanagudi workspace for professionals and teams who want private cabins or a dedicated desk without commuting to the CBD.", emoji: "💼" },
               { icon: MapPin, title: "🧘 Peaceful Neighborhood", desc: "Quiet, serene environment perfect for focused work. Escape the chaos, find your flow, and let your ideas flourish.", emoji: "🧘" },
             ].map((feature, i) => (
               <motion.div

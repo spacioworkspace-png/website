@@ -1,20 +1,13 @@
 import { Metadata } from "next";
 import { PricingBangalore } from "@/components/PricingBangalore";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pricing | Spacio Workspace - Affordable Coworking Space Bangalore | Basavanagudi & Jayanagar",
-  description: "Transparent pricing for premium coworking space in Bangalore. Private cabins, dedicated desks, meeting rooms starting from affordable rates. No hidden fees. Book your space today!",
-  keywords: [
-    "coworking space pricing Bangalore",
-    "affordable coworking space Basavanagudi",
-    "coworking space rates Jayanagar",
-    "private cabin price Bangalore",
-    "dedicated desk cost Bangalore",
-    "meeting room rental Bangalore",
-    "virtual office price Bangalore",
-    "cheap coworking space Bangalore",
-  ],
-};
+export const metadata: Metadata = pageMeta({
+  title: "Pricing | Spacio Workspace Basavanagudi",
+  description:
+    "Coworking prices in Basavanagudi: cabins, dedicated desks, meeting rooms and virtual office.",
+  path: "/pricing",
+});
 
 export default function PricingBangalorePage() {
   return <PricingBangalore />;

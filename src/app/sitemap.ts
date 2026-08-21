@@ -1,172 +1,37 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
+
+export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://spacioworkspace.com';
-  const currentDate = new Date();
+  const lastModified = new Date();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/workspaces`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/solo-cabin`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/three-seater-cabin`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/six-seater-cabin`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/dedicated-desks`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/day-pass`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/meeting-rooms`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/workspaces/virtual-office`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/features`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/pricing-bangalore`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/locations/basavanagudi`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/gallery`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/reviews`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/book-tour`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/tour`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/day-pass-bangalore`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/meeting-rooms-bangalore`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/private-cabins-bangalore`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/virtual-office-bangalore`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/refund`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+  const paths: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }[] = [
+    { path: "", changeFrequency: "weekly", priority: 1 },
+    { path: "/about", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/workspaces", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/solo-cabin", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/three-seater-cabin", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/six-seater-cabin", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/dedicated-desks", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/day-pass", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/meeting-rooms", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/workspaces/virtual-office", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/pricing", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/locations/basavanagudi", changeFrequency: "weekly", priority: 0.9 },
+    { path: "/gallery", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/reviews", changeFrequency: "weekly", priority: 0.7 },
+    { path: "/book-tour", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
+    { path: "/refund", changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  return paths.map(({ path, changeFrequency, priority }) => ({
+    url: path ? `${SITE_URL}${path}` : `${SITE_URL}/`,
+    lastModified,
+    changeFrequency,
+    priority,
+  }));
 }
-
-
-
-
-
-
-

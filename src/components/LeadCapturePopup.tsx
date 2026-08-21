@@ -31,27 +31,25 @@ export function LeadCapturePopup() {
     setLoading(true);
 
     try {
-      const SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxZ2APTaDWUMKy-pPrVf6GKS090aRVuwn39dxB0lxp9IMFtaZZiOtqc4OCnK86pF10X/exec";
-      
-      // Prepare payload matching the original format
       const payload = {
         name: formData.name,
         phone: formData.phone,
         email: formData.email || "",
+        source: "lead_popup",
         source_url: window.location.href,
         user_agent: navigator.userAgent,
         timestamp: new Date().toISOString()
       };
 
-      // Send as URL-encoded form data for compatibility with Apps Script
-      const body = new URLSearchParams(payload);
-
-      // Save to Google Sheets directly
-      await fetch(SHEETS_ENDPOINT, {
+      const response = await fetch("/api/leads", {
         method: "POST",
-        mode: "no-cors",
-        body: body,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      if (!response.ok) {
+        throw new Error("Lead API failed");
+      }
 
       // Also save locally as backup
       const key = "spacio_leads_local";

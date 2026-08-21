@@ -4,37 +4,45 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { name, email, phone, source, timestamp } = body;
+    const sheetsUrl = process.env.GOOGLE_SHEETS_WEB_APP_URL;
 
-    // Google Sheets Web App URL
-    const GOOGLE_SHEETS_WEB_APP_URL = process.env.GOOGLE_SHEETS_WEB_APP_URL || "https://script.google.com/macros/s/AKfycbxZ2APTaDWUMKy-pPrVf6GKS090aRVuwn39dxB0lxp9IMFtaZZiOtqc4OCnK86pF10X/exec";
+    if (!sheetsUrl) {
+      console.error("GOOGLE_SHEETS_WEB_APP_URL is not set");
+      return NextResponse.json(
+        { success: false, message: "Lead storage is not configured" },
+        { status: 503 }
+      );
+    }
 
-    // Prepare payload matching the original format
     const payload = {
       name: name || "",
       phone: phone || "",
       email: email || "",
+      source: source || "",
       source_url: body.source_url || request.headers.get("referer") || "",
       user_agent: body.user_agent || request.headers.get("user-agent") || "",
       timestamp: timestamp || new Date().toISOString(),
     };
 
-    // Send as URL-encoded form data for compatibility with Apps Script
     const formData = new URLSearchParams();
     Object.entries(payload).forEach(([key, value]) => {
       formData.append(key, String(value));
     });
 
-    // Send to Google Sheets (no-cors mode for Apps Script)
-    await fetch(GOOGLE_SHEETS_WEB_APP_URL, {
+    const sheetsResponse = await fetch(sheetsUrl, {
       method: "POST",
-      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: formData,
+      redirect: "follow",
     });
 
-    return NextResponse.json({ success: true, message: "Lead saved to Google Sheets" });
+    if (!sheetsResponse.ok) {
+      console.error("Google Sheets webhook status", sheetsResponse.status);
+    }
+
+    return NextResponse.json({ success: true, message: "Lead saved" });
   } catch (error) {
     console.error("Error saving lead:", error);
     return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 });
   }
 }
-

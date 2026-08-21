@@ -1,14 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Users, Shield, Wifi, MapPin } from "lucide-react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 export default function PrivateCabinsBangalore() {
   return (
-    <>
-      <Header />
-      <main className="pt-16">
+    <div className="bg-white min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-primary/5 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
@@ -133,9 +129,7 @@ export default function PrivateCabinsBangalore() {
             <ArrowRight className="w-5 h-5" />
           </a>
         </section>
-      </main>
-      <Footer />
-    </>
+    </div>
   );
 }
 

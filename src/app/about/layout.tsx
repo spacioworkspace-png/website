@@ -1,0 +1,12 @@
+import { pageMeta } from "@/lib/seo";
+
+export const metadata = pageMeta({
+  title: "About Spacio Workspace | Coworking in Basavanagudi, Bangalore",
+  description:
+    "Spacio Workspace is a premium coworking centre in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office for South Bangalore teams.",
+  path: "/about",
+});
+
+export default function AboutLayout({ children }: { children: React.ReactNode }) {
+  return children;
+}

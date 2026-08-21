@@ -2,12 +2,11 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Sparkles, Zap, Users, MapPin, Star, Clock, Wifi, Shield, Building2, Heart, Award, Rocket, Target, CheckCircle2, AlertCircle, MessageCircle } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Sparkles, Zap, MapPin, Clock, Wifi, Shield, Building2, Heart, Rocket, Target, CheckCircle2, MessageCircle } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
-import { FOMOCountdown } from "@/components/FOMOCountdown";
 
 export default function Home() {
-  const [activeLoc, setActiveLoc] = useState<"basavanagudi" | "jayanagar">("basavanagudi");
   const [currentHero, setCurrentHero] = useState(0);
   const [selectedWorkspace, setSelectedWorkspace] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,30 +16,30 @@ export default function Home() {
   
   const heroSections = [
     {
-      badge: "#1 Coworking in Bangalore",
-      title: "Work Where",
-      subtitle: "Gen Z Thrives",
+      badge: "Basavanagudi, Bangalore",
+      title: "Premium Coworking Space",
+      subtitle: "in Basavanagudi, Bangalore",
       description:
-        "Spacio Workspace is Namma Bengaluru's most vibrant coworking space in Basavanagudi and Jayanagar. We are built for Gen Z entrepreneurs, venture-backed startups, and ambitious freelancers who need private cabins, lightning-fast WiFi, 24/7 secure access, and an accountability-driven community.",
-      tagline: "Launch your Bengaluru startup story with India's most trusted coworking tribe.",
+        "Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.",
+      tagline: "Visit us at Sree Devi Complex, NAT Street, Basavanagudi.",
       icon: Rocket,
     },
     {
-      badge: "Premium Coworking Experience",
-      title: "Namma Bengaluru",
-      subtitle: "Namma Spacio",
+      badge: "South Bangalore",
+      title: "Premium Coworking Space",
+      subtitle: "in Basavanagudi, Bangalore",
       description:
-        "In the heart of Basavanagudi, near Bull Temple and Lalbagh, Spacio delivers a premium coworking experience for Bangalore's ambitious entrepreneurs. Experience the perfect blend of productivity, community, and modern amenities in South Bangalore's most credible neighborhood.",
-      tagline: "Where innovation, culture, and community thrive every single workday in South Bangalore.",
+        "Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.",
+      tagline: "Near Bull Temple and Lalbagh, with 1Gbps internet and 24/7 access.",
       icon: Heart,
     },
     {
-      badge: "Lightning-Fast Infrastructure",
-      title: "1Gbps Internet",
-      subtitle: "Zero Lag, Maximum Speed",
+      badge: "Flexible workspace",
+      title: "Premium Coworking Space",
+      subtitle: "in Basavanagudi, Bangalore",
       description:
-        "Stream, code, and collaborate without limits. Our enterprise-grade fiber internet keeps hybrid teams connected, productive, and client-ready at all times.",
-      tagline: "Work at the speed of thought with always-on tech support inside our Bangalore coworking space.",
+        "Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.",
+      tagline: "Book a free tour and see the space before you commit.",
       icon: Zap,
     },
   ];
@@ -113,21 +112,16 @@ export default function Home() {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                      <span className="badge-premium inline-flex items-center gap-1.5 sm:gap-2 text-[10px] xs:text-xs sm:text-sm animate-pulse-glow">
+                      <span className="badge-premium inline-flex items-center gap-1.5 sm:gap-2 text-[10px] xs:text-xs sm:text-sm">
                         <Sparkles className="w-2.5 h-2.5 xs:w-3 xs:h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                        <span className="whitespace-nowrap">{hero.badge}</span>
+                        <span className="whitespace-nowrap">Basavanagudi, Bangalore</span>
                       </span>
                     </motion.div>
                     
-                    <motion.h1 
-                      className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight leading-[1.1] sm:leading-[1.15] md:leading-tight"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3, duration: 0.8 }}
-                    >
-                      <span className="text-gradient peacock-text block">{hero.title}</span>
-                      <span className="text-neutral-900 block mt-1 xs:mt-1.5 sm:mt-2">{hero.subtitle}</span>
-                    </motion.h1>
+                    <h1 className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight leading-[1.1] sm:leading-[1.15] md:leading-tight">
+                      <span className="text-gradient peacock-text block">Premium Coworking Space</span>
+                      <span className="text-neutral-900 block mt-1 xs:mt-1.5 sm:mt-2">in Basavanagudi, Bangalore</span>
+                    </h1>
                     
                     <motion.p 
                       className="mt-3 xs:mt-4 sm:mt-5 md:mt-6 text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-neutral-700 leading-relaxed sm:leading-relaxed"
@@ -147,16 +141,16 @@ export default function Home() {
                       transition={{ delay: 0.5, duration: 0.8 }}
                     >
                       <div className="flex items-center gap-1.5 xs:gap-2">
-                        <Star className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary fill-primary flex-shrink-0" />
-                        <span className="font-semibold whitespace-nowrap">4.8/5 Rating</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 xs:gap-2">
-                        <Users className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold whitespace-nowrap">500+ Members</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 xs:gap-2">
                         <MapPin className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
-                        <span className="font-semibold whitespace-nowrap">2 Locations</span>
+                        <span className="font-semibold whitespace-nowrap">Basavanagudi</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Building2 className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold whitespace-nowrap">Private cabins</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 xs:gap-2">
+                        <Wifi className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-primary flex-shrink-0" />
+                        <span className="font-semibold whitespace-nowrap">1Gbps WiFi</span>
                       </div>
                     </motion.div>
 
@@ -316,18 +310,37 @@ export default function Home() {
             <span className="text-gradient peacock-text heartbeat">Choose Your</span> Perfect Workspace
           </h2>
           <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed px-2">
-            <strong className="text-primary">Every entrepreneur deserves a space that fuels their passion.</strong> From solo cabins to team spaces, 
-            we offer private offices, day passes, and dedicated desks for Gen Z entrepreneurs, startups, and freelancers across Basavanagudi and Jayanagar. 
-            <span className="block mt-2">Flexible options that match your vibe, your energy, and your ambition. 
-            <strong className="text-primary"> This is where your success story begins inside a credible coworking space in South Bangalore.</strong></span>
+            Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
           </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
+            {[
+              { href: "/workspaces", label: "all workspaces" },
+              { href: "/workspaces/solo-cabin", label: "private cabins" },
+              { href: "/workspaces/three-seater-cabin", label: "3-seater cabin" },
+              { href: "/workspaces/six-seater-cabin", label: "6-seater cabin" },
+              { href: "/workspaces/dedicated-desks", label: "dedicated desks" },
+              { href: "/workspaces/meeting-rooms", label: "meeting rooms" },
+              { href: "/workspaces/virtual-office", label: "virtual office" },
+              { href: "/workspaces/day-pass", label: "day pass" },
+              { href: "/locations/basavanagudi", label: "Basavanagudi" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-xs sm:text-sm font-medium text-neutral-700 hover:border-primary hover:text-primary transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </motion.div>
 
         <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[
             {
-              badge: "#1 Most Popular",
+              badge: "Private cabin",
               title: "Solo Cabin",
+              href: "/workspaces/solo-cabin",
               subtitle: "Perfect for Individual Focus",
               iconLabel: "Private Cabin Workspace",
               image: "/images/solo-cabin-workspace.jpg",
@@ -337,8 +350,8 @@ export default function Home() {
                 "/images/workspace-green-screens.jpg",
               ],
               videoUrl: "/solo-cabin-tour.mp4",
-              priceLabel: "Starts at ₹6,999/month",
-              pricing: "₹6,999/month",
+              priceLabel: "Starts at ₹8,499/month",
+              pricing: "₹8,499/month",
               features: [
                 "Private and quiet workspace",
                 "Ergonomic furniture",
@@ -351,6 +364,7 @@ export default function Home() {
             },
             {
               title: "3-Seater Cabin",
+              href: "/workspaces/three-seater-cabin",
               subtitle: "Ideal for Small Teams & Partners",
               iconLabel: "3-Seater Startup Hub",
               image: "/images/3-seater-cabin-orange-screens.jpg",
@@ -360,8 +374,8 @@ export default function Home() {
                 "/images/workspace-yellow-green-walls.jpg",
               ],
               videoUrl: "/three-seater-cabin-tour.mp4",
-              priceLabel: "Starts at ₹11,999/month",
-              pricing: "₹11,999/month",
+              priceLabel: "Starts at ₹14,999/month",
+              pricing: "₹14,999/month",
               features: [
                 "Space for 3 people",
                 "Collaborative workspace",
@@ -375,6 +389,7 @@ export default function Home() {
             {
               badge: "Great Value for Teams",
               title: "6-Seater Cabin",
+              href: "/workspaces/six-seater-cabin",
               subtitle: "Perfect for Small Teams & Brainstorming",
               iconLabel: "6-Seater Team Cabin",
               image: "/images/6-seater-cabin-workspace.jpg",
@@ -384,8 +399,8 @@ export default function Home() {
                 "/images/workspace-numbered-cabins.jpg",
               ],
               videoUrl: "/six-seater-cabin-tour.mp4",
-              priceLabel: "Starts at ₹17,999/month",
-              pricing: "₹17,999/month",
+              priceLabel: "Starts at ₹24,999/month",
+              pricing: "₹24,999/month",
               features: [
                 "Spacious for 6 people",
                 "Brainstorming space",
@@ -399,6 +414,7 @@ export default function Home() {
             {
               badge: "Professional Presence",
               title: "Virtual Office",
+              href: "/workspaces/virtual-office",
               subtitle: "Professional Business Address & Services",
               iconLabel: "Virtual Office Services",
               gallery: [
@@ -407,8 +423,8 @@ export default function Home() {
                 "/images/spacio-sign-green-wall.jpg",
               ],
               videoUrl: "/virtual-office-tour.mp4",
-              priceLabel: "Starts at ₹999/month",
-              pricing: "₹999/month",
+              priceLabel: "Starts at ₹12,999/year",
+              pricing: "₹12,999/year",
               features: [
                 "Premium business address in Bangalore",
                 "Mail handling & forwarding",
@@ -421,6 +437,7 @@ export default function Home() {
             },
             {
               title: "Dedicated Desks",
+              href: "/workspaces/dedicated-desks",
               subtitle: "Your Personal Workspace",
               iconLabel: "Dedicated Desk Plan",
               image: "/images/workspace-orange-screens.jpg",
@@ -430,8 +447,8 @@ export default function Home() {
                 "/images/workspace-numbered-cabins.jpg",
               ],
               videoUrl: "/dedicated-desks-tour.mp4",
-              priceLabel: "Starts at ₹2,999/month",
-              pricing: "₹2,999/month",
+              priceLabel: "Starts at ₹3,499/month",
+              pricing: "₹3,499/month",
               features: [
                 "Assigned desk space",
                 "Personal storage",
@@ -445,6 +462,7 @@ export default function Home() {
             {
               badge: "Premium Meeting Rooms",
               title: "Meeting Rooms",
+              href: "/workspaces/meeting-rooms",
               subtitle: "Professional Meeting Spaces",
               iconLabel: "Meeting Room Access",
               image: "/images/meeting-room-frosted-glass.jpg",
@@ -506,7 +524,15 @@ export default function Home() {
               {card.badge ? (
                 <span className="badge-premium mb-3 inline-block">{card.badge}</span>
               ) : null}
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">{card.title}</h3>
+              <h3 className="text-2xl font-bold text-neutral-900 mb-2">
+                <Link
+                  href={card.href}
+                  className="hover:text-primary transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {card.title}
+                </Link>
+              </h3>
               <p className="text-neutral-600">{card.subtitle}</p>
               <ul className="space-y-2 mb-6">
                 {card.features.map((f, idx) => (
@@ -526,6 +552,14 @@ export default function Home() {
                   <span className="flex-1">{card.cta}</span>
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                 </a>
+                <Link
+                  href={card.href}
+                  className="rounded-xl border-2 border-primary/30 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-center hover:border-primary hover:bg-primary/5 active:scale-95 transition-all duration-300 flex items-center justify-center gap-1.5 touch-manipulation min-h-[44px]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  View plan
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                </Link>
                 <a 
                   href={`https://wa.me/917022780310?text=${encodeURIComponent(`I need pricing for ${card.title} at Spacio Basavanagudi #SpacioPricing #CoworkingSpace #Bangalore`)}`}
                   className="rounded-xl border-2 border-primary/30 px-4 sm:px-5 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-center hover:border-primary hover:bg-primary/5 active:scale-95 transition-all duration-300 flex items-center justify-center gap-1.5 touch-manipulation min-h-[44px]"
@@ -573,7 +607,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* What Makes Us Special - FOMO Section with Peacock & Basavanagudi Elements */}
+      {/* What Makes Us Special */}
       <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-20 overflow-hidden basavanagudi-heritage">
         <div className="absolute inset-0 basavanagudi-gradient" />
         <div className="absolute inset-0 peacock-pattern opacity-20" />
@@ -590,23 +624,23 @@ export default function Home() {
               <span className="text-gradient peacock-text">What Makes Us</span> Special
             </h2>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-neutral-700 max-w-2xl mx-auto px-2">
-              <strong className="text-primary">Namma Basavanagudi</strong> is where heritage meets innovation. Spacio is Namma Bengaluru's most trusted coworking space for founders who want credibility, heart, and high performance in one address.
+              <strong className="text-primary">Namma Basavanagudi</strong> is a practical South Bangalore address for focused work. Spacio is a premium coworking space for professionals, startups and growing teams.
             </p>
             </div>
 
           <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12">
             {[
               {
-                icon: Award,
-                title: "Award-Winning Design",
-                description: "Recognized as Bangalore's best coworking space. Our zen-inspired design promotes productivity and creativity.",
-                highlight: "Awarded Best Coworking Space 2024",
+                icon: Building2,
+                title: "Calm, focused interiors",
+                description: "Private cabins and shared desks in a quiet Basavanagudi centre designed for day-to-day work, not a showroom.",
+                highlight: "Cabins, desks and meeting rooms",
               },
               {
                 icon: Target,
-                title: "Built for Gen Z",
-                description: "Designed by Gen Z, for Gen Z. We understand what modern entrepreneurs need to thrive in today's fast-paced world.",
-                highlight: "Gen Z Approved Experience",
+                title: "Built for working teams",
+                description: "Solo professionals, small startups and growing teams can pick a plan that matches how they actually work.",
+                highlight: "Flexible workspace plans",
               },
               {
                 icon: Zap,
@@ -639,65 +673,6 @@ export default function Home() {
           </motion.div>
             ))}
         </div>
-
-          {/* FOMO Banner */}
-          <motion.div
-            className="rounded-xl sm:rounded-2xl bg-gradient-to-r from-primary via-primary/90 to-primary/80 p-6 sm:p-8 md:p-12 text-white relative overflow-hidden"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-            <div className="relative z-10">
-              <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-4 sm:gap-6">
-                <div className="w-full">
-                  <motion.div
-                    className="flex items-center gap-2 mb-3 sm:mb-4"
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <AlertCircle className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-                    <span className="font-bold text-base sm:text-lg">Limited Spaces Available!</span>
-                  </motion.div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3">
-                    <span className="heartbeat">Don't Let Your Dreams Wait - Join 500+ Members Now!</span>
-                  </h3>
-                  <p className="text-white/90 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 leading-relaxed">
-                    <strong>Only 12 spots left this month!</strong> Every day you wait is a day your dreams wait. 
-                    Don't miss out on Bangalore's #1 coworking experience where <strong>passion meets purpose</strong> and 
-                    <strong> ambition meets opportunity</strong>. 
-                    <span className="block mt-2">Your future self will thank you for locking in a premium seat at Basavanagudi's most credible coworking space.</span>
-                  </p>
-                  <div className="flex items-center gap-2 mb-4 sm:mb-0">
-                    <FOMOCountdown />
-                  </div>
-                </div>
-                <motion.a
-                  href="https://wa.me/917022780310?text=I want to secure my spot at Spacio Workspace!"
-                  className="btn-premium rounded-xl bg-white text-primary px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-base sm:text-lg hover:bg-white/90 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl hover:scale-105 w-full md:w-auto md:self-start touch-manipulation min-h-[52px] sm:min-h-[56px]"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >Secure Your Spot
-                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-                </motion.a>
-              </div>
-              <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-white/80">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span>Free tour available today</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span>Move-in within 24 hours</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span>No long-term commitment</span>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </section>
 
@@ -731,9 +706,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <strong>Your journey to success starts with one decision.</strong> Book your free tour today and experience why 
-              <strong> 500+ passionate entrepreneurs</strong> chose Spacio as their workspace in Namma Basavanagudi. 
-              <span className="block mt-2">This isn't just a coworking space - <strong>it's where dreams become reality inside Bangalore's most heartfelt workspace.</strong></span>
+              Book a free tour of our Basavanagudi centre. Private cabins, dedicated desks, meeting rooms and virtual office plans are available for professionals, startups and growing teams in South Bangalore.
             </motion.p>
             <motion.div 
               className="mt-6 sm:mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4"
@@ -780,39 +753,34 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-4 pb-20 pt-10">
         <div className="prose prose-lg max-w-none text-center">
           <h2 className="text-2xl font-bold text-neutral-900 mb-6">
-            Spacio Workspace - Best Premium Coworking Space in Bangalore
+            Premium Coworking Space in Basavanagudi, Bangalore
           </h2>
           <div className="text-neutral-700 leading-relaxed space-y-4 text-left max-w-4xl mx-auto">
             <p>
-              <strong>Spacio Workspace</strong> is Bangalore's #1 premium coworking space, specifically designed for 
-              <strong> Gen Z entrepreneurs</strong>, <strong>startups</strong>, and <strong>freelancers</strong>. 
-              Located in prime areas of <strong>Basavanagudi</strong> and <strong>Jayanagar</strong> in South Bangalore, 
-              we offer the perfect blend of productivity, community, and modern amenities.
+              <strong>Spacio Workspace</strong> is a{" "}
+              <Link href="/locations/basavanagudi" className="text-primary font-semibold hover:underline">
+                premium coworking space in Basavanagudi, Bangalore
+              </Link>
+              .{" "}
+              <Link href="/workspaces/solo-cabin" className="text-primary hover:underline">Private cabins</Link>,{" "}
+              <Link href="/workspaces/dedicated-desks" className="text-primary hover:underline">dedicated desks</Link>,{" "}
+              <Link href="/workspaces/meeting-rooms" className="text-primary hover:underline">meeting rooms</Link> and{" "}
+              <Link href="/workspaces/virtual-office" className="text-primary hover:underline">virtual office</Link>{" "}
+              solutions for professionals, startups and growing teams in South Bangalore.
             </p>
             <p>
-              Whether you're looking for a <strong>private cabin</strong>, <strong>dedicated desk</strong>, 
-              <strong> meeting room</strong>, or <strong>virtual office</strong> in Bangalore, Spacio delivers. 
-              Our <strong>coworking space in Basavanagudi</strong> and <strong>coworking space in Jayanagar</strong> 
-              provide flexible workspace solutions for every need - from solo entrepreneurs to growing teams.
+              The centre is at No 7, Sree Devi Complex, NAT Street, Basavanagudi, near Bull Temple and Lalbagh.
+              Browse{" "}
+              <Link href="/workspaces" className="text-primary hover:underline">all workspaces</Link>, including a{" "}
+              <Link href="/workspaces/solo-cabin" className="text-primary hover:underline">solo cabin</Link>,{" "}
+              <Link href="/workspaces/three-seater-cabin" className="text-primary hover:underline">3-seater cabin</Link>,{" "}
+              <Link href="/workspaces/six-seater-cabin" className="text-primary hover:underline">6-seater cabin</Link>, a{" "}
+              <Link href="/workspaces/day-pass" className="text-primary hover:underline">day pass</Link>, or a virtual office address.
             </p>
             <p>
-              <strong>Why choose Spacio as your coworking space in Bangalore?</strong> We offer 
-              <strong> lightning-fast 1Gbps internet</strong>, <strong>24/7 secure access</strong>, 
-              <strong> premium amenities</strong> including meeting rooms with 
-              AV equipment, and a vibrant community of 500+ members. Our <strong>private cabins</strong> 
-              (solo, 3-seater, and 6-seater options) provide the perfect balance of privacy and collaboration.
-            </p>
-            <p>
-              Looking for the <strong>best shared office space in Bangalore</strong>? Spacio offers 
-              <strong> flexible workspace solutions</strong> with transparent pricing, no hidden fees, and 
-              month-to-month options. Our <strong>modern coworking space</strong> features ergonomic furniture, 
-              zen workspace design, calm and serene environment, and all the amenities you need to succeed.
-            </p>
-            <p>
-              <strong>Book your free tour</strong> today and experience why Spacio is the 
-              <strong> best coworking space near you in Bangalore</strong>. Perfect for tech startups, 
-              freelancers, entrepreneurs, and teams looking for a <strong>premium workspace</strong> that 
-              matches their vibe. Contact us via WhatsApp, call, or visit our locations in Basavanagudi and Jayanagar.
+              Amenities include 1Gbps internet, 24/7 access, and meeting rooms with AV equipment.
+              <Link href="/book-tour" className="text-primary font-semibold hover:underline"> Book a free tour</Link>,{" "}
+              <Link href="/contact" className="text-primary hover:underline">contact us</Link>, call, or WhatsApp to see the space.
             </p>
           </div>
         </div>

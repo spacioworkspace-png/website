@@ -33,7 +33,7 @@ export default function FeaturesPage() {
             },
             { 
               title: "Vibrant Basavanagudi Community", 
-              desc: "Connect with 500+ entrepreneurs, startups, and freelancers in Namma Bengaluru's most dynamic coworking space",
+              desc: "Work alongside professionals, startups, and freelancers at our Basavanagudi coworking space",
               icon: Users,
               color: "text-purple-500"
             },

@@ -218,7 +218,7 @@ export function SingleSeaterPromoPopup() {
                 <ul className="text-xs sm:text-sm text-neutral-700 space-y-1.5 sm:space-y-2">
                   <li className="flex items-start gap-2 sm:gap-2.5">
                     <span className="text-primary text-base sm:text-lg font-bold flex-shrink-0">✓</span>
-                    <span className="leading-relaxed">Starting at <strong className="text-primary font-extrabold">₹6,999/month</strong></span>
+                    <span className="leading-relaxed">Starting at <strong className="text-primary font-extrabold">₹8,499/month</strong></span>
                   </li>
                   <li className="flex items-start gap-2 sm:gap-2.5">
                     <span className="text-primary text-base sm:text-lg font-bold flex-shrink-0">✓</span>

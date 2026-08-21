@@ -1,14 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Clock, Wifi, MapPin } from "lucide-react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 
 export default function DayPassBangalore() {
   return (
-    <>
-      <Header />
-      <main className="pt-16">
+    <div className="bg-white min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-white to-primary/5 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
@@ -61,7 +57,7 @@ export default function DayPassBangalore() {
               { icon: Clock, title: "Business Hours Access", desc: "Access during business hours" },
               { icon: MapPin, title: "Prime Basavanagudi Location", desc: "Near Bull Temple & Lalbagh" },
               { icon: CheckCircle2, title: "All Amenities", desc: "Printing, meeting rooms, and more" },
-              { icon: MessageCircle, title: "Community Access", desc: "Connect with 500+ members" },
+              { icon: MessageCircle, title: "Community Access", desc: "Shared workspace in Basavanagudi" },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -96,9 +92,7 @@ export default function DayPassBangalore() {
             </a>
           </div>
         </section>
-      </main>
-      <Footer />
-    </>
+    </div>
   );
 }
 

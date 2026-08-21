@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle2, Star, Zap, Shield, Clock, Wifi, MapPin, Gift, AlertCircle } from "lucide-react";
-import { FOMOCountdown } from "@/components/FOMOCountdown";
+import { ArrowRight, MessageCircle, CheckCircle2, Star, Zap, Shield, Clock, Wifi, MapPin, Gift } from "lucide-react";
 export default function PricingPage() {
   const pricingPlans = [
     {
@@ -23,7 +22,7 @@ export default function PricingPage() {
     },
     {
       name: "Dedicated Desk",
-      price: "₹2,999",
+      price: "₹3,499",
       period: "per month",
       badge: "Most Popular",
       description: "Your personal small office space with all premium amenities",
@@ -42,7 +41,7 @@ export default function PricingPage() {
     },
     {
       name: "Solo Cabin",
-      price: "₹5,999",
+      price: "₹8,499",
       period: "per month",
       badge: "Private & Focused",
       description: "Small private office space perfect for individual focus, productivity, and video bachelors / creators",
@@ -61,7 +60,7 @@ export default function PricingPage() {
     },
     {
       name: "3-Seater Cabin",
-      price: "₹10,999",
+      price: "₹14,999",
       period: "per month",
       badge: "Team Favorite",
       description: "Perfect for small teams, partners, or collaborators",
@@ -80,7 +79,7 @@ export default function PricingPage() {
     },
     {
       name: "6-Seater Cabin",
-      price: "₹18,999",
+      price: "₹24,999",
       period: "per month",
       badge: "Great Value",
       description: "Spacious cabin for growing teams and brainstorming",
@@ -99,7 +98,7 @@ export default function PricingPage() {
     },
     {
       name: "Virtual Office",
-      price: "From ₹9,000",
+      price: "₹12,999",
       period: "per year",
       badge: "Professional",
       description: "Premium business address and professional services",
@@ -134,7 +133,7 @@ export default function PricingPage() {
             <span className="text-gradient">Simple, Honest</span> Pricing
           </h1>
           <p className="mt-6 text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto">
-            No hidden fees, no surprises. Premium <strong>coworking space near me</strong> in Bangalore offering <strong>affordable office space</strong> and <strong>small office space</strong> solutions at prices that make sense for Gen Z entrepreneurs, startups, and freelancers.
+            Transparent pricing for a premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
@@ -151,29 +150,6 @@ export default function PricingPage() {
             >
               Call for Details
             </a>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* FOMO Banner */}
-      <section className="mx-auto max-w-7xl px-4 pb-8">
-        <motion.div
-          className="rounded-2xl bg-gradient-to-r from-primary via-primary/90 to-primary/80 p-6 md:p-8 text-white relative overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl" />
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <AlertCircle className="w-6 h-6 flex-shrink-0" />
-              <div>
-                <div className="font-bold text-lg mb-1">Limited Time Offer!</div>
-                <div className="text-white/90">Get 10% OFF your first month on affordable office space + Free Tour</div>
-              </div>
-            </div>
-            <FOMOCountdown />
           </div>
         </motion.div>
       </section>
@@ -249,8 +225,8 @@ export default function PricingPage() {
             {[
               { icon: Wifi, title: "1Gbps WiFi", desc: "Lightning-fast internet" },
               { icon: Shield, title: "24/7 Security", desc: "Secure access" },
-              { icon: MapPin, title: "Prime Location", desc: "Basavanagudi & Jayanagar" },
-              { icon: Star, title: "Community", desc: "500+ members" },
+              { icon: MapPin, title: "Prime Location", desc: "Basavanagudi, South Bangalore" },
+              { icon: Star, title: "Community", desc: "Professionals and startups" },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -314,28 +290,28 @@ export default function PricingPage() {
           <p className="mb-4">
             <strong>Spacio Workspace</strong> offers transparent, affordable pricing for premium <strong>coworking space near me</strong> in Bangalore. 
             Whether you're looking for a <strong>day pass</strong>, <strong>dedicated desk</strong>, <strong>small private office space</strong> 
-            (solo, 3-seater, or 6-seater), or <strong>virtual office</strong> in Basavanagudi or Jayanagar, we have flexible plans 
+            (solo, 3-seater, or 6-seater), or <strong>virtual office</strong> in Basavanagudi, we have flexible plans 
             to suit every budget and need. Our <strong>small office space for rent near me</strong> options provide the perfect solution 
             for entrepreneurs, freelancers, and small teams seeking <strong>affordable office space</strong>.
           </p>
           <p className="mb-4">
             Our <strong>coworking space pricing in Bangalore</strong> is designed to be transparent with no hidden fees. 
             All plans include <strong>1Gbps high-speed WiFi</strong>, <strong>24/7 secure access</strong>, premium amenities, 
-            and access to our vibrant community of 500+ members. We offer <strong>flexible month-to-month options</strong> 
+            and a professional workspace community in Basavanagudi. We offer <strong>flexible month-to-month options</strong> 
             with no long-term commitments required. As a leading <strong>working space near me</strong>, we specialize in providing 
             <strong> small office space</strong> solutions that are both professional and budget-friendly.
           </p>
           <p className="mb-4">
             Looking for the <strong>best value coworking space in Bangalore</strong>? Our <strong>dedicated desk plans</strong> 
-            are just ₹2,999/month, while <strong>small private office space</strong> cabins start from ₹5,999/month for solo cabins. 
+            are just ₹3,499/month, while <strong>small private office space</strong> cabins start from ₹8,499/month for solo cabins. 
             <strong> Day passes</strong> are perfect for trying out our <strong>affordable office space</strong> at just ₹199/day. 
-            <strong> Virtual office</strong> plans start from ₹9,000/month for a premium business address in Bangalore. 
+            <strong> Virtual office</strong> plans start from ₹12,999/year for a premium business address in Bangalore. 
             Our <strong>small office space for rent near me</strong> options are ideal for those seeking flexible, cost-effective workspace solutions.
           </p>
           <p>
             <strong>Book your free tour</strong> today to see our spaces and discuss custom pricing options. 
             We offer special discounts for startups, long-term bookings, and team plans. Contact us via WhatsApp, 
-            call, or visit our locations in Basavanagudi and Jayanagar to learn more about our <strong>affordable office space</strong> 
+            call, or visit our centre in Basavanagudi to learn more about our <strong>affordable office space</strong> 
             and <strong>coworking space near me</strong> pricing. Find the perfect <strong>small office space</strong> or 
             <strong> working space near me</strong> that fits your needs and budget.
           </p>

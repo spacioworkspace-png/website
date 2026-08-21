@@ -2,12 +2,13 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const workspace = [
-  { label: "Solo Cabin", href: "/workspaces/solo-cabin" },
+  { label: "Private cabins", href: "/workspaces/solo-cabin" },
   { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin" },
   { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin" },
-  { label: "Dedicated Desks", href: "/workspaces/dedicated-desks" },
-  { label: "Meeting Rooms", href: "/workspaces/meeting-rooms" },
-  { label: "Virtual Office", href: "/workspaces/virtual-office" },
+  { label: "Dedicated desks", href: "/workspaces/dedicated-desks" },
+  { label: "Meeting rooms", href: "/workspaces/meeting-rooms" },
+  { label: "Virtual office", href: "/workspaces/virtual-office" },
+  { label: "Day pass", href: "/workspaces/day-pass" },
 ];
 
 export function Footer() {
@@ -19,8 +20,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <div className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">Spacio Workspace</div>
             <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 sm:mb-6">
-              Bangalore's #1 premium coworking space for Gen Z entrepreneurs, startups, and freelancers. 
-              Private cabins, dedicated desks, meeting rooms, and virtual offices in Basavanagudi & Jayanagar.
+              Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
             </p>
             <div className="flex gap-3 mt-4 sm:mt-6">
               <a 
@@ -44,8 +44,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="text-neutral-700 hover:text-primary transition-colors duration-300">
-                  Features
+                <Link href="/workspaces" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Workspaces
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/basavanagudi" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Basavanagudi
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  About
                 </Link>
               </li>
               <li>
@@ -98,7 +108,9 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div className="text-neutral-700">
-                  <div className="font-semibold mb-1">Basavanagudi</div>
+                  <Link href="/locations/basavanagudi" className="font-semibold mb-1 hover:text-primary">
+                Basavanagudi
+              </Link>
                   <div>No 7, Sree Devi Complex, NAT Street</div>
                   <div>Bangalore - 560004, Karnataka, India</div>
                 </div>
@@ -137,27 +149,18 @@ export function Footer() {
         <div className="border-t border-neutral-200 pt-8 mb-8">
           <div className="prose prose-sm max-w-none text-neutral-600 leading-relaxed">
             <h3 className="text-lg font-bold text-neutral-900 mb-4">
-              Best Coworking Space in Bangalore - Spacio Workspace
+              Premium Coworking Space in Basavanagudi, Bangalore
             </h3>
             <p className="mb-3">
-              <strong>Spacio Workspace</strong> is the leading premium coworking space in Bangalore, offering 
-              flexible workspace solutions for Gen Z entrepreneurs, startups, freelancers, and teams. Located in 
-              prime areas of <strong>Basavanagudi</strong> and <strong>Jayanagar</strong> in South Bangalore, 
-              we provide private cabins, dedicated desks, meeting rooms, and virtual office services.
+              <strong>Spacio Workspace</strong> is a premium coworking space in Basavanagudi, Bangalore.
+              Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
             </p>
             <p className="mb-3">
-              Our <strong>coworking space in Basavanagudi</strong> and <strong>coworking space in Jayanagar</strong> 
-              feature lightning-fast 1Gbps internet, 24/7 secure access, premium amenities including modern meeting rooms with 
-              AV equipment, and a vibrant community of 500+ members. Whether you need a <strong>private cabin</strong> for focused work, 
-              a <strong>dedicated desk</strong> for your startup, or a <strong>virtual office</strong> for your business address, Spacio has the 
-              perfect solution.
+              Visit us at No 7, Sree Devi Complex, NAT Street, Basavanagudi — 560004.
+              Plans include solo, 3-seater and 6-seater cabins, dedicated desks, meeting rooms, day passes and virtual office.
             </p>
             <p>
-              Looking for the <strong>best shared office space in Bangalore</strong>? Spacio offers transparent 
-              pricing, flexible terms, and month-to-month options. Our modern coworking space is designed for 
-              productivity with ergonomic furniture, zen workspace design, and a calm, serene environment. 
-              <strong> Book your free tour</strong> today and experience why we're Bangalore's #1 choice for 
-              premium coworking spaces.
+              Book a free tour, call +91 70227 80310, or WhatsApp to see the space.
             </p>
           </div>
         </div>
@@ -166,7 +169,7 @@ export function Footer() {
         <div className="flex flex-col-reverse items-center justify-between gap-6 border-t border-neutral-200 pt-8 md:flex-row">
           <p className="text-neutral-600 text-center md:text-left">
             © {new Date().getFullYear()} Spacio Workspace. All rights reserved. | 
-            Premium Coworking Space in Bangalore | Basavanagudi & Jayanagar
+            Premium Coworking Space in Basavanagudi, Bangalore
           </p>
           <div className="flex flex-wrap items-center justify-center gap-6 text-neutral-600">
             <Link href="/privacy" className="hover:text-primary transition-colors duration-300">

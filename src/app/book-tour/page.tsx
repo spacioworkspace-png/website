@@ -1,17 +1,13 @@
 import { Metadata } from "next";
 import { BookTourForm } from "@/components/BookTourForm";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Book Free Tour | Spacio Workspace - Premium Coworking Space Bangalore",
-  description: "Book your free tour of Spacio Workspace in Basavanagudi & Jayanagar, Bangalore. See our private cabins, dedicated desks, and premium amenities. Limited spots available!",
-  keywords: [
-    "book coworking space tour Bangalore",
-    "free tour coworking space Basavanagudi",
-    "visit coworking space Jayanagar",
-    "coworking space tour Bangalore",
-    "premium workspace tour",
-  ],
-};
+export const metadata: Metadata = pageMeta({
+  title: "Book a Free Tour | Spacio Workspace, Basavanagudi",
+  description:
+    "Book a free tour of Spacio Workspace in Basavanagudi, Bangalore. See private cabins, dedicated desks and meeting rooms before you choose a plan.",
+  path: "/book-tour",
+});
 
 export default function BookTourPage() {
   return (
@@ -24,7 +20,7 @@ export default function BookTourPage() {
             <span className="text-gradient">Experience Spacio</span> Today
           </h1>
           <p className="mt-6 text-lg md:text-xl text-neutral-700 max-w-2xl mx-auto">
-            See why 500+ entrepreneurs choose Spacio as their workspace in Bangalore. 
+            See the private cabins, dedicated desks and meeting rooms at our Basavanagudi centre. 
             Book your free tour and experience premium coworking firsthand.
           </p>
         </div>

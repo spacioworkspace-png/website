@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title:
-    "Pricing | Spacio Workspace | Best Coworking Space in Bangalore | Basavanagudi & Jayanagar | Transparent Pricing",
+export const metadata: Metadata = pageMeta({
+  title: "Pricing | Spacio Workspace Basavanagudi",
   description:
-    "Simple, transparent pricing for premium coworking space in Bangalore. Private cabins, dedicated desks, meeting rooms, virtual offices, and day passes. Flexible plans starting from affordable rates. Book your free tour today!",
-};
+    "Day pass ₹199, dedicated desk ₹3,499/month, solo cabin ₹8,499/month, meeting rooms ₹399/hour, virtual office ₹12,999/year at Spacio Basavanagudi.",
+  path: "/pricing",
+});
 
 export default function PricingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }

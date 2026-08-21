@@ -8,12 +8,11 @@ const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/workspaces", label: "Workspaces" },
-  { href: "/features", label: "Features" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/locations/basavanagudi", label: "Locations" },
+  { href: "/locations/basavanagudi", label: "Basavanagudi" },
   { href: "/reviews", label: "Reviews" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {

@@ -129,7 +129,7 @@ export function ExitIntentLeadCapture() {
                       </div>
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4 text-primary" />
-                        <span>500+ Members</span>
+                        <span>Basavanagudi</span>
                       </div>
                     </div>
                   </div>

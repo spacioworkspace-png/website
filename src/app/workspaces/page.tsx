@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
 
 const workspaceOptions = [
   {
     slug: "solo-cabin",
-    badge: "#1 Most Popular",
+    badge: "Private cabin",
     title: "Solo Cabin",
     subtitle: "Perfect for Individual Focus",
     iconLabel: "Private Cabin Workspace",
@@ -26,7 +27,7 @@ const workspaceOptions = [
     ],
     cta: "Book Solo Cabin",
     highlight: true,
-    pricing: "₹6,999/month",
+    pricing: "₹8,499/month",
     capacityLabel: "1 person",
     bestFor: ["Startup founders", "Consultants", "CXO on-the-go", "Video bachelors & content creators"],
     addOns: ["Dedicated locker upgrade", "Mail handling", "Brand signage"],
@@ -63,7 +64,7 @@ const workspaceOptions = [
       "Whiteboard included",
     ],
     cta: "Book 3-Seater Cabin",
-    pricing: "₹11,999/month",
+    pricing: "₹14,999/month",
     capacityLabel: "3 people",
     bestFor: ["Co-founders", "Agencies", "Remote pods"],
     addOns: ["Dedicated meeting credits", "Brand wall decals", "Private server rack"],
@@ -101,7 +102,7 @@ const workspaceOptions = [
       "Team collaboration zone",
     ],
     cta: "Book 6-Seater Cabin",
-    pricing: "₹17,999/month",
+    pricing: "₹24,999/month",
     capacityLabel: "6 people",
     bestFor: ["Product teams", "VC-funded startups", "Client delivery pods"],
     addOns: ["Dedicated meeting room", "Private pantry setup", "Server-grade power backup"],
@@ -110,7 +111,7 @@ const workspaceOptions = [
     modalDescription:
       "Our 6-seater cabin mirrors a boutique corporate suite with wide desks, dual monitors on request, and brainstorming walls. Ideal for growing teams that want headquarters-level polish.",
     seoIntro:
-      "Choose the 6-seater cabin if you need a premium headquarters in Jayanagar-Basavanagudi belt with enterprise-grade infrastructure and hospitality-style support staff.",
+      "Choose the 6-seater cabin if you need a team office in Basavanagudi with wide desks and collaboration space.",
     seoBullets: [
       "Spacious layout with collaboration zones, visitor seating, and storage for marketing collateral.",
       "Enterprise-level power backup and 1Gbps dual ISP lines keep demos and client calls glitch-free.",
@@ -138,7 +139,7 @@ const workspaceOptions = [
       "GST-ready invoicing",
     ],
     cta: "Book Virtual Office",
-    pricing: "₹999/month",
+    pricing: "₹12,999/year",
     capacityLabel: "Remote teams",
     bestFor: ["Outstation founders", "Consulting firms", "D2C brands"],
     addOns: ["Dedicated desk day pass bundle", "Dedicated phone line", "Document storage"],
@@ -175,7 +176,7 @@ const workspaceOptions = [
       "Ergonomic chair included",
     ],
     cta: "Book Dedicated Desks",
-    pricing: "₹2,999/month",
+    pricing: "₹3,499/month",
     capacityLabel: "Per member",
     bestFor: ["Designers", "Analysts", "Remote employees"],
     addOns: ["24/7 access upgrade", "Locker storage", "Recording booth hours"],
@@ -228,7 +229,7 @@ const workspaceOptions = [
       "Drop into community events, founder mixers, or wellness sessions scheduled for that day.",
       "Add-on meeting room credits or locker storage when you need extra privacy or security.",
     ],
-    seoKeywords: "day pass coworking Bangalore, day office Basavanagudi, flexible coworking pass Jayanagar",
+    seoKeywords: "day pass coworking Bangalore, day office Basavanagudi",
   },
   {
     slug: "meeting-rooms",
@@ -260,7 +261,7 @@ const workspaceOptions = [
     modalDescription:
       "Our meeting rooms range from 4-seater huddle spaces to 12-seater boardrooms with 4K displays, plug-and-play conferencing, and concierge support.",
     seoIntro:
-      "Spacio’s meeting rooms in Basavanagudi and Jayanagar help you host board reviews, investor pitches, and hybrid workshops with zero tech hassles.",
+      "Spacio meeting rooms in Basavanagudi help you host board reviews, investor pitches, and hybrid workshops.",
     seoBullets: [
       "Equipped with 4K displays, ceiling-mounted mics, and high-fidelity speakers for crystal-clear calls.",
       "Onsite support team handles seating layouts, coffee service, and guest welcome boards.",
@@ -299,15 +300,13 @@ export default function WorkspacesPage() {
       <section className="relative bg-gradient-to-br from-primary/10 via-white to-neutral-50">
         <div className="mx-auto max-w-7xl px-4 py-20 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div>
-            <span className="badge-premium mb-4 inline-block">Basavanagudi & Jayanagar</span>
+            <span className="badge-premium mb-4 inline-block">Basavanagudi, South Bangalore</span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900">
-              Find Your Next Spacio Workspace
+              Workspace plans in Basavanagudi
             </h1>
             <p className="mt-4 text-neutral-700 text-lg leading-relaxed">
-              From private cabins and dedicated desks to premium meeting rooms and virtual offices,
-              Spacio delivers Bangalore’s most flexible workspace catalog. Every plan includes
-              1Gbps connectivity, ergonomic interiors, GST-ready paperwork, and concierge-grade support
-              so you can plug in and build without friction.
+              Private cabins, dedicated desks, meeting rooms, day pass and virtual office at Spacio Workspace,
+              Sree Devi Complex, NAT Street, Basavanagudi. Every plan includes 1Gbps internet.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -351,11 +350,11 @@ export default function WorkspacesPage() {
       <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
         <div className="mb-12 text-center">
           <span className="badge-premium mb-4 inline-block pulse-glow-peacock">Bangalore Workspace Catalog</span>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Spacio Workspace Plans at a Glance
-          </h1>
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+            Seven plans, one centre
+          </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-            Spacio covers the full spectrum of Bangalore workspace needs in one place—solo and multi-seat private cabins, dedicated desks, premium meeting rooms, day-pass coworking, and virtual office services across Basavanagudi and Jayanagar. Use the sitelinks below to jump directly to the plan that fits your team size, move-in timeline, and compliance requirements.
+            Pick a solo, 3-seater or 6-seater cabin, a dedicated desk, a day pass, a meeting room, or a virtual office address. All at the Basavanagudi centre.
           </p>
           <p className="mt-3 text-sm text-neutral-600 max-w-3xl mx-auto">
             Every section highlights what Spacio offers: transparent pricing, move-in ready furniture, 1Gbps connectivity, GST-ready documentation, concierge-grade meeting support, and flexible add-ons. Whether you’re scaling a startup pod, meeting investors, or just need a professional business address, the right option is a scroll away.
@@ -366,10 +365,10 @@ export default function WorkspacesPage() {
           {workspaceOptions.map((space) => (
             <a
               key={`${space.slug}-nav`}
-              href={`#${space.slug}`}
+              href={`/workspaces/${space.slug}`}
               className="rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold text-neutral-700 hover:border-primary hover:text-primary transition-colors"
             >
-              {space.title} Bangalore
+              {space.title}
             </a>
           ))}
         </div>
@@ -391,7 +390,7 @@ export default function WorkspacesPage() {
                       <span className="badge-premium mt-2 inline-block">{space.badge}</span>
                     )}
                     <h2 className="mt-4 text-2xl sm:text-3xl font-bold text-neutral-900">
-                      {space.title} in Basavanagudi & Jayanagar, Bangalore
+                      {space.title} in Basavanagudi
                     </h2>
                     <p className="mt-4 text-neutral-700 leading-relaxed">{space.seoIntro}</p>
                   </div>
@@ -428,11 +427,13 @@ export default function WorkspacesPage() {
                     )}
                   </div>
 
-                  {space.seoKeywords && (
-                    <p className="text-sm text-neutral-600">
-                      {space.seoKeywords}
-                    </p>
-                  )}
+                  <Link
+                    href={`/workspaces/${space.slug}`}
+                    className="inline-flex items-center gap-2 text-primary font-semibold"
+                  >
+                    Open {space.title} page
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
 
                 <div className="space-y-6">
@@ -483,11 +484,17 @@ export default function WorkspacesPage() {
                       <MessageCircle className="w-4 h-4" />
                       WhatsApp {space.title}
                     </a>
-                    <a
-                      href="/book-tour"
+                    <Link
+                      href={`/workspaces/${space.slug}`}
                       className="rounded-xl border border-primary px-4 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300"
                     >
-                      Book {space.title} Tour
+                      View {space.title} plan
+                    </Link>
+                    <a
+                      href="/book-tour"
+                      className="rounded-xl border border-neutral-300 px-4 py-3 text-neutral-700 font-semibold hover:border-primary hover:text-primary transition-all duration-300"
+                    >
+                      Book a tour
                     </a>
                     <button
                       type="button"

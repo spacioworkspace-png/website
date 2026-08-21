@@ -1,10 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Refund Policy | Spacio Workspace - Premium Coworking Space in Bangalore",
-  description: "Refund policy for Spacio Workspace. Learn about our refund terms and conditions for coworking space memberships in Bangalore.",
-};
+export const metadata: Metadata = pageMeta({
+  title: "Refund Policy | Spacio Workspace",
+  description: "Refund terms for coworking memberships and meeting room bookings at Spacio Workspace.",
+  path: "/refund",
+});
 
 export default function RefundPage() {
   return (
@@ -19,7 +21,7 @@ export default function RefundPage() {
           <section>
             <h2 className="text-2xl font-bold text-neutral-900 mt-8 mb-4">1. Introduction</h2>
             <p>
-              At Spacio Workspace, we strive to provide the best coworking experience for our members. This Refund Policy 
+              At Spacio Workspace, we strive to provide a professional coworking experience for our members. This Refund Policy 
               outlines the terms and conditions under which refunds may be issued for our services located in Bangalore, India.
             </p>
           </section>

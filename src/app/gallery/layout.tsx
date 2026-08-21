@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title:
-    "Gallery | Spacio Workspace | Premium Coworking Space Photos | Basavanagudi, Bangalore",
+export const metadata: Metadata = pageMeta({
+  title: "Gallery | Spacio Workspace Basavanagudi",
   description:
-    "Explore our premium coworking space in Bangalore through photos. See our private cabins, dedicated desks, meeting rooms, common areas, and modern amenities in Basavanagudi. Book a free tour to experience the space in person!",
-};
+    "Photos of private cabins, dedicated desks, meeting rooms and common areas at Spacio Workspace in Basavanagudi, Bangalore.",
+  path: "/gallery",
+});
 
 export default function GalleryLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return children;
 }
