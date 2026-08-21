@@ -25,6 +25,15 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  async redirects() {
+    return [
+      {
+        source: "/locations/jayanagar",
+        destination: "/locations/basavanagudi",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

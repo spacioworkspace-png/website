@@ -10,13 +10,12 @@ export function BookTourForm() {
     phone: "",
     preferredDate: "",
     preferredTime: "",
-    location: "basavanagudi",
     message: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace ${formData.location === 'basavanagudi' ? 'Basavanagudi' : 'Jayanagar'} on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ''}`;
+    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ''}`;
     window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, '_blank');
   };
 
@@ -64,19 +63,6 @@ export function BookTourForm() {
               className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
               placeholder="+91 98765 43210"
             />
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-neutral-900 mb-2">Preferred Location *</label>
-            <select
-              required
-              value={formData.location}
-              onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-              className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
-            >
-              <option value="basavanagudi">Basavanagudi</option>
-              <option value="jayanagar">Jayanagar (Coming Soon)</option>
-            </select>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -159,7 +145,7 @@ export function BookTourForm() {
         <div className="card-premium rounded-2xl border-2 border-neutral-200 p-6 bg-white">
           <h3 className="text-xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
             <MapPin className="w-5 h-5 text-primary" />
-            Our Locations
+            Our Location
           </h3>
           <div className="space-y-4">
             <div>
@@ -168,10 +154,6 @@ export function BookTourForm() {
                 No 7, Sree Devi Complex, NAT Street<br />
                 Bangalore - 560004
               </p>
-            </div>
-            <div>
-              <div className="font-semibold text-neutral-900 mb-1">Jayanagar</div>
-              <p className="text-neutral-600 text-sm">Coming Soon - 4th Block</p>
             </div>
           </div>
         </div>
