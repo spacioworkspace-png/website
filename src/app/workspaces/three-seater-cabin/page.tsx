@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "3-Seater Cabin in Basavanagudi | ₹14,999/month",
   description: "3-seater private cabin at Spacio Workspace, Basavanagudi. ₹14,999 per month for small teams. Book a free tour.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/three-seater-cabin" },
-  openGraph: {
-    title: "3-Seater Cabin in Basavanagudi | ₹14,999/month",
-    description: "3-seater private cabin at Spacio Workspace, Basavanagudi. ₹14,999 per month for small teams. Book a free tour.",
-    url: "https://www.spacioworkspace.com/workspaces/three-seater-cabin",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/3-seater-cabin-orange-screens.jpg", width: 1200, height: 630, alt: "3-seater cabin at Spacio Workspace Basavanagudi" }],
-  },
-};
+  path: "/workspaces/three-seater-cabin",
+  ogImage: "/images/3-seater-cabin-orange-screens.jpg",
+  ogAlt: "3-seater cabin at Spacio Workspace Basavanagudi",
+});
 
 export default function ThreeSeaterCabinPage() {
   return (
@@ -295,6 +289,7 @@ export default function ThreeSeaterCabinPage() {
           </div>
         </div>
       </section>
+      <PlanSeo planId="three-seater-cabin" />
       <RelatedPlans
         links={[
           { href: "/workspaces/dedicated-desks", label: "Dedicated desks" },

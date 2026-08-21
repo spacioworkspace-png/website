@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp, ScrollBasedLeadCapture } from "@/components/LazyComponents";
+import { FloatingWhatsApp } from "@/components/LazyComponents";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
@@ -201,7 +201,6 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingWhatsApp />
-        <ScrollBasedLeadCapture />
         <Analytics />
       </body>
     </html>

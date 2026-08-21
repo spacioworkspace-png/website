@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee, Video } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Meeting Rooms in Basavanagudi | ₹399/hour",
   description: "Hourly meeting rooms at Spacio Workspace, Basavanagudi. 4 to 12 seats, AV and conferencing, ₹399 per hour.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/meeting-rooms" },
-  openGraph: {
-    title: "Meeting Rooms in Basavanagudi | ₹399/hour",
-    description: "Hourly meeting rooms at Spacio Workspace, Basavanagudi. 4 to 12 seats, AV and conferencing, ₹399 per hour.",
-    url: "https://www.spacioworkspace.com/workspaces/meeting-rooms",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/meeting-room-frosted-glass.jpg", width: 1200, height: 630, alt: "Meeting room at Spacio Workspace Basavanagudi" }],
-  },
-};
+  path: "/workspaces/meeting-rooms",
+  ogImage: "/images/meeting-room-frosted-glass.jpg",
+  ogAlt: "Meeting room at Spacio Workspace Basavanagudi",
+});
 
 export default function MeetingRoomsPage() {
   return (
@@ -374,6 +368,7 @@ export default function MeetingRoomsPage() {
           </div>
         </div>
       </section>
+      <PlanSeo planId="meeting-rooms" />
       <RelatedPlans
         links={[
           { href: "/workspaces/solo-cabin", label: "Private cabins" },

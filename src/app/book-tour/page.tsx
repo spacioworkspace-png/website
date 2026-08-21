@@ -1,6 +1,10 @@
 import { Metadata } from "next";
 import { BookTourForm } from "@/components/BookTourForm";
+import { FaqSection } from "@/components/FaqSection";
+import { JsonLd } from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
+import { howToTourJsonLd } from "@/lib/schema";
+import { SITE_FAQS } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Book a Free Tour | Spacio Workspace, Basavanagudi",
@@ -25,6 +29,8 @@ export default function BookTourPage() {
           </p>
         </div>
         <BookTourForm />
+        <JsonLd data={howToTourJsonLd()} />
+        <FaqSection items={[SITE_FAQS[5], SITE_FAQS[0], SITE_FAQS[2]]} title="Before you visit" />
       </section>
     </div>
   );

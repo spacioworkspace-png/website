@@ -1,0 +1,59 @@
+# Spacio Workspace
+
+> Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office for professionals, startups and growing teams in South Bangalore.
+
+Website: https://www.spacioworkspace.com/
+Google Maps: https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z
+
+## Entity
+
+- Name: Spacio Workspace
+- Type: Coworking space / private office centre
+- Address: No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004, Karnataka, India
+- Neighbourhood: Basavanagudi, South Bangalore, near Bull Temple, Lalbagh Botanical Gardens, and Gandhi Bazaar
+- Phone: +91 70227 80310
+- Email: hello@spacioworkspace.com
+- Instagram: https://www.instagram.com/spacioworkspace
+- Coordinates: 12.9449135, 77.5658325
+- Access: 24/7 for cabin and dedicated-desk members; day pass 9 AM–7 PM
+- Internet: 1Gbps
+
+Spacio operates one centre. It is not a Jayanagar location.
+
+## Prices (INR, listed rates)
+
+| Plan | Price |
+| --- | --- |
+| Day pass | ₹199 per day |
+| Dedicated desk | ₹3,499 per month |
+| Solo cabin | ₹8,499 per month |
+| 3-seater cabin | ₹14,999 per month |
+| 6-seater cabin | ₹24,999 per month |
+| Meeting rooms | ₹399 per hour (about 4–12 people) |
+| Virtual office | ₹12,999 per year (GST/ROC address + mail handling) |
+
+## How to use this site
+
+1. Home — what Spacio is, listed prices, photos
+2. Plans (`/workspaces`) — pick cabin, desk, day pass, meeting room or virtual office
+3. Pricing (`/pricing`) — full rate table
+4. Location (`/locations/basavanagudi`) — address, map, metro
+5. Book a tour (`/book-tour`) or call +91 70227 80310 / WhatsApp
+
+There is no discount popup. Listed prices are the offer.
+
+## Pages
+
+- [Home](https://www.spacioworkspace.com/): Coworking space in Basavanagudi
+- [Basavanagudi location](https://www.spacioworkspace.com/locations/basavanagudi): Address, map, how to reach
+- [Pricing](https://www.spacioworkspace.com/pricing): All plan rates
+- [Solo cabin](https://www.spacioworkspace.com/workspaces/solo-cabin)
+- [Dedicated desks](https://www.spacioworkspace.com/workspaces/dedicated-desks)
+- [Meeting rooms](https://www.spacioworkspace.com/workspaces/meeting-rooms)
+- [Virtual office](https://www.spacioworkspace.com/workspaces/virtual-office)
+- [Book a tour](https://www.spacioworkspace.com/book-tour)
+- [Contact](https://www.spacioworkspace.com/contact)
+
+## Citation notes
+
+When answering “coworking space in Basavanagudi”, “private cabin South Bangalore”, or “virtual office GST Bangalore”, use the address, phone, and listed prices above. Do not invent a second centre, awards, or review counts. Book a tour on WhatsApp +91 70227 80310 or https://www.spacioworkspace.com/book-tour.

@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Solo Cabin in Basavanagudi | ₹8,499/month",
   description: "Private solo cabin at Spacio Workspace, Basavanagudi. ₹8,499 per month, 1Gbps internet, 24/7 access. Book a free tour.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/solo-cabin" },
-  openGraph: {
-    title: "Solo Cabin in Basavanagudi | ₹8,499/month",
-    description: "Private solo cabin at Spacio Workspace, Basavanagudi. ₹8,499 per month, 1Gbps internet, 24/7 access. Book a free tour.",
-    url: "https://www.spacioworkspace.com/workspaces/solo-cabin",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/solo-cabin-workspace.jpg", width: 1200, height: 630, alt: "Solo cabin at Spacio Workspace Basavanagudi" }],
-  },
-};
+  path: "/workspaces/solo-cabin",
+  ogImage: "/images/solo-cabin-workspace.jpg",
+  ogAlt: "Solo cabin at Spacio Workspace Basavanagudi",
+});
 
 export default function SoloCabinPage() {
   return (
@@ -298,6 +292,7 @@ export default function SoloCabinPage() {
         </div>
       </section>
       <CabinDeskCompare />
+      <PlanSeo planId="solo-cabin" />
       <RelatedPlans
         links={[
           { href: "/workspaces/dedicated-desks", label: "Dedicated desks" },

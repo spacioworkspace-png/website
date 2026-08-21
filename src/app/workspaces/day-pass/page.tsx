@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Day Pass in Basavanagudi | ₹199/day",
   description: "Coworking day pass at Spacio Workspace, Basavanagudi. ₹199 per day, 9 AM to 7 PM. Walk in or book ahead.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/day-pass" },
-  openGraph: {
-    title: "Day Pass in Basavanagudi | ₹199/day",
-    description: "Coworking day pass at Spacio Workspace, Basavanagudi. ₹199 per day, 9 AM to 7 PM. Walk in or book ahead.",
-    url: "https://www.spacioworkspace.com/workspaces/day-pass",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/workspace-green-screens.jpg", width: 1200, height: 630, alt: "Day pass coworking at Spacio Workspace Basavanagudi" }],
-  },
-};
+  path: "/workspaces/day-pass",
+  ogImage: "/images/workspace-green-screens.jpg",
+  ogAlt: "Day pass coworking at Spacio Workspace Basavanagudi",
+});
 
 export default function DayPassPage() {
   return (
@@ -295,6 +289,7 @@ export default function DayPassPage() {
           </div>
         </div>
       </section>
+      <PlanSeo planId="day-pass" />
       <RelatedPlans
         links={[
           { href: "/workspaces/dedicated-desks", label: "Dedicated desks" },

@@ -1,61 +1,20 @@
-import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, MessageCircle, MapPin, Clock, Wifi, Phone, Mail, Building2, Users, Train } from "lucide-react";
 import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
+import { FaqSection } from "@/components/FaqSection";
+import { pageMeta } from "@/lib/seo";
+import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, SITE_NAME } from "@/lib/site";
 
-const NAP = {
-  name: "Spacio Workspace",
-  street: "No 7, Sree Devi Complex, NAT Street",
-  locality: "Basavanagudi",
-  city: "Bangalore",
-  postalCode: "560004",
-  phoneDisplay: "+91 70227 80310",
-  phoneTel: "+917022780310",
-  email: "hello@spacioworkspace.com",
-  maps: "https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z",
-};
-
-const faqs = [
-  {
-    q: "Where is Spacio Workspace in Basavanagudi?",
-    a: "No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004, in South Bangalore near Gandhi Bazaar, Bull Temple, and Lalbagh.",
-  },
-  {
-    q: "What workspace plans are available?",
-    a: "Private cabins (solo, 3-seater, and 6-seater), dedicated desks, meeting rooms by the hour, day passes, and a virtual office address for GST and mail.",
-  },
-  {
-    q: "How do I get there on metro or bus?",
-    a: "The centre is about 2.5 km from Lalbagh Metro Station on the Green Line. BMTC stops are within a short walk on NAT Street / Gandhi Bazaar. Autos and cabs are available throughout the day.",
-  },
-  {
-    q: "Who is this coworking space for?",
-    a: "Professionals, consultants, startups, and small teams who want a South Bangalore address with private cabins or a dedicated desk, without commuting to Koramangala or the CBD every day.",
-  },
-  {
-    q: "How do I book a tour?",
-    a: "WhatsApp or call +91 70227 80310, use the contact form, or book a free tour online. Walk-in visits can be arranged the same day when the team is available.",
-  },
-];
-
-export const metadata: Metadata = {
-  title: "Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
+export const metadata = pageMeta({
+  title: "Coworking Space in Basavanagudi, Bangalore | Spacio",
   description:
-    "Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office solutions near Bull Temple, Lalbagh and Gandhi Bazaar. Book a free tour.",
-  alternates: {
-    canonical: "https://www.spacioworkspace.com/locations/basavanagudi",
-  },
-  openGraph: {
-    title: "Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
-    description:
-      "Private cabins, dedicated desks, meeting rooms and virtual office at Sree Devi Complex, NAT Street, Basavanagudi.",
-    url: "https://www.spacioworkspace.com/locations/basavanagudi",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-  },
-};
+    "Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office near Bull Temple, Lalbagh and Gandhi Bazaar.",
+  path: "/locations/basavanagudi",
+  ogImage: "/images/building-exterior-sree-devi-complex.jpg",
+  ogAlt: "Spacio Workspace at Sree Devi Complex, Basavanagudi",
+});
 
 const services = [
   { href: "/workspaces/solo-cabin", label: "Private cabins", detail: "Solo, 3-seater and 6-seater enclosed cabins" },
@@ -66,57 +25,8 @@ const services = [
 ];
 
 export default function BasavanagudiLocationPage() {
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
-  };
-
-  const placeJsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    name: NAP.name,
-    alternateName: "Spacio Workspace Basavanagudi",
-    description:
-      "Coworking space in Basavanagudi, South Bangalore. Private cabins, dedicated desks, meeting rooms, day pass and virtual office.",
-    url: "https://www.spacioworkspace.com/locations/basavanagudi",
-    telephone: NAP.phoneTel,
-    email: NAP.email,
-    category: "Coworking space",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: NAP.street,
-      addressLocality: NAP.locality,
-      addressRegion: "Karnataka",
-      postalCode: NAP.postalCode,
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "12.9449135",
-      longitude: "77.5658325",
-    },
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Basavanagudi" },
-      { "@type": "AdministrativeArea", name: "South Bangalore" },
-    ],
-  };
-
   return (
     <div className="bg-white min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(placeJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-
       <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-16 md:py-20">
         <div className="mb-10 text-center max-w-3xl mx-auto">
           <span className="badge-premium mb-4 inline-block">Basavanagudi, Bangalore</span>
@@ -130,32 +40,35 @@ export default function BasavanagudiLocationPage() {
 
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="card-premium rounded-2xl border-2 border-primary/20 p-6 sm:p-8 bg-white">
-            <div className="aspect-video w-full rounded-xl overflow-hidden mb-6 bg-neutral-100">
-              <img
+            <div className="relative aspect-video w-full rounded-xl overflow-hidden mb-6 bg-neutral-100">
+              <Image
                 src="/images/building-exterior-sree-devi-complex.jpg"
                 alt="Spacio Workspace, Sree Devi Complex, Basavanagudi"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority
               />
             </div>
             <h2 className="text-2xl font-bold text-neutral-900 mb-4">Address and contact</h2>
             <p className="text-neutral-700 mb-6">
-              <strong>{NAP.name}</strong>
+              <strong>{SITE_NAME}</strong>
               <br />
-              {NAP.street}
+              {ADDRESS.street}
               <br />
-              {NAP.locality}, {NAP.city} — {NAP.postalCode}
+              {ADDRESS.locality}, {ADDRESS.city} — {ADDRESS.postalCode}
             </p>
             <ul className="space-y-3 mb-6 text-neutral-700">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href={`tel:${NAP.phoneTel}`} className="hover:text-primary font-semibold">
-                  {NAP.phoneDisplay}
+                <a href={`tel:${PHONE_TEL}`} className="hover:text-primary font-semibold">
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href={`mailto:${NAP.email}`} className="hover:text-primary">
-                  {NAP.email}
+                <a href={`mailto:${EMAIL}`} className="hover:text-primary">
+                  {EMAIL}
                 </a>
               </li>
               <li className="flex items-center gap-2">
@@ -184,7 +97,7 @@ export default function BasavanagudiLocationPage() {
               </Link>
               <a
                 className="rounded-xl border-2 border-neutral-200 px-5 py-3 font-semibold hover:border-primary transition-colors"
-                href={NAP.maps}
+                href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -210,7 +123,7 @@ export default function BasavanagudiLocationPage() {
           Spacio sits on NAT Street in Gandhi Bazaar, a walkable South Bangalore neighbourhood.
           Bull Temple is about five minutes away. Lalbagh Botanical Gardens is about ten minutes.
           The Green Line metro at Lalbagh Station is roughly 2.5 km, so commutes from JP Nagar,
-          JP Nagar, and the city centre do not require a Koramangala hop.
+          Banashankari, and the city centre do not require a Koramangala hop.
         </p>
         <div className="grid sm:grid-cols-3 gap-4">
           {[
@@ -271,27 +184,15 @@ export default function BasavanagudiLocationPage() {
 
       <CabinDeskCompare />
 
-      <section className="mx-auto max-w-3xl px-4 py-16">
-        <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-8 text-center">
-          Basavanagudi coworking FAQ
-        </h2>
-        <div className="space-y-4">
-          {faqs.map((item) => (
-            <details key={item.q} className="rounded-2xl border border-neutral-200 p-5 bg-white">
-              <summary className="font-semibold text-neutral-900 cursor-pointer">{item.q}</summary>
-              <p className="mt-3 text-neutral-700">{item.a}</p>
-            </details>
-          ))}
-        </div>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link href="/book-tour" className="rounded-xl bg-primary px-6 py-3 text-white font-semibold">
-            Book a free tour
-          </Link>
-          <Link href="/contact" className="rounded-xl border-2 border-primary px-6 py-3 text-primary font-semibold">
-            Contact
-          </Link>
-        </div>
-      </section>
+      <FaqSection items={LOCATION_FAQS} title="Basavanagudi coworking FAQ" />
+      <div className="mx-auto max-w-3xl px-4 pb-16 flex flex-wrap justify-center gap-3">
+        <Link href="/book-tour" className="rounded-xl bg-primary px-6 py-3 text-white font-semibold">
+          Book a free tour
+        </Link>
+        <Link href="/contact" className="rounded-xl border-2 border-primary px-6 py-3 text-primary font-semibold">
+          Contact
+        </Link>
+      </div>
     </div>
   );
 }

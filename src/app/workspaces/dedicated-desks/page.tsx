@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Dedicated Desk in Basavanagudi | ₹3,499/month",
   description: "Assigned dedicated desk at Spacio Workspace, Basavanagudi. ₹3,499 per month with 24/7 access. Book a free tour.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/dedicated-desks" },
-  openGraph: {
-    title: "Dedicated Desk in Basavanagudi | ₹3,499/month",
-    description: "Assigned dedicated desk at Spacio Workspace, Basavanagudi. ₹3,499 per month with 24/7 access. Book a free tour.",
-    url: "https://www.spacioworkspace.com/workspaces/dedicated-desks",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/workspace-orange-screens.jpg", width: 1200, height: 630, alt: "Dedicated desk at Spacio Workspace Basavanagudi" }],
-  },
-};
+  path: "/workspaces/dedicated-desks",
+  ogImage: "/images/workspace-orange-screens.jpg",
+  ogAlt: "Dedicated desk at Spacio Workspace Basavanagudi",
+});
 
 export default function DedicatedDesksPage() {
   return (
@@ -297,6 +291,7 @@ export default function DedicatedDesksPage() {
         </div>
       </section>
       <CabinDeskCompare />
+      <PlanSeo planId="dedicated-desks" />
       <RelatedPlans
         links={[
           { href: "/workspaces/day-pass", label: "Day pass" },

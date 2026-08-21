@@ -1,23 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee, Mail, Phone } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
+import { PlanSeo } from "@/components/PlanSeo";
+import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMeta({
   title: "Virtual Office in Basavanagudi | ₹12,999/year",
   description: "GST and ROC business address at Spacio Workspace, Basavanagudi. Mail handling and phone answering. ₹12,999 per year.",
-  alternates: { canonical: "https://www.spacioworkspace.com/workspaces/virtual-office" },
-  openGraph: {
-    title: "Virtual Office in Basavanagudi | ₹12,999/year",
-    description: "GST and ROC business address at Spacio Workspace, Basavanagudi. Mail handling and phone answering. ₹12,999 per year.",
-    url: "https://www.spacioworkspace.com/workspaces/virtual-office",
-    siteName: "Spacio Workspace",
-    locale: "en_IN",
-    type: "website",
-    images: [{ url: "/images/building-exterior-sree-devi-complex.jpg", width: 1200, height: 630, alt: "Spacio Workspace Basavanagudi virtual office address" }],
-  },
-};
+  path: "/workspaces/virtual-office",
+  ogImage: "/images/building-exterior-sree-devi-complex.jpg",
+  ogAlt: "Spacio Workspace Basavanagudi virtual office address",
+});
 
 export default function VirtualOfficePage() {
   return (
@@ -363,6 +357,7 @@ export default function VirtualOfficePage() {
           </div>
         </div>
       </section>
+      <PlanSeo planId="virtual-office" />
       <RelatedPlans
         links={[
           { href: "/workspaces/meeting-rooms", label: "Meeting rooms" },
