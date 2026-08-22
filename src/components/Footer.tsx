@@ -2,13 +2,13 @@ import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 
 const workspace = [
-  { label: "Private cabins", href: "/workspaces/solo-cabin" },
-  { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin" },
-  { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin" },
-  { label: "Dedicated desks", href: "/workspaces/dedicated-desks" },
-  { label: "Meeting rooms", href: "/workspaces/meeting-rooms" },
-  { label: "Virtual office", href: "/workspaces/virtual-office" },
-  { label: "Day pass", href: "/workspaces/day-pass" },
+  { label: "Private cabins", href: "/workspaces/solo-cabin#video-tour" },
+  { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin#video-tour" },
+  { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin#video-tour" },
+  { label: "Dedicated desks", href: "/workspaces/dedicated-desks#video-tour" },
+  { label: "Meeting rooms", href: "/workspaces/meeting-rooms#video-tour" },
+  { label: "Virtual office", href: "/workspaces/virtual-office#video-tour" },
+  { label: "Day pass", href: "/workspaces/day-pass#video-tour" },
 ];
 
 export function Footer() {
@@ -74,6 +74,16 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/gallery#video-tours" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Video tours
+                </Link>
+              </li>
+              <li>
+                <Link href="/book-tour" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Book a tour
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-neutral-700 hover:text-primary transition-colors duration-300">
                   Contact
                 </Link>
@@ -131,6 +141,16 @@ export function Footer() {
                   className="text-neutral-700 hover:text-primary transition-colors duration-300"
                 >
                   hello@spacioworkspace.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/spacioworkspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-700 hover:text-primary transition-colors duration-300"
+                >
+                  Instagram
                 </a>
               </li>
               <li className="mt-4 sm:mt-6">

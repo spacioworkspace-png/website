@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, MapPin, Clock, Wifi, Phone, Mail, Building2,
 import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { FaqSection } from "@/components/FaqSection";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { pageMeta } from "@/lib/seo";
 import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, SITE_NAME } from "@/lib/site";
 
@@ -114,6 +115,8 @@ export default function BasavanagudiLocationPage() {
           />
         </div>
       </section>
+
+      <PlanVideoSection showAllTours />
 
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4">

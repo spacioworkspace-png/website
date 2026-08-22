@@ -110,8 +110,26 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-neutral-900 mt-8 mb-4">8. Cookies and Tracking Technologies</h2>
             <p>
-              We use cookies and similar tracking technologies to enhance your experience on our website. You can control 
-              cookie preferences through your browser settings.
+              We use cookies and similar technologies to measure website performance, understand how visitors use
+              our site, and support advertising on Google, Meta (Facebook/Instagram), and other platforms. This may
+              include:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-4">
+              <li><strong>Google Tag Manager & Google Analytics:</strong> page views, events, and conversion measurement</li>
+              <li><strong>Google Ads:</strong> ad click attribution and conversion tracking (e.g. tour bookings)</li>
+              <li><strong>Meta Pixel:</strong> ad delivery, remarketing, and conversion measurement on Facebook and Instagram</li>
+              <li><strong>Chatling:</strong> live chat widget functionality</li>
+            </ul>
+            <p className="mt-4">
+              You can control cookies through your browser settings. Where required, we will request consent before
+              placing non-essential cookies. To opt out of personalised ads, visit{" "}
+              <a href="https://adssettings.google.com" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                Google Ads Settings
+              </a>{" "}
+              or{" "}
+              <a href="https://www.facebook.com/settings?tab=ads" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                Meta Ad Preferences
+              </a>.
             </p>
           </section>
 

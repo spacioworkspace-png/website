@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
-import { ArrowRight, MessageCircle, Camera, Building2, MapPin, Play } from "lucide-react";
+import { ArrowRight, MessageCircle, Camera, Building2, MapPin } from "lucide-react";
+import { VideoTourLibrary } from "@/components/VideoTourLibrary";
 export default function GalleryPage() {
   const galleryCategories = [
     {
@@ -145,87 +146,9 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Virtual Tour Section */}
-      <section className="mx-auto max-w-7xl px-4 py-20">
-        <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 md:p-12 bg-gradient-to-br from-primary/5 to-white">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="badge-premium mb-4 inline-block">Virtual Experience</span>
-              <h2 className="text-4xl font-bold text-neutral-900 mb-4">
-                Take a <span className="text-gradient">Virtual Tour</span>
-              </h2>
-              <p className="text-lg text-neutral-700 mb-6">
-                Can't visit in person? Watch our virtual tour video to explore our premium coworking space 
-                in Basavanagudi, Bangalore from the comfort of your home.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Private cabins (Solo, 3-Seater, 6-Seater)",
-                  "Dedicated desk areas",
-                  "Modern meeting rooms",
-                  "Common areas & lounge",
-                  "High-speed WiFi infrastructure",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                    <span className="text-neutral-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="https://wa.me/917022780310?text=I'd like to schedule a physical tour after watching the virtual tour #BookTour #SpacioWorkspace #CoworkingBangalore"
-                className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300 shadow-lg hover:scale-105"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Book Physical Tour
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-            <div className="space-y-4">
-            <div className="aspect-video w-full rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
-              <video 
-                className="w-full h-full object-cover" 
-                controls 
-                preload="metadata"
-                poster="/images/spacio-sign-green-wall.jpg"
-              >
-                <source src="/tour.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              </div>
-              <div className="grid md:grid-cols-3 gap-4">
-                {[
-                  { title: "Solo Cabin Tour", src: "/solo-cabin-tour.mp4" },
-                  { title: "3-Seater Cabin Tour", src: "/three-seater-cabin-tour.mp4" },
-                  { title: "6-Seater Cabin Tour", src: "/six-seater-cabin-tour.mp4" },
-                  { title: "Dedicated Desks Tour", src: "/dedicated-desks-tour.mp4" },
-                  { title: "Meeting Rooms Tour", src: "/meeting-rooms-tour.mp4" },
-                  { title: "Virtual Office Tour", src: "/virtual-office-tour.mp4" },
-                ].map((video) => (
-                  <div
-                    key={video.title}
-                    className="aspect-video w-full rounded-lg overflow-hidden bg-neutral-100 border border-neutral-200 relative group"
-                  >
-                    <video 
-                      className="w-full h-full object-cover" 
-                      controls 
-                      preload="metadata"
-                    >
-                      <source src={video.src} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent">
-                      <p className="text-white text-sm font-semibold flex items-center gap-2">
-                        <Play className="w-4 h-4" />
-                        {video.title}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* Video tours */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <VideoTourLibrary />
       </section>
 
       {/* Location Photos */}

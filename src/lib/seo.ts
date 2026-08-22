@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "./site";
 
+function absoluteUrl(path: string) {
+  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+}
+
 export function pageMeta({
   title,
   description,
   path,
+  canonicalPath,
   noindex = false,
   ogImage = OG_IMAGE,
   ogAlt,
@@ -12,11 +17,14 @@ export function pageMeta({
   title: string;
   description: string;
   path: string;
+  /** Override canonical when an ad landing page mirrors a primary URL. */
+  canonicalPath?: string;
   noindex?: boolean;
   ogImage?: string;
   ogAlt?: string;
 }): Metadata {
-  const url = path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+  const url = absoluteUrl(path);
+  const canonical = absoluteUrl(canonicalPath ?? path);
   const image = {
     url: ogImage,
     width: 1200,
@@ -27,7 +35,7 @@ export function pageMeta({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical },
     openGraph: {
       title,
       description,

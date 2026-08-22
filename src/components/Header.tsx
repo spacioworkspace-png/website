@@ -1,8 +1,5 @@
-"use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { MobileNav } from "./MobileNav";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -16,179 +13,50 @@ const nav = [
 ];
 
 export function Header() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    // Optimize scroll listener for mobile - reduce frequency on mobile devices
-    let ticking = false;
-    let lastScrollY = 0;
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    const scrollThreshold = isMobile ? 50 : 20; // Less frequent updates on mobile
-    
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
-          // Only update if scroll change is significant (mobile optimization)
-          if (Math.abs(currentScrollY - lastScrollY) > scrollThreshold || currentScrollY < scrollThreshold) {
-            setScrolled(currentScrollY > scrollThreshold);
-            lastScrollY = currentScrollY;
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    
-    // Throttle scroll events more aggressively on mobile
-    const throttleDelay = isMobile ? 100 : 16;
-    let timeoutId: NodeJS.Timeout | null = null;
-    
-    const throttledHandleScroll = () => {
-      if (timeoutId) return;
-      timeoutId = setTimeout(() => {
-        handleScroll();
-        timeoutId = null;
-      }, throttleDelay);
-    };
-    
-    window.addEventListener("scroll", throttledHandleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", throttledHandleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, []);
-
   return (
-    <motion.header 
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled 
-          ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-neutral-200/50" 
-          : "bg-white/80 backdrop-blur-md border-b border-neutral-200/30"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
-        <Link 
-          href="/" 
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300 relative group"
-        >
-          {/* Logo slot: will use /logo.png if present */}
-          <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center border-2 border-primary/20 overflow-hidden bg-primary group-hover:scale-110 transition-transform duration-300">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/logo.png"
-              alt="Spacio Workspace Logo"
-              className="w-full h-full object-contain"
-              loading="eager"
-              fetchPriority="high"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.display = "none";
-                const parent = e.currentTarget.parentElement;
-                if (parent && !parent.querySelector("span")) {
-                  const span = document.createElement("span");
-                  span.textContent = "S";
-                  span.className = "text-white font-bold text-sm md:text-base";
-                  parent.appendChild(span);
-                }
-              }}
-            />
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-neutral-200/50 shadow-sm">
+      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <div className="w-10 h-10 md:w-11 md:h-11 rounded-lg flex items-center justify-center bg-primary text-white font-bold text-sm">
+            S
           </div>
           <div className="flex flex-col">
-            <span className="text-lg md:text-xl font-bold tracking-tight text-neutral-900 leading-tight">Spacio Workspace</span>
-            <span className="text-xs md:text-sm text-neutral-600 leading-tight hidden sm:block">Namma Bengaluru</span>
+            <span className="text-base md:text-lg font-bold text-neutral-900 leading-tight">
+              Spacio Workspace
+            </span>
+            <span className="text-xs text-neutral-600 hidden sm:block">Namma Bengaluru</span>
           </div>
         </Link>
-        
-        <nav className="hidden gap-3 lg:gap-6 md:flex">
-          {nav.map((item, i) => (
+
+        <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="relative text-xs lg:text-sm font-medium text-neutral-700 transition-colors hover:text-primary group whitespace-nowrap"
+              className="px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary rounded-lg hover:bg-primary/5 transition-colors"
             >
-              <span className="relative z-10">{item.label}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+              {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 lg:gap-3">
-          <a 
-            href="https://wa.me/917022780310?text=Hi! I want to book a tour at Spacio Workspace Bangalore" 
-            className="hidden rounded-xl bg-primary px-3 lg:px-5 py-2 lg:py-2.5 text-xs lg:text-sm font-semibold text-white hover:bg-primary/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl md:inline-flex items-center gap-1 lg:gap-2"
+        <div className="hidden lg:flex items-center gap-3">
+          <Link
+            href="/book-tour"
+            className="btn-premium rounded-xl bg-primary px-5 py-2.5 text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
           >
-            <span className="hidden lg:inline">Book Free Tour</span>
-            <span className="lg:hidden">Tour</span>
-            <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4" />
+            Book Tour
+          </Link>
+          <a
+            href="https://wa.me/917022780310?text=Hi! I want to book a tour at Spacio Workspace Bangalore"
+            className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors"
+          >
+            WhatsApp
           </a>
-          <a 
-            href="tel:+917022780310" 
-            className="hidden rounded-xl border-2 border-neutral-200 px-3 lg:px-4 py-2 lg:py-2.5 text-xs lg:text-sm font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300 lg:inline-block"
-          >
-            <span className="hidden xl:inline">Call Now</span>
-            <span className="xl:hidden">Call</span>
-          </a>
-          <button 
-            aria-label="Menu" 
-            onClick={() => setOpen((v) => !v)} 
-            className="inline-flex items-center justify-center rounded-xl border-2 border-neutral-200 p-2.5 hover:border-primary hover:bg-primary/5 transition-all duration-300 md:hidden"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
-      </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div 
-            className="border-t bg-white/95 backdrop-blur-xl md:hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="mx-auto max-w-7xl px-4 py-6">
-              <div className="grid gap-4">
-                {nav.map((item, i) => (
-                  <motion.div
-                    key={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <Link 
-                      href={item.href} 
-                      className="block text-base font-medium text-neutral-700 hover:text-primary transition-colors py-2" 
-                      onClick={() => setOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
-                <div className="mt-4 pt-4 border-t border-neutral-200 flex flex-col gap-3">
-                  <a 
-                    href="https://wa.me/917022780310?text=Hi! I want to book a tour at Spacio Workspace Bangalore" 
-                    className="rounded-xl bg-primary px-5 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Book Free Tour
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                  <a 
-                    href="tel:+917022780310" 
-                    className="rounded-xl border-2 border-neutral-200 px-5 py-3 font-semibold text-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                  >
-                    Call +91 70227 80310
-                  </a>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+        <MobileNav items={nav} />
+      </div>
+    </header>
   );
 }

@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Calendar, Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
+import { trackLead } from "@/lib/tracking";
 
 export function BookTourForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,7 +19,9 @@ export function BookTourForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ''}`;
-    window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, '_blank');
+    trackLead("book_tour_form");
+    window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, "_blank");
+    router.push("/book-tour/thank-you");
   };
 
   return (

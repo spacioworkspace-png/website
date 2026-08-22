@@ -4,6 +4,7 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { PlanSeo } from "@/components/PlanSeo";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -73,6 +74,8 @@ export default function SoloCabinPage() {
           </div>
         </div>
       </section>
+
+      <PlanVideoSection planId="solo-cabin" showAllTours />
 
       {/* Key Features */}
       <section className="py-20 bg-white">

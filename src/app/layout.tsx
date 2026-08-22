@@ -1,12 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
-import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
+import { Suspense } from "react";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { FloatingWhatsApp } from "@/components/LazyComponents";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+import { DeferredChatling } from "@/components/DeferredChatling";
+import { DeferredWidgets } from "@/components/DeferredWidgets";
+import { MarketingNoScript, MarketingScripts } from "@/components/MarketingScripts";
+import { organizationGraph } from "@/lib/schema";
+import { EMAIL, PHONE_DISPLAY, SITE_NAME, SITE_URL } from "@/lib/site";
+
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const fbDomainVerification = process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,18 +21,16 @@ const geistSans = Geist({
   preload: true,
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-  preload: false,
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Coworking Space in Basavanagudi | Spacio",
   description:
-    "Private cabins, dedicated desks, meeting rooms and virtual office in Basavanagudi, South Bangalore. Book a free tour.",
+    "Private cabins, dedicated desks, meeting rooms and virtual office in Basavanagudi. Day pass ₹199, solo cabin ₹8,499/month. Book a free tour.",
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Coworking space",
   keywords: [
     "coworking space Basavanagudi",
     "coworking space South Bangalore",
@@ -82,6 +86,16 @@ export const metadata: Metadata = {
     apple: [{ url: "/logo.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.json",
+  ...(googleSiteVerification || fbDomainVerification
+    ? {
+        verification: {
+          ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
+          ...(fbDomainVerification
+            ? { other: { "facebook-domain-verification": fbDomainVerification } }
+            : {}),
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -96,112 +110,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "@id": `${SITE_URL}/#localbusiness`,
-    name: SITE_NAME,
-    alternateName: "Spacio Workspace Basavanagudi",
-    description:
-      "Coworking space in Basavanagudi, South Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office for professionals, startups and growing teams.",
-    url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
-    image: `${SITE_URL}/og-image.jpg`,
-    telephone: "+917022780310",
-    email: "hello@spacioworkspace.com",
-    category: "Coworking space",
-    knowsAbout: [
-      "Coworking space",
-      "Private cabins",
-      "Dedicated desks",
-      "Meeting rooms",
-      "Virtual office",
-    ],
-    makesOffer: [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", name: "Private cabin coworking" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", name: "Dedicated desk coworking" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", name: "Meeting room hire" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", name: "Virtual office" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", name: "Day pass coworking" } },
-    ],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "No 7, Sree Devi Complex, NAT Street",
-      addressLocality: "Basavanagudi",
-      addressRegion: "Karnataka",
-      postalCode: "560004",
-      addressCountry: "IN",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: "12.9449135",
-      longitude: "77.5658325",
-    },
-    hasMap: "https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z",
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        opens: "00:00",
-        closes: "23:59",
-      },
-    ],
-    priceRange: "₹₹",
-    areaServed: [
-      { "@type": "AdministrativeArea", name: "Basavanagudi" },
-      { "@type": "AdministrativeArea", name: "South Bangalore" },
-      { "@type": "City", name: "Bangalore" },
-    ],
-    sameAs: [
-      "https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5658325,17z",
-    ],
-  };
-
   return (
     <html lang="en-IN">
       <head>
-        <Script id="google-tag-manager" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PJVS9KPR');
-          `}
-        </Script>
-        <Script id="chatling-config" strategy="afterInteractive">
-          {`
-            window.chtlConfig = { chatbotId: "1118293796" };
-          `}
-        </Script>
-        <Script
-          id="chatling-script"
-          strategy="afterInteractive"
-          data-id="1118293796"
-          src="https://chatling.ai/js/embed.js"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM facts" />
+        <JsonLd data={organizationGraph()} />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PJVS9KPR"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+      <body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
+        <MarketingNoScript />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2"
+        >
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
+        <Suspense fallback={null}>
+          <DeferredWidgets />
+        </Suspense>
+        <main id="main-content">{children}</main>
         <Footer />
-        <FloatingWhatsApp />
-        <Analytics />
+        <MarketingScripts />
+        <DeferredChatling />
+        <p className="sr-only">
+          {SITE_NAME}, {PHONE_DISPLAY}, {EMAIL}. Coworking space at No 7, Sree Devi Complex, NAT Street,
+          Basavanagudi, Bangalore 560004. Day pass ₹199, dedicated desk ₹3,499/month, solo cabin ₹8,499/month,
+          meeting rooms ₹399/hour, virtual office ₹12,999/year.
+        </p>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play, Shield, Zap, Coffee } from "lucide-react";
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata = pageMeta({
@@ -72,6 +73,8 @@ export default function DayPassPage() {
           </div>
         </div>
       </section>
+
+      <PlanVideoSection planId="day-pass" showAllTours />
 
       {/* Key Features */}
       <section className="py-20 bg-white">

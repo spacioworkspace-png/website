@@ -709,3 +709,79 @@ html {
   );
 }
 
+/* Performance: GPU-composited hero blobs (replaces framer-motion on LCP section) */
+.hero-blob {
+  position: absolute;
+  border-radius: 9999px;
+  background: oklch(0.72 0.17 58 / 0.08);
+  filter: blur(64px);
+  pointer-events: none;
+  transform: translateZ(0);
+  animation: hero-blob-drift 14s ease-in-out infinite;
+}
+
+.hero-blob-a {
+  top: 5rem;
+  right: 5rem;
+  width: 24rem;
+  height: 24rem;
+}
+
+.hero-blob-b {
+  bottom: 5rem;
+  left: 5rem;
+  width: 31rem;
+  height: 31rem;
+  animation-duration: 18s;
+  animation-delay: 2s;
+}
+
+@keyframes hero-blob-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(24px, -24px, 0) scale(1.12);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob,
+  .heartbeat,
+  .pulse-glow-peacock {
+    animation: none !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+}

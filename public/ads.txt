@@ -1,0 +1,6 @@
+# Spacio Workspace — ads.txt
+# Add your Google AdSense / Ad Manager publisher ID when running display inventory:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+#
+# Google Ads conversion tracking uses GTM/gtag (see site layout) — no ads.txt entry required for Search campaigns.
+# Meta Ads uses the Meta Pixel configured via NEXT_PUBLIC_META_PIXEL_ID.

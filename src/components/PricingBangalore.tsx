@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Zap, Users, Building2, Calendar, Star } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 export function PricingBangalore() {
   const pricingPlans = [
@@ -215,6 +216,8 @@ export function PricingBangalore() {
           </div>
         </motion.div>
       </section>
+
+      <PlanVideoSection showAllTours />
     </div>
   );
 }

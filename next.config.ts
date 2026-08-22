@@ -27,7 +27,27 @@ const nextConfig: NextConfig = {
   // SWC (Speedy Web Compiler) handles minification automatically
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ["lucide-react", "framer-motion", "@vercel/analytics"],
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+        ],
+      },
+      {
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
+        source: "/:file(og-image.jpg|favicon.ico|logo.png|manifest.json|llms.txt|ads.txt|spacio-hero.jpg|hero-solo-cabin.jpg)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+      },
+    ];
   },
   async redirects() {
     return [
@@ -42,31 +62,6 @@ const nextConfig: NextConfig = {
         has: [{ type: "host", value: "spacioworkspace.com" }],
         destination: "https://www.spacioworkspace.com/:path*",
         statusCode: 301,
-      },
-      {
-        source: "/day-pass-bangalore",
-        destination: "/workspaces/day-pass",
-        permanent: true,
-      },
-      {
-        source: "/meeting-rooms-bangalore",
-        destination: "/workspaces/meeting-rooms",
-        permanent: true,
-      },
-      {
-        source: "/private-cabins-bangalore",
-        destination: "/workspaces/solo-cabin",
-        permanent: true,
-      },
-      {
-        source: "/virtual-office-bangalore",
-        destination: "/workspaces/virtual-office",
-        permanent: true,
-      },
-      {
-        source: "/pricing-bangalore",
-        destination: "/pricing",
-        permanent: true,
       },
       {
         source: "/tour",

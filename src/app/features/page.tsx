@@ -1,5 +1,6 @@
 "use client";
 import { ArrowRight, MessageCircle, MapPin, Zap, Users, Shield, Building2, Sparkles, Star, TrendingUp } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 export default function FeaturesPage() {
   return (
@@ -97,6 +98,8 @@ export default function FeaturesPage() {
           </a>
         </div>
       </section>
+
+      <PlanVideoSection showAllTours />
     </div>
   );
 }

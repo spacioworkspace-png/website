@@ -1,12 +1,17 @@
 import { MetadataRoute } from "next";
-import { GALLERY_IMAGES, PLANS, SITE_UPDATED, SITE_URL } from "@/lib/site";
+import { AD_LANDING_PAGES, GALLERY_IMAGES, PLANS, SITE_UPDATED, SITE_URL } from "@/lib/site";
 
 export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(SITE_UPDATED);
 
-  const pages: { path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number; images?: string[] }[] = [
+  const pages: {
+    path: string;
+    changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+    priority: number;
+    images?: string[];
+  }[] = [
     {
       path: "",
       changeFrequency: "weekly",
@@ -40,11 +45,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`),
     },
     { path: "/reviews", changeFrequency: "weekly", priority: 0.7 },
-    { path: "/book-tour", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/book-tour", changeFrequency: "monthly", priority: 0.85 },
     { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
     { path: "/privacy", changeFrequency: "yearly", priority: 0.3 },
     { path: "/terms", changeFrequency: "yearly", priority: 0.3 },
     { path: "/refund", changeFrequency: "yearly", priority: 0.3 },
+    ...AD_LANDING_PAGES.map((page) => ({
+      path: page.path,
+      changeFrequency: "weekly" as const,
+      priority: 0.85,
+      ...(page.image ? { images: [`${SITE_URL}${page.image}`] } : {}),
+    })),
   ];
 
   return pages.map(({ path, changeFrequency, priority, images }) => ({

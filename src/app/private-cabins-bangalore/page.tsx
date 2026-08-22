@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Users, Shield, Wifi, MapPin } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 export default function PrivateCabinsBangalore() {
   return (
@@ -113,6 +114,8 @@ export default function PrivateCabinsBangalore() {
             </div>
           </div>
         </section>
+
+        <PlanVideoSection planId="solo-cabin" showAllTours />
 
         {/* CTA Section */}
         <section className="max-w-4xl mx-auto px-4 py-20 text-center">

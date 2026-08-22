@@ -1,4 +1,6 @@
+import { FaqSection } from "@/components/FaqSection";
 import { pageMeta } from "@/lib/seo";
+import { SITE_FAQS } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Contact Spacio Workspace | Basavanagudi, Bangalore",
@@ -8,5 +10,13 @@ export const metadata = pageMeta({
 });
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      {children}
+      <FaqSection
+        items={[SITE_FAQS[0], SITE_FAQS[1], SITE_FAQS[5]]}
+        title="How to reach Spacio"
+      />
+    </>
+  );
 }

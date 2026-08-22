@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, MessageCircle, ArrowRight, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play } from "lucide-react";
+import { WorkspaceVideoTour } from "@/components/WorkspaceVideoTour";
 
 interface WorkspaceDetailModalProps {
   workspace: {
@@ -117,19 +118,19 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                         </div>
                       )}
                     </div>
-                    <div className="mt-3 aspect-video rounded-lg border border-primary/40 bg-primary/5 flex items-center justify-center overflow-hidden">
+                    <div className="mt-3">
                       {workspace.videoUrl ? (
-                        <video
+                        <WorkspaceVideoTour
+                          id={`modal-video-${workspace.slug ?? workspace.title}`}
                           src={workspace.videoUrl}
-                          controls
-                          className="w-full h-full object-cover"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
+                          poster={workspace.images?.[0] ?? "/images/building-exterior-sree-devi-complex.jpg"}
+                          title={`${workspace.title} video tour`}
+                          description={`Walkthrough of ${workspace.title} at Spacio Workspace, Basavanagudi.`}
+                        />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center gap-2 text-sm text-primary">
+                        <div className="aspect-video rounded-lg border border-primary/40 bg-primary/5 flex items-center justify-center gap-2 text-sm text-primary">
                           <Play className="w-4 h-4" />
-                          Video walkthrough coming soon
+                          Video walkthrough — open the plan page to watch
                         </div>
                       )}
                     </div>

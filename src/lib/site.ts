@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.spacioworkspace.com";
 export const SITE_NAME = "Spacio Workspace";
-export const SITE_UPDATED = "2026-08-21";
+export const SITE_UPDATED = "2026-08-22";
 
 export const PHONE_DISPLAY = "+91 70227 80310";
 export const PHONE_TEL = "+917022780310";
@@ -42,7 +42,17 @@ export type Plan = {
   unitLabel: string;
   description: string;
   image: string;
+  videoTour: string;
   faqs: { q: string; a: string }[];
+};
+
+export const OVERVIEW_VIDEO_TOUR = {
+  id: "overview",
+  title: "Spacio Workspace centre tour",
+  description:
+    "A walkthrough of Spacio Workspace in Basavanagudi — private cabins, dedicated desks, meeting rooms and common areas.",
+  src: "/tour.mp4",
+  poster: "/images/building-exterior-sree-devi-complex.jpg",
 };
 
 export const PLANS: Plan[] = [
@@ -56,6 +66,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per day",
     description: "Full-day coworking access from 9 AM to 7 PM at Spacio Workspace, Basavanagudi.",
     image: "/images/workspace-yellow-green-walls.jpg",
+    videoTour: "/day-pass-tour.mp4",
     faqs: [
       {
         q: "How much is a coworking day pass in Basavanagudi?",
@@ -77,6 +88,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per month",
     description: "Assigned desk with 24/7 access at Spacio Workspace, Basavanagudi.",
     image: "/images/workspace-numbered-cabins.jpg",
+    videoTour: "/dedicated-desks-tour.mp4",
     faqs: [
       {
         q: "How much is a dedicated desk in Basavanagudi?",
@@ -98,6 +110,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per month",
     description: "Private 1-person cabin with 24/7 access at Spacio Workspace, Basavanagudi.",
     image: "/images/solo-cabin-workspace.jpg",
+    videoTour: "/solo-cabin-tour.mp4",
     faqs: [
       {
         q: "How much does a private cabin cost in Basavanagudi?",
@@ -119,6 +132,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per month",
     description: "Private cabin for up to three people at Spacio Workspace, Basavanagudi.",
     image: "/images/3-seater-cabin-orange-screens.jpg",
+    videoTour: "/three-seater-cabin-tour.mp4",
     faqs: [
       {
         q: "How much is a 3-seater cabin in Basavanagudi?",
@@ -136,6 +150,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per month",
     description: "Private cabin for teams of up to six at Spacio Workspace, Basavanagudi.",
     image: "/images/6-seater-cabin-workspace.jpg",
+    videoTour: "/six-seater-cabin-tour.mp4",
     faqs: [
       {
         q: "How much is a 6-seater cabin in Basavanagudi?",
@@ -153,6 +168,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per hour",
     description: "Bookable meeting rooms for 4–12 people from ₹399 per hour.",
     image: "/images/meeting-room-frosted-glass.jpg",
+    videoTour: "/meeting-rooms-tour.mp4",
     faqs: [
       {
         q: "How much do meeting rooms cost at Spacio Workspace?",
@@ -170,6 +186,7 @@ export const PLANS: Plan[] = [
     unitLabel: "per year",
     description: "GST and ROC business address with mail handling at Spacio Workspace, Basavanagudi.",
     image: "/images/building-exterior-sree-devi-complex.jpg",
+    videoTour: "/virtual-office-tour.mp4",
     faqs: [
       {
         q: "How much is a virtual office in Basavanagudi?",
@@ -239,6 +256,18 @@ export const PRICING_FAQS = [
   },
 ];
 
+/** Keyword landing pages for Google Ads & Meta Ads campaigns. */
+export const AD_LANDING_PAGES: {
+  path: string;
+  image?: string;
+}[] = [
+  { path: "/day-pass-bangalore", image: "/images/workspace-yellow-green-walls.jpg" },
+  { path: "/private-cabins-bangalore", image: "/images/solo-cabin-workspace.jpg" },
+  { path: "/meeting-rooms-bangalore", image: "/images/meeting-room-frosted-glass.jpg" },
+  { path: "/virtual-office-bangalore", image: "/images/building-exterior-sree-devi-complex.jpg" },
+  { path: "/pricing-bangalore" },
+];
+
 export const GALLERY_IMAGES = [
   { src: "/images/building-exterior-sree-devi-complex.jpg", alt: "Sree Devi Complex exterior, Spacio Workspace Basavanagudi" },
   { src: "/images/solo-cabin-workspace.jpg", alt: "Solo private cabin at Spacio Workspace Basavanagudi" },
@@ -250,4 +279,18 @@ export const GALLERY_IMAGES = [
 
 export function getPlan(id: string) {
   return PLANS.find((plan) => plan.id === id);
+}
+
+export function getAllVideoTours() {
+  return [
+    OVERVIEW_VIDEO_TOUR,
+    ...PLANS.map((plan) => ({
+      id: plan.id,
+      title: `${plan.name} tour`,
+      description: plan.description,
+      src: plan.videoTour,
+      poster: plan.image,
+      path: plan.path,
+    })),
+  ];
 }

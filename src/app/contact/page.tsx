@@ -3,6 +3,7 @@ import Script from "next/script";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send, MessageCircle, Clock, ArrowRight } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -272,6 +273,8 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
+
+      <PlanVideoSection showAllTours />
       </div>
   );
 }

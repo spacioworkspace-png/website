@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Clock, Wifi, MapPin } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 export default function DayPassBangalore() {
   return (
@@ -74,6 +75,8 @@ export default function DayPassBangalore() {
             ))}
           </div>
         </section>
+
+        <PlanVideoSection planId="day-pass" showAllTours />
 
         {/* CTA Section */}
         <section className="bg-gradient-to-r from-primary/10 to-primary/5 py-20">

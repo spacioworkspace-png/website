@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Star, Zap, Shield, Clock, Wifi, MapPin, Gift } from "lucide-react";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 export default function PricingPage() {
   const pricingPlans = [
     {
@@ -280,6 +281,8 @@ export default function PricingPage() {
           </div>
         </motion.div>
       </section>
+
+      <PlanVideoSection showAllTours />
 
       {/* SEO Content */}
       <section className="mx-auto max-w-4xl px-4 pb-20">

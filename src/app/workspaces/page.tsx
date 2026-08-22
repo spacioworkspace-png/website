@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
+import { PlanVideoSection } from "@/components/PlanVideoSection";
 
 const workspaceOptions = [
   {
@@ -346,6 +347,8 @@ export default function WorkspacesPage() {
           </div>
         </div>
       </section>
+
+      <PlanVideoSection showAllTours />
 
       <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
         <div className="mb-12 text-center">

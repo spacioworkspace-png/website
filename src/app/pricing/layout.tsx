@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { FaqSection } from "@/components/FaqSection";
+import { PricingTable } from "@/components/PricingTable";
 import { pageMeta } from "@/lib/seo";
+import { PRICING_FAQS } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
   title: "Pricing | Spacio Workspace Basavanagudi",
@@ -8,10 +11,12 @@ export const metadata: Metadata = pageMeta({
   path: "/pricing",
 });
 
-export default function PricingLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return children;
+export default function PricingLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      {children}
+      <PricingTable />
+      <FaqSection items={PRICING_FAQS} title="Pricing questions" />
+    </>
+  );
 }
