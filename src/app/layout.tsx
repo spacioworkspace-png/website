@@ -9,6 +9,7 @@ import { DeferredChatling } from "@/components/DeferredChatling";
 import { DeferredWidgets } from "@/components/DeferredWidgets";
 import { MarketingNoScript, MarketingScripts } from "@/components/MarketingScripts";
 import { organizationGraph } from "@/lib/schema";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { EMAIL, PHONE_DISPLAY, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -23,27 +24,19 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Coworking Space in Basavanagudi | Spacio",
+  title: "Coworking & Office Space Basavanagudi | Near Bull Temple & Lalbagh",
   description:
-    "Private cabins, dedicated desks, meeting rooms and virtual office in Basavanagudi. Day pass ₹199, solo cabin ₹8,499/month. Book a free tour.",
+    "Coworking space near Bull Temple and Lalbagh in Basavanagudi, South Bangalore. Private cabins, dedicated desks, meeting rooms, virtual office and day pass. Book a free tour.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
   category: "Coworking space",
-  keywords: [
-    "coworking space Basavanagudi",
-    "coworking space South Bangalore",
-    "coworking space Bangalore",
-    "private cabin Basavanagudi",
-    "dedicated desk South Bangalore",
-    "meeting room Basavanagudi",
-    "virtual office Bangalore",
-  ],
+  keywords: [...SEO_KEYWORDS.site],
   openGraph: {
-    title: "Coworking Space in Basavanagudi | Spacio",
+    title: "Coworking & Office Space Basavanagudi | Spacio Workspace",
     description:
-      "Private cabins, dedicated desks, meeting rooms and virtual office in Basavanagudi, South Bangalore.",
+      "Coworking space near Bull Temple and Lalbagh. Private cabin, dedicated desk, meeting room, virtual office and day pass in Basavanagudi, South Bangalore.",
     url: "/",
     siteName: SITE_NAME,
     locale: "en_IN",
@@ -59,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coworking Space in Basavanagudi | Spacio",
+    title: "Coworking & Office Space Basavanagudi | Spacio Workspace",
     description:
-      "Private cabins, dedicated desks, meeting rooms and virtual office in Basavanagudi, South Bangalore.",
+      "Coworking space near Bull Temple and Lalbagh. Office space, private cabins and day pass in Basavanagudi, South Bangalore.",
     images: ["/og-image.jpg"],
   },
   robots: {

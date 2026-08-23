@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Clock, Wifi, MapPin } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function DayPassBangalore() {
   return (
@@ -85,14 +86,13 @@ export default function DayPassBangalore() {
             <p className="text-xl text-neutral-700 mb-8">
               Experience premium coworking in Basavanagudi. Book your day pass today!
             </p>
-            <a
-              href="https://wa.me/917022780310?text=I want to book a Day Pass at Spacio Workspace Basavanagudi #DayPass #SpacioWorkspace #CoworkingBangalore #Basavanagudi"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Book Day Pass Now
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <ContactCtaPair
+              location="day-pass-bangalore-cta"
+              whatsappMessage="I want to book a Day Pass at Spacio Workspace Basavanagudi"
+              whatsappLabel="Book Day Pass via WhatsApp"
+              callLabel="Call Us"
+              className="justify-center"
+            />
           </div>
         </section>
     </div>

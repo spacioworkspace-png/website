@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Users, Shield, Wifi, MapPin } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function PrivateCabinsBangalore() {
   return (
@@ -123,14 +124,13 @@ export default function PrivateCabinsBangalore() {
           <p className="text-xl text-neutral-700 mb-8">
             Find your true space in Basavanagudi. Private cabins designed for productivity and success.
           </p>
-          <a
-            href="https://wa.me/917022780310?text=I want to book a Private Cabin at Spacio Workspace Basavanagudi #PrivateCabins #SpacioWorkspace #FindYourTrueSpace #Basavanagudi"
-            className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Book Private Cabin Now
-            <ArrowRight className="w-5 h-5" />
-          </a>
+          <ContactCtaPair
+            location="private-cabins-bangalore-cta"
+            whatsappMessage="I want to book a Private Cabin at Spacio Workspace Basavanagudi"
+            whatsappLabel="Book Private Cabin via WhatsApp"
+            callLabel="Call Us"
+            className="justify-center"
+          />
         </section>
     </div>
   );

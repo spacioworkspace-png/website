@@ -5,14 +5,19 @@ import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Dedicated Desk in Basavanagudi | ₹3,499/month",
-  description: "Assigned dedicated desk at Spacio Workspace, Basavanagudi. ₹3,499 per month with 24/7 access. Book a free tour.",
+  title: "Dedicated Desk Basavanagudi | Coworking from ₹3,499/month",
+  description:
+    "Dedicated desk in Basavanagudi with assigned seat, locker and 24/7 access. Affordable office space near South Bangalore from ₹3,499/month at Spacio Workspace.",
   path: "/workspaces/dedicated-desks",
+  keywords: [...SEO_KEYWORDS.dedicatedDesk],
   ogImage: "/images/workspace-orange-screens.jpg",
-  ogAlt: "Dedicated desk at Spacio Workspace Basavanagudi",
+  ogAlt: "Dedicated desk coworking space in Basavanagudi",
 });
 
 export default function DedicatedDesksPage() {
@@ -30,22 +35,11 @@ export default function DedicatedDesksPage() {
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
                 Choose a dedicated desk at Spacio Workspace when you want the energy of a coworking floor plus the comfort of leaving your gear safely overnight. Fixed desk with ergonomic setup, dual monitor readiness, and lockable pedestal storage.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a Dedicated Desk at Spacio Workspace Basavanagudi"
-                  className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp to Book
-                </a>
-                <Link
-                  href="/book-tour"
-                  className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  Book Free Tour
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
+              <HeroContactRow
+                className="mb-6"
+                location="dedicated-desks-hero"
+                whatsappMessage="I want to book a Dedicated Desk at Spacio Workspace Basavanagudi"
+              />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -76,6 +70,7 @@ export default function DedicatedDesksPage() {
       </section>
 
       <PlanVideoSection planId="dedicated-desks" showAllTours />
+      <PlanTestimonialSection planId="dedicated-desks" pagePath="/workspaces/dedicated-desks" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">
@@ -277,6 +272,7 @@ export default function DedicatedDesksPage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="dedicated-desks-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

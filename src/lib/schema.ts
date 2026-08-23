@@ -198,6 +198,29 @@ function GALLERY_IMAGE_URLS() {
   ];
 }
 
+import type { CustomerTestimonial } from "./testimonials";
+import { testimonialContentUrl, testimonialEmbedUrl } from "./testimonials";
+
+export function videoObjectJsonLd(testimonial: CustomerTestimonial, pagePath: string) {
+  const data: Record<string, string> = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: testimonial.title,
+    description: testimonial.description,
+    thumbnailUrl: testimonialContentUrl(testimonial.poster),
+    uploadDate: testimonial.uploadDate,
+    duration: testimonial.durationIso,
+    contentUrl: testimonialContentUrl(testimonial.videoSrc),
+    embedUrl: testimonialEmbedUrl(pagePath, testimonial.id),
+  };
+
+  if (testimonial.transcript.trim()) {
+    data.transcript = testimonial.transcript.trim();
+  }
+
+  return data;
+}
+
 export function howToTourJsonLd() {
   return {
     "@context": "https://schema.org",

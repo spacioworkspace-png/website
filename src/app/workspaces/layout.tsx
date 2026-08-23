@@ -1,12 +1,14 @@
 import { FaqSection } from "@/components/FaqSection";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { SITE_FAQS } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Workspace Plans | Spacio Workspace Basavanagudi",
+  title: "Office Space Basavanagudi | Private Cabins, Desks & Meeting Rooms",
   description:
-    "Compare private cabins, dedicated desks, day pass, meeting rooms and virtual office at Spacio Workspace in Basavanagudi.",
+    "Office space in Basavanagudi with private cabins, dedicated desks, meeting rooms, virtual office and day pass. Coworking near South Bangalore from Spacio Workspace.",
   path: "/workspaces",
+  keywords: [...SEO_KEYWORDS.workspaces],
 });
 
 export default function WorkspacesLayout({ children }: { children: React.ReactNode }) {

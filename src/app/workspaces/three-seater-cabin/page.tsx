@@ -4,14 +4,19 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "3-Seater Cabin in Basavanagudi | ₹14,999/month",
-  description: "3-seater private cabin at Spacio Workspace, Basavanagudi. ₹14,999 per month for small teams. Book a free tour.",
+  title: "Private Cabin Basavanagudi | 3-Seater Small Office ₹14,999/mo",
+  description:
+    "Private cabin in Basavanagudi for small teams and partners. Small office for rent with 3 seats, whiteboard and 24/7 access from ₹14,999/month at Spacio Workspace.",
   path: "/workspaces/three-seater-cabin",
+  keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/3-seater-cabin-orange-screens.jpg",
-  ogAlt: "3-seater cabin at Spacio Workspace Basavanagudi",
+  ogAlt: "3-seater private cabin office space in Basavanagudi",
 });
 
 export default function ThreeSeaterCabinPage() {
@@ -29,22 +34,11 @@ export default function ThreeSeaterCabinPage() {
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
                 Our 3-Seater private office in Basavanagudi lets fast-scaling teams brainstorm, prototype, and meet clients in a secure environment without committing to a long lease. Purpose-built for co-founders and boutique agencies who need a compact HQ in South Bangalore.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a 3-Seater Cabin at Spacio Workspace Basavanagudi"
-                  className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp to Book
-                </a>
-                <Link
-                  href="/book-tour"
-                  className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  Book Free Tour
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
+              <HeroContactRow
+                className="mb-6"
+                location="three-seater-cabin-hero"
+                whatsappMessage="I want to book a 3-Seater Cabin at Spacio Workspace Basavanagudi"
+              />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -75,6 +69,7 @@ export default function ThreeSeaterCabinPage() {
       </section>
 
       <PlanVideoSection planId="three-seater-cabin" showAllTours />
+      <PlanTestimonialSection planId="three-seater-cabin" pagePath="/workspaces/three-seater-cabin" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">
@@ -276,6 +271,7 @@ export default function ThreeSeaterCabinPage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="three-seater-cabin-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

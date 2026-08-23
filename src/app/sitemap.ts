@@ -1,10 +1,12 @@
 import { MetadataRoute } from "next";
 import { AD_LANDING_PAGES, GALLERY_IMAGES, PLANS, SITE_UPDATED, SITE_URL } from "@/lib/site";
+import { TESTIMONIAL_POSTERS } from "@/lib/testimonials";
 
 export const revalidate = 3600;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(SITE_UPDATED);
+  const testimonialImages = TESTIMONIAL_POSTERS.map((poster) => `${SITE_URL}${poster}`);
 
   const pages: {
     path: string;
@@ -16,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "",
       changeFrequency: "weekly",
       priority: 1,
-      images: GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`),
+      images: [...GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`), ...testimonialImages],
     },
     { path: "/about", changeFrequency: "monthly", priority: 0.8 },
     {
@@ -42,7 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path: "/gallery",
       changeFrequency: "monthly",
       priority: 0.7,
-      images: GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`),
+      images: [...GALLERY_IMAGES.map((image) => `${SITE_URL}${image.src}`), ...testimonialImages],
     },
     { path: "/reviews", changeFrequency: "weekly", priority: 0.7 },
     { path: "/book-tour", changeFrequency: "monthly", priority: 0.85 },

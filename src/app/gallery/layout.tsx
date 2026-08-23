@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = pageMeta({
-  title: "Gallery | Spacio Workspace Basavanagudi",
+  title: "Gallery | Office Space & Private Cabins Basavanagudi",
   description:
-    "Photos of private cabins, dedicated desks, meeting rooms and common areas at Spacio Workspace in Basavanagudi, Bangalore.",
+    "Photos of office space in Basavanagudi — private cabins, dedicated desks, meeting rooms and common areas at Spacio Workspace, near Bull Temple and Lalbagh.",
   path: "/gallery",
+  keywords: [...SEO_KEYWORDS.workspaces],
 });
 
 export default function GalleryLayout({

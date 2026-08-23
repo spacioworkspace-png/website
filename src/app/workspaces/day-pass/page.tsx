@@ -4,14 +4,18 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Day Pass in Basavanagudi | ₹199/day",
-  description: "Coworking day pass at Spacio Workspace, Basavanagudi. ₹199 per day, 9 AM to 7 PM. Walk in or book ahead.",
+  title: "Day Pass Basavanagudi | Coworking from ₹199/day",
+  description:
+    "Day pass in Basavanagudi for flexible single-day coworking. Full-day access, 1Gbps WiFi and common areas from ₹199/day at Spacio Workspace, South Bangalore.",
   path: "/workspaces/day-pass",
+  keywords: [...SEO_KEYWORDS.dayPass],
   ogImage: "/images/workspace-green-screens.jpg",
-  ogAlt: "Day pass coworking at Spacio Workspace Basavanagudi",
+  ogAlt: "Day pass coworking space in Basavanagudi",
 });
 
 export default function DayPassPage() {
@@ -29,22 +33,11 @@ export default function DayPassPage() {
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
                 Our day pass lets you enjoy the Basavanagudi coworking vibe, 1Gbps dual ISP, and concierge hospitality for a single day—perfect for client meetings, interviews, or break-the-routine workdays. Need a professional workspace just for today? Pick up a Spacio day pass, grab a seat in our vibrant coworking bay.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a
-                  href="https://wa.me/917022780310?text=I want to buy a Day Pass at Spacio Workspace Basavanagudi"
-                  className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp to Book
-                </a>
-                <Link
-                  href="/book-tour"
-                  className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  Book Free Tour
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
+              <HeroContactRow
+                className="mb-6"
+                location="day-pass-hero"
+                whatsappMessage="I want to buy a Day Pass at Spacio Workspace Basavanagudi"
+              />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -276,6 +269,7 @@ export default function DayPassPage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="day-pass-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Calendar, Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 import { trackLead } from "@/lib/tracking";
+import { CallLink } from "@/components/ContactCtas";
 
 export function BookTourForm() {
   const router = useRouter();
@@ -116,9 +117,16 @@ export function BookTourForm() {
             type="submit"
             className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
           >
-            Book Free Tour
+            Book Free Tour via WhatsApp
             <ArrowRight className="w-5 h-5" />
           </button>
+          <CallLink
+            location="book-tour-form"
+            className="w-full rounded-xl border-2 border-primary/30 px-6 py-4 text-base font-semibold"
+            variant="outline"
+          >
+            Or Call Us to Book
+          </CallLink>
         </form>
       </motion.div>
 

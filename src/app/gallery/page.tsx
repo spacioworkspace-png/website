@@ -1,7 +1,9 @@
-"use client";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, MessageCircle, Camera, Building2, MapPin } from "lucide-react";
+import { CustomerStoriesSection } from "@/components/CustomerStoriesSection";
 import { VideoTourLibrary } from "@/components/VideoTourLibrary";
+import { ContactCtaPair } from "@/components/ContactCtas";
 export default function GalleryPage() {
   const galleryCategories = [
     {
@@ -146,8 +148,13 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Video tours */}
+      {/* Customer stories — member testimonials */}
       <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
+        <CustomerStoriesSection />
+      </section>
+
+      {/* Workspace video tours */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 border-t border-neutral-200">
         <VideoTourLibrary />
       </section>
 
@@ -200,14 +207,20 @@ export default function GalleryPage() {
             Photos can only show so much. Book a free tour and experience our premium coworking space 
             in Basavanagudi, Bangalore for yourself.
           </p>
-          <a
-            href="https://wa.me/917022780310?text=I'd like to book a free tour to see Spacio Workspace in person #BookTour #SpacioWorkspace #CoworkingBangalore #Basavanagudi #FindYourTrueSpace"
-            className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-          >
-            <MessageCircle className="w-5 h-5" />
-            Book Free Tour Now
-            <ArrowRight className="w-5 h-5" />
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <ContactCtaPair
+              location="gallery-cta"
+              whatsappMessage="I'd like to book a free tour to see Spacio Workspace in person"
+              whatsappLabel="WhatsApp to Book Tour"
+              callLabel="Call Us"
+            />
+            <Link
+              href="/book-tour"
+              className="rounded-xl border-2 border-primary/30 px-8 py-4 font-semibold text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300 inline-flex items-center min-h-[44px]"
+            >
+              Book Online
+            </Link>
+          </div>
         </div>
       </section>
 

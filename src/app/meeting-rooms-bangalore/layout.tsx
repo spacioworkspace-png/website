@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata: Metadata = pageMeta({
-  title: "Meeting Rooms Basavanagudi from ₹399/hr | Spacio Workspace",
+  title: "Meeting Room Basavanagudi | Book from ₹399/hour",
   description:
-    "Book meeting rooms in Basavanagudi, Bangalore from ₹399 per hour. AV-ready rooms for 4–12 people at Spacio Workspace, South Bangalore.",
+    "Meeting room in Basavanagudi for client sessions, interviews and team meetings. AV-ready rooms for 4–12 people from ₹399/hour at Spacio Workspace.",
   path: "/meeting-rooms-bangalore",
+  keywords: [...SEO_KEYWORDS.meetingRoom],
 });
 
 export default function MeetingRoomsBangaloreLayout({ children }: { children: React.ReactNode }) {

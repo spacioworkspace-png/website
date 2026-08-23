@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRight, MessageCircle, MapPin, Zap, Users, Shield, Building2, Sparkles, Star, TrendingUp } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function FeaturesPage() {
   return (
@@ -87,15 +88,13 @@ export default function FeaturesPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 text-center">
-          <a 
-            href="https://wa.me/917022780310?text=I want to experience Spacio's premium features in Basavanagudi #SpacioWorkspace #PremiumCoworking #Basavanagudi #VastuCompliant #FindYourTrueSpace #Bangalore" 
-            className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <span>Start Your Journey Today - WhatsApp</span>
-            <ArrowRight className="w-5 h-5" />
-          </a>
+        <div className="mt-12 flex justify-center">
+          <ContactCtaPair
+            location="features-cta"
+            whatsappMessage="I want to experience Spacio's premium features in Basavanagudi"
+            whatsappLabel="WhatsApp Us"
+            callLabel="Call Us"
+          />
         </div>
       </section>
 

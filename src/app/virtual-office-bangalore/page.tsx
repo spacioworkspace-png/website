@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Building2, Mail, Phone, MapPin } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function VirtualOfficeBangalore() {
   return (
@@ -86,14 +87,13 @@ export default function VirtualOfficeBangalore() {
             <p className="text-xl text-neutral-700 mb-8">
               Establish your business presence in Basavanagudi with our virtual office services.
             </p>
-            <a
-              href="https://wa.me/917022780310?text=I want Virtual Office services at Spacio Workspace Basavanagudi #VirtualOffice #SpacioWorkspace #BusinessAddress #Bangalore"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Get Virtual Office Now
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <ContactCtaPair
+              location="virtual-office-bangalore-cta"
+              whatsappMessage="I want Virtual Office services at Spacio Workspace Basavanagudi"
+              whatsappLabel="Get Virtual Office via WhatsApp"
+              callLabel="Call Us"
+              className="justify-center"
+            />
           </div>
         </section>
     </div>

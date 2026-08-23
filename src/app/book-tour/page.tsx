@@ -4,14 +4,16 @@ import { FaqSection } from "@/components/FaqSection";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { howToTourJsonLd } from "@/lib/schema";
 import { SITE_FAQS } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Book a Free Tour | Spacio Workspace, Basavanagudi",
+  title: "Book a Free Tour | Office Space & Coworking Basavanagudi",
   description:
-    "Book a free tour of Spacio Workspace in Basavanagudi, Bangalore. See private cabins, dedicated desks and meeting rooms before you choose a plan.",
+    "Book a free tour of office space in Basavanagudi. See private cabins, dedicated desks and meeting rooms at Spacio Workspace, near Bull Temple and Lalbagh.",
   path: "/book-tour",
+  keywords: [...SEO_KEYWORDS.location, "book coworking tour Basavanagudi"],
 });
 
 export default function BookTourPage() {

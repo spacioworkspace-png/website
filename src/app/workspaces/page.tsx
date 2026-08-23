@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { MemberTestimonialsSection } from "@/components/MemberTestimonialsSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 const workspaceOptions = [
   {
@@ -310,15 +312,15 @@ export default function WorkspacesPage() {
               Sree Devi Complex, NAT Street, Basavanagudi. Every plan includes 1Gbps internet.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="https://wa.me/917022780310?text=I want to explore Spacio Workspace plans in Basavanagudi"
-                className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
-              >
-                Chat With Workspace Advisor
-              </a>
+              <ContactCtaPair
+                location="workspaces-hero"
+                whatsappMessage="I want to explore Spacio Workspace plans in Basavanagudi"
+                whatsappLabel="Chat With Workspace Advisor"
+                callLabel="Call Us"
+              />
               <a
                 href="/book-tour"
-                className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center min-h-[44px]"
               >
                 Book a Same-Day Tour
               </a>
@@ -349,6 +351,7 @@ export default function WorkspacesPage() {
       </section>
 
       <PlanVideoSection showAllTours />
+      <MemberTestimonialsSection pagePath="/workspaces" />
 
       <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
         <div className="mb-12 text-center">

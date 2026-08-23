@@ -4,14 +4,19 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "6-Seater Cabin in Basavanagudi | ₹24,999/month",
-  description: "6-seater private cabin at Spacio Workspace, Basavanagudi. ₹24,999 per month for growing teams. Book a free tour.",
+  title: "Private Cabin Basavanagudi | 6-Seater Team Office ₹24,999/mo",
+  description:
+    "Private cabin in Basavanagudi for teams of up to six. Small office for rent with collaborative space and 24/7 access from ₹24,999/month at Spacio Workspace.",
   path: "/workspaces/six-seater-cabin",
+  keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/6-seater-cabin-workspace.jpg",
-  ogAlt: "6-seater cabin at Spacio Workspace Basavanagudi",
+  ogAlt: "6-seater private cabin office space in Basavanagudi",
 });
 
 export default function SixSeaterCabinPage() {
@@ -29,22 +34,11 @@ export default function SixSeaterCabinPage() {
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
                 Choose the 6-seater cabin if you need a team office in Basavanagudi with wide desks, dual monitors on request, and brainstorming walls.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a 6-Seater Cabin at Spacio Workspace Basavanagudi"
-                  className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp to Book
-                </a>
-                <Link
-                  href="/book-tour"
-                  className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  Book Free Tour
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
+              <HeroContactRow
+                className="mb-6"
+                location="six-seater-cabin-hero"
+                whatsappMessage="I want to book a 6-Seater Cabin at Spacio Workspace Basavanagudi"
+              />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -75,6 +69,7 @@ export default function SixSeaterCabinPage() {
       </section>
 
       <PlanVideoSection planId="six-seater-cabin" showAllTours />
+      <PlanTestimonialSection planId="six-seater-cabin" pagePath="/workspaces/six-seater-cabin" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">
@@ -276,6 +271,7 @@ export default function SixSeaterCabinPage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="six-seater-cabin-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

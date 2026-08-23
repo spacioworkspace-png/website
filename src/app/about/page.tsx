@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, MessageCircle, CheckCircle2, MapPin } from "lucide-react";
 import Link from "next/link";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function AboutPage() {
   return (
@@ -132,20 +133,18 @@ export default function AboutPage() {
           </div>
 
           <motion.div
-            className="text-center mt-12"
+            className="text-center mt-12 flex justify-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            <a
-              href="https://wa.me/917022780310?text=I want to visit Spacio Workspace in Basavanagudi"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              WhatsApp to book a tour
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <ContactCtaPair
+              location="about-mission"
+              whatsappMessage="I want to visit Spacio Workspace in Basavanagudi"
+              whatsappLabel="WhatsApp to book a tour"
+              callLabel="Call Us"
+            />
           </motion.div>
         </motion.div>
       </section>
@@ -223,18 +222,14 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <div className="text-center">
-            <motion.a
-              href="https://wa.me/917022780310?text=I'd like to visit Spacio Workspace in Basavanagudi, near Bull Temple #SpacioBasavanagudi #BullTemple #Lalbagh #CoworkingSpace #Bangalore #FindYourTrueSpace #NammaBasavanagudi"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-6 sm:px-8 py-3 sm:py-4 text-white font-semibold text-base sm:text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105 pulse-glow-peacock"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-xl">🦚</span>
-              <MapPin className="w-5 h-5" />
-              Visit Us in Namma Basavanagudi - WhatsApp
-              <ArrowRight className="w-5 h-5" />
-            </motion.a>
+          <div className="text-center flex flex-col items-center gap-4">
+            <ContactCtaPair
+              location="about-heritage"
+              whatsappMessage="I'd like to visit Spacio Workspace in Basavanagudi, near Bull Temple"
+              whatsappLabel="WhatsApp to visit"
+              callLabel="Call Us"
+              className="justify-center"
+            />
             <p className="mt-4 text-sm text-neutral-600 italic">
               "Where every entrepreneur finds their true space, inspired by the beauty of our heritage" 🦚
             </p>

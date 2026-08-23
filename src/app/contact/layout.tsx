@@ -1,12 +1,14 @@
 import { FaqSection } from "@/components/FaqSection";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { SITE_FAQS } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Contact Spacio Workspace | Basavanagudi, Bangalore",
+  title: "Contact Spacio | Office Space Basavanagudi, South Bangalore",
   description:
-    "Call, WhatsApp or visit Spacio Workspace at No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004.",
+    "Contact Spacio Workspace for office space in Basavanagudi. Call, WhatsApp or visit No 7, Sree Devi Complex, NAT Street — near Bull Temple and Lalbagh.",
   path: "/contact",
+  keywords: [...SEO_KEYWORDS.location],
 });
 
 export default function ContactLayout({ children }: { children: React.ReactNode }) {

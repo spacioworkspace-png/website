@@ -63,6 +63,13 @@
   margin-top: 1.75rem;
 }
 
+.contactCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
 .primaryCta,
 .secondaryCta {
   display: inline-flex;
@@ -188,6 +195,12 @@
   }
 
   .ctas {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .contactCtas {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;

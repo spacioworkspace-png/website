@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { PHONE_TEL, whatsappUrl } from "@/lib/site";
 
 const workspace = [
   { label: "Private cabins", href: "/workspaces/solo-cabin#video-tour" },
@@ -22,14 +23,22 @@ export function Footer() {
             <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 sm:mb-6">
               Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
             </p>
-            <div className="flex gap-3 mt-4 sm:mt-6">
+            <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6">
               <a 
-                href="https://wa.me/917022780310" 
+                href={whatsappUrl("Hi! I'd like to know more about Spacio Workspace")}
                 className="rounded-xl bg-primary px-4 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-xs sm:text-sm hover:bg-primary/90 active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
                 aria-label="WhatsApp"
               >
                 WhatsApp
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+              </a>
+              <a
+                href={PHONE_TEL}
+                className="rounded-xl border-2 border-primary px-4 sm:px-5 py-2.5 sm:py-3 text-primary font-bold text-xs sm:text-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
+                aria-label="Call Spacio Workspace"
+              >
+                Call Us
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
             </div>
           </div>

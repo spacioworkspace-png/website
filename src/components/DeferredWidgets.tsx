@@ -7,8 +7,8 @@ const Breadcrumbs = dynamic(
   { ssr: false }
 );
 
-const FloatingWhatsApp = dynamic(
-  () => import("@/components/FloatingWhatsApp").then((m) => ({ default: m.FloatingWhatsApp })),
+const FloatingContact = dynamic(
+  () => import("@/components/FloatingContact").then((m) => ({ default: m.FloatingContact })),
   { ssr: false }
 );
 
@@ -21,7 +21,7 @@ export function DeferredWidgets() {
   return (
     <>
       <Breadcrumbs />
-      <FloatingWhatsApp />
+      <FloatingContact />
       <Analytics />
     </>
   );

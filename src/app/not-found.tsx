@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Home, ArrowLeft, Search, MessageCircle } from "lucide-react";
+import { Home, ArrowLeft, Search, MessageCircle, Phone } from "lucide-react";
+import { PHONE_TEL, whatsappUrl } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -76,13 +77,22 @@ export default function NotFound() {
 
         <div className="mt-12 pt-8 border-t border-neutral-200">
           <p className="text-sm text-neutral-500 mb-4">Need help? Contact us:</p>
-          <a
-            href="https://wa.me/917022780310?text=Hi! I need help finding a page on Spacio Workspace"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
-          >
-            <MessageCircle className="w-5 h-5" />
-            WhatsApp Support
-          </a>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={whatsappUrl("Hi! I need help finding a page on Spacio Workspace")}
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors min-h-[44px]"
+            >
+              <MessageCircle className="w-5 h-5" />
+              WhatsApp Support
+            </a>
+            <a
+              href={PHONE_TEL}
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors min-h-[44px]"
+            >
+              <Phone className="w-5 h-5" />
+              Call Us
+            </a>
+          </div>
         </div>
       </div>
     </div>

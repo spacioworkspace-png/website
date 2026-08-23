@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { WorkspaceVideoTour } from "@/components/WorkspaceVideoTour";
+import { ContactCtaPair } from "@/components/ContactCtas";
 import { OVERVIEW_VIDEO_TOUR, PLANS, getPlan } from "@/lib/site";
 
 type PlanVideoSectionProps = {
@@ -67,28 +68,42 @@ export function PlanVideoSection({
               <li>▸ Works on mobile — tap to play, no app required</li>
               <li>▸ {plan ? "Prefer in person?" : "Ready to visit?"} Book a free tour anytime</li>
             </ul>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Link
-                href="/book-tour"
-                className="inline-flex items-center justify-center min-h-[44px] rounded-xl bg-primary px-5 py-3 text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
-              >
-                Book a Free Tour
-              </Link>
-              {plan ? (
+            <div className="mt-6 flex flex-col gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <Link
-                  href={plan.path}
-                  className="inline-flex items-center justify-center min-h-[44px] rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
+                  href="/book-tour"
+                  className="inline-flex items-center justify-center min-h-[44px] rounded-xl bg-primary px-5 py-3 text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
                 >
-                  View {plan.name} details
+                  Book a Free Tour
                 </Link>
-              ) : (
-                <Link
-                  href="/workspaces"
-                  className="inline-flex items-center justify-center min-h-[44px] rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
-                >
-                  Explore all plans
-                </Link>
-              )}
+                {plan ? (
+                  <Link
+                    href={plan.path}
+                    className="inline-flex items-center justify-center min-h-[44px] rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    View {plan.name} details
+                  </Link>
+                ) : (
+                  <Link
+                    href="/workspaces"
+                    className="inline-flex items-center justify-center min-h-[44px] rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold text-sm hover:border-primary hover:text-primary transition-colors"
+                  >
+                    Explore all plans
+                  </Link>
+                )}
+              </div>
+              <ContactCtaPair
+                location={plan ? `video-tour-${plan.id}` : "video-tour-overview"}
+                whatsappMessage={
+                  plan
+                    ? `I watched the ${plan.name} video tour and want to know more`
+                    : "I watched the Spacio Workspace video tour and want to visit"
+                }
+                whatsappLabel="WhatsApp Us"
+                callLabel="Call Us"
+                whatsappVariant="outline"
+                callVariant="outline"
+              />
             </div>
           </div>
 

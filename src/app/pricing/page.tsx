@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Star, Zap, Shield, Clock, Wifi, MapPin, Gift } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { CallLink } from "@/components/ContactCtas";
 export default function PricingPage() {
   const pricingPlans = [
     {
@@ -198,6 +199,13 @@ export default function PricingPage() {
                   {plan.cta} via WhatsApp
                   <ArrowRight className="w-4 h-4" />
                 </a>
+                <CallLink
+                  location={`pricing-${plan.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  className="w-full rounded-xl border border-primary/30 px-4 py-2 text-sm text-center"
+                  variant="outline"
+                >
+                  Call Us
+                </CallLink>
                 <a
                   href={`https://wa.me/917022780310?text=${encodeURIComponent(`I need more details about ${plan.name} pricing at Spacio Basavanagudi`)}`}
                   className="rounded-xl border border-primary/30 px-4 py-2 text-sm text-center hover:border-primary hover:bg-primary/5 transition-all duration-300"

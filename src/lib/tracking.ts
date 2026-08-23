@@ -21,6 +21,20 @@ export function trackLead(source: string, formName = "book_tour") {
   });
 }
 
+/** Phone CTA clicks — map to Google Ads call conversions in GTM. */
+export function trackPhoneClick(location: string) {
+  pushDataLayer({
+    event: "phone_click",
+    click_location: location,
+    method: "phone",
+  });
+  pushDataLayer({
+    event: "contact",
+    method: "phone",
+    click_location: location,
+  });
+}
+
 /** WhatsApp CTA clicks — map to Meta Contact and Google Ads secondary conversions in GTM. */
 export function trackWhatsAppClick(location: string) {
   pushDataLayer({

@@ -7,6 +7,10 @@ export const PHONE_TEL = "+917022780310";
 export const EMAIL = "hello@spacioworkspace.com";
 export const WHATSAPP_URL = "https://wa.me/917022780310";
 
+export function whatsappUrl(text?: string): string {
+  return text ? `${WHATSAPP_URL}?text=${encodeURIComponent(text)}` : WHATSAPP_URL;
+}
+
 export const ADDRESS = {
   street: "No 7, Sree Devi Complex, NAT Street",
   locality: "Basavanagudi",

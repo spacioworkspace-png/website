@@ -5,14 +5,19 @@ import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Solo Cabin in Basavanagudi | ₹8,499/month",
-  description: "Private solo cabin at Spacio Workspace, Basavanagudi. ₹8,499 per month, 1Gbps internet, 24/7 access. Book a free tour.",
+  title: "Private Cabin Basavanagudi | Small Office for Rent from ₹8,499",
+  description:
+    "Private cabin in Basavanagudi with 24/7 access and 1Gbps WiFi. Small office for rent from ₹8,499/month at Spacio Workspace, South Bangalore. Book a free tour.",
   path: "/workspaces/solo-cabin",
+  keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/solo-cabin-workspace.jpg",
-  ogAlt: "Solo cabin at Spacio Workspace Basavanagudi",
+  ogAlt: "Private cabin and small office for rent at Spacio Workspace Basavanagudi",
 });
 
 export default function SoloCabinPage() {
@@ -30,22 +35,11 @@ export default function SoloCabinPage() {
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
                 Get your own fully enclosed private office cabin at Spacio Workspace Basavanagudi. Perfect for startup founders, consultants, freelancers, and CXOs who need silence, privacy, and professional credibility. Sound-treated cabin with ergonomic furniture, 1Gbps high-speed internet, 24/7 secure biometric access, and CCTV surveillance.
               </p>
-              <div className="flex flex-wrap gap-3 mb-6">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a Solo Cabin at Spacio Workspace Basavanagudi"
-                  className="rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  WhatsApp to Book
-                </a>
-                <Link
-                  href="/book-tour"
-                  className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"
-                >
-                  Book Free Tour
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
+              <HeroContactRow
+                className="mb-6"
+                location="solo-cabin-hero"
+                whatsappMessage="I want to book a Solo Cabin at Spacio Workspace Basavanagudi"
+              />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -76,6 +70,7 @@ export default function SoloCabinPage() {
       </section>
 
       <PlanVideoSection planId="solo-cabin" showAllTours />
+      <PlanTestimonialSection planId="solo-cabin" pagePath="/workspaces/solo-cabin" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">
@@ -278,6 +273,7 @@ export default function SoloCabinPage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="solo-cabin-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

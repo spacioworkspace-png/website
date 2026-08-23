@@ -13,6 +13,7 @@ export function pageMeta({
   noindex = false,
   ogImage = OG_IMAGE,
   ogAlt,
+  keywords,
 }: {
   title: string;
   description: string;
@@ -22,6 +23,7 @@ export function pageMeta({
   noindex?: boolean;
   ogImage?: string;
   ogAlt?: string;
+  keywords?: string[];
 }): Metadata {
   const url = absoluteUrl(path);
   const canonical = absoluteUrl(canonicalPath ?? path);
@@ -35,6 +37,7 @@ export function pageMeta({
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical },
     openGraph: {
       title,

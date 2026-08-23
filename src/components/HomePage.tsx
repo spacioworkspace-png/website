@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import { CallLink } from "@/components/ContactCtas";
 
 const WORKSPACE_CARDS = [
   {
@@ -148,6 +149,13 @@ export function HomePage() {
                 >
                   {card.cta}
                 </a>
+                <CallLink
+                  location={`home-card-${card.title.toLowerCase().replace(/\s+/g, "-")}`}
+                  className="w-full rounded-xl border-2 border-primary/30 px-4 py-2.5 text-sm font-semibold"
+                  variant="outline"
+                >
+                  Call Us
+                </CallLink>
                 <Link
                   href={card.href}
                   className="rounded-xl border-2 border-primary/30 px-4 py-2.5 text-sm font-semibold text-center hover:border-primary hover:bg-primary/5 transition-colors min-h-[44px] flex items-center justify-center"

@@ -5,16 +5,20 @@ import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { FaqSection } from "@/components/FaqSection";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { MemberTestimonialsSection } from "@/components/MemberTestimonialsSection";
+import { CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, SITE_NAME } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Coworking Space in Basavanagudi, Bangalore | Spacio",
+  title: "Coworking Space Basavanagudi | Near Bull Temple & Lalbagh",
   description:
-    "Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office near Bull Temple, Lalbagh and Gandhi Bazaar.",
+    "Coworking space near Bull Temple and Lalbagh in Basavanagudi, South Bangalore. Office space with private cabins, dedicated desks and meeting rooms at Spacio Workspace.",
   path: "/locations/basavanagudi",
+  keywords: [...SEO_KEYWORDS.location],
   ogImage: "/images/building-exterior-sree-devi-complex.jpg",
-  ogAlt: "Spacio Workspace at Sree Devi Complex, Basavanagudi",
+  ogAlt: "Coworking space near Bull Temple and Lalbagh, Basavanagudi",
 });
 
 const services = [
@@ -83,13 +87,16 @@ export default function BasavanagudiLocationPage() {
             </ul>
             <div className="flex flex-wrap gap-3">
               <a
-                className="btn-premium rounded-xl bg-primary px-5 py-3 text-white font-semibold inline-flex items-center gap-2"
+                className="btn-premium rounded-xl bg-primary px-5 py-3 text-white font-semibold inline-flex items-center gap-2 min-h-[44px]"
                 href={`https://wa.me/917022780310?text=${encodeURIComponent("I want to visit Spacio Workspace in Basavanagudi")}`}
               >
                 <MessageCircle className="w-5 h-5" />
                 WhatsApp
                 <ArrowRight className="w-5 h-5" />
               </a>
+              <CallLink location="basavanagudi-location" variant="outline" className="px-5 py-3">
+                Call Us
+              </CallLink>
               <Link
                 href="/book-tour"
                 className="rounded-xl border-2 border-primary px-5 py-3 font-semibold text-primary hover:bg-primary hover:text-white transition-colors"
@@ -117,6 +124,10 @@ export default function BasavanagudiLocationPage() {
       </section>
 
       <PlanVideoSection showAllTours />
+      <MemberTestimonialsSection
+        pagePath="/locations/basavanagudi"
+        testimonialIds={["team-member-basavanagudi"]}
+      />
 
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4">

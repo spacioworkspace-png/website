@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Video, Users, Clock, Wifi } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function MeetingRoomsBangalore() {
   return (
@@ -86,14 +87,13 @@ export default function MeetingRoomsBangalore() {
             <p className="text-xl text-neutral-700 mb-8">
               Professional meeting spaces in Basavanagudi. Perfect for client meetings, team sessions, and presentations.
             </p>
-            <a
-              href="https://wa.me/917022780310?text=I want to book a Meeting Room at Spacio Workspace Basavanagudi #MeetingRooms #SpacioWorkspace #ConferenceRoom #Bangalore"
-              className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-            >
-              <MessageCircle className="w-5 h-5" />
-              Book Meeting Room Now
-              <ArrowRight className="w-5 h-5" />
-            </a>
+            <ContactCtaPair
+              location="meeting-rooms-bangalore-cta"
+              whatsappMessage="I want to book a Meeting Room at Spacio Workspace Basavanagudi"
+              whatsappLabel="Book Meeting Room via WhatsApp"
+              callLabel="Call Us"
+              className="justify-center"
+            />
           </div>
         </section>
     </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MobileNav } from "./MobileNav";
+import { PHONE_TEL, whatsappUrl } from "@/lib/site";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -48,10 +49,16 @@ export function Header() {
             Book Tour
           </Link>
           <a
-            href="https://wa.me/917022780310?text=Hi! I want to book a tour at Spacio Workspace Bangalore"
-            className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors"
+            href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
+            className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors min-h-[44px] inline-flex items-center"
           >
             WhatsApp
+          </a>
+          <a
+            href={PHONE_TEL}
+            className="rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-semibold text-neutral-900 hover:border-primary hover:text-primary transition-colors min-h-[44px] inline-flex items-center"
+          >
+            Call Us
           </a>
         </div>
 

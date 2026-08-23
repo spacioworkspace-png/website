@@ -4,14 +4,18 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
+import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Virtual Office in Basavanagudi | ₹12,999/year",
-  description: "GST and ROC business address at Spacio Workspace, Basavanagudi. Mail handling and phone answering. ₹12,999 per year.",
+  title: "Virtual Office Basavanagudi | Business Address ₹12,999/year",
+  description:
+    "Virtual office in Basavanagudi with GST and ROC-ready business address, mail handling and meeting room access from ₹12,999/year at Spacio Workspace.",
   path: "/workspaces/virtual-office",
+  keywords: [...SEO_KEYWORDS.virtualOffice],
   ogImage: "/images/building-exterior-sree-devi-complex.jpg",
-  ogAlt: "Spacio Workspace Basavanagudi virtual office address",
+  ogAlt: "Virtual office business address in Basavanagudi",
 });
 
 export default function VirtualOfficePage() {
@@ -344,6 +348,7 @@ export default function VirtualOfficePage() {
               <MessageCircle className="w-5 h-5" />
               WhatsApp to Book
             </a>
+            <CallLink location="virtual-office-cta" className="rounded-xl border-2 border-primary px-8 py-4" />
             <Link
               href="/book-tour"
               className="rounded-xl border-2 border-primary px-8 py-4 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center gap-2"

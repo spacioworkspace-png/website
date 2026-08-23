@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { PHONE_TEL, whatsappUrl } from "@/lib/site";
 
 type NavItem = { href: string; label: string };
 
@@ -39,14 +40,28 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 </Link>
               </li>
             ))}
-            <li className="mt-2">
+            <li className="mt-2 space-y-2">
               <Link
                 href="/book-tour"
-                className="block text-center rounded-xl bg-primary px-5 py-3 text-white font-semibold"
+                className="block text-center rounded-xl bg-primary px-5 py-3 text-white font-semibold min-h-[44px]"
                 onClick={() => setOpen(false)}
               >
                 Book Tour
               </Link>
+              <a
+                href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
+                className="block text-center rounded-xl border border-primary/30 px-5 py-3 text-primary font-semibold min-h-[44px]"
+                onClick={() => setOpen(false)}
+              >
+                WhatsApp
+              </a>
+              <a
+                href={PHONE_TEL}
+                className="block text-center rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold min-h-[44px]"
+                onClick={() => setOpen(false)}
+              >
+                Call Us
+              </a>
             </li>
           </ul>
         </nav>

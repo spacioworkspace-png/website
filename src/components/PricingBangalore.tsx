@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight, Zap, Users, Building2, Calendar, Star } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { CallLink } from "@/components/ContactCtas";
 
 export function PricingBangalore() {
   const pricingPlans = [
@@ -181,6 +182,13 @@ export function PricingBangalore() {
                 {plan.cta}
                 <ArrowRight className="w-4 h-4" />
               </a>
+              <CallLink
+                location={`pricing-bangalore-${plan.name.toLowerCase().replace(/\s+/g, "-")}`}
+                className="w-full mt-3 rounded-xl border border-primary/30 px-4 py-3 text-sm font-semibold"
+                variant="outline"
+              >
+                Call Us
+              </CallLink>
             </motion.div>
           ))}
         </div>
