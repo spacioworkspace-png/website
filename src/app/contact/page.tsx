@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { MapPin, Phone, Mail, Send, MessageCircle, Clock, ArrowRight } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PublicTransportSection } from "@/components/PublicTransportSection";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -274,6 +275,7 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <PublicTransportSection />
       <PlanVideoSection showAllTours />
       </div>
   );

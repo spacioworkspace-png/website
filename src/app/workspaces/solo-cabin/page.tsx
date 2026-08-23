@@ -5,7 +5,6 @@ import { RelatedPlans } from "@/components/RelatedPlans";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
-import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
 import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
@@ -70,7 +69,6 @@ export default function SoloCabinPage() {
       </section>
 
       <PlanVideoSection planId="solo-cabin" showAllTours />
-      <PlanTestimonialSection planId="solo-cabin" pagePath="/workspaces/solo-cabin" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">

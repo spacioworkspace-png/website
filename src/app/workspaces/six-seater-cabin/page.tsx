@@ -4,7 +4,6 @@ import { ArrowRight, MessageCircle, CheckCircle2, MapPin, Clock, Wifi, Users, Bu
 import { RelatedPlans } from "@/components/RelatedPlans";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
-import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
 import { HeroContactRow, CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
@@ -69,7 +68,6 @@ export default function SixSeaterCabinPage() {
       </section>
 
       <PlanVideoSection planId="six-seater-cabin" showAllTours />
-      <PlanTestimonialSection planId="six-seater-cabin" pagePath="/workspaces/six-seater-cabin" />
 
       {/* Key Features */}
       <section className="py-20 bg-white">

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { WorkspaceDetailModal } from "@/components/WorkspaceDetailModal";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
-import { MemberTestimonialsSection } from "@/components/MemberTestimonialsSection";
+import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { ContactCtaPair } from "@/components/ContactCtas";
 
 const workspaceOptions = [
@@ -351,7 +351,7 @@ export default function WorkspacesPage() {
       </section>
 
       <PlanVideoSection showAllTours />
-      <MemberTestimonialsSection pagePath="/workspaces" />
+      <PublicTransportSection />
 
       <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
         <div className="mb-12 text-center">

@@ -5,7 +5,6 @@ import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { CabinDeskCompare } from "@/components/CabinDeskCompare";
 import { FaqSection } from "@/components/FaqSection";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
-import { MemberTestimonialsSection } from "@/components/MemberTestimonialsSection";
 import { CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
@@ -124,10 +123,6 @@ export default function BasavanagudiLocationPage() {
       </section>
 
       <PlanVideoSection showAllTours />
-      <MemberTestimonialsSection
-        pagePath="/locations/basavanagudi"
-        testimonialIds={["team-member-basavanagudi"]}
-      />
 
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4">

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MessageCircle, Camera, Building2, MapPin } from "lucide-react";
-import { CustomerStoriesSection } from "@/components/CustomerStoriesSection";
 import { VideoTourLibrary } from "@/components/VideoTourLibrary";
 import { ContactCtaPair } from "@/components/ContactCtas";
 export default function GalleryPage() {
@@ -148,13 +147,8 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Customer stories — member testimonials */}
-      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
-        <CustomerStoriesSection />
-      </section>
-
       {/* Workspace video tours */}
-      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20 border-t border-neutral-200">
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-20">
         <VideoTourLibrary />
       </section>
 

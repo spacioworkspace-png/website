@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { BookTourForm } from "@/components/BookTourForm";
 import { FaqSection } from "@/components/FaqSection";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
+import { PublicTransportSection } from "@/components/PublicTransportSection";
 import { JsonLd } from "@/components/JsonLd";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
@@ -33,6 +34,7 @@ export default function BookTourPage() {
         </div>
         <PlanVideoSection showAllTours className="!bg-white !border-0 py-8 md:py-12" />
         <BookTourForm />
+        <PublicTransportSection />
         <JsonLd data={howToTourJsonLd()} />
         <FaqSection items={[SITE_FAQS[5], SITE_FAQS[0], SITE_FAQS[2]]} title="Before you visit" />
       </section>

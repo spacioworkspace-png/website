@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PlanTestimonialSection } from "@/components/PlanTestimonialSection";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
@@ -12,10 +11,5 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function PrivateCabinsBangaloreLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      {children}
-      <PlanTestimonialSection planId="solo-cabin" pagePath="/private-cabins-bangalore" />
-    </>
-  );
+  return children;
 }
