@@ -1,7 +1,7 @@
 "use client";
 
 import { Phone } from "lucide-react";
-import { PHONE_TEL } from "@/lib/site";
+import { PHONE_HREF } from "@/lib/site";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 const whatsappHref =
@@ -15,7 +15,7 @@ export function FloatingContact() {
       aria-label="Contact Spacio Workspace"
     >
       <a
-        href={PHONE_TEL}
+        href={PHONE_HREF}
         onClick={() => trackPhoneClick("floating_call_button")}
         className="inline-flex items-center gap-2 sm:gap-3 rounded-full bg-neutral-900 px-4 sm:px-5 py-3 sm:py-4 text-white shadow-2xl hover:shadow-neutral-900/40 active:scale-95 transition-transform duration-300 touch-manipulation"
         aria-label="Call Spacio Workspace"

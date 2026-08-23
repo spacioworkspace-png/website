@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MobileNav } from "./MobileNav";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -55,7 +55,7 @@ export function Header() {
             WhatsApp
           </a>
           <a
-            href={PHONE_TEL}
+            href={PHONE_HREF}
             className="rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-semibold text-neutral-900 hover:border-primary hover:text-primary transition-colors min-h-[44px] inline-flex items-center"
           >
             Call Us

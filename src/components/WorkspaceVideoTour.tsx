@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PHONE_DISPLAY, PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 export type VideoTourProps = {
   id?: string;
@@ -66,7 +66,7 @@ export function WorkspaceVideoTour({
           <Link href="/book-tour" className="text-primary font-medium hover:underline min-h-[44px] inline-flex items-center">
             Book a free in-person tour
           </Link>
-          <a href={PHONE_TEL} className="text-primary font-medium hover:underline min-h-[44px] inline-flex items-center">
+          <a href={PHONE_HREF} className="text-primary font-medium hover:underline min-h-[44px] inline-flex items-center">
             Call {PHONE_DISPLAY}
           </a>
         </div>

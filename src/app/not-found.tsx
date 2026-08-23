@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Home, ArrowLeft, Search, MessageCircle, Phone } from "lucide-react";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -86,7 +86,7 @@ export default function NotFound() {
               WhatsApp Support
             </a>
             <a
-              href={PHONE_TEL}
+              href={PHONE_HREF}
               className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors min-h-[44px]"
             >
               <Phone className="w-5 h-5" />

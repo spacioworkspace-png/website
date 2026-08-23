@@ -8,7 +8,7 @@ import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { CallLink } from "@/components/ContactCtas";
 import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
-import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_TEL, SITE_NAME } from "@/lib/site";
+import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SITE_NAME } from "@/lib/site";
 
 export const metadata = pageMeta({
   title: "Coworking Space Basavanagudi | Near Bull Temple & Lalbagh",
@@ -65,7 +65,7 @@ export default function BasavanagudiLocationPage() {
             <ul className="space-y-3 mb-6 text-neutral-700">
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <a href={`tel:${PHONE_TEL}`} className="hover:text-primary font-semibold">
+                <a href={PHONE_HREF} className="hover:text-primary font-semibold">
                   {PHONE_DISPLAY}
                 </a>
               </li>

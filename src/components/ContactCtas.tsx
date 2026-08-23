@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 type CtaVariant = "primary" | "outline" | "header";
@@ -60,7 +60,7 @@ export function CallLink({
 }: CallLinkProps) {
   return (
     <a
-      href={PHONE_TEL}
+      href={PHONE_HREF}
       onClick={() => trackPhoneClick(location)}
       className={`${variantClass[variant]} ${className}`}
     >

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 const workspace = [
   { label: "Private cabins", href: "/workspaces/solo-cabin#video-tour" },
@@ -33,7 +33,7 @@ export function Footer() {
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
               <a
-                href={PHONE_TEL}
+                href={PHONE_HREF}
                 className="rounded-xl border-2 border-primary px-4 sm:px-5 py-2.5 sm:py-3 text-primary font-bold text-xs sm:text-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
                 aria-label="Call Spacio Workspace"
               >
@@ -137,7 +137,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a 
-                  href="tel:+917022780310" 
+                  href={PHONE_HREF} 
                   className="text-neutral-700 hover:text-primary transition-colors duration-300 font-semibold"
                 >
                   +91-7022780310

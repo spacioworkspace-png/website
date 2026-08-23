@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 type NavItem = { href: string; label: string };
 
@@ -56,7 +56,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 WhatsApp
               </a>
               <a
-                href={PHONE_TEL}
+                href={PHONE_HREF}
                 className="block text-center rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold min-h-[44px]"
                 onClick={() => setOpen(false)}
               >

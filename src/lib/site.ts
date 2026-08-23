@@ -4,6 +4,7 @@ export const SITE_UPDATED = "2026-08-22";
 
 export const PHONE_DISPLAY = "+91 70227 80310";
 export const PHONE_TEL = "+917022780310";
+export const PHONE_HREF = `tel:${PHONE_TEL}`;
 export const EMAIL = "hello@spacioworkspace.com";
 export const WHATSAPP_URL = "https://wa.me/917022780310";
 

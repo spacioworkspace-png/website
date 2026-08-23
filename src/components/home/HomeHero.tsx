@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { PHONE_TEL, whatsappUrl } from "@/lib/site";
+import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 import styles from "./HomeHero.module.css";
 
 /** Optimized private cabin — best LCP asset for premium hero photography. */
@@ -32,7 +32,7 @@ export function HomeHero() {
           </div>
 
           <div className={styles.contactCtas}>
-            <a href={PHONE_TEL} className={styles.secondaryCta}>
+            <a href={PHONE_HREF} className={styles.secondaryCta}>
               Call Us
             </a>
             <a
