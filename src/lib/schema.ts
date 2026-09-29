@@ -154,6 +154,7 @@ export function organizationGraph() {
         amenityFeature: [
           { "@type": "LocationFeatureSpecification", name: "1Gbps internet", value: true },
           { "@type": "LocationFeatureSpecification", name: "24/7 access", value: true },
+          { "@type": "LocationFeatureSpecification", name: "Biometric access for members", value: true },
           { "@type": "LocationFeatureSpecification", name: "Private cabins", value: true },
           { "@type": "LocationFeatureSpecification", name: "Meeting rooms", value: true },
         ],

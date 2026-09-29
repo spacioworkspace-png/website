@@ -1,8 +1,25 @@
 import type { Metadata } from "next";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "./site";
 
-function absoluteUrl(path: string) {
-  return path === "/" ? `${SITE_URL}/` : `${SITE_URL}${path}`;
+/**
+ * Canonical host is always https://www.spacioworkspace.com (non-www 301s in next.config).
+ * Paths never end with a trailing slash except the homepage.
+ */
+export function normalizePath(path: string): string {
+  if (!path || path === "/") return "/";
+  const withSlash = path.startsWith("/") ? path : `/${path}`;
+  const trimmed = withSlash.replace(/\/+$/, "");
+  return trimmed || "/";
+}
+
+export function absoluteUrl(path: string): string {
+  const normalized = normalizePath(path);
+  return normalized === "/" ? `${SITE_URL}/` : `${SITE_URL}${normalized}`;
+}
+
+function absoluteAsset(path: string): string {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 export function pageMeta({
@@ -25,10 +42,14 @@ export function pageMeta({
   ogAlt?: string;
   keywords?: string[];
 }): Metadata {
-  const url = absoluteUrl(path);
-  const canonical = absoluteUrl(canonicalPath ?? path);
+  const pagePath = normalizePath(path);
+  const canonicalTarget = normalizePath(canonicalPath ?? path);
+  const url = absoluteUrl(pagePath);
+  const canonical = absoluteUrl(canonicalTarget);
+  const resolvedImage = absoluteAsset(ogImage);
+
   const image = {
-    url: ogImage,
+    url: resolvedImage,
     width: 1200,
     height: 630,
     alt: ogAlt ?? title,
@@ -37,8 +58,11 @@ export function pageMeta({
   return {
     title,
     description,
+    metadataBase: new URL(SITE_URL),
     ...(keywords?.length ? { keywords } : {}),
-    alternates: { canonical },
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title,
       description,
@@ -52,7 +76,7 @@ export function pageMeta({
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      images: [resolvedImage],
     },
     robots: noindex
       ? { index: false, follow: false }

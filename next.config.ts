@@ -51,6 +51,7 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Enforce HTTPS + www (preferred host for all canonicals)
       {
         source: "/",
         has: [{ type: "host", value: "spacioworkspace.com" }],
@@ -62,6 +63,12 @@ const nextConfig: NextConfig = {
         has: [{ type: "host", value: "spacioworkspace.com" }],
         destination: "https://www.spacioworkspace.com/:path*",
         statusCode: 301,
+      },
+      // Strip trailing slashes so canonicals and crawl paths stay consistent
+      {
+        source: "/:path+/",
+        destination: "/:path+",
+        permanent: true,
       },
       {
         source: "/tour",

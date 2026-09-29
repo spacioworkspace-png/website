@@ -260,7 +260,7 @@ export default function DedicatedDesksPage() {
             Ready to Get Your Dedicated Desk?
           </h2>
           <p className="text-lg text-neutral-700 mb-8">
-            Book your free tour today and see why Dedicated Desks at Spacio Workspace is Bangalore's top choice for permanent workspace solutions.
+            Book a free tour to see if a dedicated desk at Spacio Workspace fits your workday.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
-import { MobileNav } from "./MobileNav";
+import { trackBookTourClick, trackWhatsAppClick } from "@/lib/tracking";
 import { PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { MobileNav } from "./MobileNav";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -44,13 +47,17 @@ export function Header() {
         <div className="hidden lg:flex items-center gap-3">
           <Link
             href="/book-tour"
+            onClick={() => trackBookTourClick("header")}
             className="btn-premium rounded-xl bg-primary px-5 py-2.5 text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
           >
             Book Tour
           </Link>
           <a
-            href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
+            href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace, Basavanagudi")}
+            onClick={() => trackWhatsAppClick("header")}
             className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors min-h-[44px] inline-flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             WhatsApp
           </a>

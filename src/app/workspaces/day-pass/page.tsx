@@ -31,12 +31,15 @@ export default function DayPassPage() {
                 Day Pass Coworking in Basavanagudi, Bangalore
               </h1>
               <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                Our day pass lets you enjoy the Basavanagudi coworking vibe, 1Gbps dual ISP, and concierge hospitality for a single day—perfect for client meetings, interviews, or break-the-routine workdays. Need a professional workspace just for today? Pick up a Spacio day pass, grab a seat in our vibrant coworking bay.
+                Need a quiet place to work for a day? Spacio&apos;s day pass gives you a professional
+                workspace in Basavanagudi without a monthly commitment — from ₹199, 9 AM to 7 PM,
+                with 1 Gbps WiFi, common areas, and printing support.
               </p>
               <HeroContactRow
                 className="mb-6"
                 location="day-pass-hero"
-                whatsappMessage="I want to buy a Day Pass at Spacio Workspace Basavanagudi"
+                whatsappMessage="Hi! I want to book a Day Pass at Spacio Workspace, Basavanagudi."
+                whatsappLabel="Book Day Pass on WhatsApp"
               />
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
@@ -74,10 +77,11 @@ export default function DayPassPage() {
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Why Choose Day Pass at Spacio Workspace?
+              What you get with a day pass
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto">
-              Get enterprise-grade infrastructure without a long-term commitment. Perfect for flexible work needs.
+              A full workday at Spacio — desk space, fast internet, and the centre&apos;s common areas —
+              without signing up for a monthly plan.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

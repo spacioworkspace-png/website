@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Day pass in Basavanagudi for flexible single-day coworking. 1Gbps WiFi, 9 AM–7 PM access and common areas from ₹199/day at Spacio Workspace, South Bangalore.",
   path: "/day-pass-bangalore",
+  canonicalPath: "/workspaces/day-pass",
   keywords: [...SEO_KEYWORDS.dayPass],
 });
 

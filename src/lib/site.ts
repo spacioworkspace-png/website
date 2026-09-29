@@ -251,6 +251,8 @@ export const LOCATION_FAQS: { q: string; a: string }[] = [
 
 export const PRICING_FAQS = [
   SITE_FAQS[2],
+  SITE_FAQS[3],
+  SITE_FAQS[5],
   {
     q: "Are there hidden fees on Spacio Workspace plans?",
     a: "Listed prices are the plan rates: day pass ₹199/day, desks and cabins billed monthly, meeting rooms ₹399/hour, virtual office ₹12,999/year. Confirm GST and deposits on a tour or WhatsApp +91 70227 80310.",

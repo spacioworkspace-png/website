@@ -259,7 +259,7 @@ export default function SixSeaterCabinPage() {
             Ready to Get Your 6-Seater Cabin?
           </h2>
           <p className="text-lg text-neutral-700 mb-8">
-            Book your free tour today and see why 6-Seater Cabin at Spacio Workspace is Bangalore's top choice for premium team workspace solutions.
+            Book a free tour to see if a 6-seater cabin at Spacio Workspace fits your team.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

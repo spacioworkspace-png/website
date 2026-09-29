@@ -60,7 +60,7 @@ export default function GalleryPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="https://wa.me/917022780310?text=I'd like to book a free tour to see Spacio Workspace in person #BookTour #SpacioWorkspace #CoworkingBangalore #Basavanagudi"
+              href="https://wa.me/917022780310?text=I'd like to book a free tour to see Spacio Workspace in person"
               className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
             >
               <MessageCircle className="w-5 h-5" />

@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { trackBookTourClick, trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 import styles from "./HomeHero.module.css";
 
 /** Optimized private cabin — best LCP asset for premium hero photography. */
@@ -11,38 +14,49 @@ export function HomeHero() {
     <section id="hero" className={styles.hero} aria-labelledby="hero-heading">
       <div className={styles.inner}>
         <div className={styles.content}>
-          <p className={styles.eyebrow}>Premium Coworking Space in Basavanagudi, Bangalore</p>
+          <p className={styles.eyebrow}>Spacio Workspace · Basavanagudi, Bangalore</p>
 
           <h1 id="hero-heading" className={styles.title}>
             A better place to do your best work.
           </h1>
 
           <p className={styles.lead}>
-            Private cabins, dedicated desks, meeting rooms and virtual offices for professionals,
-            founders and growing teams in South Bangalore.
+            Plug-and-play startup office and premium coworking in Basavanagudi — acoustic soundproof
+            cabins, dedicated desks with biometric 24/7 access for members, meeting rooms, and
+            lightning-fast 1Gbps internet for freelancers, founders, and Gen Z teams in South
+            Bangalore.
           </p>
 
           <div className={styles.ctas}>
-            <Link href="/book-tour" className={styles.primaryCta}>
+            <Link
+              href="/book-tour"
+              className={styles.primaryCta}
+              onClick={() => trackBookTourClick("home_hero")}
+            >
               Book a Free Tour
             </Link>
-            <Link href="/workspaces" className={styles.secondaryCta}>
-              Explore Workspaces
-            </Link>
-          </div>
-
-          <div className={styles.contactCtas}>
-            <a href={PHONE_HREF} className={styles.secondaryCta}>
-              Call Us
-            </a>
             <a
               href={whatsappUrl("Hi! I'd like to know more about Spacio Workspace in Basavanagudi")}
               className={styles.secondaryCta}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("home_hero")}
             >
-              WhatsApp
+              WhatsApp Spacio
             </a>
+          </div>
+
+          <div className={styles.contactCtas}>
+            <a
+              href={PHONE_HREF}
+              className={styles.secondaryCta}
+              onClick={() => trackPhoneClick("home_hero")}
+            >
+              Call Us
+            </a>
+            <Link href="/workspaces" className={styles.secondaryCta}>
+              Explore Workspaces
+            </Link>
           </div>
 
           <p className={styles.trust}>
@@ -50,9 +64,9 @@ export function HomeHero() {
               Google Reviews
             </Link>
             {" · "}
-            1 Gbps Internet
+            Lightning-fast 1Gbps internet
             {" · "}
-            24/7 Access for members
+            Biometric 24/7 access for members
           </p>
 
           <p className={styles.locale}>Namma Basavanagudi · South Bangalore</p>
@@ -62,7 +76,7 @@ export function HomeHero() {
           <figure className={styles.figure}>
             <Image
               src={HERO_IMAGE}
-              alt="Private solo cabin interior at Spacio Workspace, Basavanagudi, Bangalore"
+              alt="Acoustic private solo cabin at Spacio Workspace, Basavanagudi, Bangalore"
               fill
               className={styles.image}
               priority

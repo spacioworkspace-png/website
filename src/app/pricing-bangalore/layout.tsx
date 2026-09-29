@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Office space near South Bangalore pricing at Spacio Basavanagudi: day pass ₹199, dedicated desk ₹3,499/mo, private cabin ₹8,499/mo, meeting room ₹399/hr, virtual office ₹12,999/yr.",
   path: "/pricing-bangalore",
+  canonicalPath: "/pricing",
   keywords: [...SEO_KEYWORDS.workspaces],
 });
 

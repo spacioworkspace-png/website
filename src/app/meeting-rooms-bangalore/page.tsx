@@ -32,7 +32,7 @@ export default function MeetingRoomsBangalore() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a Meeting Room at Spacio Workspace Basavanagudi #MeetingRooms #SpacioWorkspace #CoworkingBangalore #Basavanagudi #ConferenceRoom"
+                  href="https://wa.me/917022780310?text=I want to book a Meeting Room at Spacio Workspace Basavanagudi"
                   className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
                 >
                   <MessageCircle className="w-5 h-5" />

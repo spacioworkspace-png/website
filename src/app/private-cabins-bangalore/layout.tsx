@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Private cabin in Basavanagudi — solo, 3-seater and 6-seater small offices for rent with 24/7 access and 1Gbps WiFi. Office space near South Bangalore at Spacio Workspace.",
   path: "/private-cabins-bangalore",
+  canonicalPath: "/workspaces/solo-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
 });
 
