@@ -69,7 +69,8 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "/",
+    // Absolute self-referencing canonical on the preferred www host
+    canonical: `${SITE_URL}/`,
   },
   icons: {
     icon: [

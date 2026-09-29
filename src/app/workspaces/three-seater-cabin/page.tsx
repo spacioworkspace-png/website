@@ -259,7 +259,7 @@ export default function ThreeSeaterCabinPage() {
             Ready to Get Your 3-Seater Cabin?
           </h2>
           <p className="text-lg text-neutral-700 mb-8">
-            Book your free tour today and see why 3-Seater Cabin at Spacio Workspace is Bangalore's top choice for small team workspace solutions.
+            Book a free tour to see if a 3-seater cabin at Spacio Workspace fits how your team works.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a

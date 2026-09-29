@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Calendar, Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
-import { trackLead } from "@/lib/tracking";
+import { trackLead, trackWhatsAppClick } from "@/lib/tracking";
 import { CallLink } from "@/components/ContactCtas";
 
 export function BookTourForm() {
@@ -19,8 +19,13 @@ export function BookTourForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ''}`;
-    trackLead("book_tour_form");
+    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ""}`;
+    try {
+      trackLead("book_tour_form");
+      trackWhatsAppClick("book_tour_form");
+    } catch {
+      // never block conversion on analytics failure
+    }
     window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, "_blank");
     router.push("/book-tour/thank-you");
   };

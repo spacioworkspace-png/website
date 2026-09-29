@@ -32,7 +32,7 @@ export default function PrivateCabinsBangalore() {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a Private Cabin at Spacio Workspace Basavanagudi #PrivateCabins #SpacioWorkspace #CoworkingBangalore #Basavanagudi #FindYourTrueSpace"
+                  href="https://wa.me/917022780310?text=I want to book a Private Cabin at Spacio Workspace Basavanagudi"
                   className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -79,7 +79,7 @@ export default function PrivateCabinsBangalore() {
                   ))}
                 </ul>
                 <a
-                  href={`https://wa.me/917022780310?text=I want to book ${cabin.title} at Spacio Workspace Basavanagudi #PrivateCabins #${cabin.title.replace(/\s+/g, '')} #SpacioWorkspace`}
+                  href={`https://wa.me/917022780310?text=${encodeURIComponent(`Hi! I want to check availability for ${cabin.title} at Spacio Workspace, Basavanagudi.`)}`}
                   className="btn-premium w-full rounded-xl bg-primary px-4 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300"
                 >
                   Book {cabin.title}

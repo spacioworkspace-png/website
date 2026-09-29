@@ -5,7 +5,8 @@ import { PHONE_HREF } from "@/lib/site";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 const whatsappHref =
-  "https://wa.me/917022780310?text=Hi! I'd like to know more about Spacio Workspace in Bangalore";
+  "https://wa.me/917022780310?text=" +
+  encodeURIComponent("Hi! I'd like to know more about Spacio Workspace in Basavanagudi.");
 
 /** Fixed WhatsApp + Call buttons — mirrors the floating WhatsApp pattern site-wide. */
 export function FloatingContact() {

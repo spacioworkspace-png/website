@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Virtual office in Basavanagudi with GST and ROC-ready business address, mail handling and meeting room access from ₹12,999/year at Spacio Workspace.",
   path: "/virtual-office-bangalore",
+  canonicalPath: "/workspaces/virtual-office",
   keywords: [...SEO_KEYWORDS.virtualOffice],
 });
 

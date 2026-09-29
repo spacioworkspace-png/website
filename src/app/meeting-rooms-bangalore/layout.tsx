@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Meeting room in Basavanagudi for client sessions, interviews and team meetings. AV-ready rooms for 4–12 people from ₹399/hour at Spacio Workspace.",
   path: "/meeting-rooms-bangalore",
+  canonicalPath: "/workspaces/meeting-rooms",
   keywords: [...SEO_KEYWORDS.meetingRoom],
 });
 

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { trackBookTourClick, trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
 type NavItem = { href: string; label: string };
 
@@ -44,21 +45,32 @@ export function MobileNav({ items }: { items: NavItem[] }) {
               <Link
                 href="/book-tour"
                 className="block text-center rounded-xl bg-primary px-5 py-3 text-white font-semibold min-h-[44px]"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackBookTourClick("mobile_nav");
+                  setOpen(false);
+                }}
               >
                 Book Tour
               </Link>
               <a
-                href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
+                href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace, Basavanagudi")}
                 className="block text-center rounded-xl border border-primary/30 px-5 py-3 text-primary font-semibold min-h-[44px]"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackWhatsAppClick("mobile_nav");
+                  setOpen(false);
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 WhatsApp
               </a>
               <a
                 href={PHONE_HREF}
                 className="block text-center rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold min-h-[44px]"
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  trackPhoneClick("mobile_nav");
+                  setOpen(false);
+                }}
               >
                 Call Us
               </a>

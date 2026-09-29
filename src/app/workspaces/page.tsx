@@ -32,7 +32,7 @@ const workspaceOptions = [
     highlight: true,
     pricing: "₹8,499/month",
     capacityLabel: "1 person",
-    bestFor: ["Startup founders", "Consultants", "CXO on-the-go", "Video bachelors & content creators"],
+    bestFor: ["Startup founders", "Consultants", "CXOs on the go", "Creators & consultants"],
     addOns: ["Dedicated locker upgrade", "Mail handling", "Brand signage"],
     availability: "Immediate move-in slots",
     videoUrl: "/solo-cabin-tour.mp4",
