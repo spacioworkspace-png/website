@@ -10,9 +10,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Private Cabin Basavanagudi | Small Office for Rent from ₹8,499",
+  title: "Private Cabin Basavanagudi | From ₹8,499/month",
   description:
-    "Private cabin in Basavanagudi with 24/7 access and 1Gbps WiFi. Small office for rent from ₹8,499/month at Spacio Workspace, South Bangalore. Book a free tour.",
+    "Private cabin in Basavanagudi with 24/7 access and 1Gbps WiFi. Small office for rent from ₹8,499/month. Book a free tour.",
   path: "/workspaces/solo-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/solo-cabin-workspace.jpg",

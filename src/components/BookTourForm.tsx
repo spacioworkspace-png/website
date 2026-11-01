@@ -2,9 +2,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Calendar, Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
+import { Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
 import { trackLead } from "@/lib/tracking";
 import { CallLink } from "@/components/ContactCtas";
+
+const fieldClass =
+  "w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary focus:ring-2 focus:ring-primary/20 transition-all";
 
 export function BookTourForm() {
   const router = useRouter();
@@ -19,7 +22,7 @@ export function BookTourForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ''}`;
+    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ""}`;
     trackLead("book_tour_form");
     window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, "_blank");
     router.push("/book-tour/thank-you");
@@ -34,61 +37,91 @@ export function BookTourForm() {
         className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white"
       >
         <h2 className="text-2xl font-bold text-neutral-900 mb-6">Tour Details</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6" noValidate={false}>
           <div>
-            <label className="block text-sm font-semibold text-neutral-900 mb-2">Your Name *</label>
+            <label htmlFor="tour-name" className="block text-sm font-semibold text-neutral-900 mb-2">
+              Your Name <span aria-hidden="true">*</span>
+            </label>
             <input
               type="text"
+              id="tour-name"
+              name="name"
               required
+              aria-required="true"
+              autoComplete="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+              className={fieldClass}
               placeholder="Enter your name"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-neutral-900 mb-2">Email *</label>
+            <label htmlFor="tour-email" className="block text-sm font-semibold text-neutral-900 mb-2">
+              Email <span aria-hidden="true">*</span>
+            </label>
             <input
               type="email"
+              id="tour-email"
+              name="email"
               required
+              aria-required="true"
+              autoComplete="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+              className={fieldClass}
               placeholder="your.email@example.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-neutral-900 mb-2">Phone Number *</label>
+            <label htmlFor="tour-phone" className="block text-sm font-semibold text-neutral-900 mb-2">
+              Phone Number <span aria-hidden="true">*</span>
+            </label>
             <input
               type="tel"
+              id="tour-phone"
+              name="phone"
               required
+              aria-required="true"
+              autoComplete="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+              className={fieldClass}
               placeholder="+91 98765 43210"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-neutral-900 mb-2">Preferred Date *</label>
+              <label htmlFor="tour-date" className="block text-sm font-semibold text-neutral-900 mb-2">
+                Preferred Date <span aria-hidden="true">*</span>
+              </label>
               <input
                 type="date"
+                id="tour-date"
+                name="preferredDate"
                 required
+                aria-required="true"
+                autoComplete="off"
                 value={formData.preferredDate}
                 onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
-                className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                className={fieldClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-neutral-900 mb-2">Preferred Time *</label>
+              <label htmlFor="tour-time" className="block text-sm font-semibold text-neutral-900 mb-2">
+                Preferred Time <span aria-hidden="true">*</span>
+              </label>
               <select
+                id="tour-time"
+                name="preferredTime"
                 required
+                aria-required="true"
+                autoComplete="off"
                 value={formData.preferredTime}
                 onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
+                className={`${fieldClass} bg-white`}
               >
                 <option value="">Select time</option>
                 <option value="10:00 AM">10:00 AM</option>
@@ -103,22 +136,27 @@ export function BookTourForm() {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-neutral-900 mb-2">Message (Optional)</label>
+            <label htmlFor="tour-message" className="block text-sm font-semibold text-neutral-900 mb-2">
+              Message (Optional)
+            </label>
             <textarea
+              id="tour-message"
+              name="message"
               rows={3}
+              autoComplete="off"
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+              className={`${fieldClass} resize-none`}
               placeholder="Any specific requirements or questions?"
             />
           </div>
 
           <button
             type="submit"
-            className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+            className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             Book Free Tour via WhatsApp
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5" aria-hidden />
           </button>
           <CallLink
             location="book-tour-form"
@@ -146,9 +184,9 @@ export function BookTourForm() {
               "Meet our community manager",
               "Get answers to all your questions",
               "No pressure, just information",
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" aria-hidden />
                 <span className="text-neutral-700">{item}</span>
               </li>
             ))}
@@ -157,14 +195,15 @@ export function BookTourForm() {
 
         <div className="card-premium rounded-2xl border-2 border-neutral-200 p-6 bg-white">
           <h3 className="text-xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
-            <MapPin className="w-5 h-5 text-primary" />
+            <MapPin className="w-5 h-5 text-primary" aria-hidden />
             Our Location
           </h3>
           <div className="space-y-4">
             <div>
               <div className="font-semibold text-neutral-900 mb-1">Basavanagudi</div>
               <p className="text-neutral-600 text-sm">
-                No 7, Sree Devi Complex, NAT Street<br />
+                No 7, Sree Devi Complex, NAT Street
+                <br />
                 Bangalore - 560004
               </p>
             </div>
@@ -173,16 +212,15 @@ export function BookTourForm() {
 
         <div className="card-premium rounded-2xl border-2 border-neutral-200 p-6 bg-white">
           <h3 className="text-xl font-bold text-neutral-900 mb-4 flex items-center gap-2">
-            <Clock className="w-5 h-5 text-primary" />
+            <Clock className="w-5 h-5 text-primary" aria-hidden />
             Tour Duration
           </h3>
           <p className="text-neutral-700">
-            Our tours typically last 15-20 minutes. We'll show you around, answer your questions, 
-            and help you find the perfect workspace solution for your needs.
+            Our tours typically last 15-20 minutes. We&apos;ll show you around, answer your questions, and help
+            you find the perfect workspace solution for your needs.
           </p>
         </div>
       </motion.div>
     </div>
   );
 }
-

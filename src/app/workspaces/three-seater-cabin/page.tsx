@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Private Cabin Basavanagudi | 3-Seater Small Office ₹14,999/mo",
+  title: "Private Cabin Basavanagudi | 3-Seater ₹14,999/mo",
   description:
-    "Private cabin in Basavanagudi for small teams and partners. Small office for rent with 3 seats, whiteboard and 24/7 access from ₹14,999/month at Spacio Workspace.",
+    "Private cabin in Basavanagudi for small teams. 3 seats, whiteboard and 24/7 access from ₹14,999/month at Spacio Workspace.",
   path: "/workspaces/three-seater-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/3-seater-cabin-orange-screens.jpg",

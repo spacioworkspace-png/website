@@ -13,7 +13,7 @@ import { ADDRESS, EMAIL, LOCATION_FAQS, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, SIT
 export const metadata = pageMeta({
   title: "Coworking Space Basavanagudi | Near Bull Temple & Lalbagh",
   description:
-    "Coworking space near Bull Temple and Lalbagh in Basavanagudi, South Bangalore. Office space with private cabins, dedicated desks and meeting rooms at Spacio Workspace.",
+    "Coworking near Bull Temple and Lalbagh in Basavanagudi. Private cabins, dedicated desks and meeting rooms at Spacio Workspace.",
   path: "/locations/basavanagudi",
   keywords: [...SEO_KEYWORDS.location],
   ogImage: "/images/building-exterior-sree-devi-complex.jpg",

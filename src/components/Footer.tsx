@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
-import { PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
 
 const workspace = [
   { label: "Private cabins", href: "/workspaces/solo-cabin#video-tour" },
@@ -120,36 +120,42 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
+          {/* Contact Info — visible NAP for local SEO */}
+          <div itemScope itemType="https://schema.org/LocalBusiness">
+            <meta itemProp="name" content="Spacio Workspace" />
             <div className="font-bold text-neutral-900 text-base mb-4">Contact Us</div>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                <div className="text-neutral-700">
-                  <Link href="/locations/basavanagudi" className="font-semibold mb-1 hover:text-primary">
-                Basavanagudi
-              </Link>
-                  <div>No 7, Sree Devi Complex, NAT Street</div>
-                  <div>Bangalore - 560004, Karnataka, India</div>
+                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" aria-hidden />
+                <div className="text-neutral-700" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <Link href="/locations/basavanagudi" className="font-semibold mb-1 hover:text-primary block">
+                    <span itemProp="addressLocality">Basavanagudi</span>
+                  </Link>
+                  <div itemProp="streetAddress">No 7, Sree Devi Complex, NAT Street</div>
+                  <div>
+                    <span itemProp="addressRegion">Bangalore</span> -{" "}
+                    <span itemProp="postalCode">560004</span>, Karnataka, India
+                  </div>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a 
-                  href={PHONE_HREF} 
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
+                <a
+                  href={PHONE_HREF}
+                  itemProp="telephone"
                   className="text-neutral-700 hover:text-primary transition-colors duration-300 font-semibold"
                 >
-                  +91-7022780310
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a 
-                  href="mailto:hello@spacioworkspace.com" 
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
+                <a
+                  href={`mailto:${EMAIL}`}
+                  itemProp="email"
                   className="text-neutral-700 hover:text-primary transition-colors duration-300"
                 >
-                  hello@spacioworkspace.com
+                  {EMAIL}
                 </a>
               </li>
               <li>
@@ -158,6 +164,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-neutral-700 hover:text-primary transition-colors duration-300"
+                  aria-label="Spacio Workspace on Instagram (opens in a new window)"
                 >
                   Instagram
                 </a>

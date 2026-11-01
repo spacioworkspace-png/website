@@ -36,6 +36,7 @@ export function WorkspaceVideoTour({
           aria-describedby={descId}
         >
           <source src={src} type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English captions" src="/captions/workspace-tour-en.vtt" />
           <p className="p-4 text-sm text-white">
             Your browser does not support embedded video.{" "}
             <a href={src} className="underline">

@@ -40,6 +40,7 @@ export function HomeHero() {
               className={styles.secondaryCta}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="WhatsApp (opens in a new window)"
             >
               WhatsApp
             </a>

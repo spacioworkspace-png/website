@@ -63,6 +63,16 @@ export function CustomerTestimonialVideo({
             aria-describedby={summaryId}
           >
             <source src={testimonial.videoSrc} type="video/mp4" />
+            <track
+              kind="captions"
+              srcLang="en"
+              label="English captions"
+              src={
+                testimonial.id === "private-cabin-member"
+                  ? "/captions/testimonial-private-cabin-en.vtt"
+                  : "/captions/testimonial-team-en.vtt"
+              }
+            />
             <p className="p-4 text-sm text-white">
               Your browser does not support embedded video.{" "}
               <a href={testimonial.videoSrc} className="underline">

@@ -24,9 +24,9 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Coworking & Office Space Basavanagudi | Near Bull Temple & Lalbagh",
+  title: "Coworking Space Basavanagudi | Spacio Workspace",
   description:
-    "Coworking space near Bull Temple and Lalbagh in Basavanagudi, South Bangalore. Private cabins, dedicated desks, meeting rooms, virtual office and day pass. Book a free tour.",
+    "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass. Book a free tour.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   category: "Coworking space",
   keywords: [...SEO_KEYWORDS.site],
   openGraph: {
-    title: "Coworking & Office Space Basavanagudi | Spacio Workspace",
+    title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "Coworking space near Bull Temple and Lalbagh. Private cabin, dedicated desk, meeting room, virtual office and day pass in Basavanagudi, South Bangalore.",
+      "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass.",
     url: "/",
     siteName: SITE_NAME,
     locale: "en_IN",
@@ -52,9 +52,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coworking & Office Space Basavanagudi | Spacio Workspace",
+    title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "Coworking space near Bull Temple and Lalbagh. Office space, private cabins and day pass in Basavanagudi, South Bangalore.",
+      "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -63,9 +63,8 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
   alternates: {
@@ -111,24 +110,22 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
         <MarketingNoScript />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2"
-        >
-          Skip to content
+        <a href="#main-content" className="skip-link">
+          Skip to main content
         </a>
         <Header />
         <Suspense fallback={null}>
           <DeferredWidgets />
         </Suspense>
-        <main id="main-content">{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
         <MarketingScripts />
         <DeferredChatling />
-        <p className="sr-only">
-          {SITE_NAME}, {PHONE_DISPLAY}, {EMAIL}. Coworking space at No 7, Sree Devi Complex, NAT Street,
-          Basavanagudi, Bangalore 560004. Day pass ₹199, dedicated desk ₹3,499/month, solo cabin ₹8,499/month,
-          meeting rooms ₹399/hour, virtual office ₹12,999/year.
+        <p className="sr-only" aria-hidden="false">
+          {SITE_NAME}, phone {PHONE_DISPLAY}, email {EMAIL}. Address: No 7, Sree Devi Complex, NAT Street,
+          Basavanagudi, Bangalore 560004, Karnataka, India.
         </p>
       </body>
     </html>

@@ -11,7 +11,7 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 export const metadata = pageMeta({
   title: "Private Cabin Basavanagudi | 6-Seater Team Office ₹24,999/mo",
   description:
-    "Private cabin in Basavanagudi for teams of up to six. Small office for rent with collaborative space and 24/7 access from ₹24,999/month at Spacio Workspace.",
+    "Private cabin in Basavanagudi for teams of up to six. Collaborative space and 24/7 access from ₹24,999/month.",
   path: "/workspaces/six-seater-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/6-seater-cabin-workspace.jpg",

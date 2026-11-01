@@ -11,7 +11,7 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 export const metadata = pageMeta({
   title: "Meeting Room Basavanagudi | Book from ₹399/hour",
   description:
-    "Meeting room in Basavanagudi for client calls, interviews and team sessions. AV-ready rooms for 4–12 people from ₹399/hour at Spacio Workspace, South Bangalore.",
+    "Meeting room in Basavanagudi for client calls and team sessions. AV-ready rooms for 4–12 people from ₹399/hour.",
   path: "/workspaces/meeting-rooms",
   keywords: [...SEO_KEYWORDS.meetingRoom],
   ogImage: "/images/meeting-room-frosted-glass.jpg",

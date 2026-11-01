@@ -12,7 +12,7 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 export const metadata = pageMeta({
   title: "Dedicated Desk Basavanagudi | Coworking from ₹3,499/month",
   description:
-    "Dedicated desk in Basavanagudi with assigned seat, locker and 24/7 access. Affordable office space near South Bangalore from ₹3,499/month at Spacio Workspace.",
+    "Dedicated desk in Basavanagudi with assigned seat, locker and 24/7 access from ₹3,499/month at Spacio Workspace.",
   path: "/workspaces/dedicated-desks",
   keywords: [...SEO_KEYWORDS.dedicatedDesk],
   ogImage: "/images/workspace-orange-screens.jpg",

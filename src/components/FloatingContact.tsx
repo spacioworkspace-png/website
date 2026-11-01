@@ -27,7 +27,7 @@ export function FloatingContact() {
         href={whatsappHref}
         onClick={() => trackWhatsAppClick("floating_whatsapp_button")}
         className="inline-flex items-center gap-2 sm:gap-3 rounded-full bg-primary px-4 sm:px-5 py-3 sm:py-4 text-white shadow-2xl hover:shadow-primary/50 active:scale-95 transition-transform duration-300 touch-manipulation"
-        aria-label="Chat on WhatsApp"
+        aria-label="Chat on WhatsApp (opens in a new window)"
         target="_blank"
         rel="noopener noreferrer"
       >

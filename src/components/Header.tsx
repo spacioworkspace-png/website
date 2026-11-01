@@ -51,12 +51,16 @@ export function Header() {
           <a
             href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
             className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors min-h-[44px] inline-flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp (opens in a new window)"
           >
             WhatsApp
           </a>
           <a
             href={PHONE_HREF}
             className="rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-semibold text-neutral-900 hover:border-primary hover:text-primary transition-colors min-h-[44px] inline-flex items-center"
+            aria-label="Call Spacio Workspace"
           >
             Call Us
           </a>

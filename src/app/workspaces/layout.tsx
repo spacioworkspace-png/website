@@ -4,9 +4,9 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { SITE_FAQS } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Office Space Basavanagudi | Private Cabins, Desks & Meeting Rooms",
+  title: "Office Space Basavanagudi | Cabins, Desks & Rooms",
   description:
-    "Office space in Basavanagudi with private cabins, dedicated desks, meeting rooms, virtual office and day pass. Coworking near South Bangalore from Spacio Workspace.",
+    "Office space in Basavanagudi with private cabins, dedicated desks, meeting rooms, virtual office and day pass at Spacio Workspace.",
   path: "/workspaces",
   keywords: [...SEO_KEYWORDS.workspaces],
 });

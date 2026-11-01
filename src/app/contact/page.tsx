@@ -68,10 +68,13 @@ export default function ContactPage() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
+                  aria-required="true"
+                  autoComplete="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300"
+                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300"
                   placeholder="Enter your name"
                 />
               </div>
@@ -83,10 +86,13 @@ export default function ContactPage() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
+                  aria-required="true"
+                  autoComplete="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300"
+                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -98,10 +104,13 @@ export default function ContactPage() {
                 <input
                   type="tel"
                   id="phone"
+                  name="phone"
                   required
+                  aria-required="true"
+                  autoComplete="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300"
+                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -112,9 +121,11 @@ export default function ContactPage() {
                 </label>
                 <select
                   id="workspace"
+                  name="workspace"
+                  autoComplete="off"
                   value={formData.workspace}
                   onChange={(e) => setFormData({ ...formData, workspace: e.target.value })}
-                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 bg-white"
+                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300 bg-white"
                 >
                   <option value="">Select workspace type</option>
                   <option value="Solo Cabin">Solo Cabin</option>
@@ -133,11 +144,14 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
+                  aria-required="true"
+                  autoComplete="off"
                   rows={5}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 resize-none"
+                  className="w-full rounded-xl border-2 border-neutral-200 px-4 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-300 resize-none"
                   placeholder="Tell us about your workspace needs..."
                 />
               </div>
@@ -206,6 +220,7 @@ export default function ContactPage() {
                   href="https://wa.me/917022780310?text=Hi! I'd like to know more about Spacio Workspace"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="WhatsApp Spacio Workspace (opens in a new window)"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white border-2 border-neutral-200 hover:border-primary hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">

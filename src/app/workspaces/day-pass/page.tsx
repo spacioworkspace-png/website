@@ -11,7 +11,7 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 export const metadata = pageMeta({
   title: "Day Pass Basavanagudi | Coworking from ₹199/day",
   description:
-    "Day pass in Basavanagudi for flexible single-day coworking. Full-day access, 1Gbps WiFi and common areas from ₹199/day at Spacio Workspace, South Bangalore.",
+    "Day pass in Basavanagudi for single-day coworking. Full-day access and 1Gbps WiFi from ₹199/day at Spacio Workspace.",
   path: "/workspaces/day-pass",
   keywords: [...SEO_KEYWORDS.dayPass],
   ogImage: "/images/workspace-green-screens.jpg",

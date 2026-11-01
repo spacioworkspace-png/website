@@ -353,7 +353,7 @@ export default function WorkspacesPage() {
       <PlanVideoSection showAllTours />
       <PublicTransportSection />
 
-      <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
+      <section id="workspace-sitelinks" className="mx-auto max-w-7xl scroll-mt-16 px-4 py-20">
         <div className="mb-12 text-center">
           <span className="badge-premium mb-4 inline-block pulse-glow-peacock">Bangalore Workspace Catalog</span>
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">

@@ -38,6 +38,7 @@ export function WhatsAppLink({
       className={`${variantClass[variant]} ${className}`}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`${typeof children === "string" ? children : "WhatsApp"} (opens in a new window)`}
     >
       <MessageCircle className="w-5 h-5 shrink-0" aria-hidden />
       {children}
