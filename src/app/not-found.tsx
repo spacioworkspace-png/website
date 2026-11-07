@@ -63,7 +63,7 @@ export default function NotFound() {
               href="/pricing"
               className="text-sm text-neutral-600 hover:text-primary transition-colors"
             >
-              Pricing
+              Membership
             </Link>
             <span className="text-neutral-300">•</span>
             <Link
