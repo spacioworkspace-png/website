@@ -23,9 +23,9 @@ export const metadata = pageMeta({
 const services = [
   { href: "/workspaces/solo-cabin", label: "Private cabins", detail: "Solo, 3-seater and 6-seater enclosed cabins" },
   { href: "/workspaces/dedicated-desks", label: "Dedicated desks", detail: "Assigned desk with 24/7 access" },
-  { href: "/workspaces/day-pass", label: "Day pass", detail: "₹199 per day, 9 AM–7 PM" },
-  { href: "/workspaces/meeting-rooms", label: "Meeting rooms", detail: "From ₹399 per hour, 4–12 people" },
-  { href: "/workspaces/virtual-office", label: "Virtual office", detail: "₹12,999 per year, GST and mail handling" },
+  { href: "/workspaces/day-pass", label: "Day pass", detail: "Flexible day access, 9 AM–7 PM" },
+  { href: "/workspaces/meeting-rooms", label: "Meeting rooms", detail: "Hourly booking for 4–12 people" },
+  { href: "/workspaces/virtual-office", label: "Virtual office", detail: "GST address and mail handling" },
 ];
 
 export default function BasavanagudiLocationPage() {

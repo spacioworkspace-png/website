@@ -10,6 +10,8 @@ import {
   SITE_NAME,
   SITE_URL,
 } from "./site";
+import type { CustomerTestimonial } from "./testimonials";
+import { testimonialContentUrl, testimonialEmbedUrl } from "./testimonials";
 
 type Faq = { q: string; a: string };
 
@@ -52,21 +54,8 @@ export function serviceOfferJsonLd(planId: string) {
     provider: { "@id": `${SITE_URL}/#localbusiness` },
     areaServed: [
       { "@type": "AdministrativeArea", name: "Basavanagudi" },
-      { "@type": "City", name: "Bangalore" },
+      { "@type": "City", name: "Bengaluru" },
     ],
-    offers: {
-      "@type": "Offer",
-      price: String(plan.priceValue),
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: `${SITE_URL}${plan.path}`,
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: String(plan.priceValue),
-        priceCurrency: "INR",
-        unitText: plan.unitText,
-      },
-    },
   };
 }
 
@@ -97,7 +86,7 @@ export function organizationGraph() {
         name: SITE_NAME,
         alternateName: "Spacio Workspace Basavanagudi",
         description:
-          "Coworking space in Basavanagudi, South Bangalore. Private cabins, dedicated desks, meeting rooms, day pass and virtual office for professionals, startups and growing teams.",
+          "Coworking space in Basavanagudi, South Bengaluru. Private cabins, dedicated desks, meeting rooms, day pass and virtual office for professionals, startups and growing teams.",
         url: SITE_URL,
         image: GALLERY_IMAGE_URLS(),
         logo: `${SITE_URL}/logo.png`,
@@ -106,7 +95,6 @@ export function organizationGraph() {
         category: "Coworking space",
         currenciesAccepted: "INR",
         paymentAccepted: "UPI, Card, Bank transfer",
-        priceRange: "₹₹",
         parentOrganization: { "@id": orgId },
         address: {
           "@type": "PostalAddress",
@@ -140,8 +128,8 @@ export function organizationGraph() {
         ],
         areaServed: [
           { "@type": "AdministrativeArea", name: "Basavanagudi" },
-          { "@type": "AdministrativeArea", name: "South Bangalore" },
-          { "@type": "City", name: "Bangalore" },
+          { "@type": "AdministrativeArea", name: "South Bengaluru" },
+          { "@type": "City", name: "Bengaluru" },
         ],
         knowsAbout: [
           "Coworking space",
@@ -164,9 +152,6 @@ export function organizationGraph() {
             "@type": "Offer",
             name: plan.name,
             url: `${SITE_URL}${plan.path}`,
-            price: String(plan.priceValue),
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
             itemOffered: {
               "@type": "Service",
               name: plan.name,
@@ -197,9 +182,6 @@ function GALLERY_IMAGE_URLS() {
     `${SITE_URL}/images/meeting-room-frosted-glass.jpg`,
   ];
 }
-
-import type { CustomerTestimonial } from "./testimonials";
-import { testimonialContentUrl, testimonialEmbedUrl } from "./testimonials";
 
 export function videoObjectJsonLd(testimonial: CustomerTestimonial, pagePath: string) {
   const data: Record<string, string> = {
@@ -241,7 +223,7 @@ export function howToTourJsonLd() {
         "@type": "HowToStep",
         position: 2,
         name: "Visit the centre",
-        text: "Come to No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004.",
+        text: "Come to No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru 560004.",
       },
       {
         "@type": "HowToStep",

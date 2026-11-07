@@ -12,6 +12,11 @@ const FloatingContact = dynamic(
   { ssr: false }
 );
 
+const MobileStickyBar = dynamic(
+  () => import("@/components/MobileStickyBar").then((m) => ({ default: m.MobileStickyBar })),
+  { ssr: false }
+);
+
 const Analytics = dynamic(
   () => import("@vercel/analytics/next").then((m) => ({ default: m.Analytics })),
   { ssr: false }
@@ -22,6 +27,7 @@ export function DeferredWidgets() {
     <>
       <Breadcrumbs />
       <FloatingContact />
+      <MobileStickyBar />
       <Analytics />
     </>
   );

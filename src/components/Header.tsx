@@ -1,35 +1,36 @@
 import Link from "next/link";
 import { MobileNav } from "./MobileNav";
-import { PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { whatsappUrl } from "@/lib/site";
+import { WA } from "@/lib/whatsapp-messages";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/workspaces", label: "Workspaces" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/locations/basavanagudi", label: "Basavanagudi" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/workspaces", label: "Workspace" },
+  { href: "/workspaces/virtual-office", label: "Virtual Office" },
+  { href: "/workspaces/meeting-rooms", label: "Meeting Rooms" },
+  { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-neutral-200/50 shadow-sm">
-      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="w-10 h-10 md:w-11 md:h-11 rounded-lg flex items-center justify-center bg-primary text-white font-bold text-sm">
+    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-neutral-200/60">
+      <div className="mx-auto flex h-16 md:h-18 max-w-7xl items-center justify-between px-4 gap-4">
+        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity shrink-0">
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-primary text-white font-bold text-sm tracking-wide">
             S
           </div>
           <div className="flex flex-col">
             <span className="text-base md:text-lg font-bold text-neutral-900 leading-tight">
               Spacio Workspace
             </span>
-            <span className="text-xs text-neutral-600 hidden sm:block">Namma Bengaluru</span>
+            <span className="text-[11px] text-neutral-500 hidden sm:block tracking-wide">
+              Basavanagudi · Bengaluru
+            </span>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
+        <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -41,29 +42,22 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-3">
-          <Link
-            href="/book-tour"
-            className="btn-premium rounded-xl bg-primary px-5 py-2.5 text-white font-semibold text-sm hover:bg-primary/90 transition-colors"
-          >
-            Book Tour
-          </Link>
+        <div className="hidden lg:flex items-center gap-2.5">
           <a
-            href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
-            className="rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors min-h-[44px] inline-flex items-center"
+            href={whatsappUrl(WA.general)}
+            className="rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white hover:bg-[#1ebe57] transition-colors min-h-[44px] inline-flex items-center"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="WhatsApp (opens in a new window)"
+            aria-label="WhatsApp Spacio Workspace (opens in a new window)"
           >
             WhatsApp
           </a>
-          <a
-            href={PHONE_HREF}
-            className="rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-semibold text-neutral-900 hover:border-primary hover:text-primary transition-colors min-h-[44px] inline-flex items-center"
-            aria-label="Call Spacio Workspace"
+          <Link
+            href="/book-tour"
+            className="rounded-xl bg-primary px-5 py-2.5 text-white font-semibold text-sm hover:bg-primary/90 transition-colors min-h-[44px] inline-flex items-center"
           >
-            Call Us
-          </a>
+            Book a Tour
+          </Link>
         </div>
 
         <MobileNav items={nav} />

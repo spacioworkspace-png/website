@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.spacioworkspace.com";
 export const SITE_NAME = "Spacio Workspace";
-export const SITE_UPDATED = "2026-08-22";
+export const SITE_UPDATED = "2026-11-07";
 
 export const PHONE_DISPLAY = "+91 70227 80310";
 export const PHONE_TEL = "+917022780310";
@@ -13,14 +13,14 @@ export function whatsappUrl(text?: string): string {
 }
 
 export const ADDRESS = {
-  street: "No 7, Sree Devi Complex, NAT Street",
+  street: "No. 7, Sree Devi Complex, N.A.T. Road",
   locality: "Basavanagudi",
-  city: "Bangalore",
+  city: "Bengaluru",
   region: "Karnataka",
   postalCode: "560004",
   country: "IN",
   countryName: "India",
-  line: "No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004",
+  line: "No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru, Karnataka 560004",
 };
 
 export const GEO = {
@@ -35,19 +35,19 @@ export const INSTAGRAM_URL = "https://www.instagram.com/spacioworkspace";
 
 export const OG_IMAGE = "/og-image.jpg";
 
-export const LANDMARKS = ["Bull Temple", "Lalbagh Botanical Gardens", "Gandhi Bazaar", "NAT Street"];
+export const LANDMARKS = ["Bull Temple", "Lalbagh Botanical Gardens", "Gandhi Bazaar", "N.A.T. Road"];
 
 export type Plan = {
   id: string;
   name: string;
   path: string;
-  price: string;
-  priceValue: number;
-  unitText: "DAY" | "MON" | "HUR" | "ANN";
+  /** Billing cadence label only — no public rates */
   unitLabel: string;
   description: string;
+  shortDescription: string;
   image: string;
   videoTour: string;
+  ctaLabel: string;
   faqs: { q: string; a: string }[];
 };
 
@@ -65,21 +65,20 @@ export const PLANS: Plan[] = [
     id: "day-pass",
     name: "Day pass",
     path: "/workspaces/day-pass",
-    price: "₹199",
-    priceValue: 199,
-    unitText: "DAY",
-    unitLabel: "per day",
+    unitLabel: "flexible day access",
     description: "Full-day coworking access from 9 AM to 7 PM at Spacio Workspace, Basavanagudi.",
+    shortDescription: "Work for a day with WiFi, common areas and a professional setting.",
     image: "/images/workspace-yellow-green-walls.jpg",
     videoTour: "/day-pass-tour.mp4",
+    ctaLabel: "Enquire About Day Pass",
     faqs: [
       {
-        q: "How much is a coworking day pass in Basavanagudi?",
-        a: "A day pass at Spacio Workspace costs ₹199 per day, with access from 9 AM to 7 PM, 1Gbps WiFi, and common areas included.",
+        q: "Can I book a day pass at Spacio Workspace?",
+        a: "Yes. Day passes are available for single-day coworking access from 9 AM to 7 PM, including high-speed WiFi and common areas. WhatsApp us for current availability and membership details.",
       },
       {
-        q: "What is included in the Spacio day pass?",
-        a: "The ₹199 day pass includes a workspace seat, high-speed internet, printing support, beverages, and access to common areas at the Basavanagudi centre.",
+        q: "What is included in a Spacio day pass?",
+        a: "A day pass includes a workspace seat, high-speed internet, printing support, beverages, and access to common areas at the Basavanagudi centre.",
       },
     ],
   },
@@ -87,21 +86,20 @@ export const PLANS: Plan[] = [
     id: "dedicated-desks",
     name: "Dedicated desk",
     path: "/workspaces/dedicated-desks",
-    price: "₹3,499",
-    priceValue: 3499,
-    unitText: "MON",
-    unitLabel: "per month",
+    unitLabel: "monthly membership",
     description: "Assigned desk with 24/7 access at Spacio Workspace, Basavanagudi.",
+    shortDescription: "Your fixed desk with locker storage and round-the-clock member access.",
     image: "/images/workspace-numbered-cabins.jpg",
     videoTour: "/dedicated-desks-tour.mp4",
+    ctaLabel: "Enquire About Dedicated Desks",
     faqs: [
       {
-        q: "How much is a dedicated desk in Basavanagudi?",
-        a: "A dedicated desk at Spacio Workspace costs ₹3,499 per month and includes an assigned desk, 24/7 access, and 1Gbps internet.",
+        q: "Are dedicated desks available in Basavanagudi?",
+        a: "Yes. Dedicated desks include an assigned seat, locker storage, 1Gbps internet and 24/7 access. Contact us for current availability.",
       },
       {
         q: "Is a dedicated desk better than a private cabin?",
-        a: "Choose a dedicated desk if you want a fixed seat in a shared bay at ₹3,499/month. Choose a solo cabin at ₹8,499/month if you need a door, privacy for calls, and a lockable room.",
+        a: "Choose a dedicated desk for a fixed seat in a shared bay. Choose a private cabin if you need a door, privacy for calls, and a lockable room. Our team can help you decide on a tour.",
       },
     ],
   },
@@ -109,21 +107,20 @@ export const PLANS: Plan[] = [
     id: "solo-cabin",
     name: "Solo cabin",
     path: "/workspaces/solo-cabin",
-    price: "₹8,499",
-    priceValue: 8499,
-    unitText: "MON",
-    unitLabel: "per month",
+    unitLabel: "monthly membership",
     description: "Private 1-person cabin with 24/7 access at Spacio Workspace, Basavanagudi.",
+    shortDescription: "A quiet enclosed cabin for focused work and confidential calls.",
     image: "/images/solo-cabin-workspace.jpg",
     videoTour: "/solo-cabin-tour.mp4",
+    ctaLabel: "Enquire About Private Cabins",
     faqs: [
       {
-        q: "How much does a private cabin cost in Basavanagudi?",
-        a: "A solo private cabin at Spacio Workspace costs ₹8,499 per month. 3-seater cabins are ₹14,999/month and 6-seater cabins are ₹24,999/month.",
+        q: "Do you offer private cabins in Basavanagudi?",
+        a: "Yes. Spacio offers solo, 3-seater and 6-seater private cabins with 1Gbps internet and 24/7 access. WhatsApp us for membership details and availability.",
       },
       {
         q: "Who is the solo cabin for?",
-        a: "The solo cabin is for founders, consultants, and professionals who need a quiet enclosed office in Basavanagudi with 1Gbps internet and 24/7 access.",
+        a: "The solo cabin is for founders, consultants and professionals who need a quiet enclosed office in Basavanagudi.",
       },
     ],
   },
@@ -131,17 +128,16 @@ export const PLANS: Plan[] = [
     id: "three-seater-cabin",
     name: "3-seater cabin",
     path: "/workspaces/three-seater-cabin",
-    price: "₹14,999",
-    priceValue: 14999,
-    unitText: "MON",
-    unitLabel: "per month",
+    unitLabel: "monthly membership",
     description: "Private cabin for up to three people at Spacio Workspace, Basavanagudi.",
+    shortDescription: "A lockable cabin for co-founders and small partner teams.",
     image: "/images/3-seater-cabin-orange-screens.jpg",
     videoTour: "/three-seater-cabin-tour.mp4",
+    ctaLabel: "Enquire About 3-Seater Cabins",
     faqs: [
       {
-        q: "How much is a 3-seater cabin in Basavanagudi?",
-        a: "The 3-seater private cabin at Spacio Workspace costs ₹14,999 per month and is built for co-founders or small teams who need a lockable office.",
+        q: "Is a 3-seater cabin available?",
+        a: "Yes. The 3-seater cabin is built for co-founders or small teams who need a lockable office. Ask our team for current options.",
       },
     ],
   },
@@ -149,17 +145,16 @@ export const PLANS: Plan[] = [
     id: "six-seater-cabin",
     name: "6-seater cabin",
     path: "/workspaces/six-seater-cabin",
-    price: "₹24,999",
-    priceValue: 24999,
-    unitText: "MON",
-    unitLabel: "per month",
+    unitLabel: "monthly membership",
     description: "Private cabin for teams of up to six at Spacio Workspace, Basavanagudi.",
+    shortDescription: "A private team cabin without a long commercial lease.",
     image: "/images/6-seater-cabin-workspace.jpg",
     videoTour: "/six-seater-cabin-tour.mp4",
+    ctaLabel: "Enquire About 6-Seater Cabins",
     faqs: [
       {
-        q: "How much is a 6-seater cabin in Basavanagudi?",
-        a: "The 6-seater cabin at Spacio Workspace costs ₹24,999 per month for teams that need a private South Bangalore office without a long commercial lease.",
+        q: "Do you have cabins for larger teams?",
+        a: "Yes. The 6-seater cabin suits teams that need a private South Bangalore office. Contact us for membership details.",
       },
     ],
   },
@@ -167,17 +162,16 @@ export const PLANS: Plan[] = [
     id: "meeting-rooms",
     name: "Meeting rooms",
     path: "/workspaces/meeting-rooms",
-    price: "₹399",
-    priceValue: 399,
-    unitText: "HUR",
-    unitLabel: "per hour",
-    description: "Bookable meeting rooms for 4–12 people from ₹399 per hour.",
+    unitLabel: "hourly booking",
+    description: "Bookable meeting rooms for 4–12 people with AV for hybrid calls.",
+    shortDescription: "Professional rooms for client meetings, interviews and team sessions.",
     image: "/images/meeting-room-frosted-glass.jpg",
     videoTour: "/meeting-rooms-tour.mp4",
+    ctaLabel: "Enquire About Meeting Rooms",
     faqs: [
       {
-        q: "How much do meeting rooms cost at Spacio Workspace?",
-        a: "Meeting rooms at Spacio Workspace in Basavanagudi start at ₹399 per hour, with rooms for about 4 to 12 people and AV for hybrid calls.",
+        q: "Are meeting rooms available at Spacio Workspace?",
+        a: "Yes. Meeting rooms for about 4 to 12 people include AV for hybrid calls. WhatsApp us to check availability and booking details.",
       },
     ],
   },
@@ -185,21 +179,20 @@ export const PLANS: Plan[] = [
     id: "virtual-office",
     name: "Virtual office",
     path: "/workspaces/virtual-office",
-    price: "₹12,999",
-    priceValue: 12999,
-    unitText: "ANN",
-    unitLabel: "per year",
+    unitLabel: "annual plan",
     description: "GST and ROC business address with mail handling at Spacio Workspace, Basavanagudi.",
+    shortDescription: "A professional Basavanagudi business address with mail handling support.",
     image: "/images/building-exterior-sree-devi-complex.jpg",
-    videoTour: "/virtual-office-tour.mp4",
+    videoTour: "/tour.mp4",
+    ctaLabel: "Get Virtual Office Details",
     faqs: [
       {
-        q: "How much is a virtual office in Basavanagudi?",
-        a: "The virtual office plan at Spacio Workspace costs ₹12,999 per year and includes a GST/ROC-ready Basavanagudi address plus mail handling.",
+        q: "Do you provide virtual office services?",
+        a: "Yes. The virtual office plan includes a GST/ROC-ready Basavanagudi address plus mail handling. Contact us for current plan details.",
       },
       {
         q: "Can I use Spacio for GST registration in Bangalore?",
-        a: "Yes. The virtual office provides a business address in Basavanagudi, Bangalore 560004 for GST, ROC, and mail, billed at ₹12,999 per year.",
+        a: "The virtual office provides a business address in Basavanagudi, Bengaluru 560004 that members commonly use for GST, ROC and mail. Confirm documentation needs with our team before applying.",
       },
     ],
   },
@@ -207,28 +200,44 @@ export const PLANS: Plan[] = [
 
 export const SITE_FAQS: { q: string; a: string }[] = [
   {
-    q: "Where is Spacio Workspace in Bangalore?",
-    a: "Spacio Workspace is at No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004, near Bull Temple, Lalbagh, and Gandhi Bazaar.",
+    q: "Where is Spacio Workspace located?",
+    a: "Spacio Workspace is at No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru, Karnataka 560004 — near Gandhi Bazaar, Bull Temple and Lalbagh.",
   },
   {
-    q: "What is the phone number for Spacio Workspace?",
-    a: "Call or WhatsApp Spacio Workspace on +91 70227 80310. Email hello@spacioworkspace.com.",
+    q: "What coworking options are available?",
+    a: "Private cabins (solo, 3-seater and 6-seater), dedicated desks, day passes, meeting rooms and a virtual office address.",
   },
   {
-    q: "How much does coworking cost at Spacio Workspace?",
-    a: "Day pass ₹199/day, dedicated desk ₹3,499/month, solo cabin ₹8,499/month, 3-seater cabin ₹14,999/month, 6-seater cabin ₹24,999/month, meeting rooms ₹399/hour, virtual office ₹12,999/year.",
+    q: "How can I enquire about membership?",
+    a: "WhatsApp +91 70227 80310, book a free tour at spacioworkspace.com/book-tour, or visit the Basavanagudi centre. Our team shares current membership details directly.",
   },
   {
-    q: "Does Spacio Workspace have private cabins?",
-    a: "Yes. Spacio offers solo, 3-seater, and 6-seater private cabins in Basavanagudi, plus dedicated desks, meeting rooms, day passes, and a virtual office.",
+    q: "Do you offer private cabins?",
+    a: "Yes. Spacio offers solo, 3-seater and 6-seater private cabins in Basavanagudi with high-speed internet and 24/7 member access.",
   },
   {
-    q: "Is Spacio Workspace open 24/7?",
-    a: "Members on cabin and dedicated-desk plans have 24/7 access. Day-pass visitors can use the centre from 9 AM to 7 PM.",
+    q: "Are dedicated desks available?",
+    a: "Yes. Dedicated desks include an assigned seat, locker storage and 24/7 access for members.",
   },
   {
-    q: "How do I book a tour of Spacio Workspace?",
-    a: "Book a free tour at https://www.spacioworkspace.com/book-tour, WhatsApp +91 70227 80310, or visit No 7, Sree Devi Complex, NAT Street, Basavanagudi.",
+    q: "Can I book a day pass?",
+    a: "Yes. Day passes are available for single-day coworking from 9 AM to 7 PM. WhatsApp us for availability.",
+  },
+  {
+    q: "Do you provide virtual office services?",
+    a: "Yes. Virtual office includes a Basavanagudi business address with mail handling. Ask our team for plan details and documentation support.",
+  },
+  {
+    q: "Can I use your address for GST registration?",
+    a: "Virtual office members commonly use the Basavanagudi address for GST and ROC paperwork. Confirm current documentation requirements with our team before you apply.",
+  },
+  {
+    q: "Are meeting rooms available?",
+    a: "Yes. Meeting rooms for roughly 4–12 people are available with AV for hybrid calls. Enquire for booking slots.",
+  },
+  {
+    q: "Can I visit before making a decision?",
+    a: "Yes. Book a free private tour online, WhatsApp +91 70227 80310, or visit No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi.",
   },
 ];
 
@@ -236,28 +245,31 @@ export const LOCATION_FAQS: { q: string; a: string }[] = [
   SITE_FAQS[0],
   {
     q: "What workspace plans are available in Basavanagudi?",
-    a: "Private cabins (solo, 3-seater, and 6-seater), dedicated desks, meeting rooms by the hour, day passes, and a virtual office address for GST and mail.",
+    a: "Private cabins, dedicated desks, meeting rooms by the hour, day passes, and a virtual office address for GST and mail.",
   },
   {
     q: "How do I get to Spacio Workspace by metro or bus?",
-    a: "The centre is about 2.5 km from Lalbagh Metro Station on the Green Line. BMTC stops are a short walk on NAT Street and Gandhi Bazaar. Autos and cabs run throughout the day.",
+    a: "The centre is about 2.5 km from Lalbagh Metro Station on the Green Line. BMTC stops are a short walk on N.A.T. Road and Gandhi Bazaar. Autos and cabs run throughout the day.",
   },
   {
     q: "Who is this coworking space for?",
-    a: "Professionals, consultants, startups, and small teams who want a South Bangalore office with private cabins or a dedicated desk, without commuting to Koramangala or the CBD every day.",
+    a: "Professionals, consultants, startups and small teams who want a South Bengaluru office with private cabins or a dedicated desk.",
   },
-  SITE_FAQS[5],
+  SITE_FAQS[9],
 ];
 
 export const PRICING_FAQS = [
-  SITE_FAQS[2],
   {
-    q: "Are there hidden fees on Spacio Workspace plans?",
-    a: "Listed prices are the plan rates: day pass ₹199/day, desks and cabins billed monthly, meeting rooms ₹399/hour, virtual office ₹12,999/year. Confirm GST and deposits on a tour or WhatsApp +91 70227 80310.",
+    q: "How do I get membership details?",
+    a: "WhatsApp +91 70227 80310 or book a free tour. Our team shares current membership options and availability based on what you need.",
+  },
+  {
+    q: "Are there hidden fees?",
+    a: "We explain plan inclusions, deposits and any add-ons clearly when you enquire. Confirm GST and deposit details on a tour or WhatsApp.",
   },
   {
     q: "Can I try Spacio before taking a monthly plan?",
-    a: "Yes. Use the ₹199 day pass (9 AM–7 PM) or book a free tour at the Basavanagudi centre before choosing a desk or cabin.",
+    a: "Yes. Use a day pass (9 AM–7 PM) or book a free tour at the Basavanagudi centre before choosing a desk or cabin.",
   },
 ];
 
@@ -279,7 +291,9 @@ export const GALLERY_IMAGES = [
   { src: "/images/3-seater-cabin-orange-screens.jpg", alt: "3-seater cabin at Spacio Workspace Basavanagudi" },
   { src: "/images/6-seater-cabin-workspace.jpg", alt: "6-seater cabin at Spacio Workspace Basavanagudi" },
   { src: "/images/meeting-room-frosted-glass.jpg", alt: "Meeting room at Spacio Workspace Basavanagudi" },
-  { src: "/og-image.jpg", alt: "Spacio Workspace coworking space in Basavanagudi, Bangalore" },
+  { src: "/images/office-corridor-glass-partitions.jpg", alt: "Office corridor at Spacio Workspace Basavanagudi" },
+  { src: "/images/workspace-orange-screens.jpg", alt: "Workspace with privacy screens at Spacio Workspace" },
+  { src: "/og-image.jpg", alt: "Spacio Workspace coworking space in Basavanagudi, Bengaluru" },
 ];
 
 export function getPlan(id: string) {
@@ -289,7 +303,7 @@ export function getPlan(id: string) {
 export function getAllVideoTours() {
   return [
     OVERVIEW_VIDEO_TOUR,
-    ...PLANS.map((plan) => ({
+    ...PLANS.filter((plan) => plan.id !== "virtual-office").map((plan) => ({
       id: plan.id,
       title: `${plan.name} tour`,
       description: plan.description,

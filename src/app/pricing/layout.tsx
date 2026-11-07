@@ -6,9 +6,9 @@ import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 import { PRICING_FAQS } from "@/lib/site";
 
 export const metadata: Metadata = pageMeta({
-  title: "Office Space Basavanagudi Pricing | Plans & Rates",
+  title: "Membership Details | Spacio Workspace Basavanagudi",
   description:
-    "Office space in Basavanagudi pricing: day pass ₹199, dedicated desk ₹3,499/mo, private cabin ₹8,499/mo, meeting room ₹399/hr, virtual office ₹12,999/yr.",
+    "Get membership details for coworking in Basavanagudi — private cabins, desks, day pass, meeting rooms and virtual office.",
   path: "/pricing",
   keywords: [...SEO_KEYWORDS.workspaces],
 });
@@ -18,7 +18,7 @@ export default function PricingLayout({ children }: { children: React.ReactNode 
     <>
       {children}
       <PricingTable />
-      <FaqSection items={PRICING_FAQS} title="Pricing questions" />
+      <FaqSection items={PRICING_FAQS} title="Before you enquire" />
     </>
   );
 }

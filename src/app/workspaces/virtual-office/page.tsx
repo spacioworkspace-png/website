@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Virtual Office Basavanagudi | Business Address ₹12,999/year",
+  title: "Virtual Office Basavanagudi | Business Address & Mail",
   description:
-    "Virtual office in Basavanagudi with GST and ROC-ready business address, mail handling and meeting room access from ₹12,999/year at Spacio Workspace.",
+    "Virtual office in Basavanagudi with GST and ROC-ready business address, mail handling and meeting room access. Get plan details.",
   path: "/workspaces/virtual-office",
   keywords: [...SEO_KEYWORDS.virtualOffice],
   ogImage: "/images/building-exterior-sree-devi-complex.jpg",
@@ -52,7 +52,7 @@ export default function VirtualOfficePage() {
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Starting at ₹12,999/year</span>
+                  <span>Get virtual office details</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -117,7 +117,7 @@ export default function VirtualOfficePage() {
               GST, ROC, and mail at this address
             </h2>
             <p className="text-lg text-neutral-700">
-              The virtual office plan is ₹12,999 per year. It is a business address at Sree Devi Complex, NAT Street, Basavanagudi — not a private cabin. Use it for registration paperwork, then add a meeting room or day pass when you need to be on site.
+              The virtual office is a business address at Sree Devi Complex, N.A.T. Road, Basavanagudi — not a private cabin. Use it for registration paperwork, then add a meeting room or day pass when you need to be on site. WhatsApp us for plan details.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -197,7 +197,7 @@ export default function VirtualOfficePage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                Transparent Pricing & Instant Activation
+                Clear Terms & Instant Activation
               </h2>
               <p className="text-lg text-neutral-700">
                 No hidden costs, no long-term lock-ins. Get activated instantly.
@@ -205,8 +205,8 @@ export default function VirtualOfficePage() {
             </div>
             <div className="rounded-3xl border-2 border-primary bg-gradient-to-br from-primary/5 to-white p-8 mb-8">
               <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-primary mb-2">₹12,999</div>
-                <div className="text-neutral-600">per year</div>
+                <div className="text-2xl font-bold text-primary mb-2">Membership details on enquiry</div>
+                <div className="text-neutral-600">WhatsApp or book a tour for current options.</div>
               </div>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ export default function VirtualOfficePage() {
               </div>
               <div className="text-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a Virtual Office at ₹12,999/year"
+                  href="https://wa.me/917022780310?text=Hi Spacio Workspace, I am interested in your virtual office services. Please share the details."
                   className="inline-block rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
                 >
                   Book Your Virtual Office Now
@@ -241,7 +241,7 @@ export default function VirtualOfficePage() {
                 <div>
                   <h3 className="font-semibold text-green-900 mb-2">Instant Activation Available</h3>
                   <p className="text-green-800">
-                    Virtual office plans are available for instant activation. Get your business address activated within 24 hours. No deposit required. This is a yearly plan at ₹12,999.
+                    Virtual office plans can often be activated quickly. Confirm documentation, deposits and inclusions with our team on WhatsApp or during a tour.
                   </p>
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function VirtualOfficePage() {
           <div className="space-y-4">
             {[
               {
-                q: "What is included at ₹12,999 per year?",
+                q: "What is included in the virtual office plan?",
                 a: "A Basavanagudi business address, mail and courier handling with WhatsApp alerts, phone answering, GST-ready invoicing, and compliance support for registration. Meeting room credits can be added when you visit.",
               },
               {

@@ -9,7 +9,7 @@ export function CabinDeskCompare() {
           Private cabin or dedicated desk?
         </h2>
         <p className="text-neutral-600 text-center max-w-2xl mx-auto mb-8">
-          Both are at Spacio Basavanagudi with 1Gbps internet and 24/7 access. Pick the enclosed cabin if you need a door. Pick the desk if you want a reserved seat at a lower monthly rate.
+          Both are at Spacio Basavanagudi with 1Gbps internet and 24/7 access. Pick the enclosed cabin if you need a door. Pick the desk if you want a reserved seat in a shared bay.
         </p>
         <div className="overflow-x-auto rounded-2xl border border-neutral-200 bg-white">
           <table className="w-full text-sm text-left">
@@ -30,9 +30,9 @@ export function CabinDeskCompare() {
             </thead>
             <tbody className="text-neutral-700">
               <tr className="border-t">
-                <td className="p-4 font-medium">Starting price</td>
-                <td className="p-4">₹8,499 / month</td>
-                <td className="p-4">₹3,499 / month</td>
+                <td className="p-4 font-medium">Membership</td>
+                <td className="p-4">Details on enquiry</td>
+                <td className="p-4">Details on enquiry</td>
               </tr>
               <tr className="border-t bg-neutral-50/60">
                 <td className="p-4 font-medium">Space</td>

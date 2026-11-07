@@ -156,11 +156,11 @@ export default function AboutPage() {
             { title: "Basavanagudi location", desc: "NAT Street, near Bull Temple and Lalbagh, South Bangalore." },
             { title: "1Gbps internet", desc: "Fibre connectivity for calls, code and file transfers." },
             { title: "24/7 member access", desc: "Secure entry for cabin and desk members." },
-            { title: "Meeting rooms", desc: "4 to 12 seats with displays and video conferencing, from ₹399/hour." },
+            { title: "Meeting rooms", desc: "4 to 12 seats with displays and video conferencing. Enquire to book." },
             { title: "Private cabins", desc: "Solo, 3-seater and 6-seater enclosed offices." },
-            { title: "Dedicated desks", desc: "Assigned seat with locker, ₹3,499/month." },
-            { title: "Virtual office", desc: "GST and ROC address with mail handling, ₹12,999/year." },
-            { title: "Day pass", desc: "₹199 per day, 9 AM to 7 PM." },
+            { title: "Dedicated desks", desc: "Assigned seat with locker. Enquire for membership details." },
+            { title: "Virtual office", desc: "GST and ROC address with mail handling. Get plan details." },
+            { title: "Day pass", desc: "Day access from 9 AM to 7 PM. Enquire for availability." },
           ].map((item) => (
             <div key={item.title} className="rounded-2xl border border-neutral-200 p-5">
               <h3 className="font-bold text-neutral-900 mb-2">{item.title}</h3>

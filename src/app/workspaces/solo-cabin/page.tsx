@@ -10,9 +10,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Private Cabin Basavanagudi | From ₹8,499/month",
+  title: "Private Cabin Basavanagudi | Small Office for Rent",
   description:
-    "Private cabin in Basavanagudi with 24/7 access and 1Gbps WiFi. Small office for rent from ₹8,499/month. Book a free tour.",
+    "Private cabin in Basavanagudi with 24/7 access and 1Gbps WiFi. Enquire for membership details or book a free tour.",
   path: "/workspaces/solo-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/solo-cabin-workspace.jpg",
@@ -42,7 +42,7 @@ export default function SoloCabinPage() {
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Starting at ₹8,499/month</span>
+                  <span>Enquire for membership details</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -148,7 +148,7 @@ export default function SoloCabinPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                Transparent Pricing & Flexible Terms
+                Clear Terms & Flexible Membership
               </h2>
               <p className="text-lg text-neutral-700">
                 No hidden costs, no long-term lock-ins. Move in within 24 hours.
@@ -156,8 +156,8 @@ export default function SoloCabinPage() {
             </div>
             <div className="rounded-3xl border-2 border-primary bg-gradient-to-br from-primary/5 to-white p-8 mb-8">
               <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-primary mb-2">₹8,499</div>
-                <div className="text-neutral-600">per month</div>
+                <div className="text-2xl font-bold text-primary mb-2">Membership details on enquiry</div>
+                <div className="text-neutral-600">WhatsApp or book a tour for current options.</div>
               </div>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -179,7 +179,7 @@ export default function SoloCabinPage() {
               </div>
               <div className="text-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a Solo Cabin at ₹8499/month"
+                  href="https://wa.me/917022780310?text=Hi Spacio Workspace, I am interested in a private cabin. Could you share the available options?"
                   className="inline-block rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
                 >
                   Book Your Solo Cabin Now

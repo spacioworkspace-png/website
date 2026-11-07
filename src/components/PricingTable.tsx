@@ -1,38 +1,41 @@
-import { PLANS } from "@/lib/site";
 import Link from "next/link";
+import { PLANS, whatsappUrl } from "@/lib/site";
+import { WA } from "@/lib/whatsapp-messages";
 
 export function PricingTable() {
   return (
-    <section className="mx-auto max-w-4xl px-4 pb-8">
-      <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-6 text-center">
-        Spacio Workspace prices in Basavanagudi
-      </h2>
-      <div className="overflow-x-auto rounded-2xl border border-neutral-200">
-        <table className="w-full text-left text-sm sm:text-base">
-          <thead className="bg-neutral-50">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Plan</th>
-              <th className="px-4 py-3 font-semibold">Price</th>
-              <th className="px-4 py-3 font-semibold">Details</th>
+    <div className="overflow-x-auto">
+      <table className="w-full text-left text-sm border-collapse">
+        <thead>
+          <tr className="border-b border-neutral-200">
+            <th className="p-4 font-semibold">Workspace</th>
+            <th className="p-4 font-semibold">Type</th>
+            <th className="p-4 font-semibold">Next step</th>
+          </tr>
+        </thead>
+        <tbody>
+          {PLANS.map((plan) => (
+            <tr key={plan.id} className="border-b border-neutral-100">
+              <td className="p-4">
+                <Link href={plan.path} className="font-semibold text-primary hover:underline">
+                  {plan.name}
+                </Link>
+              </td>
+              <td className="p-4 text-neutral-600">{plan.unitLabel}</td>
+              <td className="p-4">
+                <a
+                  href={whatsappUrl(WA.membership)}
+                  className="font-semibold text-primary hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Enquire
+                </a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {PLANS.map((plan) => (
-              <tr key={plan.id} className="border-t border-neutral-200">
-                <td className="px-4 py-3 font-medium">
-                  <Link href={plan.path} className="text-primary hover:underline">
-                    {plan.name}
-                  </Link>
-                </td>
-                <td className="px-4 py-3 whitespace-nowrap">
-                  {plan.price} {plan.unitLabel}
-                </td>
-                <td className="px-4 py-3 text-neutral-700">{plan.description}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }

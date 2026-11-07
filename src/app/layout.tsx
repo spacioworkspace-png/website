@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Coworking Space Basavanagudi | Spacio Workspace",
   description:
-    "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass. Book a free tour.",
+    "Premium coworking in Basavanagudi near Gandhi Bazaar. Private cabins, desks, meeting rooms and virtual office. Book a tour.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass.",
+      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
     url: "/",
     siteName: SITE_NAME,
     locale: "en_IN",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Spacio Workspace in Basavanagudi, Bangalore",
+        alt: "Spacio Workspace in Basavanagudi, Bengaluru",
       },
     ],
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "Coworking space in Basavanagudi near Bull Temple and Lalbagh. Private cabins, desks, meeting rooms and day pass.",
+      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -117,15 +117,15 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <DeferredWidgets />
         </Suspense>
-        <main id="main-content" tabIndex={-1}>
+        <main id="main-content" tabIndex={-1} className="pb-16 lg:pb-0">
           {children}
         </main>
         <Footer />
         <MarketingScripts />
         <DeferredChatling />
         <p className="sr-only" aria-hidden="false">
-          {SITE_NAME}, phone {PHONE_DISPLAY}, email {EMAIL}. Address: No 7, Sree Devi Complex, NAT Street,
-          Basavanagudi, Bangalore 560004, Karnataka, India.
+          {SITE_NAME}, phone {PHONE_DISPLAY}, email {EMAIL}. Address: No. 7, Sree Devi Complex, N.A.T. Road,
+          Basavanagudi, Bengaluru, Karnataka 560004, India.
         </p>
       </body>
     </html>

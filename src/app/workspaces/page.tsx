@@ -30,7 +30,6 @@ const workspaceOptions = [
     ],
     cta: "Book Solo Cabin",
     highlight: true,
-    pricing: "₹8,499/month",
     capacityLabel: "1 person",
     bestFor: ["Startup founders", "Consultants", "CXO on-the-go", "Video bachelors & content creators"],
     addOns: ["Dedicated locker upgrade", "Mail handling", "Brand signage"],
@@ -67,7 +66,6 @@ const workspaceOptions = [
       "Whiteboard included",
     ],
     cta: "Book 3-Seater Cabin",
-    pricing: "₹14,999/month",
     capacityLabel: "3 people",
     bestFor: ["Co-founders", "Agencies", "Remote pods"],
     addOns: ["Dedicated meeting credits", "Brand wall decals", "Private server rack"],
@@ -105,7 +103,6 @@ const workspaceOptions = [
       "Team collaboration zone",
     ],
     cta: "Book 6-Seater Cabin",
-    pricing: "₹24,999/month",
     capacityLabel: "6 people",
     bestFor: ["Product teams", "VC-funded startups", "Client delivery pods"],
     addOns: ["Dedicated meeting room", "Private pantry setup", "Server-grade power backup"],
@@ -142,7 +139,6 @@ const workspaceOptions = [
       "GST-ready invoicing",
     ],
     cta: "Book Virtual Office",
-    pricing: "₹12,999/year",
     capacityLabel: "Remote teams",
     bestFor: ["Outstation founders", "Consulting firms", "D2C brands"],
     addOns: ["Dedicated desk day pass bundle", "Dedicated phone line", "Document storage"],
@@ -179,7 +175,6 @@ const workspaceOptions = [
       "Ergonomic chair included",
     ],
     cta: "Book Dedicated Desks",
-    pricing: "₹3,499/month",
     capacityLabel: "Per member",
     bestFor: ["Designers", "Analysts", "Remote employees"],
     addOns: ["24/7 access upgrade", "Locker storage", "Recording booth hours"],
@@ -217,7 +212,6 @@ const workspaceOptions = [
       "Add-on meeting room credits",
     ],
     cta: "Buy Day Pass",
-    pricing: "₹199/day",
     capacityLabel: "Per guest",
     bestFor: ["Freelancers on the go", "Remote employees visiting city", "Students preparing for interviews"],
     addOns: ["Locker rental", "Meeting room credits", "Cafe vouchers"],
@@ -255,7 +249,6 @@ const workspaceOptions = [
       "Video conferencing setup",
     ],
     cta: "Book Meeting Rooms",
-    pricing: "₹399/hour",
     capacityLabel: "4-12 people",
     bestFor: ["Investor reviews", "Client demos", "Workshops"],
     addOns: ["Catering support", "Recording setup", "Custom seating layout"],
@@ -288,7 +281,7 @@ export default function WorkspacesPage() {
       capacity:
         space.capacityLabel ??
         (space.title.includes("Seater") ? space.title : space.title.includes("Solo") ? "1 person" : "Flexible"),
-      pricing: space.pricing,
+      
       bestFor: space.bestFor,
       addOns: space.addOns,
       availability: space.availability,
@@ -363,7 +356,7 @@ export default function WorkspacesPage() {
             Pick a solo, 3-seater or 6-seater cabin, a dedicated desk, a day pass, a meeting room, or a virtual office address. All at the Basavanagudi centre.
           </p>
           <p className="mt-3 text-sm text-neutral-600 max-w-3xl mx-auto">
-            Every section highlights what Spacio offers: transparent pricing, move-in ready furniture, 1Gbps connectivity, GST-ready documentation, concierge-grade meeting support, and flexible add-ons. Whether you’re scaling a startup pod, meeting investors, or just need a professional business address, the right option is a scroll away.
+            Every section highlights what Spacio offers: move-in ready furniture, 1Gbps connectivity, GST-ready documentation, concierge-grade meeting support, and flexible add-ons. Whether you’re scaling a startup pod, meeting investors, or just need a professional business address, the right option is a scroll away.
           </p>
         </div>
 

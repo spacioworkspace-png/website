@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Meeting Room Basavanagudi | Book from ₹399/hour",
+  title: "Meeting Room Basavanagudi | Book a Professional Room",
   description:
-    "Meeting room in Basavanagudi for client calls and team sessions. AV-ready rooms for 4–12 people from ₹399/hour.",
+    "Meeting room in Basavanagudi for client calls and team sessions. AV-ready rooms for 4–12 people. Enquire to book.",
   path: "/workspaces/meeting-rooms",
   keywords: [...SEO_KEYWORDS.meetingRoom],
   ogImage: "/images/meeting-room-frosted-glass.jpg",
@@ -41,7 +41,7 @@ export default function MeetingRoomsPage() {
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Starting at ₹399/hour</span>
+                  <span>Enquire to book a room</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -106,7 +106,7 @@ export default function MeetingRoomsPage() {
               Capacity, AV, and hourly booking
             </h2>
             <p className="text-lg text-neutral-700">
-              Published rate is ₹399 per hour. Half-day and full-day slots are available — WhatsApp for those quotes. We do not list extra hourly tiers here.
+              Half-day and full-day slots are available — WhatsApp for current booking details and availability.
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -197,16 +197,16 @@ export default function MeetingRoomsPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                Transparent Pricing & Flexible Booking
+                Flexible Booking & Clear Terms
               </h2>
               <p className="text-lg text-neutral-700">
-                Book by the hour at ₹399. Ask on WhatsApp if you need a half-day or full-day slot.
+                Book by the hour, half-day or full-day. Ask on WhatsApp for current availability.
               </p>
             </div>
             <div className="rounded-3xl border-2 border-primary bg-gradient-to-br from-primary/5 to-white p-8 mb-8">
               <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-primary mb-2">₹399</div>
-                <div className="text-neutral-600">per hour</div>
+                <div className="text-2xl font-bold text-primary mb-2">Membership details on enquiry</div>
+                <div className="text-neutral-600">WhatsApp or book a tour for current options.</div>
               </div>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ export default function MeetingRoomsPage() {
               </div>
               <div className="text-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a Meeting Room at ₹399/hour"
+                  href="https://wa.me/917022780310?text=Hi Spacio Workspace, I would like to enquire about meeting room availability."
                   className="inline-block rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
                 >
                   Book Your Meeting Room Now
@@ -311,7 +311,7 @@ export default function MeetingRoomsPage() {
             {[
               {
                 q: "How much is a meeting room?",
-                a: "₹399 per hour. That is the published rate. Half-day and full-day packages exist — ask on WhatsApp rather than assuming a multiple of the hourly rate.",
+                a: "Meeting rooms are booked by the hour, with half-day and full-day options available. Ask on WhatsApp for current booking details.",
               },
               {
                 q: "How many people fit?",

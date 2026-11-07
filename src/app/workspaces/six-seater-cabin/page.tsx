@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Private Cabin Basavanagudi | 6-Seater Team Office ₹24,999/mo",
+  title: "Private Cabin Basavanagudi | 6-Seater Team Office",
   description:
-    "Private cabin in Basavanagudi for teams of up to six. Collaborative space and 24/7 access from ₹24,999/month.",
+    "Private cabin in Basavanagudi for teams of up to six. Collaborative space and 24/7 access. Enquire for details.",
   path: "/workspaces/six-seater-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
   ogImage: "/images/6-seater-cabin-workspace.jpg",
@@ -41,7 +41,7 @@ export default function SixSeaterCabinPage() {
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Starting at ₹24,999/month</span>
+                  <span>Enquire for membership details</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -147,7 +147,7 @@ export default function SixSeaterCabinPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                Transparent Pricing & Flexible Terms
+                Clear Terms & Flexible Membership
               </h2>
               <p className="text-lg text-neutral-700">
                 No hidden costs, no long-term lock-ins. Premium headquarters-level workspace.
@@ -155,8 +155,8 @@ export default function SixSeaterCabinPage() {
             </div>
             <div className="rounded-3xl border-2 border-primary bg-gradient-to-br from-primary/5 to-white p-8 mb-8">
               <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-primary mb-2">₹24,999</div>
-                <div className="text-neutral-600">per month</div>
+                <div className="text-2xl font-bold text-primary mb-2">Membership details on enquiry</div>
+                <div className="text-neutral-600">WhatsApp or book a tour for current options.</div>
               </div>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export default function SixSeaterCabinPage() {
               </div>
               <div className="text-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to book a 6-Seater Cabin at ₹24999/month"
+                  href="https://wa.me/917022780310?text=Hi Spacio Workspace, I am interested in a private cabin. Could you share the available options?"
                   className="inline-block rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
                 >
                   Book Your 6-Seater Cabin Now

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { WorkspaceVideoTour } from "@/components/WorkspaceVideoTour";
 import { ContactCtaPair } from "@/components/ContactCtas";
 import { OVERVIEW_VIDEO_TOUR, PLANS, getPlan } from "@/lib/site";
+import { WA, whatsappMessageForPlan } from "@/lib/whatsapp-messages";
 
 type PlanVideoSectionProps = {
   /** Plan id from site.ts — omit for centre overview tour */
@@ -24,7 +25,7 @@ export function PlanVideoSection({
         poster: plan.image,
         title: `${plan.name} video tour`,
         description: `See the ${plan.name.toLowerCase()} at Spacio Workspace, Basavanagudi before you visit or book.`,
-        meta: `${plan.price} ${plan.unitLabel}`,
+        meta: plan.unitLabel,
       }
     : {
         id: "video-tour-overview",
@@ -94,11 +95,7 @@ export function PlanVideoSection({
               </div>
               <ContactCtaPair
                 location={plan ? `video-tour-${plan.id}` : "video-tour-overview"}
-                whatsappMessage={
-                  plan
-                    ? `I watched the ${plan.name} video tour and want to know more`
-                    : "I watched the Spacio Workspace video tour and want to visit"
-                }
+                whatsappMessage={plan ? whatsappMessageForPlan(plan.id) : WA.tour}
                 whatsappLabel="WhatsApp Us"
                 callLabel="Call Us"
                 whatsappVariant="outline"
@@ -133,7 +130,7 @@ export function PlanVideoSection({
                     className="flex flex-col rounded-xl border border-neutral-200 bg-white px-4 py-3 hover:border-primary hover:shadow-sm transition-all min-h-[44px] justify-center"
                   >
                     <span className="text-sm font-semibold text-neutral-900">{item.name} tour</span>
-                    <span className="text-xs text-neutral-500 mt-0.5">{item.price} {item.unitLabel}</span>
+                    <span className="text-xs text-neutral-500 mt-0.5">{item.unitLabel}</span>
                   </Link>
                 </li>
               ))}

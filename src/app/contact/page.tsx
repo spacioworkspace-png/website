@@ -5,6 +5,7 @@ import { useState } from "react";
 import { MapPin, Phone, Mail, Send, MessageCircle, Clock, ArrowRight } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { PublicTransportSection } from "@/components/PublicTransportSection";
+import { trackLead } from "@/lib/tracking";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -18,9 +19,8 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    // For now, we'll redirect to WhatsApp with the form data
     const message = `Hi! I'm ${formData.name}. ${formData.message}${formData.workspace ? ` I'm interested in: ${formData.workspace}` : ''}`;
+    trackLead("contact_form", "contact");
     window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, '_blank');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);

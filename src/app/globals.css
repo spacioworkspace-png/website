@@ -51,18 +51,18 @@
   --card-foreground: oklch(0.17 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.17 0 0);
-  /* Brand primary oranges */
-  --primary-orange: #ff6b35;
-  --orange-dark: #e55a2b;
-  /* Spacio Orange - Primary Brand Color */
-  /* Sunrise Orange - Indian Vastu Color */
-  --primary-hex: #ff6b35;
-  /* Map primary to brand orange */
-  --primary: var(--primary-orange);
-  --primary-foreground: oklch(0.21 0.03 58);
-  /* Use dark orange for accent */
-  --accent: var(--orange-dark);
-  --accent-foreground: oklch(0.22 0.03 58);
+  /* Premium navy brand — hospitality / workspace */
+  --primary-navy: #1b2a4a;
+  --navy-deep: #0f1a2e;
+  --warm-wood: #8b7355;
+  --primary-hex: #1b2a4a;
+  --primary: var(--primary-navy);
+  --primary-foreground: #ffffff;
+  --accent: var(--warm-wood);
+  --accent-foreground: #ffffff;
+  /* Legacy alias used by older CSS */
+  --primary-orange: var(--primary-navy);
+  --orange-dark: var(--navy-deep);
   --secondary: oklch(0.98 0 0);
   --secondary-foreground: oklch(0.23 0 0);
   --muted: oklch(0.97 0 0);

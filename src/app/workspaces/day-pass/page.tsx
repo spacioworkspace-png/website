@@ -9,9 +9,9 @@ import { pageMeta } from "@/lib/seo";
 import { SEO_KEYWORDS } from "@/lib/seo-keywords";
 
 export const metadata = pageMeta({
-  title: "Day Pass Basavanagudi | Coworking from ₹199/day",
+  title: "Day Pass Basavanagudi | Flexible Day Coworking",
   description:
-    "Day pass in Basavanagudi for single-day coworking. Full-day access and 1Gbps WiFi from ₹199/day at Spacio Workspace.",
+    "Day pass in Basavanagudi for single-day coworking. Full-day access and 1Gbps WiFi. Enquire for availability.",
   path: "/workspaces/day-pass",
   keywords: [...SEO_KEYWORDS.dayPass],
   ogImage: "/images/workspace-green-screens.jpg",
@@ -41,7 +41,7 @@ export default function DayPassPage() {
               <div className="flex flex-wrap gap-4 text-sm text-neutral-600">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
-                  <span>Starting at ₹199/day</span>
+                  <span>Enquire for day-pass details</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-primary" />
@@ -147,7 +147,7 @@ export default function DayPassPage() {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-                Simple Pricing & Flexible Access
+                Simple Access & Flexible Terms
               </h2>
               <p className="text-lg text-neutral-700">
                 No commitment, no hassle. Purchase on arrival and start working immediately.
@@ -155,8 +155,8 @@ export default function DayPassPage() {
             </div>
             <div className="rounded-3xl border-2 border-primary bg-gradient-to-br from-primary/5 to-white p-8 mb-8">
               <div className="text-center mb-6">
-                <div className="text-5xl font-bold text-primary mb-2">₹199</div>
-                <div className="text-neutral-600">per day per guest</div>
+                <div className="text-2xl font-bold text-primary mb-2">Membership details on enquiry</div>
+                <div className="text-neutral-600">WhatsApp or book a tour for current options.</div>
               </div>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export default function DayPassPage() {
               </div>
               <div className="text-center">
                 <a
-                  href="https://wa.me/917022780310?text=I want to buy a Day Pass at ₹199/day"
+                  href="https://wa.me/917022780310?text=Hi Spacio Workspace, I would like to know more about your day-pass options."
                   className="inline-block rounded-xl bg-primary px-8 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300"
                 >
                   Buy Your Day Pass Now

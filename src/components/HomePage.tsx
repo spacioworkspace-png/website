@@ -1,295 +1,294 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
-import { CallLink } from "@/components/ContactCtas";
+import { CheckCircle2, MapPin } from "lucide-react";
+import { FaqSection } from "@/components/FaqSection";
+import { GoogleReviews } from "@/components/GoogleReviews";
+import { HomeVideoShowcase } from "@/components/home/HomeVideoShowcase";
+import {
+  ADDRESS,
+  GALLERY_IMAGES,
+  MAPS_URL,
+  SITE_FAQS,
+  whatsappUrl,
+} from "@/lib/site";
+import { WA } from "@/lib/whatsapp-messages";
 
-const WORKSPACE_CARDS = [
+const SERVICE_CARDS = [
   {
-    badge: "Private cabin",
-    title: "Solo Cabin",
+    title: "Private Cabins",
     href: "/workspaces/solo-cabin",
-    subtitle: "Perfect for Individual Focus",
     image: "/images/solo-cabin-workspace.jpg",
-    pricing: "₹8,499/month",
-    features: ["Private and quiet workspace", "1Gbps internet", "24/7 secure access"],
-    cta: "Book Solo Cabin",
-  },
-  {
-    title: "3-Seater Cabin",
-    href: "/workspaces/three-seater-cabin",
-    subtitle: "Ideal for Small Teams & Partners",
-    image: "/images/3-seater-cabin-orange-screens.jpg",
-    pricing: "₹14,999/month",
-    features: ["Space for 3 people", "High-speed WiFi", "Whiteboard included"],
-    cta: "Book 3-Seater Cabin",
-  },
-  {
-    badge: "Great Value for Teams",
-    title: "6-Seater Cabin",
-    href: "/workspaces/six-seater-cabin",
-    subtitle: "Perfect for Small Teams",
-    image: "/images/6-seater-cabin-workspace.jpg",
-    pricing: "₹24,999/month",
-    features: ["Spacious for 6 people", "Brainstorming space", "Team collaboration zone"],
-    cta: "Book 6-Seater Cabin",
-  },
-  {
-    badge: "Professional Presence",
-    title: "Virtual Office",
-    href: "/workspaces/virtual-office",
-    subtitle: "Business Address & Services",
-    image: "/images/building-exterior-sree-devi-complex.jpg",
-    pricing: "₹12,999/year",
-    features: ["GST-ready address", "Mail handling", "Meeting room access"],
-    cta: "Book Virtual Office",
+    description: "Enclosed cabins for focused work — solo, 3-seater and 6-seater layouts.",
+    cta: "Explore Private Cabins",
+    message: WA.privateCabin,
   },
   {
     title: "Dedicated Desks",
     href: "/workspaces/dedicated-desks",
-    subtitle: "Your Personal Workspace",
-    image: "/images/workspace-orange-screens.jpg",
-    pricing: "₹3,499/month",
-    features: ["Assigned desk space", "24/7 access", "Ergonomic chair included"],
-    cta: "Book Dedicated Desks",
+    image: "/images/workspace-numbered-cabins.jpg",
+    description: "Your assigned desk with storage and 24/7 member access.",
+    cta: "Explore Dedicated Desks",
+    message: WA.dedicatedDesk,
   },
   {
-    badge: "Premium Meeting Rooms",
+    title: "Day Pass",
+    href: "/workspaces/day-pass",
+    image: "/images/workspace-yellow-green-walls.jpg",
+    description: "A full day of productive coworking when you need flexibility.",
+    cta: "Enquire About Day Pass",
+    message: WA.dayPass,
+  },
+  {
+    title: "Virtual Office",
+    href: "/workspaces/virtual-office",
+    image: "/images/building-exterior-sree-devi-complex.jpg",
+    description: "A professional Basavanagudi address with mail handling support.",
+    cta: "Get Virtual Office Details",
+    message: WA.virtualOffice,
+  },
+  {
     title: "Meeting Rooms",
     href: "/workspaces/meeting-rooms",
-    subtitle: "Professional Meeting Spaces",
     image: "/images/meeting-room-frosted-glass.jpg",
-    pricing: "₹399/hour",
-    features: ["AV equipment", "Whiteboard access", "Video conferencing setup"],
-    cta: "Book Meeting Rooms",
+    description: "AV-ready rooms for client meetings, interviews and team sessions.",
+    cta: "Enquire About Meeting Rooms",
+    message: WA.meetingRoom,
   },
 ];
 
-const PLAN_LINKS = [
-  { href: "/workspaces", label: "all workspaces" },
-  { href: "/workspaces/solo-cabin", label: "private cabins" },
-  { href: "/workspaces/three-seater-cabin", label: "3-seater cabin" },
-  { href: "/workspaces/six-seater-cabin", label: "6-seater cabin" },
-  { href: "/workspaces/dedicated-desks", label: "dedicated desks" },
-  { href: "/workspaces/meeting-rooms", label: "meeting rooms" },
-  { href: "/workspaces/virtual-office", label: "virtual office" },
-  { href: "/workspaces/day-pass", label: "day pass" },
-  { href: "/locations/basavanagudi", label: "Basavanagudi" },
+const WHY = [
+  {
+    title: "Premium interiors",
+    description: "Calm, thoughtfully finished spaces designed for focus and client visits.",
+  },
+  {
+    title: "Business-ready infrastructure",
+    description: "High-speed internet, secure access and spaces that support real work.",
+  },
+  {
+    title: "Flexible options",
+    description: "Cabins, desks, day passes, meeting rooms and virtual office — pick what fits.",
+  },
+  {
+    title: "Basavanagudi location",
+    description: "A convenient South Bengaluru base near Gandhi Bazaar, Bull Temple and Lalbagh.",
+  },
 ];
+
+const gallery = GALLERY_IMAGES.filter((img) => !img.src.includes("og-image")).slice(0, 6);
 
 export function HomePage() {
   return (
     <div className="bg-white">
-      <section
-        id="workspaces"
-        className="mx-auto max-w-7xl scroll-mt-16 px-4 sm:px-6 py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-neutral-50/50"
-      >
-        <div className="mb-8 sm:mb-10 md:mb-12 text-center">
-          <span className="badge-premium mb-3 sm:mb-4 inline-block text-xs sm:text-sm">
-            Your Perfect Workspace in Bangalore
-          </span>
-          <h2 className="mt-3 sm:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight px-2">
-            <span className="text-gradient peacock-text">Choose Your</span> Perfect Workspace
-          </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed px-2">
-            Private cabins, dedicated desks, meeting rooms and virtual office solutions for
-            professionals, startups and growing teams in South Bangalore.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-2 sm:gap-3 px-2">
-            {PLAN_LINKS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-xs sm:text-sm font-medium text-neutral-700 hover:border-primary hover:text-primary transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
+      <HomeVideoShowcase />
 
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {WORKSPACE_CARDS.map((card) => (
+      {/* Explore workspace */}
+      <section id="explore" className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="explore-heading">
+        <div className="mx-auto max-w-2xl text-center mb-10">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Workspace</p>
+          <h2 id="explore-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+            Explore our workspace
+          </h2>
+          <p className="mt-3 text-neutral-600">
+            Clear options for how you work — enquire for membership details and availability.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICE_CARDS.map((card) => (
             <article
               key={card.title}
-              className="card-premium card-hover rounded-2xl border-2 border-neutral-200 p-6 bg-white overflow-hidden"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
             >
-              {card.image ? (
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-4 -mx-6 -mt-6 relative">
-                  <Image
-                    src={card.image}
-                    alt={`${card.title} at Spacio Workspace`}
-                    fill
-                    className="object-cover"
-                    loading="lazy"
-                    quality={65}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
+              <div className="relative aspect-[4/3] bg-neutral-100">
+                <Image
+                  src={card.image}
+                  alt={`${card.title} at Spacio Workspace Basavanagudi`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3 className="text-xl font-bold text-neutral-900">
+                  <Link href={card.href} className="hover:text-primary transition-colors">
+                    {card.title}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm text-neutral-600 leading-relaxed flex-1">{card.description}</p>
+                <div className="mt-5 flex flex-col gap-2">
+                  <Link
+                    href={card.href}
+                    className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
+                  >
+                    {card.cta}
+                  </Link>
+                  <a
+                    href={whatsappUrl(card.message)}
+                    className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-neutral-300 px-4 py-2.5 text-sm font-semibold text-neutral-800 hover:border-primary hover:text-primary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp About This
+                  </a>
                 </div>
-              ) : null}
-              {card.badge ? <span className="badge-premium mb-3 inline-block">{card.badge}</span> : null}
-              <h3 className="text-2xl font-bold text-neutral-900 mb-2">
-                <Link href={card.href} className="hover:text-primary transition-colors">
-                  {card.title}
-                </Link>
-              </h3>
-              <p className="text-neutral-600 mb-1">{card.subtitle}</p>
-              <p className="text-primary font-semibold text-sm mb-4">{card.pricing}</p>
-              <ul className="space-y-2 mb-6">
-                {card.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm text-neutral-700">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col gap-2">
-                <a
-                  href={`https://wa.me/917022780310?text=${encodeURIComponent(`I'm interested in ${card.title} at Spacio Workspace Basavanagudi`)}`}
-                  className="btn-premium rounded-xl bg-primary px-4 py-3 text-white font-bold text-sm text-center hover:bg-primary/90 transition-colors min-h-[48px] flex items-center justify-center"
-                >
-                  {card.cta}
-                </a>
-                <CallLink
-                  location={`home-card-${card.title.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="w-full rounded-xl border-2 border-primary/30 px-4 py-2.5 text-sm font-semibold"
-                  variant="outline"
-                >
-                  Call Us
-                </CallLink>
-                <Link
-                  href={card.href}
-                  className="rounded-xl border-2 border-primary/30 px-4 py-2.5 text-sm font-semibold text-center hover:border-primary hover:bg-primary/5 transition-colors min-h-[44px] flex items-center justify-center"
-                >
-                  View plan
-                </Link>
               </div>
             </article>
           ))}
         </div>
+      </section>
 
-        <div className="mt-10 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-white p-6 sm:p-8 text-center border-2 border-primary/20">
-          <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3">
-            <span className="text-gradient peacock-text">Dreaming of a Custom Workspace?</span>
-          </h3>
-          <p className="text-sm sm:text-base text-neutral-700 mb-6 max-w-2xl mx-auto">
-            Tailored plans and long-term bookings for teams of all sizes in Namma Basavanagudi.
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
-            <a
-              href="tel:+917022780310"
-              className="rounded-xl border-2 border-primary px-5 py-3 font-bold text-sm hover:bg-primary hover:text-white transition-colors min-h-[48px] flex items-center justify-center"
-            >
-              Call for Custom Plans
-            </a>
-            <a
-              href="https://wa.me/917022780310?text=I'd like to schedule a cabin tour at Spacio Workspace Bangalore"
-              className="btn-premium rounded-xl bg-primary px-5 py-3 text-white font-bold text-sm hover:bg-primary/90 transition-colors min-h-[48px] flex items-center justify-center"
-            >
-              Schedule Cabin Tour
-            </a>
+      {/* Why Spacio */}
+      <section className="bg-primary text-white py-14 md:py-20" aria-labelledby="why-heading">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <h2 id="why-heading" className="text-3xl md:text-4xl font-bold">
+              Why Spacio Workspace
+            </h2>
+            <p className="mt-3 text-white/80">
+              A professional environment in Basavanagudi — without the noise of a generic coworking template.
+            </p>
           </div>
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY.map((item) => (
+              <li key={item.title} className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <CheckCircle2 className="w-5 h-5 mb-3 text-white/90" aria-hidden />
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-white/75 leading-relaxed">{item.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-12 sm:py-16 md:py-20 overflow-hidden basavanagudi-heritage">
-        <div className="absolute inset-0 basavanagudi-gradient" aria-hidden />
-        <div className="relative z-10 text-center mb-10">
-          <span className="badge-premium mb-3 inline-block text-xs sm:text-sm">Why Spacio?</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mt-3">
-            <span className="text-gradient peacock-text">What Makes Us</span> Special
-          </h2>
+      {/* Gallery */}
+      <section className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="gallery-heading">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Gallery</p>
+            <h2 id="gallery-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+              The space, as it is
+            </h2>
+          </div>
+          <Link href="/gallery" className="text-sm font-semibold text-primary hover:underline">
+            View full gallery →
+          </Link>
         </div>
-        <div className="relative z-10 grid md:grid-cols-2 gap-4 sm:gap-6">
-          {[
-            {
-              title: "Calm, focused interiors",
-              description: "Private cabins and shared desks in a quiet Basavanagudi centre.",
-              highlight: "Cabins, desks and meeting rooms",
-            },
-            {
-              title: "Built for working teams",
-              description: "Plans that match how solo professionals and startups actually work.",
-              highlight: "Flexible workspace plans",
-            },
-            {
-              title: "Lightning-fast everything",
-              description: "1Gbps internet, instant booking, quick responses.",
-              highlight: "Zero lag guarantee",
-            },
-            {
-              title: "Namma Bengaluru spirit",
-              description: "Proudly Bangalore — supporting local businesses and entrepreneurs.",
-              highlight: "Made in Bangalore",
-            },
-          ].map((feature) => (
-            <div
-              key={feature.title}
-              className="card-premium rounded-2xl border-2 border-primary/20 p-6 sm:p-8 bg-white"
-            >
-              <h3 className="text-xl font-bold text-neutral-900 mb-2">{feature.title}</h3>
-              <p className="text-neutral-700 mb-4">{feature.description}</p>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold">
-                {feature.highlight}
-              </span>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {gallery.map((img) => (
+            <div key={img.src} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 33vw"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
       </section>
 
-      <section id="contact" className="mx-auto max-w-7xl scroll-mt-16 px-4 sm:px-6 py-12 sm:py-16 md:py-20">
-        <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary via-primary/90 to-primary/80 p-6 sm:p-10 md:p-12 text-center text-white shadow-2xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Ready to Transform Your Work Life?
+      {/* Social proof */}
+      <section className="border-y border-neutral-100 bg-neutral-50" aria-labelledby="trust-heading">
+        <div className="mx-auto max-w-7xl px-4 py-10">
+          <h2 id="trust-heading" className="sr-only">
+            Member testimonials and Google reviews
           </h2>
-          <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl mx-auto mb-8">
-            Book a free tour of our Basavanagudi centre. Private cabins, dedicated desks, meeting
-            rooms and virtual office plans available.
+          <GoogleReviews />
+          <p className="text-center text-sm text-neutral-600 pb-6">
+            Watch member videos above, or{" "}
+            <Link href="/reviews" className="font-semibold text-primary hover:underline">
+              read more reviews
+            </Link>
+            .
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
-            <Link
-              href="/contact"
-              className="rounded-xl bg-white text-primary px-6 py-3.5 font-bold text-sm sm:text-base hover:bg-white/90 transition-colors min-h-[48px] flex items-center justify-center"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/book-tour"
-              className="rounded-xl border-2 border-white/40 bg-white/10 px-6 py-3.5 font-bold text-sm sm:text-base hover:bg-white/20 transition-colors min-h-[48px] flex items-center justify-center"
-            >
-              Book a Free Tour
-            </Link>
-            <a
-              href="tel:+917022780310"
-              className="rounded-xl border-2 border-white/40 bg-white/10 px-6 py-3.5 font-bold text-sm sm:text-base hover:bg-white/20 transition-colors min-h-[48px] flex items-center justify-center"
-            >
-              Call +91 70227 80310
-            </a>
+        </div>
+      </section>
+
+      {/* Location */}
+      <section className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="location-heading">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Location</p>
+            <h2 id="location-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+              Basavanagudi, South Bengaluru
+            </h2>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Spacio Workspace sits on N.A.T. Road in Basavanagudi, close to Gandhi Bazaar — a practical base for
+              professionals who work across South Bengaluru.
+            </p>
+            <div className="mt-6 flex gap-3 text-sm text-neutral-700">
+              <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
+              <div>
+                <p className="font-semibold text-neutral-900">{ADDRESS.line}</p>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block font-semibold text-primary hover:underline"
+                >
+                  Open in Google Maps
+                </a>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/locations/basavanagudi"
+                className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-semibold hover:border-primary hover:text-primary min-h-[44px] inline-flex items-center"
+              >
+                Directions & transit
+              </Link>
+              <a
+                href={whatsappUrl(WA.tour)}
+                className="rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90 min-h-[44px] inline-flex items-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Plan a visit on WhatsApp
+              </a>
+            </div>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-100">
+            <iframe
+              className="aspect-video w-full min-h-[280px]"
+              loading="lazy"
+              title="Map of Spacio Workspace, Basavanagudi"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Spacio%20Workspace%20Basavanagudi%20Sree%20Devi%20Complex&output=embed"
+            />
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-16 pt-8">
-        <h2 className="text-2xl font-bold text-neutral-900 mb-6 text-center">
-          Premium Coworking Space in Basavanagudi, Bangalore
-        </h2>
-        <div className="text-neutral-700 leading-relaxed space-y-4 text-left max-w-4xl mx-auto text-sm sm:text-base">
-          <p>
-            <strong>Spacio Workspace</strong> is a{" "}
-            <Link href="/locations/basavanagudi" className="text-primary font-semibold hover:underline">
-              premium coworking space in Basavanagudi, Bangalore
+      <FaqSection items={SITE_FAQS} title="Questions people ask about Spacio" />
+
+      {/* Final CTA */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 md:pb-24">
+        <div className="rounded-3xl bg-primary px-6 py-12 md:px-12 md:py-16 text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Let&apos;s Find the Right Workspace for You.
+          </h2>
+          <p className="mt-4 text-white/85 max-w-xl mx-auto">
+            Tell us what you are looking for. Our team will help you explore the right workspace solution.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+            <a
+              href={whatsappUrl(WA.general)}
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 font-semibold text-white hover:bg-[#1ebe57]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp Our Team
+            </a>
+            <Link
+              href="/book-tour"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-primary hover:bg-white/90"
+            >
+              Book a Tour
             </Link>
-            .{" "}
-            <Link href="/workspaces/solo-cabin" className="text-primary hover:underline">Private cabins</Link>,{" "}
-            <Link href="/workspaces/dedicated-desks" className="text-primary hover:underline">dedicated desks</Link>,{" "}
-            <Link href="/workspaces/meeting-rooms" className="text-primary hover:underline">meeting rooms</Link> and{" "}
-            <Link href="/workspaces/virtual-office" className="text-primary hover:underline">virtual office</Link>{" "}
-            solutions for professionals, startups and growing teams in South Bangalore.
-          </p>
-          <p>
-            The centre is at No 7, Sree Devi Complex, NAT Street, Basavanagudi, near Bull Temple and Lalbagh.{" "}
-            <Link href="/book-tour" className="text-primary font-semibold hover:underline">Book a free tour</Link> or{" "}
-            <Link href="/contact" className="text-primary hover:underline">contact us</Link> today.
-          </p>
+          </div>
         </div>
       </section>
     </div>

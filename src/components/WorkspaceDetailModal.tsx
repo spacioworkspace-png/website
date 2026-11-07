@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, ArrowRight, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Sparkles, Layers, Play } from "lucide-react";
+import { X, MessageCircle, ArrowRight, CheckCircle2, MapPin, Clock, Wifi, Users, Building2, Layers, Play } from "lucide-react";
 import { WorkspaceVideoTour } from "@/components/WorkspaceVideoTour";
 
 interface WorkspaceDetailModalProps {
@@ -14,7 +14,6 @@ interface WorkspaceDetailModalProps {
     description: string;
     images: string[];
     videoUrl?: string;
-    pricing?: string;
     capacity?: string;
     bestFor?: string[];
     addOns?: string[];
@@ -75,12 +74,6 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                     </a>
                   )}
                   <div className="mt-4 flex flex-wrap gap-3 text-sm">
-                    {workspace.pricing && (
-                      <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-primary/20">
-                        <Sparkles className="w-4 h-4 text-primary" />
-                        Starting at {workspace.pricing}
-                      </span>
-                    )}
                     {workspace.capacity && (
                       <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 border border-primary/20">
                         <Users className="w-4 h-4 text-primary" />
@@ -153,15 +146,13 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                           </div>
                         </div>
                       )}
-                      {workspace.pricing && (
-                        <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
-                          <Layers className="w-6 h-6 text-primary" />
-                          <div>
-                            <div className="font-semibold text-neutral-900">Starting Price</div>
-                            <div className="text-sm text-neutral-600">{workspace.pricing}</div>
-                          </div>
+                      <div className="flex items-center gap-3 p-4 rounded-xl bg-primary/5 border border-primary/20">
+                        <Layers className="w-6 h-6 text-primary" />
+                        <div>
+                          <div className="font-semibold text-neutral-900">Membership</div>
+                          <div className="text-sm text-neutral-600">Details on enquiry</div>
                         </div>
-                      )}
+                      </div>
                     </div>
 
                     <div>
@@ -227,7 +218,7 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                 {/* CTAs */}
                 <div className="mt-8 pt-6 border-t border-neutral-200 flex flex-wrap gap-4">
                   <a
-                    href={`https://wa.me/917022780310?text=${encodeURIComponent(`I'm interested in ${workspace.title} at Spacio Workspace Basavanagudi. Please share more details and pricing.`)}`}
+                    href={`https://wa.me/917022780310?text=${encodeURIComponent(`Hi Spacio Workspace, I am interested in ${workspace.title}. Could you share the available options?`)}`}
                     className="btn-premium flex-1 min-w-[200px] rounded-xl bg-primary px-6 py-4 text-white font-semibold hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
                   >
                     <MessageCircle className="w-5 h-5" />
@@ -235,11 +226,11 @@ export function WorkspaceDetailModal({ workspace, isOpen, onClose }: WorkspaceDe
                     <ArrowRight className="w-5 h-5" />
                   </a>
                   <a
-                    href={`https://wa.me/917022780310?text=${encodeURIComponent(`I need pricing for ${workspace.title} at Spacio Basavanagudi`)}`}
+                    href={`https://wa.me/917022780310?text=${encodeURIComponent(`Hi Spacio Workspace, I would like membership details for ${workspace.title}.`)}`}
                     className="flex-1 min-w-[200px] rounded-xl border-2 border-primary/30 px-6 py-4 font-semibold hover:border-primary hover:bg-primary/5 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    Get Pricing
+                    Get Membership Details
                   </a>
                   <a
                     href="tel:+917022780310"

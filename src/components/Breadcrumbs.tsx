@@ -8,7 +8,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 const LABELS: Record<string, string> = {
   about: "About",
   workspaces: "Workspaces",
-  pricing: "Pricing",
+  pricing: "Membership",
   locations: "Locations",
   basavanagudi: "Basavanagudi",
   gallery: "Gallery",

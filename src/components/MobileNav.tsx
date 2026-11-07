@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { whatsappUrl } from "@/lib/site";
+import { WA } from "@/lib/whatsapp-messages";
 
 type NavItem = { href: string; label: string };
 
@@ -13,7 +14,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
     <div className="lg:hidden">
       <button
         type="button"
-        className="p-2 rounded-lg hover:bg-neutral-100"
+        className="p-2 rounded-lg hover:bg-neutral-100 min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
@@ -27,8 +28,8 @@ export function MobileNav({ items }: { items: NavItem[] }) {
         </svg>
       </button>
       {open ? (
-        <nav className="absolute left-0 right-0 top-full border-t border-neutral-200 bg-white shadow-lg">
-          <ul className="flex flex-col p-4 gap-1">
+        <nav className="absolute left-0 right-0 top-full border-t border-neutral-200 bg-white shadow-lg z-50">
+          <ul className="flex flex-col p-4 gap-1 pb-6">
             {items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -40,28 +41,23 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                 </Link>
               </li>
             ))}
-            <li className="mt-2 space-y-2">
+            <li className="mt-3 space-y-2">
+              <a
+                href={whatsappUrl(WA.general)}
+                className="block text-center rounded-xl bg-[#25D366] px-5 py-3 text-white font-semibold min-h-[44px]"
+                onClick={() => setOpen(false)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp Us
+              </a>
               <Link
                 href="/book-tour"
                 className="block text-center rounded-xl bg-primary px-5 py-3 text-white font-semibold min-h-[44px]"
                 onClick={() => setOpen(false)}
               >
-                Book Tour
+                Book a Tour
               </Link>
-              <a
-                href={whatsappUrl("Hi! I want to book a tour at Spacio Workspace Bangalore")}
-                className="block text-center rounded-xl border border-primary/30 px-5 py-3 text-primary font-semibold min-h-[44px]"
-                onClick={() => setOpen(false)}
-              >
-                WhatsApp
-              </a>
-              <a
-                href={PHONE_HREF}
-                className="block text-center rounded-xl border border-neutral-300 px-5 py-3 text-neutral-900 font-semibold min-h-[44px]"
-                onClick={() => setOpen(false)}
-              >
-                Call Us
-              </a>
             </li>
           </ul>
         </nav>
