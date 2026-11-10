@@ -5,7 +5,7 @@ import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 import { WA } from "@/lib/whatsapp-messages";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
-/** Desktop floating contact — mobile uses MobileStickyBar instead. */
+/** Desktop floating contact — mobile uses MobileStickyBar instead. Tracking events unchanged. */
 export function FloatingContact() {
   return (
     <div
@@ -15,7 +15,7 @@ export function FloatingContact() {
       <a
         href={PHONE_HREF}
         onClick={() => trackPhoneClick("floating_call_button")}
-        className="inline-flex items-center gap-3 rounded-full bg-neutral-900 px-5 py-3.5 text-white shadow-xl hover:shadow-2xl active:scale-95 transition-transform touch-manipulation"
+        className="inline-flex items-center gap-3 rounded-sm bg-[var(--primary-navy)] px-5 py-3.5 text-white shadow-lg hover:bg-[var(--navy-deep)] active:scale-[0.98] transition-transform touch-manipulation"
         aria-label="Call Spacio Workspace"
       >
         <Phone className="h-5 w-5" aria-hidden />
@@ -24,7 +24,7 @@ export function FloatingContact() {
       <a
         href={whatsappUrl(WA.general)}
         onClick={() => trackWhatsAppClick("floating_whatsapp_button")}
-        className="inline-flex items-center gap-3 rounded-full bg-[#25D366] px-5 py-3.5 text-white shadow-xl hover:shadow-2xl active:scale-95 transition-transform touch-manipulation"
+        className="inline-flex items-center gap-3 rounded-sm bg-[#25D366] px-5 py-3.5 text-white shadow-lg hover:opacity-95 active:scale-[0.98] transition-transform touch-manipulation"
         aria-label="Chat on WhatsApp (opens in a new window)"
         target="_blank"
         rel="noopener noreferrer"

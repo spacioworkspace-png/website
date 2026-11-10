@@ -36,7 +36,7 @@ export default function BookTourPage() {
         <BookTourForm />
         <PublicTransportSection />
         <JsonLd data={howToTourJsonLd()} />
-        <FaqSection items={[SITE_FAQS[5], SITE_FAQS[0], SITE_FAQS[2]]} title="Before you visit" />
+        <FaqSection items={[SITE_FAQS[8], SITE_FAQS[0], SITE_FAQS[10]]} title="Before you visit" />
       </section>
     </div>
   );

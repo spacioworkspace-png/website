@@ -16,7 +16,7 @@ export default function WorkspacesLayout({ children }: { children: React.ReactNo
     <>
       {children}
       <FaqSection
-        items={[SITE_FAQS[2], SITE_FAQS[3], SITE_FAQS[5]]}
+        items={[SITE_FAQS[2], SITE_FAQS[3], SITE_FAQS[4]]}
         title="Choosing a workspace plan"
       />
     </>

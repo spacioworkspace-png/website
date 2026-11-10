@@ -30,15 +30,18 @@ const services = [
 
 export default function BasavanagudiLocationPage() {
   return (
-    <div className="bg-white min-h-screen">
-      <section className="mx-auto max-w-7xl scroll-mt-16 px-4 py-16 md:py-20">
-        <div className="mb-10 text-center max-w-3xl mx-auto">
-          <span className="badge-premium mb-4 inline-block">Basavanagudi, Bangalore</span>
-          <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            Coworking Space in <span className="text-gradient">Basavanagudi</span>, Bangalore
+    <div className="bg-[var(--ivory)] min-h-screen">
+      <section className="mx-auto max-w-7xl scroll-mt-16 px-4 sm:px-6 py-16 md:py-24">
+        <div className="mb-12 max-w-3xl">
+          <p className="eyebrow text-[var(--primary)] mb-4">Basavanagudi · South Bengaluru</p>
+          <h1 className="section-title text-3xl sm:text-4xl md:text-5xl">
+            Coworking space in Basavanagudi, Bangalore
           </h1>
-          <p className="mt-4 text-lg text-neutral-700">
-            Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
+          <div className="champagne-rule my-6" />
+          <p className="text-lg text-[var(--muted-grey)] leading-relaxed">
+            Private cabins, dedicated desks, meeting rooms, day pass and virtual office at Spacio Workspace —
+            No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar — for professionals, startups and growing teams
+            across South Bengaluru.
           </p>
         </div>
 

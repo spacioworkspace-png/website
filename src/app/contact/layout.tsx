@@ -16,7 +16,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
     <>
       {children}
       <FaqSection
-        items={[SITE_FAQS[0], SITE_FAQS[1], SITE_FAQS[5]]}
+        items={[SITE_FAQS[0], SITE_FAQS[1], SITE_FAQS[9]]}
         title="How to reach Spacio"
       />
     </>

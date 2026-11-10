@@ -8,42 +8,37 @@ import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen">
-      {/* About Section with Tagline */}
-      <section className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden bg-gradient-to-br from-primary/5 via-white to-primary/5">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b35' fill-opacity='0.4'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
-        </div>
+    <div className="bg-[var(--ivory)] min-h-screen">
+      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 overflow-hidden">
         <motion.div
           className="relative z-10"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <p className="eyebrow text-[var(--primary)] mb-4">About Spacio</p>
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, type: "spring" }}
-            >
-              <span className="text-neutral-900">Spacio Workspace,</span>
-              <br />
-              <span className="text-gradient peacock-text">Basavanagudi</span>
-            </motion.h1>
-            <motion.p
-              className="text-lg sm:text-xl text-neutral-700 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
+              className="section-title text-4xl sm:text-5xl md:text-6xl mb-6"
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.8 }}
+              transition={{ duration: 0.7 }}
             >
-              A coworking centre at No 7, Sree Devi Complex, NAT Street, Basavanagudi, Bangalore 560004.
-              Private cabins, dedicated desks, meeting rooms and virtual office for professionals, startups and growing teams in South Bangalore.
+              A more considered way to work.
+            </motion.h1>
+            <div className="champagne-rule mx-auto mb-6" />
+            <motion.p
+              className="text-lg sm:text-xl text-[var(--muted-grey)] leading-relaxed"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15, duration: 0.7 }}
+            >
+              Spacio Workspace is a boutique coworking centre at No. 7, Sree Devi Complex, N.A.T. Road,
+              Gandhi Bazaar, Basavanagudi, Bengaluru 560004 — private cabins, dedicated desks, meeting rooms,
+              day pass and virtual office for professionals and growing teams in South Bengaluru.
             </motion.p>
           </div>
 

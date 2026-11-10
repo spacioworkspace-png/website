@@ -1,22 +1,22 @@
-/** Context-aware WhatsApp prefills — no public pricing. */
+/** Context-aware WhatsApp prefills — no public pricing. Tracking events unchanged. */
 export const WA = {
   general:
-    "Hi Spacio Workspace, I would like to explore your workspace options and book a visit.",
-  tour: "Hi Spacio Workspace, I would like to book a private tour of your Basavanagudi centre.",
+    "Hello Spacio, I would like to explore your workspace options and arrange a visit.",
+  tour: "Hello Spacio, I would like to schedule a private tour of your Basavanagudi workspace.",
   dayPass:
-    "Hi Spacio Workspace, I would like to know more about your day-pass options.",
+    "Hello Spacio, I'd like to enquire about your day pass and availability.",
   privateCabin:
-    "Hi Spacio Workspace, I am interested in a private cabin. Could you share the available options?",
+    "Hello Spacio, I'm interested in your private cabins. Could you share the available options and arrange a workspace tour?",
   dedicatedDesk:
-    "Hi Spacio Workspace, I would like to enquire about dedicated desk availability.",
+    "Hello Spacio, I'm interested in a dedicated desk. Could you share the details?",
   virtualOffice:
-    "Hi Spacio Workspace, I am interested in your virtual office services. Please share the details.",
+    "Hello Spacio, I'm interested in your virtual office services for business/GST registration. Could you share the details?",
   meetingRoom:
-    "Hi Spacio Workspace, I would like to enquire about meeting room availability.",
+    "Hello Spacio, I'd like to enquire about meeting-room availability.",
   membership:
-    "Hi Spacio Workspace, I would like to get membership details and availability.",
+    "Hello Spacio, I would like membership details and availability.",
   quote:
-    "Hi Spacio Workspace, I would like to request a custom quote for my workspace needs.",
+    "Hello Spacio, I would like to request a custom quote for my workspace needs.",
 } as const;
 
 export function whatsappMessageForPlan(planId: string): string {

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Geist } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -15,8 +15,15 @@ import { EMAIL, PHONE_DISPLAY, SITE_NAME, SITE_URL } from "@/lib/site";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const fbDomainVerification = process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION;
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
+
+const body = Manrope({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
   preload: true,
@@ -24,9 +31,9 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Coworking Space Basavanagudi | Spacio Workspace",
+  title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
   description:
-    "Premium coworking in Basavanagudi near Gandhi Bazaar. Private cabins, desks, meeting rooms and virtual office. Book a tour.",
+    "Discover Spacio Workspace in Basavanagudi, Bengaluru. Explore private cabins, dedicated desks, day passes, meeting rooms and virtual office solutions.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -34,9 +41,9 @@ export const metadata: Metadata = {
   category: "Coworking space",
   keywords: [...SEO_KEYWORDS.site],
   openGraph: {
-    title: "Coworking Space Basavanagudi | Spacio Workspace",
+    title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
     description:
-      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
+      "A more considered way to work — thoughtfully designed workspaces in Basavanagudi for founders, professionals and growing teams.",
     url: "/",
     siteName: SITE_NAME,
     locale: "en_IN",
@@ -52,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Coworking Space Basavanagudi | Spacio Workspace",
+    title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
     description:
-      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
+      "A more considered way to work — thoughtfully designed workspaces in Basavanagudi for founders, professionals and growing teams.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -108,7 +115,7 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM facts" />
         <JsonLd data={organizationGraph()} />
       </head>
-      <body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${display.variable} ${body.variable} font-sans antialiased`} suppressHydrationWarning>
         <MarketingNoScript />
         <a href="#main-content" className="skip-link">
           Skip to main content
@@ -125,7 +132,7 @@ export default function RootLayout({
         <DeferredChatling />
         <p className="sr-only" aria-hidden="false">
           {SITE_NAME}, phone {PHONE_DISPLAY}, email {EMAIL}. Address: No. 7, Sree Devi Complex, N.A.T. Road,
-          Basavanagudi, Bengaluru, Karnataka 560004, India.
+          Gandhi Bazaar, Basavanagudi, Bengaluru, Karnataka 560004, India.
         </p>
       </body>
     </html>

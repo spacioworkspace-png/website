@@ -9,11 +9,11 @@ type CtaVariant = "primary" | "outline" | "header";
 
 const variantClass: Record<CtaVariant, string> = {
   primary:
-    "rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-sm bg-[var(--primary-navy)] px-6 py-3 text-white font-semibold hover:bg-[var(--navy-deep)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
   outline:
-    "rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-sm border border-[var(--primary-navy)]/30 px-6 py-3 text-[var(--primary-navy)] font-semibold hover:border-[var(--primary-navy)] hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
   header:
-    "rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-sm border border-[var(--primary-navy)]/30 px-4 py-2.5 text-sm font-semibold text-[var(--primary-navy)] hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
 };
 
 type WhatsAppLinkProps = {
@@ -131,7 +131,7 @@ export function HeroContactRow({
       <CallLink location={`${location}-call`}>{callLabel}</CallLink>
       <Link
         href={bookTourHref}
-        className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]"
+        className="rounded-sm border border-[var(--primary-navy)]/30 px-6 py-3 text-[var(--primary-navy)] font-semibold hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]"
       >
         {bookTourLabel}
       </Link>

@@ -81,11 +81,6 @@ const nextConfig: NextConfig = {
         destination: "/about",
         permanent: true,
       },
-      {
-        source: "/locations/jayanagar",
-        destination: "/locations/basavanagudi",
-        permanent: true,
-      },
     ];
   },
 };

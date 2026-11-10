@@ -11,22 +11,32 @@ export function FaqSection({
   if (!items.length) return null;
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-16 md:py-20">
+    <section className="mx-auto max-w-3xl px-4 py-16 md:py-24 sm:px-6" aria-labelledby="faq-heading">
       <JsonLd data={faqJsonLd(items)} />
-      <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-8 text-center">
+      <h2 id="faq-heading" className="section-title text-3xl md:text-4xl text-center mb-10">
         {title}
       </h2>
-      <dl className="space-y-4">
+      <div className="space-y-3">
         {items.map((item) => (
-          <div
+          <details
             key={item.q}
-            className="rounded-2xl border border-neutral-200 bg-white p-5 sm:p-6"
+            className="group border border-[var(--warm-stone)] bg-[var(--soft-white)] open:bg-white"
           >
-            <dt className="font-semibold text-neutral-900 text-lg">{item.q}</dt>
-            <dd className="mt-2 text-neutral-700 leading-relaxed">{item.a}</dd>
-          </div>
+            <summary className="cursor-pointer list-none px-5 py-4 md:px-6 md:py-5 font-medium text-[var(--primary-navy)] flex items-center justify-between gap-4">
+              <span>{item.q}</span>
+              <span
+                className="text-[var(--champagne)] text-xl leading-none transition-transform group-open:rotate-45"
+                aria-hidden
+              >
+                +
+              </span>
+            </summary>
+            <div className="px-5 pb-5 md:px-6 md:pb-6 text-[var(--muted-grey)] leading-relaxed border-t border-[var(--warm-stone)] pt-4">
+              {item.a}
+            </div>
+          </details>
         ))}
-      </dl>
+      </div>
     </section>
   );
 }

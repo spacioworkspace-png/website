@@ -1,6 +1,6 @@
 export const SITE_URL = "https://www.spacioworkspace.com";
 export const SITE_NAME = "Spacio Workspace";
-export const SITE_UPDATED = "2026-11-07";
+export const SITE_UPDATED = "2026-11-10";
 
 export const PHONE_DISPLAY = "+91 70227 80310";
 export const PHONE_TEL = "+917022780310";
@@ -13,14 +13,14 @@ export function whatsappUrl(text?: string): string {
 }
 
 export const ADDRESS = {
-  street: "No. 7, Sree Devi Complex, N.A.T. Road",
+  street: "No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar",
   locality: "Basavanagudi",
   city: "Bengaluru",
   region: "Karnataka",
   postalCode: "560004",
   country: "IN",
   countryName: "India",
-  line: "No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru, Karnataka 560004",
+  line: "No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar, Basavanagudi, Bengaluru, Karnataka 560004",
 };
 
 export const GEO = {
@@ -201,43 +201,51 @@ export const PLANS: Plan[] = [
 export const SITE_FAQS: { q: string; a: string }[] = [
   {
     q: "Where is Spacio Workspace located?",
-    a: "Spacio Workspace is at No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru, Karnataka 560004 — near Gandhi Bazaar, Bull Temple and Lalbagh.",
+    a: "Spacio Workspace is at No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar, Basavanagudi, Bengaluru, Karnataka 560004 — near Bull Temple and Lalbagh. There is no separate Jayanagar branch; the physical centre is in Basavanagudi.",
   },
   {
-    q: "What coworking options are available?",
-    a: "Private cabins (solo, 3-seater and 6-seater), dedicated desks, day passes, meeting rooms and a virtual office address.",
+    q: "What workspace options are available?",
+    a: "Private cabins (solo, 3-seater and 6-seater), dedicated desks, day passes, meeting rooms and a virtual office address for business documentation.",
   },
   {
-    q: "How can I enquire about membership?",
-    a: "WhatsApp +91 70227 80310, book a free tour at spacioworkspace.com/book-tour, or visit the Basavanagudi centre. Our team shares current membership details directly.",
-  },
-  {
-    q: "Do you offer private cabins?",
-    a: "Yes. Spacio offers solo, 3-seater and 6-seater private cabins in Basavanagudi with high-speed internet and 24/7 member access.",
-  },
-  {
-    q: "Are dedicated desks available?",
+    q: "Do you offer dedicated desks?",
     a: "Yes. Dedicated desks include an assigned seat, locker storage and 24/7 access for members.",
   },
   {
     q: "Can I book a day pass?",
-    a: "Yes. Day passes are available for single-day coworking from 9 AM to 7 PM. WhatsApp us for availability.",
+    a: "Yes. Day passes are available for single-day coworking from 9 AM to 7 PM. WhatsApp us for same-day or next-day availability.",
   },
   {
-    q: "Do you provide virtual office services?",
-    a: "Yes. Virtual office includes a Basavanagudi business address with mail handling. Ask our team for plan details and documentation support.",
+    q: "Are private cabins available?",
+    a: "Yes. Spacio offers solo, 3-seater and 6-seater private cabins. Cabin inventory is limited — enquire for current availability and a private tour.",
   },
   {
-    q: "Can I use your address for GST registration?",
-    a: "Virtual office members commonly use the Basavanagudi address for GST and ROC paperwork. Confirm current documentation requirements with our team before you apply.",
+    q: "Do you offer virtual office services?",
+    a: "Yes. Virtual office includes a Basavanagudi business address with mail handling. Ask our team for documentation support. GST registration approval is decided by the authorities, not Spacio.",
   },
   {
-    q: "Are meeting rooms available?",
+    q: "Can I use the address for GST registration?",
+    a: "Virtual office members commonly use the Basavanagudi address for GST and ROC paperwork. Confirm current documentation requirements with our team before you apply. We do not guarantee registration approval.",
+  },
+  {
+    q: "Can I book a meeting room?",
     a: "Yes. Meeting rooms for roughly 4–12 people are available with AV for hybrid calls. Enquire for booking slots.",
   },
   {
-    q: "Can I visit before making a decision?",
-    a: "Yes. Book a free private tour online, WhatsApp +91 70227 80310, or visit No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi.",
+    q: "Can I visit before booking?",
+    a: "Yes. Schedule a free private tour online, WhatsApp +91 70227 80310, or visit the Basavanagudi centre.",
+  },
+  {
+    q: "How do I reach Spacio from Jayanagar?",
+    a: "Spacio is a short ride from Jayanagar into Basavanagudi via N.A.T. Road / Gandhi Bazaar. Autos, cabs and BMTC buses connect the neighbourhoods throughout the day. The centre is about 2.5 km from Lalbagh Metro (Green Line).",
+  },
+  {
+    q: "What are the operating hours?",
+    a: "Cabin and dedicated-desk members have 24/7 access. Day-pass guests work 9 AM–7 PM. Visit tours are arranged by appointment.",
+  },
+  {
+    q: "How can I enquire about membership?",
+    a: "WhatsApp +91 70227 80310, book a free tour at spacioworkspace.com/book-tour, or visit the Basavanagudi centre. Membership details are shared on enquiry — rates are not published online.",
   },
 ];
 
@@ -256,6 +264,7 @@ export const LOCATION_FAQS: { q: string; a: string }[] = [
     a: "Professionals, consultants, startups and small teams who want a South Bengaluru office with private cabins or a dedicated desk.",
   },
   SITE_FAQS[9],
+  SITE_FAQS[10],
 ];
 
 export const PRICING_FAQS = [

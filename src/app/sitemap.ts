@@ -41,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [`${SITE_URL}/images/building-exterior-sree-devi-complex.jpg`],
     },
     {
+      path: "/locations/jayanagar",
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: [`${SITE_URL}/images/building-exterior-sree-devi-complex.jpg`],
+    },
+    {
       path: "/gallery",
       changeFrequency: "monthly",
       priority: 0.7,

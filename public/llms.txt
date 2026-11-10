@@ -9,8 +9,9 @@ Google Maps: https://www.google.com/maps/place/Spacio+Workspace/@12.9449135,77.5
 
 - Name: Spacio Workspace
 - Type: Coworking space / private office centre
-- Address: No. 7, Sree Devi Complex, N.A.T. Road, Basavanagudi, Bengaluru, Karnataka 560004, India
+- Address: No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar, Basavanagudi, Bengaluru, Karnataka 560004, India
 - Neighbourhood: Basavanagudi, South Bengaluru, near Bull Temple, Lalbagh Botanical Gardens, and Gandhi Bazaar
+- Positioning: A more considered way to work — boutique premium coworking (not a Jayanagar branch)
 - Phone / WhatsApp: +91 70227 80310
 - Email: hello@spacioworkspace.com
 - Instagram: https://www.instagram.com/spacioworkspace
@@ -42,5 +43,6 @@ Membership details and commercial rates are shared on enquiry via WhatsApp or a 
 - Home: https://www.spacioworkspace.com/
 - Workspace hub: https://www.spacioworkspace.com/workspaces
 - Location: https://www.spacioworkspace.com/locations/basavanagudi
+- Near Jayanagar: https://www.spacioworkspace.com/locations/jayanagar
 - Reviews: https://www.spacioworkspace.com/reviews
 - Gallery: https://www.spacioworkspace.com/gallery
