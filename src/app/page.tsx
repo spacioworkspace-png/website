@@ -1,7 +1,12 @@
-import { ResponsiveHome } from "@/components/home/ResponsiveHome";
+import { HomeHero } from "@/components/home/HomeHero";
+import { HomePage } from "@/components/HomePage";
 
+/** One shared homepage tree — same orange brand, content and CTAs on mobile and desktop. */
 export default function Page() {
-  // LCP uses next/image priority (AVIF/WebP). Do not preload the raw JPG —
-  // that bypasses the optimizer and fights the LCP candidate.
-  return <ResponsiveHome />;
+  return (
+    <>
+      <HomeHero />
+      <HomePage />
+    </>
+  );
 }

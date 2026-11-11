@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Cormorant_Garamond, Geist, Manrope } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import "@/styles/mobile.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { MobileHeader } from "@/components/mobile/MobileHeader";
-import { MobileFooter } from "@/components/mobile/MobileFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { DeferredChatling } from "@/components/DeferredChatling";
 import { DeferredWidgets } from "@/components/DeferredWidgets";
@@ -23,25 +20,6 @@ const geistSans = Geist({
   subsets: ["latin"],
   display: "swap",
   preload: true,
-  adjustFontFallback: true,
-});
-
-/** Mobile-only display face — do not preload on every request (cuts render-blocking). */
-const mobileDisplay = Cormorant_Garamond({
-  variable: "--font-mobile-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600"],
-  preload: false,
-  adjustFontFallback: true,
-});
-
-const mobileSans = Manrope({
-  variable: "--font-mobile-sans",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "600"],
-  preload: false,
   adjustFontFallback: true,
 });
 
@@ -118,6 +96,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
+  themeColor: "#ff6b35",
 };
 
 export default function RootLayout({
@@ -131,30 +110,19 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM facts" />
         <JsonLd data={organizationGraph()} />
       </head>
-      <body
-        className={`${geistSans.variable} ${mobileDisplay.variable} ${mobileSans.variable} antialiased`}
-        suppressHydrationWarning
-      >
+      <body className={`${geistSans.variable} font-sans antialiased`} suppressHydrationWarning>
         <MarketingNoScript />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div className="lg:hidden">
-          <MobileHeader />
-        </div>
-        <div className="hidden lg:block">
-          <Header />
-        </div>
+        <Header />
         <Suspense fallback={null}>
           <DeferredWidgets />
         </Suspense>
         <main id="main-content" tabIndex={-1} className="pb-20 lg:pb-0">
           {children}
         </main>
-        <div className="hidden lg:block">
-          <Footer />
-        </div>
-        <MobileFooter />
+        <Footer />
         <MarketingScripts />
         <DeferredChatling />
         <p className="sr-only" aria-hidden="false">
