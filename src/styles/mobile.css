@@ -1,0 +1,150 @@
+/* Mobile-only luxury system — desktop orange brand stays untouched above lg */
+
+:root {
+  --m-navy: #101c35;
+  --m-midnight: #0a1427;
+  --m-ivory: #f7f5f0;
+  --m-white: #ffffff;
+  --m-champagne: #c5ae83;
+  --m-stone: #e9e5dc;
+  --m-charcoal: #25282d;
+  --m-muted: #5c6168;
+  --m-pad: clamp(1rem, 4.5vw, 1.5rem);
+}
+
+.mobile-shell {
+  background: var(--m-ivory);
+  color: var(--m-charcoal);
+  font-family: var(--font-mobile-sans), system-ui, sans-serif;
+}
+
+.mobile-shell .m-serif {
+  font-family: var(--font-mobile-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.mobile-shell .m-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--m-champagne);
+}
+
+.mobile-shell .m-h1 {
+  font-size: clamp(2.5rem, 10vw, 3.5rem);
+}
+
+.mobile-shell .m-h2 {
+  font-size: clamp(1.9rem, 7vw, 2.5rem);
+}
+
+.mobile-shell .m-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--m-muted);
+}
+
+.mobile-shell .m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 2px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.mobile-shell .m-btn-primary {
+  background: var(--m-champagne);
+  color: var(--m-midnight);
+}
+
+.mobile-shell .m-btn-secondary {
+  border: 1px solid rgb(255 255 255 / 35%);
+  color: var(--m-white);
+  background: rgb(255 255 255 / 6%);
+}
+
+.mobile-shell .m-btn-navy {
+  background: var(--m-navy);
+  color: var(--m-white);
+}
+
+.mobile-shell .m-btn-outline {
+  border: 1px solid rgb(16 28 53 / 20%);
+  color: var(--m-navy);
+  background: transparent;
+}
+
+.mobile-shell .m-rule {
+  width: 2.5rem;
+  height: 1px;
+  background: var(--m-champagne);
+  margin: 1rem 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-shell .m-anim,
+  .mobile-shell .m-stagger > * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@keyframes m-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mobile-shell .m-anim {
+  animation: m-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mobile-shell .m-stagger > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.mobile-shell .m-stagger > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.mobile-shell .m-stagger > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.mobile-shell .m-stagger > *:nth-child(4) {
+  animation-delay: 0.28s;
+}
+.mobile-shell .m-stagger > *:nth-child(5) {
+  animation-delay: 0.36s;
+}
+
+/* Gallery swipe */
+.mobile-gallery-track {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+
+.mobile-gallery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-gallery-track > * {
+  scroll-snap-align: start;
+  flex: 0 0 min(86vw, 22rem);
+}

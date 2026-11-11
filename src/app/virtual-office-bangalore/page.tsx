@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle2, Building2, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowRight, MessageCircle, CheckCircle2, Building2, Mail, MapPin, FileText } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { ContactCtaPair } from "@/components/ContactCtas";
+import { WA } from "@/lib/whatsapp-messages";
+import Link from "next/link";
 
 export default function VirtualOfficeBangalore() {
   return (
@@ -27,24 +29,21 @@ export default function VirtualOfficeBangalore() {
                 <span className="text-neutral-900">Basavanagudi, Bangalore</span>
               </h1>
               <p className="text-xl md:text-2xl text-neutral-700 max-w-3xl mx-auto mb-8">
-                Get a premium business address in Basavanagudi without the overhead. Perfect for startups, 
-                freelancers, and remote businesses. Professional image, mail handling, and meeting room access included.
+                A professional Basavanagudi business address with mail handling and documentation
+                guidance for GST and ROC filings. Approval decisions rest with the authorities —
+                we help you understand the paperwork.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="https://wa.me/917022780310?text=I want Virtual Office services at Spacio Workspace Basavanagudi #VirtualOffice #SpacioWorkspace #CoworkingBangalore #Basavanagudi #BusinessAddress"
-                  className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Get Virtual Office via WhatsApp
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="tel:+917022780310"
-                  className="rounded-xl border-2 border-primary/30 px-8 py-4 font-semibold text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                >
-                  Call Now
-                </a>
+              <div className="flex flex-col items-center gap-4">
+                <ContactCtaPair
+                  location="virtual-office-bangalore-hero"
+                  whatsappMessage={WA.virtualOffice}
+                  whatsappLabel="Get Virtual Office Details"
+                  callLabel="Call Us"
+                  className="justify-center"
+                />
+                <Link href="/workspaces/virtual-office" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                  View full virtual office details <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -55,12 +54,12 @@ export default function VirtualOfficeBangalore() {
           <h2 className="text-4xl font-bold text-center mb-12">Virtual Office Features</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: Building2, title: "Premium Business Address", desc: "Professional address in Basavanagudi, Bangalore" },
-              { icon: Mail, title: "Mail Handling & Forwarding", desc: "Receive and forward your business mail" },
-              { icon: Phone, title: "Phone Answering Service", desc: "Professional call handling service" },
-              { icon: MapPin, title: "Meeting Room Access", desc: "Book meeting rooms when needed" },
-              { icon: CheckCircle2, title: "Legal Compliance", desc: "Perfect for business registration" },
-              { icon: MessageCircle, title: "Professional Image", desc: "Build credibility with premium address" },
+              { icon: Building2, title: "Business address", desc: "Recognised Basavanagudi centre address for correspondence" },
+              { icon: Mail, title: "Mail handling", desc: "Incoming mail managed with clear enrolment processes" },
+              { icon: FileText, title: "Documentation guidance", desc: "Support on typical NOC, utility and agreement needs" },
+              { icon: MapPin, title: "GST / ROC filings", desc: "Address commonly used for filings — approval not guaranteed" },
+              { icon: CheckCircle2, title: "Renewal clarity", desc: "Renewal steps and timelines shared on enquiry" },
+              { icon: MessageCircle, title: "Optional workspace", desc: "Ask about day pass or desk options if you also need to work on-site" },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -89,8 +88,8 @@ export default function VirtualOfficeBangalore() {
             </p>
             <ContactCtaPair
               location="virtual-office-bangalore-cta"
-              whatsappMessage="I want Virtual Office services at Spacio Workspace Basavanagudi"
-              whatsappLabel="Get Virtual Office via WhatsApp"
+              whatsappMessage={WA.virtualOffice}
+              whatsappLabel="Get Virtual Office Details"
               callLabel="Call Us"
               className="justify-center"
             />

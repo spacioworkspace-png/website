@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Video, Users, Clock, Wifi } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { ContactCtaPair } from "@/components/ContactCtas";
+import { WA } from "@/lib/whatsapp-messages";
+import Link from "next/link";
 
 export default function MeetingRoomsBangalore() {
   return (
@@ -30,21 +32,17 @@ export default function MeetingRoomsBangalore() {
                 Professional meeting rooms and conference spaces in Basavanagudi. Fully equipped with 
                 AV equipment, video conferencing, whiteboards, and high-speed internet. Book by the hour or day.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a Meeting Room at Spacio Workspace Basavanagudi #MeetingRooms #SpacioWorkspace #CoworkingBangalore #Basavanagudi #ConferenceRoom"
-                  className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Book Meeting Room via WhatsApp
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="tel:+917022780310"
-                  className="rounded-xl border-2 border-primary/30 px-8 py-4 font-semibold text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                >
-                  Call Now
-                </a>
+              <div className="flex flex-col items-center gap-4">
+                <ContactCtaPair
+                  location="meeting-rooms-bangalore-hero"
+                  whatsappMessage={WA.meetingRoom}
+                  whatsappLabel="Enquire About Meeting Rooms"
+                  callLabel="Call Us"
+                  className="justify-center"
+                />
+                <Link href="/workspaces/meeting-rooms" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                  View meeting room details <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -56,7 +54,7 @@ export default function MeetingRoomsBangalore() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: Video, title: "Video Conferencing", desc: "HD video conferencing setup" },
-              { icon: Users, title: "Flexible Capacity", desc: "Rooms for 4-20 people" },
+              { icon: Users, title: "Flexible Capacity", desc: "Rooms for about 4–12 people" },
               { icon: Wifi, title: "High-Speed Internet", desc: "1Gbps fiber internet" },
               { icon: CheckCircle2, title: "AV Equipment", desc: "Projectors, screens, and sound" },
               { icon: Clock, title: "Flexible Booking", desc: "Book by hour or full day" },
@@ -89,8 +87,8 @@ export default function MeetingRoomsBangalore() {
             </p>
             <ContactCtaPair
               location="meeting-rooms-bangalore-cta"
-              whatsappMessage="I want to book a Meeting Room at Spacio Workspace Basavanagudi"
-              whatsappLabel="Book Meeting Room via WhatsApp"
+              whatsappMessage={WA.meetingRoom}
+              whatsappLabel="Enquire About Meeting Rooms"
               callLabel="Call Us"
               className="justify-center"
             />

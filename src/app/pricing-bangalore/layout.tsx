@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Enquire for Spacio Workspace membership details in Basavanagudi — cabins, desks, day pass, meeting rooms and virtual office.",
   path: "/pricing-bangalore",
+  canonicalPath: "/pricing",
   keywords: [...SEO_KEYWORDS.workspaces],
 });
 

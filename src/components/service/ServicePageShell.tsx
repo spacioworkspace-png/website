@@ -3,10 +3,9 @@ import Link from "next/link";
 import { PlanSeo } from "@/components/PlanSeo";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { RelatedPlans } from "@/components/RelatedPlans";
-import { HeroContactRow } from "@/components/ContactCtas";
+import { HeroContactRow, WhatsAppLink, CallLink } from "@/components/ContactCtas";
 import { Reveal } from "@/components/Reveal";
 import { whatsappUrl } from "@/lib/site";
-import { WhatsAppLink, CallLink } from "@/components/ContactCtas";
 
 export type ServiceFeature = { title: string; description: string };
 export type ServiceAudience = { title: string; description: string };
@@ -34,7 +33,6 @@ type ServicePageShellProps = {
   ctaTitle: string;
   ctaBody: string;
   related: { href: string; label: string }[];
-  /** Optional block rendered after video (e.g. cabin compare). */
   afterVideo?: React.ReactNode;
 };
 
@@ -64,33 +62,37 @@ export function ServicePageShell({
   afterVideo,
 }: ServicePageShellProps) {
   return (
-    <div className="bg-[var(--ivory)] min-h-screen">
-      <section className="border-b border-[var(--warm-stone)]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 py-14 md:py-20 lg:grid-cols-2 lg:gap-14 items-center">
+    <div className="bg-white min-h-screen">
+      <section className="relative bg-gradient-to-br from-primary/10 via-orange-50/40 to-white">
+        <div className="absolute inset-0 gradient-mesh opacity-40 pointer-events-none" aria-hidden />
+        <div className="relative mx-auto grid max-w-7xl gap-10 px-4 py-16 md:py-20 lg:grid-cols-[1.1fr_0.9fr] items-center">
           <div>
-            <p className="eyebrow text-[var(--primary)] mb-4">{eyebrow}</p>
-            <h1 className="section-title text-3xl sm:text-4xl md:text-5xl">{title}</h1>
-            <div className="champagne-rule my-6" />
-            <p className="text-base md:text-lg text-[var(--muted-grey)] leading-relaxed mb-8">{lead}</p>
+            <span className="badge-premium mb-4 inline-block">{eyebrow}</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-4 tracking-tight">
+              {title}
+            </h1>
+            <p className="text-lg text-neutral-700 leading-relaxed mb-6">{lead}</p>
             <HeroContactRow
-              className="mb-6 [&_a]:rounded-sm"
+              className="mb-6"
               location={trackingLocation}
               whatsappMessage={whatsappMessage}
               whatsappLabel="WhatsApp Enquiry"
-              bookTourLabel="Schedule a Tour"
+              bookTourLabel="Book Free Tour"
             />
             {highlights.length > 0 ? (
-              <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-[var(--muted-grey)]">
+              <ul className="flex flex-wrap gap-3 text-sm text-neutral-600">
                 {highlights.map((item) => (
-                  <li key={item} className="flex items-center gap-2">
-                    <span className="h-1 w-1 rounded-full bg-[var(--champagne)]" aria-hidden />
+                  <li
+                    key={item}
+                    className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1.5 font-medium"
+                  >
                     {item}
                   </li>
                 ))}
               </ul>
             ) : null}
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden bg-[var(--warm-stone)]">
+          <div className="relative h-80 sm:h-96 rounded-3xl overflow-hidden shadow-2xl border border-primary/10">
             <Image
               src={heroImage}
               alt={heroImageAlt}
@@ -106,105 +108,105 @@ export function ServicePageShell({
       <PlanVideoSection planId={planId} showAllTours />
       {afterVideo}
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-20">
-        <Reveal className="max-w-2xl mb-10">
-          <p className="eyebrow text-[var(--primary)] mb-3">What you get</p>
-          <h2 className="section-title text-3xl md:text-4xl">Designed for how you work.</h2>
-        </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, i) => (
-            <Reveal key={feature.title} delay={i * 40}>
-              <div className="border-t border-[var(--champagne)] pt-5 h-full">
-                <h3 className="font-display text-xl text-[var(--primary-navy)]">{feature.title}</h3>
-                <p className="mt-2 text-sm text-[var(--muted-grey)] leading-relaxed">{feature.description}</p>
-              </div>
-            </Reveal>
-          ))}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <Reveal className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-3">
+              Why choose this workspace?
+            </h2>
+            <p className="text-neutral-600">Designed around how you actually work at Spacio.</p>
+          </Reveal>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, i) => (
+              <Reveal key={feature.title} delay={i * 40}>
+                <div className="card-premium rounded-2xl border border-neutral-200 p-6 hover:border-primary/40 bg-gradient-to-br from-white to-orange-50/30 h-full">
+                  <h3 className="text-xl font-semibold text-neutral-900 mb-2">{feature.title}</h3>
+                  <p className="text-neutral-700 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-[var(--warm-stone)] bg-[var(--soft-white)]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 py-16 md:py-20 lg:grid-cols-2 items-center">
+      <section className="py-16 md:py-20 bg-neutral-50">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 lg:grid-cols-2 items-center">
           <Reveal>
-            <h2 className="section-title text-3xl md:text-4xl">{storyTitle}</h2>
-            <div className="champagne-rule my-6" />
-            <div className="space-y-4 text-[var(--muted-grey)] leading-relaxed">
+            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">{storyTitle}</h2>
+            <div className="space-y-4 text-neutral-700 leading-relaxed">
               {storyBody.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
+                <p key={p.slice(0, 48)}>{p}</p>
               ))}
             </div>
             <ul className="mt-6 space-y-3">
               {storyBullets.map((item) => (
-                <li key={item} className="flex gap-3 text-sm text-[var(--charcoal)]">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[var(--champagne)]" aria-hidden />
+                <li key={item} className="flex gap-3 text-neutral-700 text-sm">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" aria-hidden />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </Reveal>
           <Reveal delay={80}>
-            <div className="relative aspect-[4/3] overflow-hidden bg-[var(--warm-stone)]">
+            <div className="relative h-80 sm:h-96 rounded-3xl overflow-hidden shadow-xl">
               <Image src={storyImage} alt={storyImageAlt} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 sm:px-6 py-16 md:py-20 text-center">
-        <p className="eyebrow text-[var(--primary)] mb-3">Membership</p>
-        <h2 className="section-title text-3xl md:text-4xl">{termsTitle}</h2>
-        <p className="mt-4 text-[var(--muted-grey)] leading-relaxed">{termsBody}</p>
-        <ul className="mt-8 grid gap-3 sm:grid-cols-2 text-left text-sm text-[var(--charcoal)]">
-          {termsFacts.map((fact) => (
-            <li key={fact} className="border border-[var(--warm-stone)] bg-[var(--soft-white)] px-4 py-3">
-              {fact}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8">
-          <a
-            href={whatsappUrl(whatsappMessage)}
-            className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-[var(--primary-navy)] px-7 text-sm font-semibold text-white"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Enquire on WhatsApp
-          </a>
+      <section className="py-16 md:py-20 bg-white">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">{termsTitle}</h2>
+          <p className="text-neutral-700 leading-relaxed mb-8">{termsBody}</p>
+          <div className="rounded-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white p-6 sm:p-8 mb-8">
+            <ul className="grid gap-3 sm:grid-cols-2 text-left text-sm text-neutral-700">
+              {termsFacts.map((fact) => (
+                <li key={fact} className="rounded-xl bg-white/80 border border-primary/10 px-4 py-3">
+                  {fact}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={whatsappUrl(whatsappMessage)}
+              className="mt-6 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary px-8 py-3.5 text-white font-semibold hover:bg-primary/90 shadow-lg shadow-primary/20"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Enquire on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="border-y border-[var(--warm-stone)] bg-[var(--soft-white)]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-20">
-          <h2 className="section-title text-3xl md:text-4xl text-center mb-10">Who it suits</h2>
+      <section className="py-16 md:py-20 bg-gradient-to-br from-orange-50/60 to-white">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 text-center mb-10">Perfect for</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {audiences.map((item) => (
-              <div key={item.title} className="border border-[var(--warm-stone)] bg-[var(--ivory)] p-6">
-                <h3 className="font-display text-xl text-[var(--primary-navy)]">{item.title}</h3>
-                <p className="mt-3 text-sm text-[var(--muted-grey)] leading-relaxed">{item.description}</p>
+              <div key={item.title} className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-2">{item.title}</h3>
+                <p className="text-neutral-700 text-sm leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[var(--navy-deep)] text-white">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 py-16 md:py-20 text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">{ctaTitle}</h2>
-          <p className="mt-4 text-white/70 leading-relaxed">{ctaBody}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <WhatsAppLink
-              message={whatsappMessage}
-              location={`${trackingLocation}-cta-whatsapp`}
-              className="!rounded-sm"
-            >
+      <section className="py-16 md:py-20 bg-gradient-to-br from-primary/10 via-white to-orange-50">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">{ctaTitle}</h2>
+          <p className="text-neutral-700 mb-8 leading-relaxed">{ctaBody}</p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <WhatsAppLink message={whatsappMessage} location={`${trackingLocation}-cta-whatsapp`}>
               WhatsApp Us
             </WhatsAppLink>
-            <CallLink location={`${trackingLocation}-cta-call`} className="!rounded-sm !border-white/30 !text-white hover:!bg-white/10" />
+            <CallLink location={`${trackingLocation}-cta-call`} />
             <Link
               href="/book-tour"
-              className="rounded-sm border border-[var(--champagne)] bg-[var(--champagne)] px-6 py-3 text-sm font-semibold text-[var(--navy-deep)] min-h-[44px] inline-flex items-center"
+              className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all min-h-[44px] inline-flex items-center"
             >
-              Schedule a Tour
+              Book Free Tour
             </Link>
           </div>
         </div>

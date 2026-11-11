@@ -5,15 +5,17 @@ import { MessageCircle, Phone } from "lucide-react";
 import { PHONE_HREF, whatsappUrl } from "@/lib/site";
 import { trackPhoneClick, trackWhatsAppClick } from "@/lib/tracking";
 
-type CtaVariant = "primary" | "outline" | "header";
+type CtaVariant = "primary" | "outline" | "header" | "inherit";
 
 const variantClass: Record<CtaVariant, string> = {
   primary:
-    "rounded-sm bg-[var(--primary-navy)] px-6 py-3 text-white font-semibold hover:bg-[var(--navy-deep)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-xl bg-primary px-6 py-3 text-white font-semibold hover:bg-primary/90 transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]",
   outline:
-    "rounded-sm border border-[var(--primary-navy)]/30 px-6 py-3 text-[var(--primary-navy)] font-semibold hover:border-[var(--primary-navy)] hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]",
   header:
-    "rounded-sm border border-[var(--primary-navy)]/30 px-4 py-2.5 text-sm font-semibold text-[var(--primary-navy)] hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
+    "rounded-xl border border-primary/30 px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]",
+  /** Visual styles come from className — keeps existing page chrome unchanged. */
+  inherit: "inline-flex items-center justify-center gap-2 min-h-[44px]",
 };
 
 type WhatsAppLinkProps = {
@@ -131,7 +133,7 @@ export function HeroContactRow({
       <CallLink location={`${location}-call`}>{callLabel}</CallLink>
       <Link
         href={bookTourHref}
-        className="rounded-sm border border-[var(--primary-navy)]/30 px-6 py-3 text-[var(--primary-navy)] font-semibold hover:bg-[var(--warm-stone)] transition-colors inline-flex items-center justify-center gap-2 min-h-[44px]"
+        className="rounded-xl border border-primary px-6 py-3 text-primary font-semibold hover:bg-primary hover:text-white transition-all duration-300 inline-flex items-center justify-center gap-2 min-h-[44px]"
       >
         {bookTourLabel}
       </Link>

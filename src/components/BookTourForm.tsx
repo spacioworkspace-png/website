@@ -11,6 +11,7 @@ const fieldClass =
 
 export function BookTourForm() {
   const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +23,9 @@ export function BookTourForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Hi! I'm ${formData.name}. I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ""}`;
+    setSubmitting(true);
+    const emailBit = formData.email ? ` Email: ${formData.email}.` : "";
+    const message = `Hi! I'm ${formData.name}.${emailBit} I'd like to book a tour at Spacio Workspace Basavanagudi on ${formData.preferredDate} at ${formData.preferredTime}. ${formData.message ? `Message: ${formData.message}` : ""}`;
     trackLead("book_tour_form");
     window.open(`https://wa.me/917022780310?text=${encodeURIComponent(message)}`, "_blank");
     router.push("/book-tour/thank-you");
@@ -58,15 +61,14 @@ export function BookTourForm() {
 
           <div>
             <label htmlFor="tour-email" className="block text-sm font-semibold text-neutral-900 mb-2">
-              Email <span aria-hidden="true">*</span>
+              Email <span className="font-normal text-neutral-500">(optional)</span>
             </label>
             <input
               type="email"
               id="tour-email"
               name="email"
-              required
-              aria-required="true"
               autoComplete="email"
+              inputMode="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               className={fieldClass}
@@ -85,6 +87,7 @@ export function BookTourForm() {
               required
               aria-required="true"
               autoComplete="tel"
+              inputMode="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className={fieldClass}
@@ -153,10 +156,12 @@ export function BookTourForm() {
 
           <button
             type="submit"
-            className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            disabled={submitting}
+            aria-busy={submitting}
+            className="btn-premium w-full rounded-xl bg-primary px-6 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:opacity-70 disabled:cursor-wait min-h-[52px]"
           >
-            Book Free Tour via WhatsApp
-            <ArrowRight className="w-5 h-5" aria-hidden />
+            {submitting ? "Opening WhatsApp…" : "Book Free Tour via WhatsApp"}
+            {!submitting ? <ArrowRight className="w-5 h-5" aria-hidden /> : null}
           </button>
           <CallLink
             location="book-tour-form"

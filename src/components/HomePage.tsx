@@ -1,364 +1,352 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CheckCircle2, MapPin } from "lucide-react";
 import { FaqSection } from "@/components/FaqSection";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { HomeVideoShowcase } from "@/components/home/HomeVideoShowcase";
-import { Reveal } from "@/components/Reveal";
+import { WhatsAppLink } from "@/components/ContactCtas";
 import {
   ADDRESS,
+  GALLERY_IMAGES,
   MAPS_URL,
   SITE_FAQS,
-  whatsappUrl,
 } from "@/lib/site";
 import { WA } from "@/lib/whatsapp-messages";
 
-const WORKSPACES = [
+const SERVICE_CARDS = [
   {
     title: "Private Cabins",
-    eyebrow: "Enclosed focus",
     href: "/workspaces/solo-cabin",
     image: "/images/solo-cabin-workspace.jpg",
-    description: "Your own space to focus, build and grow — solo, 3-seater and 6-seater layouts.",
+    description:
+      "Enclosed cabins for focused work — solo, 3-seater and 6-seater layouts for individuals and small teams.",
     cta: "Explore Private Cabins",
     message: WA.privateCabin,
-    layout: "wide" as const,
+    related: [
+      { href: "/workspaces/solo-cabin", label: "Solo" },
+      { href: "/workspaces/three-seater-cabin", label: "3-seater" },
+      { href: "/workspaces/six-seater-cabin", label: "6-seater" },
+    ],
   },
   {
     title: "Dedicated Desks",
-    eyebrow: "Everyday rhythm",
     href: "/workspaces/dedicated-desks",
     image: "/images/workspace-numbered-cabins.jpg",
-    description: "A consistent workspace for your everyday routine, with storage and member access.",
-    cta: "Discover Dedicated Desks",
+    description: "Your assigned desk with storage and 24/7 member access.",
+    cta: "Explore Dedicated Desks",
     message: WA.dedicatedDesk,
-    layout: "half" as const,
   },
   {
     title: "Day Pass",
-    eyebrow: "Flexible days",
     href: "/workspaces/day-pass",
     image: "/images/workspace-yellow-green-walls.jpg",
-    description: "Step into a better working day — productive coworking from 9 AM to 7 PM.",
-    cta: "Explore Day Pass",
+    description: "Full-day coworking from 9 AM to 7 PM when you need flexible access.",
+    cta: "Enquire About Day Pass",
     message: WA.dayPass,
-    layout: "half" as const,
   },
   {
     title: "Virtual Office",
-    eyebrow: "Business presence",
     href: "/workspaces/virtual-office",
     image: "/images/building-exterior-sree-devi-complex.jpg",
-    description: "A professional business presence in Basavanagudi, wherever you work.",
-    cta: "Explore Virtual Office",
+    description: "A professional Basavanagudi address with mail handling and documentation guidance.",
+    cta: "Get Virtual Office Details",
     message: WA.virtualOffice,
-    layout: "half" as const,
   },
   {
     title: "Meeting Rooms",
-    eyebrow: "Conversations that matter",
     href: "/workspaces/meeting-rooms",
     image: "/images/meeting-room-frosted-glass.jpg",
-    description: "Make every conversation count — AV-ready rooms for clients, interviews and teams.",
-    cta: "Explore Meeting Rooms",
+    description: "AV-ready rooms for client meetings, interviews and team sessions.",
+    cta: "Enquire About Meeting Rooms",
     message: WA.meetingRoom,
-    layout: "half" as const,
-  },
-];
-
-const EXPERIENCE = [
-  {
-    title: "Thoughtfully designed interiors",
-    description: "Calm finishes, natural light and quiet detailing that support focused work.",
-    image: "/images/office-corridor-glass-partitions.jpg",
-  },
-  {
-    title: "Professional working environment",
-    description: "A composed setting suited to client visits, deep work and collaboration.",
-    image: "/images/workspace-orange-screens.jpg",
-  },
-  {
-    title: "Reliable connectivity",
-    description: "1Gbps fibre for calls, code, design files and everyday business tools.",
-    image: "/images/workspace-green-screens.jpg",
-  },
-  {
-    title: "Accessible South Bengaluru location",
-    description: "Rooted in Basavanagudi near Gandhi Bazaar, with easy links across the south.",
-    image: "/images/spacio-sign-green-wall.jpg",
   },
 ];
 
 const WHY = [
   {
-    title: "Thoughtfully designed spaces",
-    description: "Interiors that feel considered — not generic — so work can unfold with clarity.",
+    title: "Thoughtful interiors",
+    description: "Calm, carefully finished spaces designed for focus and client visits.",
   },
   {
-    title: "Flexible workspace solutions",
-    description: "Cabins, desks, day passes, meeting rooms and virtual office, matched to how you work.",
+    title: "Business-ready infrastructure",
+    description: "High-speed internet, secure access and rooms that support real work.",
   },
   {
-    title: "Professional environment",
-    description: "A quiet, business-ready setting for founders, consultants, agencies and growing teams.",
+    title: "Clear workspace options",
+    description: "Cabins, desks, day passes, meeting rooms and virtual office — choose what fits.",
   },
   {
-    title: "Personal attention",
-    description: "A boutique centre where you can speak with people who know the space.",
-  },
-  {
-    title: "Well-connected location",
-    description: "Basavanagudi links easily to Jayanagar, Banashankari, Lalbagh and the rest of South Bengaluru.",
+    title: "Basavanagudi location",
+    description: "A practical South Bengaluru base near Gandhi Bazaar, Bull Temple and Lalbagh.",
   },
 ];
 
+const gallery = GALLERY_IMAGES.filter((img) => !img.src.includes("og-image")).slice(0, 6);
+
 export function HomePage() {
   return (
-    <div className="bg-[var(--ivory)] text-[var(--charcoal)]">
-      {/* 02 — Brand introduction */}
-      <section className="border-b border-[var(--warm-stone)]" aria-labelledby="intro-heading">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 md:grid-cols-2 md:gap-16 md:py-28 sm:px-6 items-center">
-          <Reveal>
-            <p className="eyebrow text-[var(--primary)] mb-4">A more considered way to work</p>
-            <h2 id="intro-heading" className="section-title text-3xl md:text-5xl">
+    <div className="bg-white">
+      {/* Brand introduction */}
+      <section
+        className="mx-auto max-w-7xl px-4 py-14 md:py-20"
+        aria-labelledby="brand-intro-heading"
+      >
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">
+              A more considered way to work
+            </p>
+            <h2 id="brand-intro-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
               Work deserves a better setting.
             </h2>
-            <div className="champagne-rule my-6" />
-            <div className="space-y-4 text-base md:text-lg leading-relaxed text-[var(--muted-grey)]">
-              <p>Some ideas need silence. Some need collaboration. Others need a room where the next big decision can happen.</p>
-              <p>
-                At Spacio, we bring these experiences together in a thoughtfully designed workspace for
-                professionals, independent minds and growing businesses.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="group relative aspect-[4/5] overflow-hidden bg-[var(--warm-stone)]">
-              <Image
-                src="/images/solo-cabin-workspace.jpg"
-                alt="Quiet private cabin at Spacio Workspace Basavanagudi"
-                fill
-                className="object-cover img-zoom"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </Reveal>
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Spacio Workspace is a boutique coworking destination in Basavanagudi — designed for
+              professionals, founders and growing teams who want a calm, professional environment
+              without a long commercial lease.
+            </p>
+            <p className="mt-3 text-neutral-600 leading-relaxed">
+              Visit the centre, see the cabins and desks in person, and decide what fits how you work.
+            </p>
+            <Link
+              href="/about"
+              className="mt-6 inline-flex min-h-[44px] items-center text-sm font-semibold text-primary hover:underline"
+            >
+              Discover more about Spacio →
+            </Link>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100">
+            <Image
+              src="/images/workspace-yellow-green-walls.jpg"
+              alt="Interior workspace at Spacio Workspace, Basavanagudi"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1023px) 100vw, 50vw"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
-      {/* 03 — Workspace collection */}
-      <section id="explore" className="mx-auto max-w-7xl px-4 py-16 md:py-24 sm:px-6" aria-labelledby="collection-heading">
-        <Reveal className="max-w-2xl mb-12 md:mb-16">
-          <p className="eyebrow text-[var(--primary)] mb-4">Workspace collection</p>
-          <h2 id="collection-heading" className="section-title text-3xl md:text-5xl">
-            Your work. Your space.
-          </h2>
-          <p className="mt-4 text-[var(--muted-grey)] leading-relaxed">
-            Architectural showcases of how you can work at Spacio — enquire for availability. Membership
-            details are shared privately.
-          </p>
-        </Reveal>
-
-        <div className="grid gap-8 md:gap-10">
-          {WORKSPACES.map((space, index) => (
-            <Reveal key={space.title} delay={index * 40}>
+      {/* Workspace collection */}
+      <section id="explore" className="border-t border-neutral-100 bg-neutral-50/60" aria-labelledby="explore-heading">
+        <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Workspaces</p>
+            <h2 id="explore-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+              Explore our workspace
+            </h2>
+            <p className="mt-3 text-neutral-600">
+              Clear options for how you work — enquire for membership details and availability.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICE_CARDS.map((card) => (
               <article
-                className={`group grid gap-6 overflow-hidden border border-[var(--warm-stone)] bg-[var(--soft-white)] md:gap-0 ${
-                  space.layout === "wide" ? "md:grid-cols-2" : "md:grid-cols-2"
-                } ${index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""}`}
+                key={card.title}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-neutral-200 bg-white"
               >
-                <div className={`relative overflow-hidden bg-[var(--warm-stone)] ${space.layout === "wide" ? "aspect-[16/11] md:aspect-auto md:min-h-[420px]" : "aspect-[4/3] md:min-h-[320px]"}`}>
+                <div className="relative aspect-[4/3] bg-neutral-100">
                   <Image
-                    src={space.image}
-                    alt={`${space.title} at Spacio Workspace Basavanagudi`}
+                    src={card.image}
+                    alt={`${card.title} at Spacio Workspace Basavanagudi`}
                     fill
-                    className="object-cover img-zoom"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    loading="lazy"
                   />
                 </div>
-                <div className="flex flex-col justify-center px-6 py-8 md:px-12 md:py-14">
-                  <p className="eyebrow text-[var(--primary)] mb-3">{space.eyebrow}</p>
-                  <h3 className="font-display text-2xl md:text-4xl text-[var(--primary-navy)] tracking-tight">
-                    {space.title}
-                  </h3>
-                  <p className="mt-4 text-[var(--muted-grey)] leading-relaxed max-w-md">{space.description}</p>
-                  <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                    <Link
-                      href={space.href}
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-sm bg-[var(--primary-navy)] px-5 text-sm font-semibold text-white hover:bg-[var(--navy-deep)] transition-colors"
-                    >
-                      {space.cta}
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="text-xl font-bold text-neutral-900">
+                    <Link href={card.href} className="hover:text-primary transition-colors">
+                      {card.title}
                     </Link>
-                    <a
-                      href={whatsappUrl(space.message)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-sm border border-[var(--primary-navy)]/20 px-5 text-sm font-semibold text-[var(--primary-navy)] hover:border-[var(--primary-navy)] transition-colors"
+                  </h3>
+                  <p className="mt-2 text-sm text-neutral-600 leading-relaxed flex-1">{card.description}</p>
+                  {"related" in card && card.related ? (
+                    <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500">
+                      {card.related.map((r) => (
+                        <Link key={r.href} href={r.href} className="font-medium text-primary hover:underline">
+                          {r.label}
+                        </Link>
+                      ))}
+                    </p>
+                  ) : null}
+                  <div className="mt-5 flex flex-col gap-2">
+                    <Link
+                      href={card.href}
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
                     >
-                      WhatsApp Enquiry
-                    </a>
+                      {card.cta}
+                    </Link>
+                    <WhatsAppLink
+                      location={`home_workspace_${card.title.toLowerCase().replace(/\s+/g, "_")}`}
+                      message={card.message}
+                      variant="outline"
+                      className="!text-sm"
+                    >
+                      Enquire on WhatsApp
+                    </WhatsAppLink>
                   </div>
                 </div>
               </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* 04 — Experience */}
-      <section className="bg-[var(--soft-white)] border-y border-[var(--warm-stone)]" aria-labelledby="experience-heading">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 sm:px-6">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="eyebrow text-[var(--primary)] mb-4">The Spacio experience</p>
-            <h2 id="experience-heading" className="section-title text-3xl md:text-5xl">
-              More than a place to work.
-            </h2>
-          </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {EXPERIENCE.map((item, i) => (
-              <Reveal key={item.title} delay={i * 60}>
-                <article className="group">
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[var(--warm-stone)] mb-5">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover img-zoom"
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                    />
-                  </div>
-                  <h3 className="font-display text-xl md:text-2xl text-[var(--primary-navy)]">{item.title}</h3>
-                  <p className="mt-2 text-sm md:text-base text-[var(--muted-grey)] leading-relaxed">{item.description}</p>
-                </article>
-              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 05 — Cinematic tour + testimonials embedded in showcase */}
-      <HomeVideoShowcase />
+      {/* The Spacio experience */}
+      <section className="bg-primary text-white py-14 md:py-20" aria-labelledby="why-heading">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70 mb-3">
+              The Spacio experience
+            </p>
+            <h2 id="why-heading" className="text-3xl md:text-4xl font-bold">
+              Why Spacio Workspace
+            </h2>
+            <p className="mt-3 text-white/80">
+              A professional environment in Basavanagudi — without the noise of a generic coworking template.
+            </p>
+          </div>
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WHY.map((item) => (
+              <li key={item.title} className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                <CheckCircle2 className="w-5 h-5 mb-3 text-white/90" aria-hidden />
+                <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-white/75 leading-relaxed">{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
-      {/* 06 — Why Spacio */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:py-24 sm:px-6" aria-labelledby="why-heading">
-        <Reveal className="max-w-2xl mb-12">
-          <p className="eyebrow text-[var(--primary)] mb-4">Why Spacio</p>
-          <h2 id="why-heading" className="section-title text-3xl md:text-5xl">
-            Designed around the way you work.
-          </h2>
-        </Reveal>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {WHY.map((item, i) => (
-            <Reveal key={item.title} delay={i * 50}>
-              <div className="border-t border-[var(--champagne)] pt-6">
-                <h3 className="font-display text-xl text-[var(--primary-navy)]">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--muted-grey)]">{item.description}</p>
-              </div>
-            </Reveal>
+      {/* Gallery */}
+      <section className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="gallery-heading">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Gallery</p>
+            <h2 id="gallery-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+              The space, as it is
+            </h2>
+          </div>
+          <Link href="/gallery" className="text-sm font-semibold text-primary hover:underline">
+            View Gallery →
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+          {gallery.map((img, i) => (
+            <div key={`${img.src}-${i}`} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100">
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 50vw, 33vw"
+                loading="lazy"
+              />
+            </div>
           ))}
         </div>
       </section>
 
-      {/* 07 — Member testimonials / reviews */}
-      <section className="bg-[var(--soft-white)] border-y border-[var(--warm-stone)]" aria-labelledby="stories-heading">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-24 sm:px-6">
-          <Reveal className="max-w-2xl mb-10 text-center mx-auto">
-            <p className="eyebrow text-[var(--primary)] mb-4">Member stories</p>
-            <h2 id="stories-heading" className="section-title text-3xl md:text-5xl">
-              Good work starts with the right environment.
-            </h2>
-            <p className="mt-4 text-[var(--muted-grey)]">
-              Watch member videos in the tour above, or explore Google reviews from people who work here.
-            </p>
-          </Reveal>
+      {/* Video tour + member stories */}
+      <HomeVideoShowcase />
+
+      {/* Social proof */}
+      <section className="border-y border-neutral-100 bg-white" aria-labelledby="trust-heading">
+        <div className="mx-auto max-w-7xl px-4 py-10">
+          <h2 id="trust-heading" className="sr-only">
+            Member testimonials and Google reviews
+          </h2>
           <GoogleReviews />
-          <p className="mt-8 text-center text-sm text-[var(--muted-grey)]">
-            <Link href="/reviews" className="font-semibold text-[var(--primary-navy)] hover:underline">
-              View all member stories
+          <p className="text-center text-sm text-neutral-600 pb-6">
+            Watch member videos above, or{" "}
+            <Link href="/reviews" className="font-semibold text-primary hover:underline">
+              read more reviews
             </Link>
+            .
           </p>
         </div>
       </section>
 
-      {/* 08 — Location */}
-      <section className="mx-auto max-w-7xl px-4 py-16 md:py-24 sm:px-6" aria-labelledby="location-heading">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-start">
-          <Reveal>
-            <p className="eyebrow text-[var(--primary)] mb-4">Location</p>
-            <h2 id="location-heading" className="section-title text-3xl md:text-5xl">
-              Rooted in Basavanagudi. Connected to South Bengaluru.
+      {/* Location */}
+      <section className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="location-heading">
+        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Location</p>
+            <h2 id="location-heading" className="text-3xl md:text-4xl font-bold text-neutral-900">
+              Basavanagudi, South Bengaluru
             </h2>
-            <div className="champagne-rule my-6" />
-            <p className="font-display text-xl text-[var(--primary-navy)]">Spacio Workspace</p>
-            <p className="mt-3 text-[var(--muted-grey)] leading-relaxed">
-              {ADDRESS.line}.
+            <p className="mt-4 text-neutral-600 leading-relaxed">
+              Spacio Workspace sits on N.A.T. Road in Basavanagudi, close to Gandhi Bazaar — a practical base for
+              professionals who work across South Bengaluru, including nearby Jayanagar. Spacio operates one
+              centre: Basavanagudi.
             </p>
-            <p className="mt-4 text-sm text-[var(--muted-grey)] leading-relaxed">
-              Near Gandhi Bazaar, with easy connections to Jayanagar, Banashankari, Lalbagh and the wider
-              South Bengaluru corridor. Spacio operates one physical centre — in Basavanagudi.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-sm bg-[var(--primary-navy)] px-5 text-sm font-semibold text-white"
-              >
-                Get Directions
-              </a>
+            <div className="mt-6 flex gap-3 text-sm text-neutral-700">
+              <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" aria-hidden />
+              <div>
+                <p className="font-semibold text-neutral-900">{ADDRESS.line}</p>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-block font-semibold text-primary hover:underline"
+                >
+                  Get Directions
+                </a>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/locations/basavanagudi"
-                className="inline-flex min-h-[44px] items-center justify-center rounded-sm border border-[var(--primary-navy)]/25 px-5 text-sm font-semibold text-[var(--primary-navy)]"
+                className="rounded-xl border border-neutral-300 px-5 py-3 text-sm font-semibold hover:border-primary hover:text-primary min-h-[44px] inline-flex items-center"
               >
-                Explore the neighbourhood
+                Directions & transit
               </Link>
+              <WhatsAppLink location="home_location_whatsapp" message={WA.tour} variant="primary">
+                Plan a visit on WhatsApp
+              </WhatsAppLink>
             </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="overflow-hidden border border-[var(--warm-stone)] bg-[var(--warm-stone)] aspect-[4/3]">
-              <iframe
-                title="Spacio Workspace on Google Maps"
-                src="https://www.google.com/maps?q=Spacio+Workspace+Basavanagudi&output=embed"
-                className="h-full w-full border-0"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
-          </Reveal>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-100">
+            <iframe
+              className="aspect-video w-full min-h-[280px]"
+              loading="lazy"
+              title="Map of Spacio Workspace, Basavanagudi"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Spacio%20Workspace%20Basavanagudi%20Sree%20Devi%20Complex&output=embed"
+            />
+          </div>
         </div>
       </section>
 
-      {/* 09 — FAQ */}
-      <FaqSection items={SITE_FAQS} title="Everything you need to know." />
+      <FaqSection items={SITE_FAQS} title="Questions people ask about Spacio" />
 
-      {/* 10 — Final conversion */}
-      <section className="bg-[var(--navy-deep)] text-white" aria-labelledby="final-cta-heading">
-        <div className="mx-auto max-w-3xl px-4 py-20 md:py-28 text-center sm:px-6">
-          <Reveal>
-            <p className="eyebrow mb-5">Visit Spacio</p>
-            <h2 id="final-cta-heading" className="font-display text-3xl md:text-5xl font-medium tracking-tight">
-              Your next chapter starts somewhere.
-            </h2>
-            <p className="mt-5 text-white/70 leading-relaxed">
-              The best way to understand Spacio is to experience it in person.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/book-tour"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-[var(--champagne)] px-7 text-sm font-semibold text-[var(--navy-deep)]"
-              >
-                Schedule a Private Tour
-              </Link>
-              <a
-                href={whatsappUrl(WA.general)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-[48px] items-center justify-center rounded-sm border border-white/30 px-7 text-sm font-semibold text-white"
-              >
-                Chat with Our Team
-              </a>
-            </div>
-          </Reveal>
+      {/* Final conversion */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 md:pb-24">
+        <div className="rounded-3xl bg-primary px-6 py-12 md:px-12 md:py-16 text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Your next chapter starts somewhere.
+          </h2>
+          <p className="mt-4 text-white/85 max-w-xl mx-auto">
+            Schedule a private tour, see the workspace in person, and find the option that fits how you work.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3">
+            <Link
+              href="/book-tour"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-primary hover:bg-white/90"
+            >
+              Schedule a Private Tour
+            </Link>
+            <WhatsAppLink
+              location="home_final_whatsapp"
+              message={WA.general}
+              variant="inherit"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 font-semibold text-white hover:bg-[#1ebe57]"
+            >
+              Chat on WhatsApp
+            </WhatsAppLink>
+          </div>
         </div>
       </section>
     </div>

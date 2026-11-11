@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, CheckCircle2, Users, Shield, Wifi, MapPin } from "lucide-react";
+import { CheckCircle2, Users, Shield, Wifi, MapPin } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { ContactCtaPair } from "@/components/ContactCtas";
+import { WA } from "@/lib/whatsapp-messages";
+import Link from "next/link";
 
 export default function PrivateCabinsBangalore() {
   return (
@@ -30,21 +32,19 @@ export default function PrivateCabinsBangalore() {
                 Solo cabins, 3-seater, and 6-seater private cabins available. Perfect for individuals, 
                 partners, and small teams. Vastu-compliant spaces designed for productivity and focus.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a Private Cabin at Spacio Workspace Basavanagudi #PrivateCabins #SpacioWorkspace #CoworkingBangalore #Basavanagudi #FindYourTrueSpace"
-                  className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Book Private Cabin via WhatsApp
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="tel:+917022780310"
-                  className="rounded-xl border-2 border-primary/30 px-8 py-4 font-semibold text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                >
-                  Call Now
-                </a>
+              <div className="flex flex-col items-center gap-4">
+                <ContactCtaPair
+                  location="private-cabins-bangalore-hero"
+                  whatsappMessage={WA.privateCabin}
+                  whatsappLabel="Enquire About Private Cabins"
+                  callLabel="Call Us"
+                  className="justify-center"
+                />
+                <div className="flex flex-wrap justify-center gap-3 text-sm font-semibold text-primary">
+                  <Link href="/workspaces/solo-cabin" className="hover:underline">Solo</Link>
+                  <Link href="/workspaces/three-seater-cabin" className="hover:underline">3-seater</Link>
+                  <Link href="/workspaces/six-seater-cabin" className="hover:underline">6-seater</Link>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -55,9 +55,24 @@ export default function PrivateCabinsBangalore() {
           <h2 className="text-4xl font-bold text-center mb-12">Choose Your Private Cabin</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { title: "Solo Cabin", capacity: "1 Person", icon: "🚀", features: ["Private workspace", "Ergonomic furniture", "24/7 access"] },
-              { title: "3-Seater Cabin", capacity: "3 People", icon: "👥", features: ["Team workspace", "Collaboration space", "Storage lockers"] },
-              { title: "6-Seater Cabin", capacity: "6 People", icon: "🎯", features: ["Spacious cabin", "Whiteboard included", "Team meeting area"] },
+              {
+                title: "Solo Cabin",
+                capacity: "1 Person",
+                href: "/workspaces/solo-cabin",
+                features: ["Private workspace", "Ergonomic furniture", "24/7 access"],
+              },
+              {
+                title: "3-Seater Cabin",
+                capacity: "3 People",
+                href: "/workspaces/three-seater-cabin",
+                features: ["Team workspace", "Collaboration space", "Storage lockers"],
+              },
+              {
+                title: "6-Seater Cabin",
+                capacity: "6 People",
+                href: "/workspaces/six-seater-cabin",
+                features: ["Spacious cabin", "Whiteboard included", "Team meeting area"],
+              },
             ].map((cabin, i) => (
               <motion.div
                 key={cabin.title}
@@ -67,7 +82,6 @@ export default function PrivateCabinsBangalore() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="text-5xl mb-4">{cabin.icon}</div>
                 <h3 className="text-2xl font-bold mb-2">{cabin.title}</h3>
                 <p className="text-primary font-semibold mb-4">{cabin.capacity}</p>
                 <ul className="space-y-2 mb-6">
@@ -78,12 +92,12 @@ export default function PrivateCabinsBangalore() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={`https://wa.me/917022780310?text=I want to book ${cabin.title} at Spacio Workspace Basavanagudi #PrivateCabins #${cabin.title.replace(/\s+/g, '')} #SpacioWorkspace`}
-                  className="btn-premium w-full rounded-xl bg-primary px-4 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300"
+                <Link
+                  href={cabin.href}
+                  className="btn-premium w-full rounded-xl bg-primary px-4 py-3 text-white font-semibold text-center hover:bg-primary/90 transition-all duration-300 inline-flex items-center justify-center min-h-[44px]"
                 >
-                  Book {cabin.title}
-                </a>
+                  Explore {cabin.title}
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -126,8 +140,8 @@ export default function PrivateCabinsBangalore() {
           </p>
           <ContactCtaPair
             location="private-cabins-bangalore-cta"
-            whatsappMessage="I want to book a Private Cabin at Spacio Workspace Basavanagudi"
-            whatsappLabel="Book Private Cabin via WhatsApp"
+            whatsappMessage={WA.privateCabin}
+            whatsappLabel="Enquire About Private Cabins"
             callLabel="Call Us"
             className="justify-center"
           />

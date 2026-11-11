@@ -8,37 +8,43 @@ import { ContactCtaPair } from "@/components/ContactCtas";
 
 export default function AboutPage() {
   return (
-    <div className="bg-[var(--ivory)] min-h-screen">
-      <section className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 overflow-hidden">
+    <div className="bg-white min-h-screen">
+      {/* About Section with Tagline */}
+      <section className="relative mx-auto max-w-7xl px-4 py-20 overflow-hidden bg-gradient-to-br from-primary/5 via-white to-primary/5">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b35' fill-opacity='0.4'%3E%3Cpath d='M40 40c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm20 0c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
         <motion.div
           className="relative z-10"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8 }}
         >
-          <div className="text-center mb-12 max-w-3xl mx-auto">
-            <p className="eyebrow text-[var(--primary)] mb-4">About Spacio</p>
+          <div className="text-center mb-12">
             <motion.h1
-              className="section-title text-4xl sm:text-5xl md:text-6xl mb-6"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 0.8, type: "spring" }}
             >
-              A more considered way to work.
+              <span className="text-neutral-900">Spacio Workspace,</span>
+              <br />
+              <span className="text-gradient peacock-text">Basavanagudi</span>
             </motion.h1>
-            <div className="champagne-rule mx-auto mb-6" />
             <motion.p
-              className="text-lg sm:text-xl text-[var(--muted-grey)] leading-relaxed"
-              initial={{ opacity: 0, y: 16 }}
+              className="text-lg sm:text-xl text-neutral-700 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.7 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Spacio Workspace is a boutique coworking centre at No. 7, Sree Devi Complex, N.A.T. Road,
-              Gandhi Bazaar, Basavanagudi, Bengaluru 560004 — private cabins, dedicated desks, meeting rooms,
-              day pass and virtual office for professionals and growing teams in South Bengaluru.
+              A boutique coworking centre at No. 7, Sree Devi Complex, N.A.T. Road, Gandhi Bazaar,
+              Basavanagudi, Bengaluru 560004. Private cabins, dedicated desks, meeting rooms and
+              virtual office for professionals, founders and growing teams in South Bengaluru.
             </motion.p>
           </div>
 
@@ -53,9 +59,9 @@ export default function AboutPage() {
               <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
                 <h2 className="text-2xl font-bold text-neutral-900 mb-4">Our Story</h2>
                 <p className="text-neutral-700 leading-relaxed mb-4">
-                  Spacio Workspace is an independently run coworking centre in historic Basavanagudi,
-                  near Bull Temple, Lalbagh and Gandhi Bazaar. The space sits in Sree Devi Complex on NAT Street
-                  and is built for people who want a South Bangalore office without a long lease in the CBD.
+                  Spacio Workspace is an independently run coworking centre in Basavanagudi,
+                  near Bull Temple, Lalbagh and Gandhi Bazaar. The space sits in Sree Devi Complex on N.A.T. Road
+                  and is built for people who want a South Bengaluru office without a long lease in the CBD.
                 </p>
                 <p className="text-neutral-700 leading-relaxed">
                   We operate one coworking centre: Basavanagudi, South Bangalore.
@@ -95,17 +101,17 @@ export default function AboutPage() {
               <div className="card-premium rounded-2xl border-2 border-primary/20 p-8 bg-white">
                 <h2 className="text-2xl font-bold text-neutral-900 mb-4">Our Mission</h2>
                 <p className="text-neutral-700 leading-relaxed mb-4">
-                  To provide every entrepreneur, freelancer, and startup in Bangalore with a workspace 
-                  that doesn't just accommodate their work—it elevates it. We're building a community 
-                  where ambition meets opportunity, where your next breakthrough is just a conversation away.
+                  To offer a more considered way to work — thoughtfully designed spaces, reliable
+                  infrastructure and a welcoming professional environment for people building their
+                  next chapter in South Bengaluru.
                 </p>
                 <ul className="space-y-3 mt-6">
                   {[
-                    "Vastu-compliant spaces for positive energy",
-                    "Premium amenities without the premium price",
-                    "A workspace community of professionals and startups",
-                    "24/7 access to fuel your hustle",
-                    "Prime Basavanagudi location",
+                    "Thoughtfully designed interiors for focus and client visits",
+                    "Clear membership options — enquire for current details",
+                    "A workspace community of professionals and founders",
+                    "24/7 access for members",
+                    "One centre: Basavanagudi, South Bengaluru",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
@@ -136,7 +142,7 @@ export default function AboutPage() {
           >
             <ContactCtaPair
               location="about-mission"
-              whatsappMessage="I want to visit Spacio Workspace in Basavanagudi"
+              whatsappMessage="Hello Spacio, I would like to schedule a private tour of your Basavanagudi workspace."
               whatsappLabel="WhatsApp to book a tour"
               callLabel="Call Us"
             />
@@ -151,11 +157,11 @@ export default function AboutPage() {
             { title: "Basavanagudi location", desc: "NAT Street, near Bull Temple and Lalbagh, South Bangalore." },
             { title: "1Gbps internet", desc: "Fibre connectivity for calls, code and file transfers." },
             { title: "24/7 member access", desc: "Secure entry for cabin and desk members." },
-            { title: "Meeting rooms", desc: "4 to 12 seats with displays and video conferencing. Enquire to book." },
+            { title: "Meeting rooms", desc: "4 to 12 seats with displays and video conferencing. Enquire for booking." },
             { title: "Private cabins", desc: "Solo, 3-seater and 6-seater enclosed offices." },
-            { title: "Dedicated desks", desc: "Assigned seat with locker. Enquire for membership details." },
-            { title: "Virtual office", desc: "GST and ROC address with mail handling. Get plan details." },
-            { title: "Day pass", desc: "Day access from 9 AM to 7 PM. Enquire for availability." },
+            { title: "Dedicated desks", desc: "Assigned seat with locker and 24/7 member access. Enquire for details." },
+            { title: "Virtual office", desc: "GST and ROC address with mail handling. Enquire for plan details." },
+            { title: "Day pass", desc: "Flexible day access, 9 AM to 7 PM. Enquire for availability." },
           ].map((item) => (
             <div key={item.title} className="rounded-2xl border border-neutral-200 p-5">
               <h3 className="font-bold text-neutral-900 mb-2">{item.title}</h3>

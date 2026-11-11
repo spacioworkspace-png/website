@@ -8,41 +8,34 @@ export default function GalleryPage() {
     {
       title: "Private Cabins",
       description: "Solo, 3-seater, and 6-seater private cabins",
-      count: 12,
+      count: 7,
     },
     {
       title: "Dedicated Desks",
       description: "Personal workspace areas",
-      count: 8,
+      count: 1,
     },
     {
       title: "Meeting Rooms",
       description: "Professional meeting and conference spaces",
-      count: 6,
+      count: 1,
     },
     {
       title: "Common Areas",
       description: "Lounge, kitchen, and collaboration spaces",
-      count: 10,
+      count: 2,
     },
     {
       title: "Amenities",
       description: "Modern facilities and infrastructure",
-      count: 8,
+      count: 2,
     },
     {
       title: "Location",
       description: "Basavanagudi neighborhood views",
-      count: 5,
+      count: 2,
     },
   ];
-
-  // Placeholder images - replace with actual photos
-  const images = Array.from({ length: 24 }, (_, i) => ({
-    id: i + 1,
-    category: galleryCategories[Math.floor(i / 4)].title,
-    alt: `Spacio Workspace ${galleryCategories[Math.floor(i / 4)].title} - Photo ${i + 1}`,
-  }));
 
   return (
     <div className="bg-white min-h-screen">
@@ -111,20 +104,11 @@ export default function GalleryPage() {
             { src: "/images/solo-cabin-workspace.jpg", category: "Private Cabins", alt: "Solo cabin workspace" },
             { src: "/images/3-seater-cabin-orange-screens.jpg", category: "Private Cabins", alt: "3-seater cabin with orange screens" },
             { src: "/images/6-seater-cabin-workspace.jpg", category: "Private Cabins", alt: "6-seater cabin workspace" },
-            { src: "/images/workspace-orange-screens.jpg", category: "Dedicated Desks", alt: "Dedicated desk area with orange screens" },
-            { src: "/images/workspace-green-screens.jpg", category: "Dedicated Desks", alt: "Dedicated desk area with green screens" },
-            { src: "/images/meeting-room-frosted-glass.jpg", category: "Meeting Rooms", alt: "Meeting room interior" },
-            { src: "/images/office-corridor-glass-partitions.jpg", category: "Common Areas", alt: "Office corridor view" },
-            { src: "/images/water-fountain-ganesha-green-wall.jpg", category: "Amenities", alt: "Vastu-compliant design elements" },
-            { src: "/images/modern-bathroom-wash-area.jpg", category: "Amenities", alt: "Premium bathroom facilities" },
-            { src: "/images/workspace-yellow-green-walls.jpg", category: "Common Areas", alt: "Vibrant workspace design" },
-            { src: "/images/workspace-numbered-cabins.jpg", category: "Private Cabins", alt: "Private cabin layout" },
-            { src: "/images/spacio-sign-green-wall.jpg", category: "Location", alt: "Spacio Workspace entrance" },
-            { src: "/images/building-exterior-sree-devi-complex.jpg", category: "Location", alt: "Basavanagudi location exterior" },
-            { src: "/images/office-corridor-glass-partitions.jpg", category: "Common Areas", alt: "Modern office design" },
+            { src: "/images/hero-solo-cabin.jpg", category: "Private Cabins", alt: "Premium solo cabin interior at Spacio" },
+            { src: "/images/spacio-hero.jpg", category: "Common Areas", alt: "Spacio Workspace interior overview" },
           ].map((img) => (
             <div
-              key={img.src}
+              key={`${img.category}-${img.src}`}
               className="card-premium aspect-square w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative hover:scale-105 transition-transform duration-300"
             >
               <Image 
@@ -170,7 +154,7 @@ export default function GalleryPage() {
             { src: "/images/office-corridor-glass-partitions.jpg", title: "Modern Interior", desc: "Premium Design" },
           ].map((img) => (
             <div
-              key={img.src}
+              key={`location-${img.src}`}
               className="card-premium aspect-video w-full rounded-xl bg-gradient-to-br from-primary/10 via-primary/5 to-neutral-50 ring-2 ring-neutral-200 overflow-hidden group cursor-pointer relative hover:scale-105 transition-transform duration-300"
             >
               <Image 

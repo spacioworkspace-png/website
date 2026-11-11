@@ -51,49 +51,54 @@ const collections = [
 
 export default function WorkspacesPage() {
   return (
-    <div className="bg-[var(--ivory)] min-h-screen">
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 py-16 md:py-24">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow text-[var(--primary)] mb-4">Workspace collection</p>
-          <h1 className="section-title text-3xl md:text-5xl">Your work. Your space.</h1>
-          <div className="champagne-rule my-6" />
-          <p className="text-lg text-[var(--muted-grey)] leading-relaxed">
-            Explore Spacio’s workspace options in Basavanagudi. We prioritise day pass, virtual office and
-            dedicated desk enquiries while private cabins remain available when inventory allows. Membership
-            details are shared on enquiry — never published as public rates.
-          </p>
-        </Reveal>
+    <div className="bg-white min-h-screen">
+      <section className="relative bg-gradient-to-br from-primary/10 via-orange-50/50 to-white overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-50 pointer-events-none" aria-hidden />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 md:py-20">
+          <Reveal className="max-w-3xl">
+            <span className="badge-premium mb-4 inline-block">Workspace collection</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 tracking-tight">
+              Your work. <span className="text-gradient">Your space.</span>
+            </h1>
+            <p className="mt-4 text-lg text-neutral-700 leading-relaxed">
+              Explore Spacio’s options in Basavanagudi. Day pass, virtual office and dedicated desks are easy
+              starting points — private cabins available when inventory allows. Membership details on enquiry.
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
-        <div className="mt-14 grid gap-8">
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        <div className="grid gap-8">
           {collections.map((item, index) => (
             <Reveal key={item.title} delay={index * 40}>
               <article
-                className={`group grid overflow-hidden border border-[var(--warm-stone)] bg-[var(--soft-white)] md:grid-cols-2 ${
+                className={`group grid overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm hover:shadow-xl hover:border-primary/30 transition-all md:grid-cols-2 ${
                   index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative aspect-[16/11] md:aspect-auto md:min-h-[320px] bg-[var(--warm-stone)]">
+                <div className="relative aspect-[16/11] md:aspect-auto md:min-h-[300px] bg-neutral-100">
                   <Image
                     src={item.image}
                     alt={`${item.title} at Spacio Workspace Basavanagudi`}
                     fill
-                    className="object-cover img-zoom"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority={index === 0}
                   />
                 </div>
-                <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12">
+                <div className="flex flex-col justify-center px-6 py-8 md:px-10 md:py-12 bg-gradient-to-br from-white to-orange-50/40">
                   {item.priority ? (
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--champagne)] mb-3">
+                    <span className="mb-3 inline-flex w-fit rounded-full bg-primary/10 text-primary text-xs font-semibold px-3 py-1">
                       Popular enquiry
-                    </p>
+                    </span>
                   ) : null}
-                  <h2 className="font-display text-2xl md:text-3xl text-[var(--primary-navy)]">{item.title}</h2>
-                  <p className="mt-3 text-[var(--muted-grey)] leading-relaxed max-w-md">{item.description}</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">{item.title}</h2>
+                  <p className="mt-3 text-neutral-700 leading-relaxed max-w-md">{item.description}</p>
                   <div className="mt-7 flex flex-col sm:flex-row gap-3">
                     <Link
                       href={item.href}
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-sm bg-[var(--primary-navy)] px-5 text-sm font-semibold text-white"
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-primary px-5 text-sm font-semibold text-white hover:bg-primary/90 shadow-md shadow-primary/20"
                     >
                       Explore
                     </Link>
@@ -101,7 +106,7 @@ export default function WorkspacesPage() {
                       href={whatsappUrl(item.message)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-[44px] items-center justify-center rounded-sm border border-[var(--primary-navy)]/25 px-5 text-sm font-semibold text-[var(--primary-navy)]"
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-xl border-2 border-primary/30 px-5 text-sm font-semibold text-primary hover:bg-primary/5"
                     >
                       WhatsApp Enquiry
                     </a>
@@ -116,26 +121,26 @@ export default function WorkspacesPage() {
       <PlanVideoSection showAllTours />
       <PublicTransportSection />
 
-      <section className="bg-[var(--navy-deep)] text-white">
-        <div className="mx-auto max-w-3xl px-4 py-16 md:py-20 text-center sm:px-6">
-          <h2 className="font-display text-3xl md:text-4xl font-medium">Not sure which option fits?</h2>
-          <p className="mt-4 text-white/70">
-            Schedule a private tour — the clearest way to choose between a day pass, desk, cabin or virtual office.
+      <section className="bg-gradient-to-br from-primary/15 via-orange-50 to-white">
+        <div className="mx-auto max-w-3xl px-4 py-16 md:py-20 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900">Not sure which option fits?</h2>
+          <p className="mt-4 text-neutral-700">
+            Book a free tour — the easiest way to choose between a day pass, desk, cabin or virtual office.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               href="/book-tour"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-sm bg-[var(--champagne)] px-7 text-sm font-semibold text-[var(--navy-deep)]"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary px-7 text-sm font-semibold text-white shadow-lg shadow-primary/25"
             >
-              Schedule a Private Tour
+              Book a Free Tour
             </Link>
             <a
               href={whatsappUrl(WA.general)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-sm border border-white/30 px-7 text-sm font-semibold"
+              className="inline-flex min-h-[48px] items-center justify-center rounded-xl border-2 border-primary px-7 text-sm font-semibold text-primary"
             >
-              Chat with Our Team
+              Chat on WhatsApp
             </a>
           </div>
         </div>

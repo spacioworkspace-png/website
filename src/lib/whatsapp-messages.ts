@@ -4,15 +4,12 @@ export const WA = {
     "Hello Spacio, I would like to explore your workspace options and arrange a visit.",
   tour: "Hello Spacio, I would like to schedule a private tour of your Basavanagudi workspace.",
   dayPass:
-    "Hello Spacio, I'd like to enquire about your day pass and availability.",
-  privateCabin:
-    "Hello Spacio, I'm interested in your private cabins. Could you share the available options and arrange a workspace tour?",
-  dedicatedDesk:
-    "Hello Spacio, I'm interested in a dedicated desk. Could you share the details?",
+    "Hello Spacio, I'm interested in your day pass. Could you share the details and availability?",
+  privateCabin: "Hello Spacio, I'd like to explore the available private cabins.",
+  dedicatedDesk: "Hello Spacio, I'm interested in a dedicated desk at Spacio Workspace.",
   virtualOffice:
-    "Hello Spacio, I'm interested in your virtual office services for business/GST registration. Could you share the details?",
-  meetingRoom:
-    "Hello Spacio, I'd like to enquire about meeting-room availability.",
+    "Hello Spacio, I'd like to know more about your virtual office and GST registration services.",
+  meetingRoom: "Hello Spacio, I'd like to enquire about meeting room availability.",
   membership:
     "Hello Spacio, I would like membership details and availability.",
   quote:

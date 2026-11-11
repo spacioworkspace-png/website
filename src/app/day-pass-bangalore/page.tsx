@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, CheckCircle2, Clock, Wifi, MapPin } from "lucide-react";
 import { PlanVideoSection } from "@/components/PlanVideoSection";
 import { ContactCtaPair } from "@/components/ContactCtas";
+import { WA } from "@/lib/whatsapp-messages";
+import Link from "next/link";
 
 export default function DayPassBangalore() {
   return (
@@ -30,21 +32,17 @@ export default function DayPassBangalore() {
                 Need a workspace for just one day? Get flexible day access to our premium coworking space 
                 in Basavanagudi. Perfect for freelancers, remote workers, and entrepreneurs.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a
-                  href="https://wa.me/917022780310?text=I want to book a Day Pass at Spacio Workspace Basavanagudi #DayPass #SpacioWorkspace #CoworkingBangalore #Basavanagudi #FindYourTrueSpace"
-                  className="btn-premium inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-white font-semibold text-lg hover:bg-primary/90 transition-all duration-300 shadow-xl hover:scale-105"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  Book Day Pass via WhatsApp
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="tel:+917022780310"
-                  className="rounded-xl border-2 border-primary/30 px-8 py-4 font-semibold text-neutral-900 hover:border-primary hover:bg-primary/5 transition-all duration-300"
-                >
-                  Call Now
-                </a>
+              <div className="flex flex-col items-center gap-4">
+                <ContactCtaPair
+                  location="day-pass-bangalore-hero"
+                  whatsappMessage={WA.dayPass}
+                  whatsappLabel="Enquire About Day Pass"
+                  callLabel="Call Us"
+                  className="justify-center"
+                />
+                <Link href="/workspaces/day-pass" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                  View full day pass details <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -56,10 +54,10 @@ export default function DayPassBangalore() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: Wifi, title: "1Gbps High-Speed Internet", desc: "Blazing fast fiber internet" },
-              { icon: Clock, title: "Business Hours Access", desc: "Access during business hours" },
-              { icon: MapPin, title: "Prime Basavanagudi Location", desc: "Near Bull Temple & Lalbagh" },
-              { icon: CheckCircle2, title: "All Amenities", desc: "Printing, meeting rooms, and more" },
-              { icon: MessageCircle, title: "Community Access", desc: "Shared workspace in Basavanagudi" },
+              { icon: Clock, title: "9 AM – 7 PM access", desc: "Full-day coworking during centre day-pass hours" },
+              { icon: MapPin, title: "Basavanagudi location", desc: "Near Bull Temple, Gandhi Bazaar & Lalbagh" },
+              { icon: CheckCircle2, title: "Workspace amenities", desc: "Seat, printing support, beverages and common areas" },
+              { icon: MessageCircle, title: "Easy to enquire", desc: "WhatsApp for availability and visit options" },
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
@@ -88,8 +86,8 @@ export default function DayPassBangalore() {
             </p>
             <ContactCtaPair
               location="day-pass-bangalore-cta"
-              whatsappMessage="I want to book a Day Pass at Spacio Workspace Basavanagudi"
-              whatsappLabel="Book Day Pass via WhatsApp"
+              whatsappMessage={WA.dayPass}
+              whatsappLabel="Enquire About Day Pass"
               callLabel="Call Us"
               className="justify-center"
             />

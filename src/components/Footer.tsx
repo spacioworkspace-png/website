@@ -1,136 +1,231 @@
 import Link from "next/link";
-import { ADDRESS, EMAIL, INSTAGRAM_URL, MAPS_URL, PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
+import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF, whatsappUrl } from "@/lib/site";
 import { WA } from "@/lib/whatsapp-messages";
 
-const workspaces = [
-  { label: "Private Cabins", href: "/workspaces/solo-cabin" },
-  { label: "Dedicated Desks", href: "/workspaces/dedicated-desks" },
-  { label: "Day Pass", href: "/workspaces/day-pass" },
-  { label: "Virtual Office", href: "/workspaces/virtual-office" },
-  { label: "Meeting Rooms", href: "/workspaces/meeting-rooms" },
-];
-
-const company = [
-  { label: "About", href: "/about" },
-  { label: "Basavanagudi", href: "/locations/basavanagudi" },
-  { label: "Near Jayanagar", href: "/locations/jayanagar" },
-  { label: "Reviews", href: "/reviews" },
-  { label: "Contact", href: "/contact" },
-  { label: "Book a Tour", href: "/book-tour" },
+const workspace = [
+  { label: "Private cabins", href: "/workspaces/solo-cabin#video-tour" },
+  { label: "3-Seater Cabin", href: "/workspaces/three-seater-cabin#video-tour" },
+  { label: "6-Seater Cabin", href: "/workspaces/six-seater-cabin#video-tour" },
+  { label: "Dedicated desks", href: "/workspaces/dedicated-desks#video-tour" },
+  { label: "Meeting rooms", href: "/workspaces/meeting-rooms#video-tour" },
+  { label: "Virtual office", href: "/workspaces/virtual-office#video-tour" },
+  { label: "Day pass", href: "/workspaces/day-pass#video-tour" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--warm-stone)] bg-[var(--navy-deep)] text-white pb-24 lg:pb-0">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-14 md:py-20">
-        <div className="grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-1 space-y-5">
-            <div>
-              <div className="font-display text-2xl tracking-tight">Spacio Workspace</div>
-              <div className="champagne-rule mt-4 bg-[var(--champagne)]" />
-            </div>
-            <p className="text-sm text-white/65 leading-relaxed">
-              A more considered way to work — boutique coworking in Basavanagudi for founders,
-              professionals and growing teams.
+    <footer className="border-t bg-gradient-to-b from-neutral-50 to-white pb-20 lg:pb-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-12 md:py-16 text-sm">
+        <div className="grid gap-8 sm:gap-10 md:gap-12 md:grid-cols-4 mb-8 sm:mb-10 md:mb-12">
+          {/* Brand Section */}
+          <div className="md:col-span-1">
+            <div className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">Spacio Workspace</div>
+            <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed mb-4 sm:mb-6">
+              Premium coworking space in Basavanagudi, Bangalore. Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
             </p>
-            <div className="flex flex-wrap gap-2">
-              <a
+            <div className="flex flex-col sm:flex-row gap-3 mt-4 sm:mt-6">
+              <a 
                 href={whatsappUrl(WA.general)}
-                className="rounded-sm bg-[#25D366] px-4 py-2.5 text-white text-sm font-semibold"
-                target="_blank"
-                rel="noopener noreferrer"
+                className="rounded-xl bg-primary px-4 sm:px-5 py-2.5 sm:py-3 text-white font-bold text-xs sm:text-sm hover:bg-primary/90 active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
+                aria-label="WhatsApp"
               >
                 WhatsApp
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
               <a
                 href={PHONE_HREF}
-                className="rounded-sm border border-white/25 px-4 py-2.5 text-sm font-semibold text-white"
+                className="rounded-xl border-2 border-primary px-4 sm:px-5 py-2.5 sm:py-3 text-primary font-bold text-xs sm:text-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 inline-flex items-center justify-center gap-2 touch-manipulation min-h-[44px]"
+                aria-label="Call Spacio Workspace"
               >
-                Call
+                Call Us
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
               </a>
             </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--champagne)] mb-4">
-              Workspaces
-            </div>
-            <ul className="space-y-2.5 text-sm text-white/70">
-              {workspaces.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="hover:text-white transition-colors">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+            <div className="font-bold text-neutral-900 text-base mb-4">Quick Links</div>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/workspaces" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Workspaces
+                </Link>
+              </li>
+              <li>
+                <Link href="/locations/basavanagudi" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Basavanagudi
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Membership
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/reviews" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Reviews
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery#video-tours" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Video tours
+                </Link>
+              </li>
+              <li>
+                <Link href="/book-tour" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Book a tour
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-neutral-700 hover:text-primary transition-colors duration-300">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Services / Sitelinks */}
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--champagne)] mb-4">
-              Explore
-            </div>
-            <ul className="space-y-2.5 text-sm text-white/70">
-              {company.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className="hover:text-white transition-colors">
-                    {item.label}
+            <div className="font-bold text-neutral-900 text-base mb-4">Workspace</div>
+            <ul className="space-y-3 text-neutral-700">
+              {workspace.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors duration-300"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}
+              <li className="hover:text-primary transition-colors duration-300">
+                <Link href="/workspaces#workspace-sitelinks">See All Plans</Link>
+              </li>
             </ul>
           </div>
 
+          {/* Contact Info — visible NAP for local SEO */}
           <div itemScope itemType="https://schema.org/LocalBusiness">
             <meta itemProp="name" content="Spacio Workspace" />
-            <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--champagne)] mb-4">
-              Visit
-            </div>
-            <div
-              className="text-sm text-white/70 leading-relaxed"
-              itemProp="address"
-              itemScope
-              itemType="https://schema.org/PostalAddress"
-            >
-              <span itemProp="streetAddress">{ADDRESS.street}</span>
-              <br />
-              <span itemProp="addressLocality">{ADDRESS.locality}</span>,{" "}
-              <span itemProp="addressRegion">{ADDRESS.city}</span>{" "}
-              <span itemProp="postalCode">{ADDRESS.postalCode}</span>
-            </div>
-            <p className="mt-4 text-sm">
-              <a href={PHONE_HREF} itemProp="telephone" className="text-white hover:text-[var(--champagne)]">
-                {PHONE_DISPLAY}
-              </a>
-            </p>
-            <p className="mt-2 text-sm">
-              <a href={`mailto:${EMAIL}`} itemProp="email" className="text-white/70 hover:text-white">
-                {EMAIL}
-              </a>
-            </p>
-            <div className="mt-4 flex flex-col gap-2 text-sm">
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white">
-                Google Maps directions
-              </a>
-              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white">
-                Instagram
-              </a>
-            </div>
+            <div className="font-bold text-neutral-900 text-base mb-4">Contact Us</div>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" aria-hidden />
+                <div className="text-neutral-700" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <Link href="/locations/basavanagudi" className="font-semibold mb-1 hover:text-primary block">
+                    <span itemProp="addressLocality">Basavanagudi</span>
+                  </Link>
+                  <div itemProp="streetAddress">No 7, Sree Devi Complex, NAT Street</div>
+                  <div>
+                    <span itemProp="addressRegion">Bangalore</span> -{" "}
+                    <span itemProp="postalCode">560004</span>, Karnataka, India
+                  </div>
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
+                <a
+                  href={PHONE_HREF}
+                  itemProp="telephone"
+                  className="text-neutral-700 hover:text-primary transition-colors duration-300 font-semibold"
+                >
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-primary flex-shrink-0" aria-hidden />
+                <a
+                  href={`mailto:${EMAIL}`}
+                  itemProp="email"
+                  className="text-neutral-700 hover:text-primary transition-colors duration-300"
+                >
+                  {EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/spacioworkspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-700 hover:text-primary transition-colors duration-300"
+                  aria-label="Spacio Workspace on Instagram (opens in a new window)"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li className="mt-4 sm:mt-6">
+                <a 
+                  className="inline-block rounded-xl border-2 border-primary px-4 sm:px-5 py-2.5 sm:py-3 font-bold text-xs sm:text-sm hover:bg-primary hover:text-white active:scale-95 transition-all duration-300 touch-manipulation min-h-[44px] flex items-center justify-center" 
+                  href="https://wa.me/917022780310?text=Hi! I'd like to know more about Spacio Workspace"
+                >
+                  Get in Touch
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-white/45">
-          <p>© {new Date().getFullYear()} Spacio Workspace. Basavanagudi, Bengaluru.</p>
-          <div className="flex gap-4">
-            <Link href="/privacy" className="hover:text-white">
-              Privacy
+        {/* SEO-Rich Content Section */}
+        <div className="border-t border-neutral-200 pt-8 mb-8">
+          <div className="prose prose-sm max-w-none text-neutral-600 leading-relaxed">
+            <h3 className="text-lg font-bold text-neutral-900 mb-4">
+              Premium Coworking Space in Basavanagudi, Bangalore
+            </h3>
+            <p className="mb-3">
+              <strong>Spacio Workspace</strong> is a premium coworking space in Basavanagudi, Bangalore.
+              Private cabins, dedicated desks, meeting rooms and virtual office solutions for professionals, startups and growing teams in South Bangalore.
+            </p>
+            <p className="mb-3">
+              Visit us at No 7, Sree Devi Complex, NAT Street, Basavanagudi — 560004.
+              Plans include solo, 3-seater and 6-seater cabins, dedicated desks, meeting rooms, day passes and virtual office.
+            </p>
+            <p>
+              Book a free tour, call +91 70227 80310, or WhatsApp to see the space.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="flex flex-col-reverse items-center justify-between gap-6 border-t border-neutral-200 pt-8 md:flex-row">
+          <p className="text-neutral-600 text-center md:text-left">
+            © {new Date().getFullYear()} Spacio Workspace. All rights reserved. | 
+            Premium Coworking Space in Basavanagudi, Bangalore
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-neutral-600">
+            <Link href="/privacy" className="hover:text-primary transition-colors duration-300">
+              Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white">
-              Terms
+            <Link href="/terms" className="hover:text-primary transition-colors duration-300">
+              Terms of Service
             </Link>
-            <Link href="/refund" className="hover:text-white">
-              Refund
+            <Link href="/refund" className="hover:text-primary transition-colors duration-300">
+              Refund Policy
             </Link>
+            <a 
+              href="https://www.google.com/maps/place/Spacio+Workspace" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors duration-300"
+            >
+              Google Maps
+            </a>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Day pass in Basavanagudi for single-day coworking. 1Gbps WiFi and 9 AM–7 PM access. Enquire for availability.",
   path: "/day-pass-bangalore",
+  canonicalPath: "/workspaces/day-pass",
   keywords: [...SEO_KEYWORDS.dayPass],
 });
 

@@ -7,6 +7,7 @@ export const metadata: Metadata = pageMeta({
   description:
     "Private cabin in Basavanagudi — solo, 3-seater and 6-seater offices with 24/7 access and 1Gbps WiFi at Spacio Workspace.",
   path: "/private-cabins-bangalore",
+  canonicalPath: "/workspaces/solo-cabin",
   keywords: [...SEO_KEYWORDS.privateCabin],
 });
 

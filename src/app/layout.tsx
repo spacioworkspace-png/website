@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Geist, Manrope } from "next/font/google";
 import "./globals.css";
+import "@/styles/mobile.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MobileHeader } from "@/components/mobile/MobileHeader";
+import { MobileFooter } from "@/components/mobile/MobileFooter";
 import { JsonLd } from "@/components/JsonLd";
 import { DeferredChatling } from "@/components/DeferredChatling";
 import { DeferredWidgets } from "@/components/DeferredWidgets";
@@ -15,25 +18,31 @@ import { EMAIL, PHONE_DISPLAY, SITE_NAME, SITE_URL } from "@/lib/site";
 const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const fbDomainVerification = process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION;
 
-const display = Cormorant_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
-
-const body = Manrope({
-  variable: "--font-body",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
   preload: true,
 });
 
+const mobileDisplay = Cormorant_Garamond({
+  variable: "--font-mobile-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
+
+const mobileSans = Manrope({
+  variable: "--font-mobile-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
+  title: "Coworking Space Basavanagudi | Spacio Workspace",
   description:
-    "Discover Spacio Workspace in Basavanagudi, Bengaluru. Explore private cabins, dedicated desks, day passes, meeting rooms and virtual office solutions.",
+    "Premium coworking in Basavanagudi near Gandhi Bazaar. Private cabins, desks, meeting rooms and virtual office. Book a tour.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -41,9 +50,9 @@ export const metadata: Metadata = {
   category: "Coworking space",
   keywords: [...SEO_KEYWORDS.site],
   openGraph: {
-    title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
+    title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "A more considered way to work — thoughtfully designed workspaces in Basavanagudi for founders, professionals and growing teams.",
+      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
     url: "/",
     siteName: SITE_NAME,
     locale: "en_IN",
@@ -59,9 +68,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Premium Coworking Space in Basavanagudi, Bangalore | Spacio Workspace",
+    title: "Coworking Space Basavanagudi | Spacio Workspace",
     description:
-      "A more considered way to work — thoughtfully designed workspaces in Basavanagudi for founders, professionals and growing teams.",
+      "Thoughtfully designed workspaces in Basavanagudi for founders, professionals and teams in South Bengaluru.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -115,19 +124,30 @@ export default function RootLayout({
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM facts" />
         <JsonLd data={organizationGraph()} />
       </head>
-      <body className={`${display.variable} ${body.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${mobileDisplay.variable} ${mobileSans.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <MarketingNoScript />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <Header />
+        <div className="lg:hidden">
+          <MobileHeader />
+        </div>
+        <div className="hidden lg:block">
+          <Header />
+        </div>
         <Suspense fallback={null}>
           <DeferredWidgets />
         </Suspense>
-        <main id="main-content" tabIndex={-1} className="pb-16 lg:pb-0">
+        <main id="main-content" tabIndex={-1} className="pb-20 lg:pb-0">
           {children}
         </main>
-        <Footer />
+        <div className="hidden lg:block">
+          <Footer />
+        </div>
+        <MobileFooter />
         <MarketingScripts />
         <DeferredChatling />
         <p className="sr-only" aria-hidden="false">
