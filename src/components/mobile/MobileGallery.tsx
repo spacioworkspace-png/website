@@ -44,7 +44,15 @@ export function MobileGallery() {
             onClick={() => setActive(index)}
             aria-label={`Expand photo: ${img.alt}`}
           >
-            <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="86vw" loading="lazy" />
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              className="object-cover"
+              sizes="86vw"
+              loading="lazy"
+              quality={65}
+            />
           </button>
         ))}
       </div>
@@ -75,7 +83,7 @@ export function MobileGallery() {
               fill
               className="object-contain"
               sizes="100vw"
-              priority
+              quality={70}
             />
           </div>
         </div>

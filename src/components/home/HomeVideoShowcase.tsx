@@ -10,7 +10,7 @@ export function HomeVideoShowcase() {
     <section
       id="video-experience"
       aria-labelledby="video-experience-heading"
-      className="scroll-mt-24 border-y border-neutral-100 bg-neutral-50 py-14 md:py-20"
+      className="cv-auto scroll-mt-24 border-y border-neutral-100 bg-neutral-50 py-14 md:py-20"
     >
       <TestimonialVideoJsonLd testimonials={CUSTOMER_TESTIMONIALS} pagePath="/" />
 

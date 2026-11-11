@@ -751,6 +751,12 @@ html {
   transform: none;
 }
 
+/* Paint below-fold blocks cheaply — helps INP/LCP contention without cutting SEO content */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .reveal-on-scroll {
     opacity: 0;

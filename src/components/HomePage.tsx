@@ -122,13 +122,14 @@ export function HomePage() {
               className="object-cover"
               sizes="(max-width: 1023px) 100vw, 50vw"
               loading="lazy"
+              quality={65}
             />
           </div>
         </div>
       </section>
 
       {/* Workspace collection */}
-      <section id="explore" className="border-t border-neutral-100 bg-neutral-50/60" aria-labelledby="explore-heading">
+      <section id="explore" className="cv-auto border-t border-neutral-100 bg-neutral-50/60" aria-labelledby="explore-heading">
         <div className="mx-auto max-w-7xl px-4 py-14 md:py-20">
           <div className="mx-auto max-w-2xl text-center mb-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Workspaces</p>
@@ -151,16 +152,17 @@ export function HomePage() {
                     alt={`${card.title} at Spacio Workspace Basavanagudi`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <h3 className="text-xl font-bold text-neutral-900">
-                    <Link href={card.href} className="hover:text-primary transition-colors">
-                      {card.title}
-                    </Link>
-                  </h3>
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
+                  quality={65}
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <h3 className="text-xl font-bold text-neutral-900">
+                  <Link href={card.href} className="hover:text-primary transition-colors">
+                    {card.title}
+                  </Link>
+                </h3>
                   <p className="mt-2 text-sm text-neutral-600 leading-relaxed flex-1">{card.description}</p>
                   {"related" in card && card.related ? (
                     <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-neutral-500">
@@ -221,7 +223,7 @@ export function HomePage() {
       </section>
 
       {/* Gallery */}
-      <section className="mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="gallery-heading">
+      <section className="cv-auto mx-auto max-w-7xl px-4 py-14 md:py-20" aria-labelledby="gallery-heading">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">Gallery</p>
@@ -243,6 +245,7 @@ export function HomePage() {
                 className="object-cover"
                 sizes="(max-width: 768px) 50vw, 33vw"
                 loading="lazy"
+                quality={65}
               />
             </div>
           ))}

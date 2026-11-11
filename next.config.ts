@@ -8,16 +8,14 @@ const nextConfig: NextConfig = {
     root: path.join(__dirname),
   },
   images: {
-    formats: ['image/avif', 'image/webp'],
-    // Optimized device sizes for mobile-first approach
-    deviceSizes: [640, 750, 828, 1080, 1280],
+    formats: ["image/avif", "image/webp"],
+    // Mobile-first widths; skip oversized desktop variants that inflate delivery
+    deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [64, 96, 128, 256, 384],
-    minimumCacheTTL: 86400,
-    // Optimize for mobile - reduce quality on smaller screens
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    // Mobile optimization - serve smaller images on mobile devices
     remotePatterns: [],
   },
   // Optimize production builds
@@ -40,11 +38,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/_next/static/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+      },
+      {
         source: "/images/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {
-        source: "/:file(.*)\\.(mp4|webm|vtt)",
+        source: "/:file(.*)\\.(mp4|webm|vtt|woff2)",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {
@@ -52,8 +54,8 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {
-        source: "/:file(og-image.jpg|favicon.ico|logo.png|manifest.json|llms.txt|ads.txt|spacio-hero.jpg|hero-solo-cabin.jpg)",
-        headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }],
+        source: "/:file(og-image.jpg|favicon.ico|logo.png|manifest.json|llms.txt|ads.txt)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, stale-while-revalidate=2592000" }],
       },
     ];
   },

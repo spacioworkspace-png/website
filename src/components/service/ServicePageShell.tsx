@@ -99,6 +99,7 @@ export function ServicePageShell({
               fill
               className="object-cover"
               priority
+              quality={68}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>

@@ -64,7 +64,7 @@ export function HomeHero() {
               className={styles.image}
               priority
               fetchPriority="high"
-              quality={72}
+              quality={68}
               sizes="(max-width: 1023px) 100vw, 55vw"
             />
             <figcaption className={styles.locationCard}>

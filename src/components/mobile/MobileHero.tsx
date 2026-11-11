@@ -15,7 +15,7 @@ export function MobileHero() {
         fill
         priority
         fetchPriority="high"
-        quality={72}
+        quality={68}
         sizes="100vw"
         className="object-cover object-[center_35%]"
       />

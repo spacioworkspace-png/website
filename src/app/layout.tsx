@@ -23,19 +23,26 @@ const geistSans = Geist({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
+/** Mobile-only display face — do not preload on every request (cuts render-blocking). */
 const mobileDisplay = Cormorant_Garamond({
   variable: "--font-mobile-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: ["500", "600"],
+  preload: false,
+  adjustFontFallback: true,
 });
 
 const mobileSans = Manrope({
   variable: "--font-mobile-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "600"],
+  preload: false,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
